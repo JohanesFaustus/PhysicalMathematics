@@ -1,0 +1,822 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+Mainly consist of precalculus, and basic Calculus.
+\subsection*{Algebra}
+\subsubsection*{Laws of Exponents.}
+\begin{align*}
+    x^{\tfrac{m}{n}}&=\sqrt[n]{m}\\
+    (x^m)^n&=x^{mn}\\
+    x^mx^n&=x^{m+n}\\
+    x^ay^a&=(xy)^a\\
+\end{align*}
+
+\subsubsection*{Special Factorization.}
+\begin{align*}
+    x^2-y^2&=(x+y)(x-y)\\
+    x^3-y^3&=(x-y)(x^2+xy+y^2)\\
+    x^3+y^3&=(x+y)(x^2-xy+y^2)\\
+\end{align*}
+
+\subsubsection*{Quadratic formula.}
+\begin{align*}
+    x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}\;\;
+    \begin{cases}
+        D>0 \;\;\text{re(2)}\\
+        D=0\;\;\text{re(1)}\\
+        D<0\;\;\text{im(2)}
+    \end{cases}
+\end{align*}
+
+\subsubsection*{Binomial theorem.}
+\begin{align*}
+    (a+b)^n=\sum_{k=0}^{\infty}\binom{n}{k}a^{n-k}b^{k}
+\end{align*}
+with
+\begin{equation*}
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}=\frac{\Gamma (n+1)}{\Gamma(k+1)\Gamma(n-k+1)}
+\end{equation*}
+
+\subsection*{Trigonometry}
+\subsubsection*{Trigonometry Definition.}
+\begin{align*}
+    \sin \theta&=\dfrac{1}{\csc \theta}\\
+    \cos \theta&=\dfrac{1}{\sec \theta}\\
+    \tan \theta&=\dfrac{1}{\cot \theta}\\
+\end{align*}
+
+\subsubsection*{Pythagorean Identity.}
+\begin{align*}
+    \sin^2 \theta+ \cos^2 \theta &=1\\
+    \sec^2 \theta- \tan^2 \theta &=1\\
+    \csc^2 \theta- \cot^2 \theta &=1\\
+\end{align*}
+
+\subsubsection*{Law of Sines.}
+\begin{align*}
+    \frac{\sin A}{a}=\frac{\sin B}{b}=\frac{\sin C}{c}
+\end{align*}
+
+\subsubsection*{Law of Cosines.}
+\begin{align*}
+    a^2=b^2+c^2-2bc\cos A
+\end{align*}
+
+\subsubsection*{Trigonometry Double Angle Identity.}
+\begin{align*}
+    \sin 2\theta&=2\sin \theta \cos \theta\\
+    \cos 2 \theta&=1-2\sin^2\theta\\
+    &=2\cos^2\theta -1\\
+    &=\cos^2\theta-\sin^2\theta\\
+    \tan 2\theta&=\frac{2\tan\theta}{1-\tan^2\theta}
+\end{align*}
+
+\subsubsection*{Trigonometry Addition and Difference Identity.}
+\begin{align*}
+    \sin(x+y)&=\sin x \cos y+ \cos x \sin y\\
+    \sin(x-y)&=\sin x \cos y- \cos x \sin y\\
+    \cos(x+y)&=\cos x \cos y- \sin x \sin y\\
+    \cos(x-y)&=\cos x \cos y- \sin x \sin y\\
+    \tan (x+y)&=\frac{\tan x+\tan y}{1-\tan x\tan y}\\
+    \tan (x-y)&=\frac{\tan x-\tan y}{1+\tan x\tan y}\\
+\end{align*}
+
+\subsubsection*{Trigonometry Product Rule.}
+\begin{align*}
+    \cos x \cos y&= \frac{1}{2}[\cos(x-y)+\cos(x+y)]\\
+    \sin x \sin y&= \frac{1}{2}[\cos(x-y)-\cos(x+y)]\\
+    \sin x \cos y&= \frac{1}{2}[\sin(x+y)+\sin(x-y)]\\
+    \cos x \sin y&= \frac{1}{2}[\sin(x+y)-\sin(x-y)]
+\end{align*}
+
+\subsubsection*{Neat Mnemonics.}
+\begin{align*}
+    \begin{vmatrix}
+        \mathrm{S^+}\\
+        \mathrm{S^-}\\
+        \mathrm{C^+}\\
+        \mathrm{C^-}
+    \end{vmatrix}=
+    \begin{vmatrix}
+        \mathrm{SC+CS}\\
+        \mathrm{SC-CS}\\
+        \mathrm{CC-SS}\\
+        \mathrm{CC+SS}
+    \end{vmatrix}
+    &&\mathrm{and}&&
+    \begin{vmatrix}
+        \mathrm{CC}\\
+        \mathrm{SS}\\
+        \mathrm{SC}\\
+        \mathrm{CS}
+    \end{vmatrix}=
+    \begin{vmatrix}
+        \mathrm{C^-+C^+}\\
+        \mathrm{C^--C^+}\\
+        \mathrm{S^++S^-}\\
+        \mathrm{S^+-S^-}
+    \end{vmatrix}
+\end{align*}
+
+\subsection*{Logarithm}
+\subsubsection*{Definition (informal).} $\log_a b$ means $a$ to the power of what equal $b$.
+
+\subsubsection*{Few important log rule.}
+\begin{align*}
+    \log_c (ab)&=\log_c (a)+\log_c (b)\\
+    \log_c (\frac{a}{b})&=\log_c (a)-\log_c (b)\\
+    \log_a b&=\frac{\log_c (b)}{\log_c (a)}\\
+    a^{\log_a b}&=b
+\end{align*}
+
+\subsection*{Limit}
+\subsubsection*{Few Important Limits.}
+\begin{align*}
+    \lim_{x\to a} c&=c\\
+    \lim_{x\to 0^+} \frac{1}{x}&=\infty\rightarrow\frac{1}{0^+}=\infty\\
+    \lim_{x\to 0^-} \frac{1}{x}&=-\infty\rightarrow\frac{1}{0^-}=-\infty
+\end{align*}
+\subsubsection*{Limit as Definition of Derivative.}
+\begin{align*}
+    \df y=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+\end{align*}
+
+\subsection*{Derivative}
+How to determine the order of derivation: last computation is the first thing to do.
+
+\subsubsection*{General Formula.}
+\begin{align*}
+    \mathrm{D}\; x^n&=nx^{n-1}\\
+    \mathrm{D}\; (uv)&=\mathrm{D}\;u\cdot v+u\cdot\mathrm{D}\;v\\
+    \mathrm{D}\;\bigg(\frac{u}{v}\bigg)&=\frac{\mathrm{D}\;u\cdot v-u\cdot\mathrm{D}\;v}{v^2}
+\end{align*}
+
+\subsubsection*{Trigonometry Formula.}
+\begin{align*}
+    \mathrm{D}\; \sin x&= \cos x\\
+    \mathrm{D}\; \cos x&= -\sin x\\
+    \mathrm{D}\; \tan x&= \sec^2 x\\
+    \mathrm{D}\; \cot x&= -\csc^2 x\\
+    \mathrm{D}\; \sec x&= \sec x\tan x\\
+    \mathrm{D}\; \csc x&= -\cot x\csc x\\
+\end{align*}
+
+\subsubsection*{Neat Mnemonics.}
+\begin{align*}
+\begin{matrix}
+    \sec&\sec&\tan&\downarrow \textrm{cofunction}\\
+    \csc&-\csc&\cot&\\
+    &\leftrightarrow\textrm{multiply}
+\end{matrix}
+\end{align*}
+
+\subsubsection*{Exponential and Logarithmic Functions.}
+\begin{align*}
+    \mathrm{D}\; \ln x &= \frac{1}{x}\\
+    \mathrm{D}\; a^n&=a^n\ln x\\
+    \mathrm{D}\; \log_a b&=\frac{1}{b\ln a}
+\end{align*}
+
+\subsubsection*{Minima and Maxima test.} First derivative test:
+\begin{itemize}
+    \item Determine critical points ($\mathrm{D}y=0$), then divine into region;
+    \item Pick value from each region and plug into \emph{derivative};
+    \item Do the sign-graph.
+    \item Determine local minima and maxima, the plug into \emph{original function}
+\end{itemize}
+Second derivative test:
+\begin{itemize}
+    \item determine critical points;
+    \item plug critical into second derivative; and
+    \item positive $\mathrm{D}^2y$ means concave up ($\smile$), negative means concave down ($\frown$), and 0 means inconclusive.
+\end{itemize}
+
+\subsubsection*{Differentiation under integral sign.} Differentiation under integral sign stated by Leibniz' rule
+\begin{equation*}
+    \frac{d}{dx}\int_{u(x)}^{v(x)}f(x,t)\;dt=\int_{u}^{v}\frac{\partial f}{\partial x}\;dt + f(x,v)\frac{dv}{dx}-f(x,u)\frac{du}{dx}
+\end{equation*}
+
+\emph{Proof.} Suppose we want $dI/dx$ where
+\begin{equation*}
+    I=\int_{u }^{v }f(t)\;dt
+\end{equation*}
+By the fundamental theorem of calculus
+\begin{equation*}
+    I=F(v)-F(u)=\mathcal{F}(v,u)
+\end{equation*}
+or $I$ is a function of $v$ and $u$. Finding $dI/dx$ is then a partial diﬀerentiation problem. We can write
+\begin{equation*}
+    \frac{dI}{dx}=\frac{\partial I}{\partial v}\frac{dv}{dx}+\frac{\partial I}{\partial u}\frac{du}{dx}
+\end{equation*}
+By the fundamental theorem of calculus, we have 
+\begin{align*}
+    \frac{d}{dv}\int_{a}^{v}f(x)\;dt&=\frac{d}{dv}\bigl[F(v)-F(a)\bigr]=f(v)\\
+    \frac{d}{dv}\int_{u}^{b}f(x)\;dt&=\frac{d}{dv}\bigl[F(b)-F(u)\bigr]=-f(u)
+\end{align*}
+where $u$ and $v$ are a function of $x$, while $a$ and $b$ are a constant. This is the case when we consider $\partial I/\partial v$ or $\partial I/\partial v$; the other variable is constant. Then 
+\begin{equation*}
+    \frac{d}{dx}\int_{u }^{v }f(t)\;dt=f(v)\frac{dv}{dx}-f(u)\frac{du}{dx}
+\end{equation*}
+
+Under not too restrictive conditions, 
+\begin{equation*}
+    \frac{d}{dx}\int_{a }^{b }f(x,t)\;dt =\int_{a }^{b }\frac{\partial f(x,t)}{\partial x}\;dt
+\end{equation*}
+where, as before, $a$ and $b$ are constant. In other words, we can differentiate under the integral sign. It is convenient to collect these formulas into one formula known as Leibniz' rule:
+\begin{equation*}
+    \frac{d}{dx}\int_{u(x)}^{v(x)}f(x,t)\;dt=\int_{u}^{v}\frac{\partial f}{\partial x}\;dt + f(x,v)\frac{dv}{dx}-f(x,u)\frac{du}{dx}\quad\blacksquare
+\end{equation*}
+
+\subsubsection*{Leibniz’ rule for differentiating a product.}
+\begin{equation*}
+    \biggl(\frac{d}{dx}\biggr)^{n}fg=\sum_{k=0}^n {n \choose k}\biggl(\frac{d}{dx}\biggr)^{n-k} f \biggl(\frac{d}{dx}\biggr)^{k}g
+\end{equation*}
+where
+\begin{equation*}
+    {n \choose k}={\frac{n!}{k! (n-k)!}}
+\end{equation*}
+
+\subsection*{Integral}
+\subsubsection*{Basic Formula (integration constant omitted).}
+\begin{align*}
+    \int x^n \;dx &= \frac{1}{n+1}x^{n+1}\\
+    \int \frac{1}{x}\;dx& = \ln |x|\\
+    \int u \;dv& = uv - \int v\; du\\
+    \int a^x \;dx&=\frac{a^x}{\ln a}
+\end{align*}
+
+\subsubsection*{Trigonometry.}
+\begin{align*}
+    \int \sin x \; dx&=-\cos x\\
+    \int \cos x \; dx&=\sin x\\
+    \int \sec^2 x \; dx&=\tan x\\
+    \int \csc^2 x \; dx&=-\cot x\\
+    \int \sec x\tan x \; dx&=\sec x\\
+    \int \csc x\tan x \; dx&=-\csc x
+\end{align*}
+
+\subsubsection*{Root.}
+\begin{align*}
+    \int \frac{1}{\sqrt{a^2-x^2}}\;dx&=\arcsin \frac{x}{a}\\
+    \int \frac{1}{\sqrt{x^2\pm a^2}}\;dx&=\ln x +\sqrt{x^2\pm a^2}\\
+    \int \frac{1}{\sqrt{a^2+x^2}}\;dx&=\frac{1}{a}\arctan \frac{x}{a}
+\end{align*}
+
+\subsubsection*{Integration by part.}
+\begin{enumerate}
+    \item Splits the integrand. Choose $u$ using LIATEN and let the rest be dv. (LIATEN: Log, Inverse trigonometry, Algebra, Trigonometry, ExponeN)
+    \item Do the box: 
+    $\begin{tabular}{ |c|c|c| } 
+        \hline
+        u&v&$\downarrow \textrm{diff.}$ \\ 
+        \hline
+        du&dv&$\uparrow\textrm{int.}$ \\ 
+        \hline
+       \end{tabular}$
+    \item $ \int u \;dv = uv - \int v\; du$
+\end{enumerate}
+
+\subsubsection*{Tabular Method.} Refer to the table
+
+$\begin{tabular}{ |c|c|c| } 
+    \hline
+    &D&I \\ 
+    \hline
+    +&$a\searrow$&b \\ 
+    \hline
+    -&$a'\searrow$&b \\ 
+    \hline
+    +&$a''\searrow$&b \\ \hline
+    $\vdots$&$\vdots$&$\vdots$\\
+    \hline
+\end{tabular}$
+
+\begin{enumerate}
+    \item 0 in D collumn or use LIATEN
+    \item integrate a row 
+    \item a row repeats
+\end{enumerate}
+
+\subsubsection*{Trigonometry Integral.} Phytagorian Identity.
+\begin{align*}
+    \sin^2x+\cos^2x&=1\\
+    \sin^2x&=\frac{1-\cos 2x}{2}\\
+    \cos^2x&=\frac{1+\cos2x}{2}
+\end{align*}
+note that argument inside quadratic trigonometry is half of trigonometry, which means $\cos^22x=(1+\cos 4x)/{2}$. There are few cases of tricky trigonometry integral. First, if power of sin is odd and positive.
+\begin{itemize}
+    \item lop one power off
+    \item convert remaining (even power) using Phytagorian Identity in term of cosine 
+    \item integrate using subs method
+\end{itemize}
+If the power of sine is odd and positive.
+\begin{itemize}
+    \item same as before
+\end{itemize}
+If the power of sine and cosine is even and nonegative, then:
+\begin{itemize}
+    \item convert using Phytagorian Identity and solve
+\end{itemize}
+
+\subsubsection*{Trigonometry substitution.} Trigonometry function and its radical pair
+\begin{align*}
+    \tan \theta&=\sqrt{u^2+a^2}\\
+    \sin \theta&=\sqrt{a^2-u^2}\\
+    \sec \theta&=\sqrt{u^2-a^2}\\
+\end{align*}
+where $u$ is the variable we are differentiating with respect to. Mnemonics: + looks like tangent; - for sin and sec; and it is \emph{a} \emph{s}in. Trigonometry substitution step is then.
+\begin{enumerate}
+    \item Draw a right triangle where trigonometry pair equal $\frac{u}{a}$
+    \item using the trigonometry pair equation*, solve for x and dx
+    \item find trigonometry where $\frac{\sqrt{}}{a}$
+    \item subs again if equation* still contain $\theta$ and solve
+\end{enumerate}
+
+\subsubsection*{Partial Fraction. }
+\begin{enumerate}
+    \item Factor out denominator
+    \item Breakup the function and put unknown (Capital Letter) into numerator. Put numerator normally if factor is linear, put $Px+Q$ Irreducible quadratic factor IQF. In general, \begin{equation*}
+        \frac{Ax^{n-1}+Bx^{n-2}+\cdots}{x^{n}+x^{n-1}+\cdots}
+    \end{equation*}
+    \item Multiply both side by left side's denominator
+    \item Take the roots of the linear factors and plug them into x, and solve for the unknowns
+    \item Put unknowns into step 2
+    \item Splits Integral, then solve
+    \item For equating coefficients like terms, after step 3, expand equation*. Then, collect like terms and equate coefficient of like terms from both side
+\end{enumerate}
+\clearpage
+
+\subsection*{Appendix} 
+\subsubsection*{Integration Technique Example.}
+
+1. Trigonometry substitution. Find $\int \dfrac{dx}{\sqrt{9x^2+4}}$. Refer to the Mnemonics, the trigonometry pair is tangent.
+\begin{align*}
+    I&=\int \dfrac{dx}{\sqrt{(3x)^2+2^2}}\\
+    \tan\theta&=\frac{3x}{2}
+\end{align*}
+solving for x and dx
+\begin{align*}
+    x&=\frac{2}{3}\tan\theta\\
+    dx&=\frac{2}{3}\sec^2\theta \;d\theta
+\end{align*}
+trigonometry where $\frac{\sqrt{}}{a}$ holds is secant, solving for radical
+\begin{align*}
+    \sec \theta&=\frac{\sqrt{9x^2+4}}{2}\\
+    \sqrt{9x^2+4}&=2\sec\theta
+\end{align*}
+the integral is then
+\begin{align*}
+    I&=\frac{1}{3}\int \sec\theta \;d\theta\\
+    &=\frac{1}{3}\ln |\sec\theta+\tan\theta|+C
+\end{align*}
+substituting the $\theta$ function
+\begin{align*}
+    I&=\frac{1}{3}\ln \bigg|\frac{\sqrt{9x^2+4}}{2}+\frac{3x}{2}\bigg|+C\\
+    &=\frac{1}{3} \ln \bigg | \sqrt{9x^2+4} +3 \bigg|+C
+\end{align*}
+
+\subsubsection*{Basic.}
+\begin{align*}
+    &\int \frac{1}{x}dx = \ln |x| \\
+    &\int u dv = uv - \int v du    \\
+    &\int u dv = uv - \int v du\\
+    &\int \frac{1}{ax+b}dx = \frac{1}{a} \ln |ax + b| \\
+\end{align*}
+
+\subsubsection*{Integrals of Rational Functions.}
+\begin{align*}
+    &\int \frac{1}{(x+a)^2}dx = -\frac{1}{x+a}\\
+    &\int (x+a)^n dx = \frac{(x+a)^{n+1}}{n+1}, n\ne -1\\
+    &\int x(x+a)^n dx = \frac{(x+a)^{n+1} ( (n+1)x-a)}{(n+1)(n+2)}\\
+    & \int \frac{1}{1+x^2}dx = \tan^{-1}x\\
+    &\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\tan^{-1}\frac{x}{a}\\
+    &\int \frac{x}{a^2+x^2}dx = \frac{1}{2}\ln|a^2+x^2|\\
+    &\int \frac{x^2}{a^2+x^2}dx = x-a\tan^{-1}\frac{x}{a}\\
+    &\int \frac{x^3}{a^2+x^2}dx = \frac{1}{2}x^2-\frac{1}{2}a^2\ln|a^2+x^2|\\
+    &\int \frac{1}{ax^2+bx+c}dx = \frac{2}{\sqrt{4ac-b^2}}\tan^{-1}\frac{2ax+b}{\sqrt{4ac-b^2}}\\
+    &\int \frac{1}{(x+a)(x+b)}dx = \frac{1}{b-a}\ln\frac{a+x}{b+x}, \quad a\neq b\\
+    &\int \frac{x}{(x+a)^2}dx = \frac{a}{a+x}+\ln |a+x|\\
+    &\int \frac{x}{ax^2+bx+c}dx = \frac{1}{2a}\ln|ax^2+bx+c|-\\
+    &\frac{b}{a\sqrt{4ac-b^2}}\tan^{-1}\frac{2ax+b}{\sqrt{4ac-b^2}}\\
+\end{align*}
+  
+\subsubsection*{Integrals with Roots.}
+\begin{align*}
+    &\int \sqrt{x-a}\ dx = \frac{2}{3}(x-a)^{3/2}\\
+    &\int \frac{1}{\sqrt{x\pm a}}\ dx = 2\sqrt{x\pm a} \\
+    &\int \frac{1}{\sqrt{a-x}}\ dx = -2\sqrt{a-x} \\
+    &\int x\sqrt{x-a}\ dx =  \begin{cases}\frac{2 a}{3} \left({x-a}\right)^{3/2} +\frac{2 }{5}\left( {x-a}\right)^{5/2},\text{ or} \\ \frac{2}{3} x(x-a)^{3/2} - \frac{4}{15} (x-a)^{5/2}, \text{ or}\\ \frac{2}{15}(2a+3x)(x-a)^{3/2}
+    \end{cases}\\
+    &\int \sqrt{ax+b}\; dx = \left(\frac{2b}{3a}+\frac{2x}{3}\right)\sqrt{ax+b} \\
+    &\int (ax+b)^{3/2}\; dx =\frac{2}{5a}(ax+b)^{5/2}\\
+    &\int \frac{x}{\sqrt{x\pm a} } \; dx = \frac{2}{3}(x\mp 2a)\sqrt{x\pm a}\\
+    &\int \sqrt{\frac{x}{a-x}}\; dx =  -\sqrt{x(a-x)}-a\tan^{-1}\frac{\sqrt{x(a-x)}}{x-a}\\
+    &\int \sqrt{\frac{x}{a+x}}\; dx =  \sqrt{x(a+x)} -a\ln  [ \sqrt{x} + \sqrt{x+a}] \\
+    &\int x \sqrt{ax + b}\; dx =\frac{2}{15 a^2}(-2b^2+abx + 3 a^2 x^2)\sqrt{ax+b}\\
+    &\int \sqrt{x^3(ax+b)} \ dx =\left[ \frac{b}{12a}-\frac{b^2}{8a^2x}+\frac{x}{3}\right] \sqrt{x^3(ax+b)} \\
+    & + \frac{b^3}{8a^{5/2}}\ln \left| a\sqrt{x} + \sqrt{a(ax+b)} \right|\\
+    &\int  \sqrt{a^2 - x^2}\ dx = \frac{1}{2} x \sqrt{a^2-x^2} +\frac{1}{2}a^2\tan^{-1}\frac{x}{\sqrt{a^2-x^2}}\\
+    &\int  x \sqrt{x^2 \pm a^2}\ dx= \frac{1}{3}\left( x^2 \pm a^2 \right)^{3/2} \\
+    &\int \frac{1}{\sqrt{x^2 \pm a^2}}\; dx = \ln \left| x + \sqrt{x^2 \pm a^2} \right| \\
+    &\int \frac{1}{\sqrt{a^2 - x^2}}\; dx = \sin^{-1}\frac{x}{a} \\
+    &\int \frac{x}{\sqrt{x^2\pm a^2}}\; dx = \sqrt{x^2 \pm a^2} \\
+    &\int \frac{x}{\sqrt{a^2-x^2}}\; dx = -\sqrt{a^2-x^2} \\
+    &\int \frac{x^2}{\sqrt{x^2 \pm a^2}}\; dx = \frac{1}{2}x\sqrt{x^2 \pm a^2}\mp \frac{1}{2}a^2 \ln \left| x + \sqrt{x^2\pm a^2} \right| \\
+    &\int\frac{1}{\sqrt{ax^2+bx+c}}\ ;dx=\frac{1}{\sqrt{a}}\ln \left| 2ax+b + 2 \sqrt{a(ax^2+bx+c)} \right| \\
+    &\int\frac{dx}{(a^2+x^2)^{3/2}}=\frac{x}{a^2\sqrt{a^2+x^2}}\\
+\end{align*}
+
+\subsubsection*{Integrals with Logarithms.}
+
+\begin{align*}
+    &\int \ln ax \;dx = x \ln (ax) - x \\
+    &\int \frac{\ln ax}{x} \;dx = \frac{1}{2} ( \ln ax )^2 \\
+    &\int \ln (ax + b) dx =  ( x + \frac{b}{a} ) \ln (ax+b) - x , \quad a \neq 0\\
+    &\int \ln  ( x^2 + a^2 )\;{dx} = x \ln (x^2 + a^2  ) +2a\tan^{-1} \frac{x}{a} - 2x\\
+    &\int \ln  ( x^2 - a^2 )\;dx= x \ln (x^2 - a^2  ) +a\ln \frac{x+a}{x-a} - 2x\\
+    &\int \ln  ( x^2 - a^2 )\;dx = x \ln (x^2 - a^2  ) +a\ln \frac{x+a}{x-a} - 2x \\
+    &\int \ln  ( ax^2 + bx + c) dx  = \frac{1}{a}\sqrt{4ac-b^2}\tan^{-1}\frac{2ax+b}{\sqrt{4ac-b^2}} -2x\\
+    &+ ( \frac{b}{2a}+x )\ln \ (ax^2+bx+c ) \\
+    &\int x \ln (ax + b) dx = \frac{bx}{2a}-\frac{1}{4}x^2+\frac{1}{2}(x^2-\frac{b^2}{a^2})\ln (ax+b) \\
+    &\frac{1}{2}( x^2 - \frac{a^2}{b^2}  ) \ln  (a^2 -b^2 x^2 )\\
+    &\int x \ln  ( a^2 - b^2 x^2  ) dx = -\frac{1}{2}x^2+ 
+\end{align*}
+    
+\subsubsection*{Integrals with Exponential.}
+    
+    \begin{equation*}
+    \int e^{ax} dx = \frac{1}{a}e^{ax} 
+    \end{equation*}
+    
+    \begin{align*}
+    \int \sqrt{x} e^{ax} dx &= \frac{1}{a}\sqrt{x}e^{ax} 
+    +\frac{i\sqrt{\pi}}{2a^{3/2}}
+    \text{erf}\left(i\sqrt{ax}\right)
+    \end{align*}
+    
+    \begin{equation*}
+    \int x e^x dx = (x-1) e^x 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x e^{ax} dx = \left(\frac{x}{a}-\frac{1}{a^2}\right) e^{ax} 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 e^{x} dx = \left(x^2 - 2x + 2\right) e^{x}
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 e^{ax} dx = \left(\frac{x^2}{a}-\frac{2x}{a^2}+\frac{2}{a^3}\right) e^{ax} 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^3 e^{x} dx = \left(x^3-3x^2 + 6x - 6\right) e^{x} 
+    \end{equation*}
+     
+    \begin{equation*}
+    \int x^n e^{ax}\hspace{1pt}\text{d}x = \dfrac{x^n e^{ax}}{a} - 
+    \dfrac{n}{a}\int x^{n-1}e^{ax}\hspace{1pt}\text{d}x
+    \end{equation*} 
+     
+    \begin{equation*}
+    \begin{split}
+    \int x^n e^{ax}\hspace{2pt}\text{d}x = \frac{(-1)^n}{a^{n+1}}\Gamma[1+n,-ax], \\
+     \text{ where } \Gamma(a,x)=\int_x^{\infty} t^{a-1}e^{-t}\hspace{2pt}\text{d}t
+     \end{split}
+     \end{equation*}
+    
+    \begin{equation*}
+    \int e^{ax^2}\hspace{1pt}\text{d}x = -\frac{i\sqrt{\pi}}{2\sqrt{a}}\text{erf}\left(ix\sqrt{a}\right) 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int e^{-ax^2}\hspace{1pt}\text{d}x = \frac{\sqrt{\pi}}{2\sqrt{a}}\text{erf}\left(x\sqrt{a}\right) 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x e^{-ax^2}\ \text{dx} = -\dfrac{1}{2a}e^{-ax^2} 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 e^{-ax^2}\ \text{dx} = \dfrac{1}{4}\sqrt{\dfrac{\pi}{a^3}}\text{erf}(x\sqrt{a}) -\dfrac{x}{2a}e^{-ax^2}
+    \end{equation*}
+
+\subsubsection*{Integrals with Trigonometry Functions.}
+    
+\begin{equation*}
+    \int \sin ax dx = -\frac{1}{a} \cos ax 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \sin^2 ax dx = \frac{x}{2} - \frac{\sin 2ax} {4a} 
+    \end{equation*}
+    
+    \begin{align*}
+    \int &\sin^n ax dx =
+    \nonumber \\ &
+     -\frac{1}{a}{\cos ax} \hspace{2mm}{_2F_1}\left[
+    \frac{1}{2}, \frac{1-n}{2}, \frac{3}{2}, \cos^2 ax
+    \right] 
+    \end{align*}
+    
+    \begin{equation*}
+    \int \sin^3 ax dx = -\frac{3 \cos ax}{4a} + \frac{\cos 3ax} {12a} 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \cos ax dx= \frac{1}{a} \sin ax 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \cos^2 ax dx = \frac{x}{2}+\frac{ \sin 2ax}{4a} 
+    \end{equation*}
+    
+    \begin{align*}
+    \int \cos^p ax dx & = -\frac{1}{a(1+p)}{\cos^{1+p} ax} \times 
+    \nonumber \\ &
+    {_2F_1}\left[
+    \frac{1+p}{2}, \frac{1}{2}, \frac{3+p}{2}, \cos^2 ax
+    \right] 
+    \end{align*}
+    
+    \begin{equation*}
+    \int \cos^3 ax dx = \frac{3 \sin ax}{4a}+\frac{ \sin 3ax}{12a} 
+    \end{equation*}
+    
+    \begin{align*}
+    \int \cos ax \sin bx dx &= \frac{\cos[(a-b) x]}{2(a-b)} -
+    %\nonumber \\ &
+     \frac{\cos[(a+b)x]}{2(a+b)} , a\ne b
+    \end{align*}
+    
+    \begin{align*}
+    \int \sin^2 ax \cos bx dx &= 
+    -\frac{\sin[(2a-b)x]}{4(2a-b)} \nonumber \\ & 
+    + \frac{\sin bx}{2b} 
+    - \frac{\sin[(2a+b)x]}{4(2a+b)}
+    \end{align*}
+    
+    \begin{equation*}
+    \int \sin^2 x \cos x dx = \frac{1}{3} \sin^3 x
+    \end{equation*}
+    
+    \begin{align*}
+    \int \cos^2 ax \sin bx dx &= \frac{\cos[(2a-b)x]}{4(2a-b)} 
+    - \frac{\cos bx}{2b}
+    \nonumber \\ &
+     - \frac{\cos[(2a+b)x]}{4(2a+b)}
+    \end{align*}
+    
+    \begin{equation*}
+    \int \cos^2 ax \sin ax dx = -\frac{1}{3a}\cos^3{ax} 
+    \end{equation*}
+    
+    \begin{align*}
+    \int \sin^2 ax \cos^2 bx dx &= \frac{x}{4}
+    -\frac{\sin 2ax}{8a}-
+    \frac{\sin[2(a-b)x]}{16(a-b)}
+    \nonumber \\ &
+    +\frac{\sin 2bx}{8b}-
+    \frac{\sin[2(a+b)x]}{16(a+b)}
+    \end{align*}
+    
+    \begin{equation*}
+    \int \sin^2 ax \cos^2 ax dx = \frac{x}{8}-\frac{\sin 4ax}{32a}
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \tan ax dx = -\frac{1}{a} \ln \cos ax 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \tan^2 ax dx = -x + \frac{1}{a} \tan ax 
+    \end{equation*}
+    
+    \begin{align*}
+    \int &\tan^n ax dx = 
+    \frac{\tan^{n+1} ax }{a(1+n)} \times \nonumber \\ &
+     {_2}F_1\left( \frac{n+1}{2}, 
+    1, \frac{n+3}{2}, -\tan^2 ax \right) 
+    \end{align*}
+    
+    \begin{equation*}
+    \int \tan^3 ax dx = \frac{1}{a} \ln \cos ax + \frac{1}{2a}\sec^2 ax 
+    \end{equation*}
+    
+    \begin{align*}
+    \int \sec x dx &= \ln | \sec x + \tan x | = 2 \tanh^{-1} \left (\tan \frac{x}{2} \right) 
+    \end{align*}
+    
+    \begin{equation*}
+    \int \sec^2 ax dx = \frac{1}{a} \tan ax 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \sec^3 x \hspace{2pt}\text{dx} = \frac{1}{2} \sec x \tan x + \frac{1}{2}\ln | \sec x + \tan x |
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \sec x \tan x dx = \sec x 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \sec^2 x \tan x dx = \frac{1}{2} \sec^2 x 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \sec^n x \tan x dx = \frac{1}{n} \sec^n x , n\ne 0
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \csc x dx = \ln \left | \tan \frac{x}{2} \right|  = \ln | \csc x - \cot x| + C
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \csc^2 ax dx = -\frac{1}{a} \cot ax 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \csc^3 x dx = -\frac{1}{2}\cot x \csc x + \frac{1}{2} \ln | \csc x - \cot x | 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \csc^nx \cot x dx = -\frac{1}{n}\csc^n x, n\ne 0
+    \end{equation*}
+    
+    \begin{equation*}
+    \int \sec x \csc x dx = \ln | \tan x | 
+    \end{equation*}
+
+\subsubsection*{Products of Trigonometry Functions and Monomials.}
+    
+\begin{equation*}
+    \int x \cos x dx = \cos x + x \sin x 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x \cos ax dx = \frac{1}{a^2} \cos ax + \frac{x}{a} \sin ax 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 \cos x dx = 2 x \cos x + \left ( x^2 - 2 \right ) \sin x 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 \cos ax dx = \frac{2 x \cos ax }{a^2} + \frac{ a^2 x^2 - 2  }{a^3} \sin ax 
+    \end{equation*}
+    
+    \begin{align*}
+    \int  x^n cos x dx &= 
+    -\frac{1}{2}(i)^{n+1}\left [ \Gamma(n+1, -ix) 
+    \right . \nonumber \\ & \left .
+    + (-1)^n \Gamma(n+1, ix)\right] 
+    \end{align*}
+    
+    \begin{align*}
+    \int x^n cos ax dx &=
+     \frac{1}{2}(ia)^{1-n}\left [ (-1)^n  \Gamma(n+1, -iax) 
+     \right. \nonumber \\ & \left.
+     -\Gamma(n+1, ixa)\right] 
+    \end{align*}
+    
+    \begin{equation*}
+    \int x \sin x dx = -x \cos x + \sin x 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x \sin ax dx = -\frac{x \cos ax}{a} + \frac{\sin ax}{a^2} 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 \sin x dx = \left(2-x^2\right) \cos x + 2 x \sin x
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x^2 \sin ax dx =\frac{2-a^2x^2}{a^3}\cos ax +\frac{ 2 x \sin ax}{a^2} 
+    \end{equation*}
+    
+    \begin{align*}
+    \int x^n \sin x dx &= -\frac{1}{2}(i)^n\left[ \Gamma(n+1, -ix) 
+    %\right. \nonumber \\ & \left.
+     - (-1)^n\Gamma(n+1, -ix)\right] 
+    \end{align*}
+
+\subsubsection*{Products of Trigonometry Functions and Exponential.}
+    
+\begin{equation*}
+    \int e^x \sin x dx = \frac{1}{2}e^x (\sin x - \cos x) 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int e^{bx} \sin ax dx = \frac{1}{a^2+b^2}e^{bx} (b\sin ax - a\cos ax) 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int e^x \cos x dx = \frac{1}{2}e^x (\sin x + \cos x)  
+    \end{equation*}
+    
+    \begin{equation*}
+    \int e^{bx} \cos ax dx = \frac{1}{a^2 + b^2} e^{bx} ( a \sin ax + b \cos ax ) 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x e^x \sin x dx = \frac{1}{2}e^x (\cos x - x \cos x + x \sin x) 
+    \end{equation*}
+    
+    \begin{equation*}
+    \int x e^x \cos x dx = \frac{1}{2}e^x (x \cos x 
+    - \sin x + x \sin x) 
+    \end{equation*}
+
+
+\subsubsection*{Integrals of Hyperbolic Functions.}
+    
+\begin{equation*}
+    \int \cosh ax dx =\frac{1}{a} \sinh ax 
+    \end{equation*}
+    
+    \begin{align*}
+    \int e^{ax} & \cosh bx dx = \nonumber \\ &
+    \begin{cases}
+    \displaystyle{\frac{e^{ax}}{a^2-b^2} }[ a \cosh bx - b \sinh bx ]  & a\ne b \\
+    \displaystyle{\frac{e^{2ax}}{4a} + \frac{x}{2}}  & a = b
+    \end{cases}
+    \end{align*}
+    
+    \begin{equation*}
+    \int \sinh ax dx = \frac{1}{a} \cosh ax 
+    \end{equation*}
+    
+    \begin{align*}
+    \int e^{ax}& \sinh bx dx = \nonumber \\ &
+    \begin{cases}
+    \displaystyle{\frac{e^{ax}}{a^2-b^2} }[ -b \cosh bx + a \sinh bx ]  & a\ne b \\
+    \displaystyle{\frac{e^{2ax}}{4a} - \frac{x}{2}}  & a = b
+    \end{cases}
+    \end{align*}
+    
+    \begin{align*}
+    \int & e^{ax} \tanh bx dx = \nonumber \\ &
+    \begin{cases}
+    \displaystyle{ \frac{ e^{(a+2b)x}}{(a+2b)} 
+    {_2F_1}\left[ 1+\frac{a}{2b},1,2+\frac{a}{2b}, -e^{2bx}\right] }& \\
+    \displaystyle{
+    \hspace{1cm}-\frac{1}{a}e^{ax}{_2F_1}\left[ \frac{a}{2b},1,1E, -e^{2bx}\right]
+    }
+     & a\ne b \\
+    \displaystyle{\frac{e^{ax}-2\tan^{-1}[e^{ax}]}{a} } & a = b
+    \end{cases}
+    \end{align*}
+    
+    \begin{equation*}
+    \int  \tanh ax\hspace{1.5pt} dx =\frac{1}{a} \ln \cosh ax 
+    \end{equation*}
+    
+    \begin{align*}
+    \int \cos ax \cosh bx dx &= 
+    \frac{1}{a^2 + b^2} \left[
+    a \sin ax \cosh bx  \right . \nonumber \\ & \left. + b \cos ax \sinh bx
+    \right] 
+    \end{align*}
+    
+    \begin{align*}
+    \int \cos ax \sinh bx dx& = 
+    \frac{1}{a^2 + b^2} \left[
+    b \cos ax \cosh bx +
+    \right . \nonumber \\ & \left .
+     a \sin ax \sinh bx
+    \right] 
+    \end{align*}
+    
+    \begin{align*}
+    \int \sin ax \cosh bx dx &= 
+    \frac{1}{a^2 + b^2} \left[
+    -a \cos ax \cosh bx +
+    \right . \nonumber \\ & \left .
+     b \sin ax \sinh bx
+    \right] 
+    \end{align*}
+    
+    \begin{align*}
+    \int \sin ax \sinh bx dx &= 
+    \frac{1}{a^2 + b^2} \left[
+    b \cosh bx \sin ax -
+    \right . \nonumber \\ & \left .
+     a \cos ax \sinh bx
+    \right] 
+    \end{align*}
+    
+    \begin{equation*}
+    \int \sinh ax \cosh ax dx= 
+    \frac{1}{4a}\left[ 
+    -2ax + \sinh 2ax \right]
+    \end{equation*}
+    
+    \begin{align*}
+    \int \sinh ax \cosh bx dx&= 
+    \frac{1}{b^2-a^2}\left[ 
+    b \cosh bx \sinh ax 
+    \right . \nonumber \\ & \left .
+    - a \cosh ax \sinh bx \right]
+    \end{align*}
+\end{document}

@@ -1,0 +1,71 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection*{The Euler Equation}
+Any problem in the calculus of variations is solved by setting up the integral which is to be stationary, writing what the function $F$ is, substituting it into the Euler equation
+\begin{equation*}
+    \frac{d}{dx}\frac{\partial F}{\partial y'}-\frac{\partial F}{\partial y}=0
+\end{equation*}
+and solving the resulting diﬀerential equation. When the function $F=F (r, \theta, \theta')$, the Euler's equation read 
+\begin{equation*}
+    \frac{d}{dr}\frac{\partial F}{\partial \theta'}-\frac{\partial F}{\partial \theta}=0
+\end{equation*}
+If $F=F (t, x, \dot{x})$
+\begin{equation*}
+    \frac{d}{dt}\frac{\partial F}{\partial x'}-\frac{\partial F}{\partial x}=0
+\end{equation*}
+Notice that the ﬁrst derivative in the Euler equation is with respect to the integration variable in the integral. The partial derivatives are with respect to the other variable and its derivative.
+
+\subsubsection*{Proof.} We will try to ﬁnd the $y$ which will make stationary the integral
+\begin{equation*}
+    I=\int_{x_1}^{x_2}F (x, y, y') \;dx
+\end{equation*}
+where $F$ is a given function. Let $\eta(x)$ represent a function of $x$ which is zero at $x_1$ and $x_2$, and has a continuous second derivative in the interval $x_1$ to $x_2$, but is otherwise completely arbitrary. We deﬁne the function $Y (x)$ by the equation
+\begin{equation*}
+    Y(x)=y(x) + \epsilon\eta(x)
+\end{equation*}
+where $y(x)$ is the desired extremal and $\epsilon$ is a parameter. Diﬀerentiating with respect to $x$, we get
+\begin{equation*}
+    Y(x)=y(x)' + \epsilon\eta'(x)
+\end{equation*}
+Then we have
+\begin{equation*}
+    I(\epsilon)=\int_{x_1}^{x_2}F (x, Y, Y') \;dx
+\end{equation*}
+Now $I$ is a function of the parameter $\epsilon$; when $\epsilon = 0,\; Y = y(x)$, the desired extremal. Our problem then is to make $I(\epsilon)$ take its minimum value when $\epsilon=0$. In other words, we want
+\begin{equation*}
+    \frac{dI}{d\epsilon}\bigg|_{\epsilon=0}=0
+\end{equation*}
+Remembering that $Y$ and $Y '$ are functions of $\epsilon$, and diﬀerentiating under the integral sign with respect to $\epsilon$
+\begin{align*}
+    \frac{dI}{d\epsilon}&=\int_{x_1}^{x_2}\biggl(\frac{\partial F}{\partial Y} \frac{dY}{d\epsilon}+\frac{\partial F}{\partial Y'} \frac{dY'}{d\epsilon}\biggr) \;dx\\
+    &=\int_{x_1}^{x_2}\biggl[\frac{\partial F}{\partial Y}\eta(x)+\frac{\partial F}{\partial Y'} \eta'(x)\biggr] \;dx
+\end{align*}
+We want $dI/d\epsilon = 0$ at $\epsilon = 0$
+\begin{equation*}
+    \frac{dI}{d\epsilon}\bigg|_{\epsilon=0}=\int_{x_1}^{x_2}\biggl[\frac{\partial F}{\partial y}\eta(x)+\frac{\partial F}{\partial y'} \eta'(x)\biggr] \;dx
+\end{equation*}
+Assuming that $y''$ is continuous, we can integrate the second term by parts
+\begin{equation*}
+    \int_{x_1}^{x_2}\frac{\partial F}{\partial y'} \eta'(x)  \;dx=-\int_{x_1}^{x_2}\frac{d}{dx}\frac{\partial F}{\partial y'} \eta(x) \;dx+\frac{\partial F}{\partial y'} \eta(x)\bigg|_{x_1}^{x_2}
+\end{equation*}
+The first term is zero as before because $\eta(x)$ is zero at $x_1$ and $x_2$. Then we have
+\begin{equation*}
+    \frac{dI}{d\epsilon}\bigg|_{\epsilon=0}=\int_{x_1}^{x_2}\biggl[\frac{\partial F}{\partial y}-\frac{d}{dx}\frac{\partial F}{\partial y'} \biggr] \eta(x)\;dx
+\end{equation*}
+Since $\eta(x)$ is arbitrary, we must have
+\begin{equation*}
+    \frac{\partial F}{\partial y}-\frac{d}{dx}\frac{\partial F}{\partial y'} =0\qquad \blacksquare
+\end{equation*}
+Notice carefully here that we are not saying that when an integral is zero, the integrand is also zero; this is not true. What we are saying is that the only way $\int f(x)\eta(x) \;dx$ can always be zero for 
+every $\eta(x)$ is for $f(x)$ to be zero.
+
+\subsection*{Several Variable}
+If there are $n$ dependent variables in the original integral, there are $n$ Euler-Lagrange equations. For instance, an integral of the form
+\begin{equation*}
+    S=\int_{u_1}^{u_2}f[x(u),y(u),x'(u),y'(u),u]\;du
+\end{equation*}
+with two dependent variables [$x(u)$ and $y(u)$], is stationary with respect to variations of $x(u)$ and $y(u)$ if and only if these two functions satisfy the two equations
+\begin{equation*}
+    \frac{\partial f}{\partial x}=\frac{d}{du}\frac{\partial f}{\partial x'}\qquad\text{and} \qquad \frac{\partial f}{\partial y}=\frac{d}{du}\frac{\partial f}{\partial y'}
+\end{equation*}
+\end{document}

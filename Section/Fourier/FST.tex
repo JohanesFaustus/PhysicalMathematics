@@ -1,0 +1,256 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection*{Introduction}
+\subsubsection*{Sinusoidsal wave Equation.}
+\begin{equation*}
+    y=A\sin\frac{2\pi }{\lambda}(x-vt)
+\end{equation*}
+where $\lambda$ represent wavelength, but mathematically it is the same as the period of this function of x. 
+Wave equation in single variable.
+\begin{align*}
+    y(x)&=A\sin k x&=A \sin 2\pi f x&= A \sin \frac{2\pi}{\lambda}x\\
+    y(t)&=A\sin \omega t&= A\sin 2\pi v t&=A \sin \frac{2\pi}{T}t\\
+\end{align*} 
+
+\subsubsection*{Average Value.} Average of $f(x)$ on $(a, b)$ is 
+\begin{equation*}
+    \bar{f}=\frac{1}{b-a}\int_{a}^{b}f(x)\;dx
+\end{equation*}
+Here are some usefull integrals
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi} \sin mx\cos nx\;dx=0
+\end{equation*}
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi} \sin mx\sin nx=\begin{cases}
+        0,\quad&m\neq n\\
+        \frac{1}{2},\quad&m=n\neq 0\\
+        0,\quad&m=n=0
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi} \cos mx\cos nx=\begin{cases}
+        0,\quad&m\neq n\\
+        \frac{1}{2},\quad&m=n\neq 0\\
+        1,\quad&m=n=0
+    \end{cases}
+\end{equation*}
+
+\subsection*{Fourier Series}
+\subsubsection*{2$\boldsymbol{\pi}$ period.} Fourier Series for function of period $2\pi$:
+\begin{align*}
+    f(x)=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos nx +b_n\sin nx\bigg)=\sum_{n=-\infty}^{\infty}c_n e^{inx}
+\end{align*}
+with coefficients:
+\begin{align*}
+    a_n&=\frac{1}{\pi}\int_{-\pi}^{\pi}  f(x)\cos nx\; dx\\
+    b_n&=\frac{1}{\pi}\int_{-\pi}^{\pi}  f(x)\sin nx \;dx\\
+    c_n&=\frac{1}{2\pi}\int_{-\pi}^{\pi}  f(x)e^{-inx} \;dx
+\end{align*}
+
+\emph{Proof.} Multiply both sides of Fourier series by $\cos nx$ and ﬁnd the average value of each term
+\begin{multline*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\cos mx \;dx\\=\frac{1}{2\pi}\int_{-\pi}^{\pi}\bigg[ \frac{a_0}{2} +\sum  \big(a_n\cos nx + b_n\sin nx\big) \bigg]\cos mx \;dx
+\end{multline*}
+All terms on the right are zero except the $a_n$ term then we have   
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\cos nx \;dx=\frac{a_n}{2} \qquad\blacksquare
+\end{equation*}
+Notice that $\cos mx$ now turns into $\cos nx$--this is because the integral picks the value of $n$ such that $m=n$. For $b_n$, we multiply we multiply both sides of by $\sin nx$ and take average values just as we did before
+\begin{multline*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\sin mx \;dx\\=\frac{1}{2\pi}\int_{-\pi}^{\pi}\bigg[ \frac{a_0}{2} +\sum  \big(a_n\cos nx + b_n\sin nx\big) \bigg]\sin mx \;dx
+\end{multline*}
+and we have 
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\sin nx \;dx=\frac{b_n}{2} \qquad\blacksquare
+\end{equation*}
+
+To ﬁnd $c_n$, we multiply Fourier series by $\exp (-im x)$ and again ﬁnd the average value of each 
+term
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\exp (imx)=\frac{1}{2\pi}\int_{-\pi}^{\pi}\bigg[ \sum_{n=-\infty}^{\infty}c_n \exp{inx}\bigg]\exp (-im x) \;dx
+\end{equation*}
+All these terms are zero except the one where $n=m$. We then have
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\exp (inx)=\frac{1}{2\pi}\int_{-\pi}^{\pi}c_n\exp ix(n-m) \;dx
+\end{equation*}
+and 
+\begin{equation*}
+    c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\exp (inx) \qquad\blacksquare
+\end{equation*}
+
+
+\subsubsection*{Other period.} Fourier Series for function of period $2l$:
+\begin{align*}
+    f(x)&=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos \frac{2\pi nx}{l} +b_n\sin \frac{2\pi nx}{l}\bigg)\\
+    &=\sum_{n=-\infty}^{\infty}c_n \exp\frac{in\pi x}{l}
+\end{align*}
+with coefficients:
+\begin{align*}
+    a_n&=\frac{1}{l}\int_{-l}^{l}  f(x)\cos \frac{2\pi nx}{l}\; dx\\
+    b_n&=\frac{1}{l}\int_{-l}^{l}  f(x)\sin \frac{2\pi nx}{l} \;dx\\
+    c_n&=\frac{1}{2l}\int_{-l}^{l}  f(x)\exp\frac{-in\pi x}{l} \;dx
+\end{align*}
+
+\subsection*{Fourier Transform}
+The Fourier integral can be used to represent nonperiodic functions, for example a single voltage pulse not repeated, or a flash of light, or a sound which is not repeated. The Fourier integral also represents a continuous set (spectrum) of frequencies, for example a whole range of musical tones or colors of light rather than a discrete set. Fourier transforms are defined as follows
+\begin{align*}
+    f(x)&=\int_{-\infty}^{\infty }g(\alpha)e^{i\alpha x}\;d\alpha\\
+    g(\alpha)&=\frac{1}{2\pi}\int_{-\infty}^{\infty }f(x)e^{-i\alpha x}\;dx
+\end{align*}
+$g(\alpha)$ corresponds to $c_n$, $\alpha$ corresponds to $n$, and $\int$ corresponds to $\sum $. This agrees with our discussion of the physical meaning and use of Fourier integrals.
+
+\subsubsection*{Fourier Sine Transforms.} We define $f_s(x)$ and $g_s(\alpha)$ as pair of Fourier sine transforms representing odd functions.
+\begin{align*}
+    f_s(x)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }g_s(\alpha)\sin \alpha x\;d\alpha\\
+    g_s(\alpha)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }f_s(x)\sin \alpha x\;dx
+\end{align*}
+
+\subsubsection*{Fourier Cosine Transforms.} We define $f_c(x)$ and $g_c(\alpha)$ as pair of Fourier cosine transforms representing even functions.
+\begin{align*}
+    f_c(x)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }g_c(\alpha)\cos \alpha x\;d\alpha\\
+    g_c(\alpha)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }f_s(x)\cos \alpha x\;dx
+\end{align*}
+
+\emph{Proof (?)}. We rewrite Fourier series as 
+\begin{align*}
+    f(x)&=\sum_{n=-\infty}^{\infty}c_n \exp i\alpha_n x\\
+    c_n&=\frac{1}{2l}\int_{-l}^{l}  f(u)\exp( -i\alpha_n u)\;du
+\end{align*}
+where 
+\begin{align*}
+    \frac{n\pi}{l}&=\alpha_n\\
+    \alpha_{n+1}-\alpha_n&=\Delta \alpha=\frac{\pi}{l}
+\end{align*}
+Then 
+\begin{equation*}
+    c_n=\frac{\Delta\alpha}{2\pi}\int_{-l}^{l}  f(u)\exp( -\alpha_n u)\;du
+\end{equation*}
+Subsituting $c_n$ into $f(x)$
+\begin{align*}
+    f(x)&=\sum_{n=-\infty}^{\infty}\bigg[\frac{\Delta\alpha}{2\pi}\int_{-l}^{l}  f(x)\exp( -\alpha_n x)\;du\bigg]\exp\alpha_n x\\
+    &=\sum_{n=-\infty}^{\infty}\frac{\Delta\alpha}{2\pi}\int_{-l}^{l}  f(u)\exp i\alpha_n (x-u)\;du\\
+    f(x)&=\frac{1}{2\pi}\sum_{-\infty}^{\infty}F(\alpha_n)\Delta\alpha
+\end{align*}
+where
+\begin{equation*}
+    F(\alpha_n)=\int_{-l}^{l}  f(u)\exp i\alpha_n (x-u)\;du
+\end{equation*}
+If we let $l$ tend to inﬁnity [that is, let the period of $f(x)$ tend to inﬁnity], 
+\begin{equation*}
+    F(\alpha)=\int_{-\infty}^{\infty}  f(u)\exp i\alpha (x-u)\;du
+\end{equation*}
+then $\Delta \alpha\rightarrow 0$
+\begin{align*}
+    f(x)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(\alpha)\; d\alpha\\
+    &=\frac{1}{2\pi}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}  f(u)\exp i\alpha (x-u)\;du \;d\alpha
+\end{align*}
+If we deﬁne $g(\alpha)$ by
+\begin{equation*}
+    g(\alpha)=\frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)\exp (-i\alpha x)\;dx
+\end{equation*}
+then 
+\begin{equation*}
+    f(x)=\int_{-\infty}^{\infty}g(\alpha)\exp i\alpha x\; d\alpha 
+\end{equation*}
+
+Now we expand $\exp (-i\alpha x)$ inside $g(\alpha)$ expression 
+\begin{equation*}
+    g(\alpha)=\frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)(\cos \alpha x-i\sin \alpha x)\;dx
+\end{equation*}
+If we assume that $f(x)$ is odd, we get 
+\begin{equation*}
+    g(x)=-\frac{i}{\pi}\int_{0}^{\infty}f(x)i\sin \alpha x\;dx
+\end{equation*}
+since the product of odd function $f(x)$ and even function $cos \alpha x$ is odd, thus the integral is zero. Then expanding the exponential in $f(x)$
+\begin{equation*}
+    f(x)=2i\int_{0}^{\infty}g(\alpha)\sin \alpha x\; d\alpha 
+\end{equation*}
+If we substitute $g(\alpha)$ into $f(x)$, we obtain 
+\begin{equation*}
+    f(x)=\frac{2}{\pi}\int_{0}^{\infty}\int_{0}^{\infty}f(x)\sin^2 \alpha x\;dx\; d\alpha
+\end{equation*}
+and we see that the numerical factor is $2/\pi$, thus the imaginary factors are not needed. We may as well write $\sqrt{2/\pi}$ instead. Now suppose that $g(\alpha)$ is even. As before, we have 
+\begin{equation*}
+    g(x)=\frac{1}{\pi}\int_{0}^{\infty}f(x)i\cos \alpha x\;dx
+\end{equation*}
+and 
+\begin{equation*}
+    f(x)=2\int_{0}^{\infty}g(\alpha)\cos \alpha x\; d\alpha 
+\end{equation*}
+Subsituting $g(x)$ into $f(x)$
+\begin{equation*}
+    f(x)=\frac{2}{\pi}\int_{0}^{\infty}\int_{0}^{\infty}f(x)\cos^2 \alpha x\;dx\; d\alpha
+\end{equation*}
+We also see that it has the same numerical factor and all.
+
+\subsection*{Even and Odd Function}
+Definition.
+\begin{equation*}
+    f(x)=
+    \begin{cases}
+        f(x)=f(-x)\quad&\text{even}\\
+        f(-x)=-f(x)\quad&\text{odd}
+    \end{cases}
+\end{equation*}
+
+Integral of Even and Odd Function.
+\begin{align*}
+    \int_{-l}^{l}   f(x)\;dx
+    \begin{cases}
+            0\quad&\text{odd}\\
+            2  \displaystyle\int_{0}^{l}   f(x)\;dx\quad&\text{even}
+    \end{cases}
+\end{align*}
+
+Fourier expansion for odd function.
+\begin{equation*}
+    \text{odd }f(x),
+    \begin{cases}
+        a_n&=0\\
+        b_n&=\displaystyle \frac{2}{l}\int_{0}^{l}  f(x)\sin \frac{2\pi nx}{l} \;dx
+    \end{cases}
+\end{equation*}
+
+Fourier expansion for even function.
+\begin{equation*}
+    \text{odd }f(x),
+    \begin{cases}
+        a_n&=\dfrac{2}{l}  \displaystyle \int_{0}^{l}  f(x)\cos \dfrac{2\pi nx}{l} \;dx\\
+        b_n&=0
+    \end{cases}
+\end{equation*}
+
+\subsection*{Theorem}
+Dirichlet Condition. If f(x):
+\begin{enumerate}
+    \item periodic,
+    \item x single valued,
+    \item finite number of discontinuities,
+    \item finite min max, and
+    \item $\int_{-\pi}^{\pi} |f(x)|\;dx=\text{finite}$
+\end{enumerate}
+then the Fourier series converges to the midpoint of the jump.
+
+Parseval's theorem. For Fourier expansions
+\begin{equation*}
+    f(x)=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos nx +b_n\sin nx\bigg)\\
+\end{equation*} 
+we have
+\begin{equation*}
+    \text{The average of $[f(x)]^2$ is } \frac{1}{2\pi}\int_{-\pi}^{\pi} [f(x)]^2\; dx
+\end{equation*}
+with the value of each coefficients
+\begin{align*}
+    \text{The average of $(\frac{1}{2}a_0)^2$ }\quad&\text{is}\quad& (\frac{1}{2}a_0)^2\\
+    \text{The average of $(a_n\cos nx)^2$ }\quad&\text{is}\quad& \frac{1}{2}a_n^2\\
+    \text{The average of $(b_n\sin nx)^2$ }\quad&\text{is}\quad& \frac{1}{2}b_n^2
+\end{align*}
+then we have
+\begin{equation*}
+    \text{The average of $[f(x)]^2$ }=\bigg(\frac{1}{2}1_0\bigg)^2+\frac{1}{2}\sum_{1}^{\infty}a_n^2+\frac{1}{2}\sum_{1}^{\infty}b_n^2
+\end{equation*}
+or in complex expansion
+\begin{equation*}
+    \text{The average of $[f(x)]^2$ }=\sum_{-\infty}^{\infty}|c_n|^2
+\end{equation*}
+\end{document}

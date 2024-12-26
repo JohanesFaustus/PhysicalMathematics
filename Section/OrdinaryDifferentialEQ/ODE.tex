@@ -1,0 +1,218 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection*{First Order}
+First Order ODE
+\begin{equation}
+    y'+py=Qy
+\end{equation}
+where P and Q are functions of x has the solution
+\begin{align*}
+    ye^I&=\int Q e^I\;dx+c\\
+    y&=e^{-I}\int Q e^I\;dx+ce^{-I}
+\end{align*}
+where\begin{equation*}
+    I=\int P\;dx
+\end{equation*}
+
+Bernoulli Equation. The differential equation
+\begin{align*}
+    y'+Py=Qy^n
+\end{align*}
+where P and Q are functions of x can be written as
+\begin{equation}
+    z'+(1-n)Pz=(1 - n)Q
+\end{equation}
+where\begin{align*}
+    z = y^{1-n}
+\end{align*}
+This is now a first-order linear equation which we can solve as we did the linear
+equations above. 
+
+Exact Equations.  $P (x, y) dx+Q(x, y)dy$ is an exact differential [the differential of $F (x, y)$, or $P dx + Q dy = dF$  ] if
+\begin{equation*}
+    \pardf P=\pardf Q
+\end{equation*}
+and the solution is
+\begin{equation*}
+    F (x, y) = \text{constant}    
+\end{equation*}
+An equation which is not exact may often be made exact by multiplying it by
+an appropriate factor.
+
+Homogeneous Equations. A homogeneous function of x and y of degree n means
+a function which can be written as $x^nf (y/x)$.
+An equation of the from
+\begin{equation*}
+    P (x, y) dx + Q(x, y) dy = 0
+\end{equation*}
+where P and Q are homogeneous functions of the same degree is called homogeneous.
+Thus
+\begin{equation*}
+    y'=\df y=-\frac{P (x, y)}{Q(x, y)}-f(\frac{y}{x})
+\end{equation*}
+This suggests that we solve homogeneous equations by
+making the change of variables
+\begin{align*}
+    y=xv\quad\text{with}\quad v=\frac{y}{x}
+\end{align*}
+
+\subsection*{Second Order}
+\textbf{Second Order with Zero Right Hand Side}. 
+Equation of the from
+\begin{equation*}
+    (D-a)(D-b)y=0,\quad a \neq b
+\end{equation*}
+has the Solution
+\begin{align*}
+    y = c_1e^{ax} + c_2e^{bx}
+\end{align*}
+
+Equation of the from
+\begin{equation*}
+    (D-a)(D-a)y=0,\quad a \neq b
+\end{equation*}
+has the Solution
+\begin{align*}
+    y = (Ax + B)e^{ax}
+\end{align*}
+
+Now suppose the roots of the auxiliary equation are $\alpha \pm i\beta $.
+The solution is now
+\begin{align*}
+    y&=Ae^{(\alpha + i\beta)}x + Be^{(\alpha - i\beta)}x \\
+    &=e^{\alpha x}(Ae^{i\beta x} + Be^{-i\beta x})\\
+    &= e^{\alpha x}(c_1 \sin \beta x + c_2 \cos \beta x)\\
+    &= ce^{\alpha x} \sin(\beta x + \gamma)
+\end{align*}
+where $\alpha,\;\beta,\;\gamma,\;c,\;c_1,\;c_2$ are different constant.
+
+\textbf{Second Order with Nonzero Right Hand Side}.
+The equation
+\begin{align*}
+    a_2\seconddf y+a_1\df y+a_0y=f(x)\\
+    \seconddf y+a_1\df y+a_0y=F(x)
+\end{align*}
+has the solution of the from
+\begin{equation*}
+    y = y_c + y_p
+\end{equation*}
+where the complementary function $y_c$ is the general solution of the homogeneous
+equation (when right hand side is equal to zero) and $y_p$ is a particular solution (when the right hand side is equal to f(x) or F(x)). 
+The simplest method solving them is by Inspection and Successive Integration of Two First-Order Equations.
+
+\textbf{Exponential Right-Hand Side}. 
+Suppose we have $F (x) = ke^{cx}$, or
+\begin{equation*}
+    (D - a)(D - b)y =ke^{cx}
+\end{equation*}
+then, we find a particular solution by
+assuming a solution of the form:
+\begin{align*}
+    y_p=
+    \begin{cases}
+        Ce^{cx} \quad&\text{if c is not equal to either a or b;}\\
+        Cxe^{cx} \quad&\text{if c equals a or b, a  $\neq$ b;}\\
+        Cx^2e^{cx} \quad&\text{if c = a = b.}
+    \end{cases}
+\end{align*}
+
+\textbf{Complex Exponentials}. To find a particular solution of
+\begin{equation*}
+    (D - a)(D - b)y=\begin{cases}
+        k\sin \alpha x,\\
+        k\cos \alpha x,
+    \end{cases}
+\end{equation*}
+first solve
+\begin{equation*}
+    (D - a)(D - b)y=ke^{i\alpha x}
+\end{equation*}
+then then take the real or imaginary part. 
+
+\textbf{Method of Undetermined Coefficients}. To find a particular solution of
+\begin{equation*}
+    (D - a)(D - b)y=e^{cx}P_n(x)
+\end{equation*}
+where $P_n(x)$ is a polynomial of degree n is
+\begin{align*}
+    y_p=
+    \begin{cases}
+        e^{cx}Q_n(x) \quad&\text{if c is not equal to either a or b;}\\
+        xe^{cx}Q_n(x) \quad&\text{if c equals a or b, a  $\neq$ b;}\\
+        x^2e^{cx}Q_n(x) \quad&\text{if c = a = b.}
+    \end{cases}
+\end{align*}
+where $Q_n(x)$ is a polynomial of the same degree as $P_n(x)$ with undetermined
+coefficients to be found to satisfy the given differential equation.
+
+\textbf{Several Terms on the Right-Hand Side: Principle of Superposition}.
+The easiest way of handling a complicated right-hand side: Solve a sep-
+arate equation for each different exponential and add the solutions. The fact that
+this is correct for a linear equation is often called the principle of superposition.
+Note that the principle holds only for linear equations.
+
+\textbf{Use of Fourier Series in Finding Particular Solutions}.
+Suppose that the driving force f(x) is periodic, we then can expand the function using Fourier Series.
+The equation
+\begin{equation*}
+    a_2\seconddf y+a_1\df y+a_0y=f(x)=\sum_{-\infty}^{\infty}c_ne_{inx}
+\end{equation*}
+can be solved by solving
+\begin{equation*}
+    a_2\seconddf y+a_1\df y+a_0y=c_ne_{inx}
+\end{equation*}
+then add the solutions for all n (applying principle of superposition), and we have the solution of first the equation.
+
+\subsection*{Laplace Transform}
+We define $\mathcal{L}(f )$, the Laplace transform of $f (t)$ [also written $F (p)$ since it is a function of $p$ ], by the equation
+\begin{equation*}
+    \mathcal{L}(f)=F(P)=\int_{0}^{\infty}f(t)e^{-pt};dt
+\end{equation*}
+
+\subsection*{Convolution}
+\textbf{Definition.} The integral
+\begin{equation*}
+    g*h=\int_{0}^{t}g(t-\tau)h(\tau)d(\tau)=\int_{0}^{t}g(\tau)h(t-\tau)d(\tau)
+\end{equation*}
+is called the convolution of g and h (or the resultant or the Faltung). Now suppose that we have
+\begin{equation*}
+    Ay' + By' + Cy = f (t), \quad y0 = y'0 = 0
+\end{equation*}
+take the Laplace transform of each term, substitute the initial conditions, and solve for Y
+\begin{equation*}
+    Y=\frac{F(p)}{A(p + a)(p + b)}=T(p)F(p)
+\end{equation*}
+Then $y$ the inverse transform of $Y$ in is the inverse transform of a product of two functions whose inverse transforms we know. Let $G(p)$ and $H(p)$ be the transforms of $g(t)$ and $h(t)$
+\begin{equation*}
+    G(p)H(p)=\mathcal{L}(g(t)\cdot h(p))=\mathcal{L}(g*h)
+\end{equation*} 
+Thus
+\begin{equation*}
+    y=\int_{0}^{t}g(t-\tau)h(\tau)d(\tau)
+\end{equation*}
+Observe from $\mathcal{L}34$ that we may use either $g(t - \tau )h(\tau )$ or $g(\tau )h(t - \tau )$ in the integral. It is well to choose whichever form is easier to integrate; it is best to put$ (t - \tau )$ in the simpler function.
+
+\textbf{Fourier Transform of a Convolution.} Let $g_1(\alpha)$ and $g_2(\alpha$) be the Fourier transforms of $f_1(x)$ and $f_2(x)$
+\begin{align*}
+    g_1(\alpha)\cdot g_2(\alpha)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}f_1(v)e^{-i\alpha v}dv\cdot \frac{1}{2\pi}\int_{-\infty}^{\infty}f_1(u)e^{-i\alpha u}du\\
+    &=\biggl(\frac{1}{2\pi}\biggr)^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_1(v)f_2(u)e^{-i\alpha (v+u)}dvdu
+\end{align*}
+Next we make the change of variables $x = v + u$, $dx = dv$, in the v integral
+\begin{align*}
+    g_1(\alpha)\cdot g_2(\alpha)&= \biggl(\frac{1}{2\pi}\biggr)^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_1(x-u)f_2(u)e^{-i\alpha x}dvdu\\
+    &= \biggl(\frac{1}{2\pi}\biggr)^2\int_{-\infty}^{\infty}e^{-i\alpha x}\biggl[\int_{-\infty}^{\infty}f_1(x-u)f_2(u)\;du\biggr]dx
+\end{align*}
+if we define the term in the square parenthesis as convolution, we get 
+\begin{align*}
+    g_1(\alpha)\cdot g_2(\alpha)&=\frac{1}{2\pi}\biggl(\int_{-\infty}^{\infty}f_1*f_2e^{-i\alpha x}dx\biggr)\\
+    &=\frac{1}{2\pi}\cdot\text{Fourier transform of }f_1*f_2
+\end{align*}
+In other words
+\begin{equation*}
+    g_1\cdot g_2\text{ and }f_1*f_2\text{ are a pair of Fourier transforms}
+\end{equation*}
+and by symmetry 
+\begin{equation*}
+    g_1* g_2\text{ and }f_1\cdot f_2\text{ are a pair of Fourier transforms}
+\end{equation*}
+\end{document}

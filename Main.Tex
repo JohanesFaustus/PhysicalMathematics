@@ -1,0 +1,100 @@
+\documentclass[10pt]{article}
+\title{Physical Mathematics}
+\author{EFF}
+\date{\today}
+
+\usepackage[paperheight=25.5 cm ,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath, amsthm, amssymb, esdiff, esint, indentfirst, longtable, array, dsfont, csquotes, fancyref}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[]{subfiles} 
+\usepackage[]{caption}
+
+\usepackage{ dsfont }
+\graphicspath{ {./Rss/} }
+\newcommand*{\df}{\frac{d}{dx}}
+\newcommand*{\seconddf}{\frac{d^2}{dx^2}}
+\newcommand*{\pardf}{\frac{\partial}{\partial x}}
+\newcolumntype{M}[1]{>{\[}p{#1}<{\]}}
+\DeclareMathOperator{\erf}{erf}
+\def\rcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/ScriptR.pdf}}}$}}}
+\def\brcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/BoldR.pdf}}}$}}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\x}{\mathbf{\hat{x}}}
+\newcommand{\y}{\mathbf{\hat{y}}}
+\newcommand{\z}{\mathbf{\hat{z}}}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\erfi}{erfi}
+
+\usepackage{titlesec}
+\titleformat{\subsubsection}[runin]{\bfseries}
+{\thesection.}{}{\indent}
+
+
+\begin{document}
+\pagestyle{empty}
+\subfile{Section/Preamble/Pre.tex}
+\clearpage
+\section*{FUNDAMENTAL}
+\thispagestyle{empty}
+\subfile{Section/Fundamental/Fundamental.tex}
+\clearpage
+\section*{Series}
+\subfile{Section/Series/Series.tex}
+\clearpage
+
+\section*{Complex Analysis} 
+\subfile{Section/ComplexNumber/ComNum.tex}
+\clearpage
+\subfile{Section/ComplexNumber/CNAppend.tex}
+\clearpage
+
+\section*{Linear Algebra}
+\subfile{Section/LinearAlgbra/LineAlg.tex}
+\clearpage
+
+%\section*{Partial Differentitation}
+%\clearpage
+
+%\section*{Multiple Integral}
+%\clearpage
+
+\section*{Vector Analysis}
+\subfile{Section/VectorAnalysis/VA.tex}
+\clearpage
+
+\section*{Fourier Series and Transform}
+\subfile{Section/Fourier/FST.tex}
+\clearpage
+
+\section*{Ordinary Diferential Equation}
+\subfile{Section/OrdinaryDifferentialEQ/ODE.tex}
+\clearpage
+\subfile{Section/OrdinaryDifferentialEQ/ODEAppen.tex}
+\clearpage
+
+\section*{Calculus of Variation}
+\subfile{Section/VariationCalculus/Var.tex}
+\clearpage
+
+%\section*{Tensor Analysis}
+%\clearpage
+
+\section*{Special Function}
+\subfile{Section/SpecialFunction/Sfunc.tex}
+\clearpage
+
+%\section*{Series Solution of DE}
+%\clearpage
+
+%\section*{Partial Diferential Equation}
+%\clearpage
+
+%\section*{Probability}
+%\clearpage
+\end{document}
