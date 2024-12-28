@@ -62,7 +62,7 @@ This is the famous Gaussian integral. Refer to figure \ref{fig} on how to solve 
     \label{fig}
 \end{figure}
 
-Since everybody and their grandma already know how to solve Gaussian integral by polar coordinate, I will instead try to solve it by Feynmann's trick. First consider the function
+Since everybody and their grandma already know how to solve Gaussian integral by polar coordinate, I will instead try to solve it by Feynman's trick. First consider the function
 \begin{equation*}
     I(\alpha)=\biggl(\int_{0}^{\alpha}e^{-t^2}\;dt\biggr)^2
 \end{equation*}
@@ -135,6 +135,16 @@ And I get the same result
     \int_{-\infty}^{\infty}e^{-x^2}\;dx = \sqrt{\pi}
 \end{equation*}
 Damn, it is really more shrimple.
+
+\subsubsection*{Another form of Gaussian integral.} Here we state without proof.
+\begin{align*}
+    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}\right)\\
+    \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)
+\end{align*}
+Here's another one, not really a Gaussian integral, but since it involves natural number it counts
+\begin{equation*}
+    \sum_{n=0}^{\infty}n^ke^{-nk}=(-1)^k\frac{d^k}{dk^k}\sum_{n=0}^{\infty}e^{-nx}=(-1)\frac{d^k}{dk^k}\frac{1}{1-e^{-x}}
+\end{equation*}
 
 \subsection*{Beta Function}
 \subsubsection*{Definition.} The beta function is also defined by a definite integral
@@ -272,5 +282,23 @@ Here are some relation to the actual error function.
     \erf\biggl(\frac{1-i }{\sqrt{2}}x\biggr)&=(1-i   )\sqrt{\frac{2}{\pi}}\int_{0}^{x}(\cos^2u+i\sin^2u)\;du
 \end{align*}
 
+\subsection*{Riemann zeta function}
+The Riemann zeta function \(\zeta(p)\) is defined by
+\begin{equation*}
+    \zeta(p)=\sum_{n=0}^{\infty}\frac{1}{k^p}
+\end{equation*}
+for real $p>1$. Here are some value of the Riemann zeta function
+\begin{center}
+    $\begin{array}{c c c c c c c c c}
+        \zeta(2)&=&\dfrac{\pi^2}{6};& \zeta(4)&=&\dfrac{\pi^4}{90}; & \zeta(6)&= &\dfrac{\pi^6}{945}\\\\
+        \zeta(3)&=&1.202;&  \zeta(5)&=&1.036;& \zeta(7)&=&1.008 \\
+    \end{array}$
+\end{center}
 
+\subsubsection*{Integrals.} Here are some integral in term of gamma function and Riemann zeta function.
+\begin{align*}
+    \int_{0}^{\infty}\frac{x^p}{e^x-1}dx&=\Gamma(p+1)\zeta(p+1)\\
+    \int_{0}^{\infty}\frac{x^pe^x}{\left(e^x-1\right)^2}dx&= \Gamma(p+1)\zeta(p)\\
+    \int_{0}^{\infty}\frac{x^{p-1}}{e^x+1}dx& = \left(1-2^{1-p}\right)\Gamma(p) \zeta(p)
+\end{align*}
 \end{document}

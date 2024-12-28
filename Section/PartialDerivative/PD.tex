@@ -1,0 +1,213 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection*{Identity Involving Partial Derivative}
+The Jacobian of $[u(x,y), v(x,y)]$ with respect to $(x, y)$ is defined by
+\begin{equation*}
+    \frac{\partial (u,v)}{\partial (x,y)}=\begin{vmatrix}
+       \dfrac{\partial u}{\partial x} & \dfrac{\partial u}{\partial y}\\
+       \\
+       \dfrac{\partial v}{\partial x} & \dfrac{\partial v}{\partial y}
+    \end{vmatrix}    
+\end{equation*}
+Here are some identity relating the Jacobian with partial derivative.
+
+\subsubsection*{Unity.} Unity as in one
+\begin{equation*}
+    \frac{\partial (u,v)}{\partial (x,y)}=1
+\end{equation*}
+
+\emph{Proof.} Trivial
+\begin{equation*}
+    \frac{\partial (x,y)}{\partial (x,y)}=\begin{vmatrix}
+        \dfrac{\partial x}{\partial x} & \dfrac{\partial x}{\partial y}\\
+        \\
+        \dfrac{\partial y}{\partial x} & \dfrac{\partial y}{\partial y}
+     \end{vmatrix}=\dfrac{\partial x}{\partial x} \dfrac{\partial y}{\partial y}-   \dfrac{\partial x}{\partial y}\dfrac{\partial y}{\partial x}  =1\quad\blacksquare
+\end{equation*}
+
+\subsubsection*{Change of order.} It can be proved that change of order cost the minus sign 
+\begin{equation*}
+    \frac{\partial (u,v)}{\partial (x,y)}=- \frac{\partial (v,u)}{\partial (x,y)}= -\frac{\partial (u,v)}{\partial (y,x)}
+\end{equation*}
+
+\emph{Proof.} Those three terms literally have the same value when evaluated
+\begin{align*}
+    \frac{\partial (u,v)}{\partial (x,y)}&=\begin{vmatrix}
+        \dfrac{\partial u}{\partial x} & \dfrac{\partial u}{\partial y}\\
+        \\
+        \dfrac{\partial v}{\partial x} & \dfrac{\partial v}{\partial y}
+     \end{vmatrix}  
+     =\dfrac{\partial u}{\partial x} \dfrac{\partial v}{\partial y}-  \dfrac{\partial u}{\partial y} \dfrac{\partial v}{\partial x} 
+     \\\\
+     - \frac{\partial (v,u)}{\partial (x,y)}&=-\begin{vmatrix}
+        \dfrac{\partial v}{\partial x} & \dfrac{\partial v}{\partial y}\\
+        \\
+        \dfrac{\partial u}{\partial x} & \dfrac{\partial u}{\partial y}
+     \end{vmatrix} =\dfrac{\partial v}{\partial y}\dfrac{\partial u}{\partial x} -\dfrac{\partial v}{\partial x} \dfrac{\partial u}{\partial y}
+     \\\\
+     \frac{\partial (u,v)}{\partial (y,x)}&=-\begin{vmatrix}
+        \dfrac{\partial u}{\partial y} & \dfrac{\partial u}{\partial x}\\
+        \\
+        \dfrac{\partial v}{\partial y} & \dfrac{\partial v}{\partial x}
+     \end{vmatrix}
+     =\dfrac{\partial u}{\partial x}\dfrac{\partial v}{\partial y} -\dfrac{\partial u}{\partial y}\dfrac{\partial v}{\partial x}
+\end{align*}
+See? $\blacksquare$
+
+\subsubsection*{Jacobian.} In terms of Jacobian, partial derivative of $u$ with respect to $x$ can be written as 
+\begin{equation*}
+    \frac{\partial u}{\partial x}\bigg|_y\;=\frac{\partial (u,y)}{\partial (x,y)} 
+\end{equation*}
+
+\emph{Proof.} Just evaluate the Jacobian
+\begin{equation*}
+    \frac{\partial (u,y)}{\partial (x,y)}=\begin{vmatrix}
+        \dfrac{\partial u}{\partial x} & \dfrac{\partial u}{\partial y}\\
+        \\
+        \dfrac{\partial y}{\partial x} & \dfrac{\partial y}{\partial y}
+     \end{vmatrix}   
+     =\dfrac{\partial u}{\partial x} \dfrac{\partial y}{\partial y}-\dfrac{\partial u}{\partial y} \dfrac{\partial y}{\partial x} =\dfrac{\partial u}{\partial x}\quad \blacksquare
+\end{equation*}
+
+\subsubsection*{Chain rule for partial derivative.} The expression is
+\begin{equation*}
+    \frac{\partial (u,y)}{\partial (x,y)}= \frac{\partial (u,y)}{\partial (w,z)}\frac{\partial (w,z)}{\partial (x,y)}
+\end{equation*}
+
+\emph{Proof.} The total differential of $u$ and $v$ as function $w$ and $z$ read
+\begin{equation*}
+    du=\frac{\partial u}{\partial w}\;dw+ \frac{\partial u}{\partial v}\;dz\quad\land\quad
+    dv=\frac{\partial v}{\partial w}\;dw+ \frac{\partial v}{\partial z}\;dz
+\end{equation*}
+We can therefore evaluate the Jacobian 
+\begin{align*}
+    \frac{\partial (u,y)}{\partial (x,y)}&=\begin{vmatrix}
+        \dfrac{\partial u}{\partial x} & \dfrac{\partial u}{\partial y}
+        \\\\
+        \dfrac{\partial v}{\partial x} & \dfrac{\partial v}{\partial y}
+     \end{vmatrix}=
+     \begin{vmatrix}
+        \dfrac{\partial u}{\partial w} \dfrac{\partial w}{\partial x}+ \dfrac{\partial u}{\partial z} \dfrac{\partial z}{\partial x}  & \dfrac{\partial u}{\partial w}\dfrac{\partial w}{\partial y} + \dfrac{\partial u}{\partial z} \dfrac{\partial z}{\partial y}  
+        \\\\
+        \dfrac{\partial v}{\partial w}\dfrac{\partial w}{\partial x} + \dfrac{\partial v}{\partial z} \dfrac{\partial z}{\partial x}   & \dfrac{\partial v}{\partial w}\dfrac{\partial w}{\partial y} +\dfrac{\partial v}{\partial z} \dfrac{\partial z}{\partial y} 
+     \end{vmatrix}   
+     \\\\
+     &=\begin{vmatrix}
+        \begin{pmatrix}
+            \dfrac{\partial u}{\partial w} & \dfrac{\partial u}{\partial z} 
+            \\\\
+            \dfrac{\partial v}{\partial w}  & \dfrac{\partial v}{\partial z} 
+        \end{pmatrix}
+        \begin{pmatrix}
+            \dfrac{\partial w}{\partial x} & \dfrac{\partial w}{\partial y} 
+            \\\\
+            \dfrac{\partial z}{\partial x}  & \dfrac{\partial z}{\partial y} 
+        \end{pmatrix}
+     \end{vmatrix}=
+     \begin{vmatrix}
+        \dfrac{\partial u}{\partial w} & \dfrac{\partial u}{\partial z} 
+        \\\\
+        \dfrac{\partial v}{\partial w}  & \dfrac{\partial v}{\partial z} 
+     \end{vmatrix}
+     \begin{vmatrix}
+        \dfrac{\partial w}{\partial x} & \dfrac{\partial w}{\partial y} 
+        \\\\
+        \dfrac{\partial z}{\partial x}  & \dfrac{\partial z}{\partial y} 
+     \end{vmatrix}
+     \\\\
+     \frac{\partial (u,y)}{\partial (x,y)}&=\frac{\partial (u,y)}{\partial (w,z)}\frac{\partial (w,z)}{\partial (x,y)} \quad \blacksquare
+\end{align*}
+
+\subsubsection*{The real chain rule.} We have 
+\begin{equation*}
+    \frac{\partial x}{\partial z}\bigg|_y\;\frac{\partial z}{\partial x}\bigg|_y\;=1
+\end{equation*}
+
+\emph{Proof.} Trivial
+\begin{equation*}
+    1=\frac{\partial (x,y)}{\partial (x,y)}=\frac{\partial (x,y)}{\partial (z,y)}\frac{\partial (z,y)}{\partial (x,y)}=\frac{\partial x}{\partial z}\bigg|_y\;\frac{\partial z}{\partial x}\bigg|_y\; \quad\blacksquare
+\end{equation*}
+
+\subsubsection*{Yet another chain rule\dots} Even more chain rule\dots
+\begin{equation*}
+    \frac{\partial x}{\partial y}\bigg|_w\;=\frac{\partial x}{\partial z}\bigg|_w\;\frac{\partial z}{\partial y}\bigg|_w
+\end{equation*}
+\emph{Proof.} Trivial
+\begin{equation*}
+    \frac{\partial x}{\partial y}\bigg|_w\;=\frac{\partial (x,w)}{\partial (y,w)} =\frac{\partial (x,w)}{\partial (z,w)}\frac{\partial (z,w)}{\partial (y,w)}  =\frac{\partial x}{\partial z}\bigg|_w\;\frac{\partial z}{\partial y}\bigg|_w
+\end{equation*}
+
+\subsubsection*{Cyclic rule.} This is chain rule all over again\dots
+\begin{equation*}
+    \frac{\partial x}{\partial z}\bigg|_y \;\frac{\partial z}{\partial y}\bigg|_x \; \frac{\partial y}{\partial x}\bigg|_z\;=-1
+\end{equation*}
+
+\emph{Proof.} Trivial 
+\begin{multline*}
+    1=\frac{\partial (x,y)}{\partial (x,y)}=\frac{\partial (x,y)}{\partial (z,y)} \frac{\partial (z,y)}{\partial (z,x)} \frac{\partial (z,x)}{\partial (x,y)}
+    =-\frac{\partial (x,y)}{\partial (z,y)} \frac{\partial (y,z)}{\partial (x,z)} \frac{\partial (z,x)}{\partial (y,x)}\\
+    =-\frac{\partial x}{\partial z}\bigg|_y\;\frac{\partial y}{\partial x}\bigg|_z\;\frac{\partial z}{\partial y}\bigg|_x \;\quad\blacksquare
+\end{multline*}
+
+\subsection*{Application in Thermodynamics}
+Here we will derive some useful intensive parameter used in thermodynamics. We assumed entropy function $S$ has the form of 
+\begin{equation*}
+    S=S(U, V, N_{i|r} )
+\end{equation*}
+where $N$ is number of chemical potential and $N_{i|r}\equiv N_1,\dots N_r$. Therefore, its total differential is 
+\begin{equation*}
+    dS=\frac{\partial S}{\partial U}\bigg|_{V, N_{i|r} }dU + \frac{\partial S}{ \partial V}\bigg|_{U, N_{i|r} }dV +\sum_{j=1}^{r}\frac{\partial S}{ \partial N_j}\bigg|_{U,V, N_{i\neq r} }dN_j
+\end{equation*}
+We also assume the following quantities
+\begin{equation*}
+    T=\frac{\partial U}{\partial S}\bigg|_{V, N_{i} }\quad
+    ;P=-\frac{\partial U}{\partial V}\bigg|_{S, N_{i} }\quad
+    ;\mu_j=\frac{\partial U}{\partial N}\bigg|_{S, V, N_{i\neq j} }
+\end{equation*}
+
+\subsubsection*{First identity.} As follows
+\begin{equation*}
+    \frac{\partial S}{\partial U}\bigg|_{V, N_i}=\frac{1}{T}
+\end{equation*}
+
+\emph{Proof.} We use chain rule with $x\rightarrow U,  y \rightarrow V ,z \rightarrow S$; while keeping all the $N_i$ constant
+\begin{equation*}
+    \frac{\partial U}{\partial S}\bigg|_{V,N_i}\;\frac{\partial S}{\partial U}\bigg|_{V,N_i}=1\implies
+    \frac{\partial S}{\partial U}\bigg|_{V,N_i}=\biggl(\frac{\partial U}{\partial S}\bigg|_{V,N_i}\biggr)^{-1}
+\end{equation*}
+Then, from the definition of temperature
+\begin{equation*}
+    \frac{\partial S}{\partial U}\bigg|_{V,N_i}=\frac{1}{T}\quad \blacksquare
+\end{equation*}
+
+\subsubsection*{Second identity.} The identity written as
+\begin{equation*}
+    \frac{\partial S}{\partial V}\bigg|_{U, N_i}=\frac{P}{T}
+\end{equation*}
+
+\emph{Proof.} We invoke cyclic rule with $x \rightarrow U , y \rightarrow V , z \rightarrow S$; while keeping all the $N_i$ constant
+\begin{equation*}
+   1= -\frac{\partial U}{\partial S}\bigg|_{V,N_{i}} \;\frac{\partial S}{\partial V}\bigg|_{U,N_{i}} \; \frac{\partial V}{\partial U}\bigg|_{U,N_{i}}
+\end{equation*}
+Then, from the first identity and the definition of pressure
+\begin{equation*}
+   1= T\;\frac{\partial S}{\partial V}\bigg|_{U,N_{i}} \;\frac{1}{P}\implies
+   \frac{\partial S}{\partial V}\bigg|_{U,N_{i}} =\frac{P}{T}\quad \blacksquare
+\end{equation*}
+
+\subsubsection*{Third Identity.} Expressed as 
+\begin{equation*}
+    \frac{\partial S}{\partial N_j}\bigg|_{U, N_{i\neq j}}=-\frac{P}{T}
+\end{equation*}
+
+\emph{Proof.} We again invoke cyclic with $x \rightarrow U , y \rightarrow N j , z \rightarrow S$; while keeping $V$ and all $N$ except $N_{i}$ constant
+\begin{equation*}
+   1= -\frac{\partial U}{\partial S}\bigg|_{V,N_{i}} \;\frac{\partial S}{\partial N_j}\bigg|_{U,N_{i\neq j}} \; \frac{\partial N_j}{\partial U}\bigg|_{U,N_{i\neq j}}
+\end{equation*}
+Then, from the definition of temperature and chemical potential
+\begin{equation*}
+    1= -T\frac{\partial S}{\partial N_j}\bigg|_{U,N_{i\neq j}} \frac{1}{\mu_j}\implies
+    \frac{\partial S}{\partial N_j}\bigg|_{U,N_{i\neq j}}=-\frac{\mu_j}{T}\quad \blacksquare
+ \end{equation*}
+
+\end{document}

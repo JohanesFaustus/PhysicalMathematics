@@ -12,6 +12,9 @@
 \usepackage[]{subfiles} 
 \usepackage[]{caption}
 
+\usepackage[backend=biber]{biblatex}
+\addbibresource{./export.bib}
+
 \usepackage{ dsfont }
 \graphicspath{ {./Rss/} }
 \newcommand*{\df}{\frac{d}{dx}}
@@ -30,11 +33,13 @@
 \newcommand{\z}{\mathbf{\hat{z}}}
 \DeclareMathOperator{\erfc}{erfc}
 \DeclareMathOperator{\erfi}{erfi}
+\allowdisplaybreaks
 
 \usepackage{titlesec}
 \titleformat{\subsubsection}[runin]{\bfseries}
 {\thesection.}{}{\indent}
 
+\nocite{Ryan2016}\nocite{Shapiro2014}\nocite{Boas2005}\nocite{Griffiths2017}
 
 \begin{document}
 \pagestyle{empty}
@@ -58,8 +63,9 @@
 \subfile{Section/LinearAlgbra/LineAlg.tex}
 \clearpage
 
-%\section*{Partial Differentitation}
-%\clearpage
+\section*{Partial Differentitation}
+\subfile{Section/PartialDerivative/PD.tex}
+\clearpage
 
 %\section*{Multiple Integral}
 %\clearpage
@@ -97,4 +103,5 @@
 
 %\section*{Probability}
 %\clearpage
+\printbibliography
 \end{document}
