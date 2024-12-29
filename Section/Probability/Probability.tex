@@ -1,0 +1,31 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\subsection*{Permutation and Combination}
+\subsubsection*{Permutation.} Consider finite set $A$ with $n$ elements. An $r$-permu-tation is an ordered selection of $r$ elements from $A$, with $1\leq r\leq n$. In permutation, order does matter, unlike combination, and that all arrangements are distinct. $r$-permutation of an $n$ elements set is defined as 
+\begin{equation*}
+    P(n,r)=n(n-1)\dots(n-r+1)
+\end{equation*}
+or simply
+\begin{equation*}
+    P(n,r)=\frac{n!}{(n-r)!}
+\end{equation*}
+
+\subsubsection*{Combination.} Combination counts the number of ways to chose $r$ object form finite set $A$ with $n$ elements where order of selection does not matter. For all integer $n$ and $1\leq r\leq n$, the number of combination when $r$ elements are chosen out of finite set with $n$ elements $C(n,r)$ is 
+\begin{equation*}
+    C(n,r)=\frac{P(n,r)}{r!}={n \choose r }
+\end{equation*}
+or 
+\begin{equation*}
+    C(n,r)=\frac{n!}{r!(n-r)!}
+\end{equation*}
+
+\subsubsection*{Difference.} Suppose we are choosing 2 people out of 4 to be president and vice-president. Here order matter, thus we say that there are 
+\begin{equation*}
+    P(4,2)=\frac{4!}{(4-2)!}=12
+\end{equation*}
+ways to choose 2 people out of 4 to be president and vice-president. Now, we change the situation into choosing 2 out of 4 people to be given a gift. Here, order does not matter, hence we say that there are 
+\begin{equation*}
+    C(4,2)=\frac{4!}{2!(4-2)!}=6
+\end{equation*}
+ways to choose 2 people out of 4 to be given gift.
+\end{document}
