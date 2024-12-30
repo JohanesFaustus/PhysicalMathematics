@@ -28,4 +28,74 @@ ways to choose 2 people out of 4 to be president and vice-president. Now, we cha
     C(4,2)=\frac{4!}{2!(4-2)!}=6
 \end{equation*}
 ways to choose 2 people out of 4 to be given gift.
+
+\subsection*{Restricted Partition Generating Functions}
+\subsubsection*{Definition.} To find the number of ways distributing $L$ identical object in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use 
+\begin{equation*}
+    D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}f(x)\bigg|_{x=0}
+\end{equation*}
+where
+\begin{equation*}
+    f(x)=\left(1+x+x^2+\cdots+ x^P\right)^N=\left(\sum^{P }_{i=0}x^i\right)^N
+\end{equation*}
+
+\subsubsection*{Derivation.} Let the boxes be numbered $1,\dots, N$ and $p_i$ as number of objects in $i$-th box, then 
+\begin{equation*}
+    \sum_{i=1}^{N}p_i=L
+\end{equation*}
+with $0\leq p_i\leq P$. Set obtained form interchanging $p_i$ and $p_k$, with $p_i\neq p_k$ is counted as different set, however the exchange same exchange with $p_i=p_k$ does not count as different set. Let also $n_k$ as the number of boxed having $k$ number object, hence we have these two restricted for our combination
+\begin{equation*}
+    \sum_{k=0}^{P}n_k=N,\quad\sum_{k=0 }^{P }kn_k=L
+\end{equation*}
+which we will denote as restriction $R_\Romannum{1}$ and $R_\Romannum{2}$ respectively.
+
+Now consider the number of configuration $D(N,P,n_{k|P})$ obtained by counting different ways to choose the set of $n_{k|P}\equiv(n_1,\dots,n_P)$, which is evaluated by choosing $n_0$ from $N$ boxes, followed by choosing $n_1$ from $N-n-0$ boxes, and so on. Hence,
+\begin{align*}
+    D(N,P,n_{k|P})&={N\choose n_0}\cdots{N-\cdots-n_{p-1} \choose n_p}\\
+    &=\frac{N!}{n_0!(N-n_0)!}\cdots \frac{(N-\cdots-n_{p-1}!)}{n_p!(N-\cdots-n_p)!}\\
+    D(N,P,n_{k|P})&=\frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
+\end{align*} 
+The number of configuration satisfies the first condition, however it does not satisfy the second condition since the number of objects in the set $n_{k|P}$ is 
+\begin{equation*}
+    \sum_{k=0}^{P }kn_k\equiv M(n_{k|P})
+\end{equation*}
+is not necessarily $L$. Our task is then to find the configuration $D$ which satisfies our restriction, formally 
+\begin{equation*}
+    D(N,P,L)=\sum_{R_\Romannum{1}\text{ and }R_\Romannum{2}}D(N,P,n_{k|P})
+\end{equation*}
+
+To find the number of configuration that satisfy those two restriction, we first consider the value of summing $D(N,P,n_{k|P})$ over all possible value of $n_k$; this makes it so that $D$ satisfies the first condition, but not the second. Formally 
+\begin{equation*}
+    D_T(N,P)\equiv \sum_{R_\Romannum{1}}D(N,P,n_{k|P})
+\end{equation*}
+Using the result that we derived previously 
+\begin{equation*}
+    D_T(N,P)= \frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
+\end{equation*}
+Recall the multinomial theorem
+\begin{equation*}
+    \left(\sum_{i=0 }^{P}x_i\right)^N=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; \prod_{i=0}^{P}x_{i}^{n_{i}}
+\end{equation*}
+Let $x_i=1$ for all $i$, and we get 
+\begin{equation*}
+    (P+1)^N=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} 
+\end{equation*}
+Therefore 
+\begin{equation*}
+    D_T(N,P)=(P+1)^N
+\end{equation*}
+This is the number of ways to distribute $M=0,\dots, NP$ objects in $N$ boxes, with each box only having maximum $P$ objects. What we want however is $M=L$. To do that, we put $x_i=x^i$ in to multinomial theorem
+\begin{align*}
+    \left(\sum_{i=0 }^{P}x^i\right)^N&=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; \prod_{i=0}^{P}x^{i\cdot n_{i}}
+    =\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; x^{\displaystyle\sum_{i=0}^{P}i\cdot n_{i}}\\
+    \left(\sum_{i=0 }^{P}x^i\right)^N&=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; x^{M(n_{i|P})}
+\end{align*}
+Clearly,
+\begin{equation*}
+    D_T(N,P,L)=\text{Coefficient of $x^L$ in } \left(\sum_{i=0 }^{P}x^i\right)^N
+\end{equation*}
+which is obtained by 
+\begin{equation*}
+    D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}\left(\sum_{i=0 }^{P}x^i\right)^N \bigg|_{x=0}\quad\square
+\end{equation*}
 \end{document}
