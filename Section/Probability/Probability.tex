@@ -30,13 +30,27 @@ ways to choose 2 people out of 4 to be president and vice-president. Now, we cha
 ways to choose 2 people out of 4 to be given gift.
 
 \subsection*{Restricted Partition Generating Functions}
-\subsubsection*{Definition.} To find the number of ways distributing $L$ identical object in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use 
+\subsubsection*{Definition.} To find the number of ways distributing $L$ identical object--calledconfiguration--in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use 
 \begin{equation*}
     D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}f(x)\bigg|_{x=0}
 \end{equation*}
 where
 \begin{equation*}
     f(x)=\left(1+x+x^2+\cdots+ x^P\right)^N=\left(\sum^{P }_{i=0}x^i\right)^N
+\end{equation*}
+
+In other hands, the number of configuration of certain set $n_{k|P}$ is given by 
+\begin{equation*}
+    D(N,P,n_{k|P})=\frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
+\end{equation*}
+while the total number of configuration form all possible set is 
+\begin{equation*}
+    D_T(N,P)=(P+1)^N
+\end{equation*}
+
+For a special case when $L\leq N$, the expression for $D(N,P,L)$ simplify into 
+\begin{equation*}
+    D(N,P,L)=\frac{1}{L!}\frac{(N++L-1)!}{(N-1)!}
 \end{equation*}
 
 \subsubsection*{Derivation.} Let the boxes be numbered $1,\dots, N$ and $p_i$ as number of objects in $i$-th box, then 
@@ -96,6 +110,23 @@ Clearly,
 \end{equation*}
 which is obtained by 
 \begin{equation*}
-    D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}\left(\sum_{i=0 }^{P}x^i\right)^N \bigg|_{x=0}\quad\square
+    D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}\left(\sum_{i=0 }^{P}x^i\right)^N \bigg|_{x=0}\quad\blacksquare
+\end{equation*}
+
+Now we consider special case when $L\leq P$. Note that the $L$-th derivative of $f(x) $, especially $x^{L+k}$ with $k\equiv 1,2.\dots$ at $x=0$ is also zero. We can expand the definition of $f(x)$ as polynomial degree $P$ into degree infinity and write
+\begin{equation*}
+    f(x)=\left(\sum^{\infty}_{i=0}x^i\right)^N
+\end{equation*}
+Evaluating it
+\begin{equation*}
+    f(x)=(1-x)^{-N}
+\end{equation*}
+Substituting it into the expression for $D(N,P,L)$, we see that 
+\begin{multline*}
+    D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}(1-x)^N =\frac{1}{L!}N\frac{d^{L-1}}{dx^{L-1}}(1-x)^{N-1}\\ =\frac{1}{L!} N(N+1) \frac{d^{L-2}}{dx^{L-2}}(1-x)^{N-2}
+\end{multline*}
+Hence, in general
+\begin{equation*}
+    D(N,P,L)=\frac{1}{L!}\frac{(N++L-1)!}{(N-1)!}\quad \blacksquare
 \end{equation*}
 \end{document}

@@ -40,7 +40,7 @@ relation
 \end{equation*}
 From this and the successive use of it, it follows that $\Gamma(p)$ becomes infinite not only at zero but also at all the negative integers.
 
-\subsubsection*{Important formula.} We state here important formula
+\subsubsection*{Gaussian integral.} We state here important formula
 \begin{equation*}
     \Gamma(p)\Gamma(1-p)=\frac{\pi}{\sin \pi p}
 \end{equation*}
@@ -87,7 +87,7 @@ I can rewrite the integrand as
 \begin{equation*}
     \frac{dI}{d\alpha}=-\int_{0}^{1}\frac{\partial}{\partial \alpha}\frac{e^{-\alpha^2(u^2+1)}}{u^2+1}\;du
 \end{equation*}
-Since the integrand is continous, I can move the partial differentiation outside the integral and turning it into total differentiation
+Since the integrand is continuous, I can move the partial differentiation outside the integral and turning it into total differentiation
 \begin{equation*}
     \frac{dI}{d\alpha}=-\frac{d}{d\alpha}\int_{0}^{1}\frac{e^{-\alpha^2(u^2+1)}}{u^2+1}\;du
 \end{equation*}
@@ -117,7 +117,7 @@ and I find
     \int_{-\infty}^{\infty}e^{-x^2}\;dx=\sqrt{\pi}
 \end{equation*}
 
-Much to my chagrin, it is actually more trouble some than the polar method. Let's us try it for comparison
+Much to my chagrin, it is actually more trouble some than the polar method. Let's try it for comparison
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}\;dx=\biggl(\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-(x^2+y^2)}\;dx\;dy\biggr)^{1/2}
 \end{equation*}
@@ -126,7 +126,7 @@ Doing the change of coordinate thing
     \int_{-\infty}^{\infty}e^{-x^2}\;dx&=\biggl(\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2}r\;dr\;d\theta \biggr)^{1/2}\\
     \int_{-\infty}^{\infty}e^{-x^2}\;dx& = \biggl(2\pi\int_{0}^{\infty}e^{-r^2}r\;dr \biggr)^{1/2}
 \end{align*}
-That integral can by easily evaluated using $u$ substitution; making the substitution $u=-r^2$
+That integral can be easily evaluated using $u$ substitution; making the substitution $u=-r^2$
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}\;dx = \biggl(2\pi\int_{-\infty}^{0}\frac{e^u}{2}\;du \biggr)^{1/2} =  \biggl(2\pi\frac{e^u}{2}\bigg|_{-\infty}^{0} \biggr)^{1/2}
 \end{equation*}
@@ -138,8 +138,9 @@ Damn, it is really more shrimple.
 
 \subsubsection*{Another form of Gaussian integral.} Here we state without proof.
 \begin{align*}
-    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}\right)\\
-    \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)
+    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)\\
+    \int_{-\infty}^{\infty}\exp \left(\frac{1}{2}ix^2\right)\;dx& = \sqrt{2\pi}\exp \left(\frac{\pi}{4}i\right) \\
+    \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\\
 \end{align*}
 Here's another one, not really a Gaussian integral, but since it involves natural number it counts
 \begin{equation*}
