@@ -141,23 +141,24 @@ with
 \end{align*}
 
 \subsection*{Derivative}
-How to determine the order of derivation: last computation is the first thing to do.
+
+\subsubsection*{Order of calculation.} How to determine the order of derivation: last computation is the first thing to do.
 
 \subsubsection*{General Formula.}
 \begin{align*}
-    \mathrm{D}\; x^n&=nx^{n-1}\\
-    \mathrm{D}\; (uv)&=\mathrm{D}\;u\cdot v+u\cdot\mathrm{D}\;v\\
-    \mathrm{D}\;\bigg(\frac{u}{v}\bigg)&=\frac{\mathrm{D}\;u\cdot v-u\cdot\mathrm{D}\;v}{v^2}
+     D\; x^n&=nx^{n-1}\\
+     D\; (uv)&= D\;u\cdot v+u\cdot D\;v\\
+     D\;\bigg(\frac{u}{v}\bigg)&=\frac{ D\;u\cdot v-u\cdot D\;v}{v^2}
 \end{align*}
 
 \subsubsection*{Trigonometry Formula.}
 \begin{align*}
-    \mathrm{D}\; \sin x&= \cos x\\
-    \mathrm{D}\; \cos x&= -\sin x\\
-    \mathrm{D}\; \tan x&= \sec^2 x\\
-    \mathrm{D}\; \cot x&= -\csc^2 x\\
-    \mathrm{D}\; \sec x&= \sec x\tan x\\
-    \mathrm{D}\; \csc x&= -\cot x\csc x\\
+     D\; \sin x&= \cos x\\
+     D\; \cos x&= -\sin x\\
+     D\; \tan x&= \sec^2 x\\
+     D\; \cot x&= -\csc^2 x\\
+     D\; \sec x&= \sec x\tan x\\
+     D\; \csc x&= -\cot x\csc x\\
 \end{align*}
 
 \subsubsection*{Neat Mnemonics.}
@@ -171,24 +172,37 @@ How to determine the order of derivation: last computation is the first thing to
 
 \subsubsection*{Exponential and Logarithmic Functions.}
 \begin{align*}
-    \mathrm{D}\; \ln x &= \frac{1}{x}\\
-    \mathrm{D}\; a^n&=a^n\ln x\\
-    \mathrm{D}\; \log_a b&=\frac{1}{b\ln a}
+     D\; \ln x &= \frac{1}{x}\\
+     D\; a^n&=a^n\ln x\\
+     D\; \log_a b&=\frac{1}{b\ln a}
 \end{align*}
 
 \subsubsection*{Minima and Maxima test.} First derivative test:
 \begin{itemize}
-    \item Determine critical points ($\mathrm{D}y=0$), then divine into region;
-    \item Pick value from each region and plug into \emph{derivative};
+    \item Determine critical points ($ Dy=0$), then divide into region;
+    \item Pick value from each region and plug into \emph{derivative}; and
     \item Do the sign-graph.
-    \item Determine local minima and maxima, the plug into \emph{original function}
 \end{itemize}
 Second derivative test:
 \begin{itemize}
-    \item determine critical points;
-    \item plug critical into second derivative; and
-    \item positive $\mathrm{D}^2y$ means concave up ($\smile$), negative means concave down ($\frown$), and 0 means inconclusive.
+    \item Determine critical points;
+    \item Plug critical into second derivative; and
+    \item Positive $ D^2y$ means concave up ($\smile$) or minima, negative means concave down ($\frown$) or maxima, and 0 means inconclusive. Simply put, positive means minima, while negative means maxima
 \end{itemize}
+
+\subsubsection*{Optimization with constrain.} Elimination method:
+\begin{enumerate}
+    \item Write the function $f$. The function itself must be in terms of one independent variable, say $x$, which can often be achieved by substituting our constraint, say $y(x)$, into the function $f(x)$.
+    \item Find the critical points.
+    \item Use whatever test you need.
+\end{enumerate}
+Implicit differentiation method:
+\begin{enumerate}
+    \item Write the function $f(x,y)$. This method assumes that it is not possible to solve substituting the constant $y$ into our equation.
+    \item Write the differentiation with respect to independent $x$ variable. Note that the derivative of the dependent variable often still remains; we need to solve for them too.
+    \item Use the following result to find the critical points.
+    \item Use the second derivative test. Note that you'll also need the second derivative of the constraint $y$ evaluated at critical points to determine the second derivative of the function $f(x,y)$
+\end{enumerate}
 
 \subsubsection*{Differentiation under integral sign.} Differentiation under integral sign stated by Leibniz' rule
 \begin{equation*}
@@ -228,7 +242,7 @@ where, as before, $a$ and $b$ are constant. In other words, we can differentiate
 
 \subsubsection*{Leibniz’ rule for differentiating a product.}
 \begin{equation*}
-    \biggl(\frac{d}{dx}\biggr)^{n}fg=\sum_{k=0}^n {n \choose k}\biggl(\frac{d}{dx}\biggr)^{n-k} f \biggl(\frac{d}{dx}\biggr)^{k}g
+    \left(\frac{d}{dx}\right)^n(fg)=\sum_{k=0}^{n}{n\choose k}\left(\frac{d}{dx}\right)^{n-k}(f)\left(\frac{d}{dx}\right)^k(g)
 \end{equation*}
 where
 \begin{equation*}
@@ -263,59 +277,65 @@ where
 
 \subsubsection*{Integration by part.}
 \begin{enumerate}
-    \item Splits the integrand. Choose $u$ using LIATEN and let the rest be dv. (LIATEN: Log, Inverse trigonometry, Algebra, Trigonometry, ExponeN)
-    \item Do the box: 
-    $\begin{tabular}{ |c|c|c| } 
-        \hline
-        u&v&$\downarrow \textrm{diff.}$ \\ 
-        \hline
-        du&dv&$\uparrow\textrm{int.}$ \\ 
-        \hline
-       \end{tabular}$
+    \item Splits the integrand. Choose $u$ using LIATEN and let the rest be $dv$. (LIATEN: Log, Inverse trigonometry, Algebra, Trigonometry, ExponeN)
+    \item Do the box thing
+    \begin{table*}[h]
+        \begin{center}
+    \caption*{Table: The box thing}
+    \begin{tabular}{c || c || c}
+        $u$&$v$&$\downarrow$ Differentiate\\ 
+        \hline\hline
+        $du$&$dv$&$\uparrow$ Integrate
+    \end{tabular}
+        \end{center}
+    \end{table*}
     \item $ \int u \;dv = uv - \int v\; du$
 \end{enumerate}
 
 \subsubsection*{Tabular Method.} Refer to the table
-
-$\begin{tabular}{ |c|c|c| } 
-    \hline
-    &D&I \\ 
-    \hline
+\begin{table*}[h]
+\begin{center}
+\caption*{Table: The table}
+\begin{tabular}{c || c || c}
+    &Differentiate&Integrate \\ 
+    \hline\hline
     +&$a\searrow$&b \\ 
-    \hline
+    \hline\hline
     -&$a'\searrow$&b \\ 
-    \hline
-    +&$a''\searrow$&b \\ \hline
-    $\vdots$&$\vdots$&$\vdots$\\
-    \hline
-\end{tabular}$
+    \hline\hline
+    +&$a''\searrow$&b \\ 
+    \hline\hline
+    $\vdots$&$\vdots$&$\vdots$
+\end{tabular}
+\end{center}
+\end{table*}
 
 \begin{enumerate}
-    \item 0 in D collumn or use LIATEN
+    \item 0 in $D$ column or use LIATEN
     \item integrate a row 
     \item a row repeats
 \end{enumerate}
 
-\subsubsection*{Trigonometry Integral.} Phytagorian Identity.
+\subsubsection*{Trigonometry Integral.} Pythagorean Identity.
 \begin{align*}
     \sin^2x+\cos^2x&=1\\
     \sin^2x&=\frac{1-\cos 2x}{2}\\
     \cos^2x&=\frac{1+\cos2x}{2}
 \end{align*}
-note that argument inside quadratic trigonometry is half of trigonometry, which means $\cos^22x=(1+\cos 4x)/{2}$. There are few cases of tricky trigonometry integral. First, if power of sin is odd and positive.
-\begin{itemize}
-    \item lop one power off
-    \item convert remaining (even power) using Phytagorian Identity in term of cosine 
+note that argument inside quadratic trigonometry is half of trigonometry, which means $\cos^22x=(1+\cos 4x)/{2}$. There are few cases of tricky trigonometry integral. First, if power of sin is odd and positive. The steps to evaluate it are as follows.
+\begin{enumerate}
+    \item Remove one power off
+    \item convert remaining (even power) using Pythagorean Identity in terms of cosine 
     \item integrate using subs method
-\end{itemize}
+\end{enumerate}
 If the power of sine is odd and positive.
-\begin{itemize}
-    \item same as before
-\end{itemize}
+\begin{enumerate}
+    \item Same as before
+\end{enumerate}
 If the power of sine and cosine is even and nonegative, then:
-\begin{itemize}
-    \item convert using Phytagorian Identity and solve
-\end{itemize}
+\begin{enumerate}
+    \item convert using Pythagorean Identity and solve
+\end{enumerate}
 
 \subsubsection*{Trigonometry substitution.} Trigonometry function and its radical pair
 \begin{align*}
@@ -323,11 +343,11 @@ If the power of sine and cosine is even and nonegative, then:
     \sin \theta&=\sqrt{a^2-u^2}\\
     \sec \theta&=\sqrt{u^2-a^2}\\
 \end{align*}
-where $u$ is the variable we are differentiating with respect to. Mnemonics: + looks like tangent; - for sin and sec; and it is \emph{a} \emph{s}in. Trigonometry substitution step is then.
+where $u$ is the variable we are differentiating with respect to. Mnemonics: $+$ looks like tangent; $-$ for sin and sec; and it is \emph{a} \emph{s}in. Trigonometry substitution step is then as follows.
 \begin{enumerate}
-    \item Draw a right triangle where trigonometry pair equal $\frac{u}{a}$
-    \item using the trigonometry pair equation*, solve for x and dx
-    \item find trigonometry where $\frac{\sqrt{}}{a}$
+    \item Draw a right triangle where trigonometry pair equal $u/a$
+    \item using the trigonometry pair equation*, solve for $x$ and $dx$
+    \item find trigonometry where $\sqrt{}/a$
     \item subs again if equation* still contain $\theta$ and solve
 \end{enumerate}
 
@@ -345,10 +365,137 @@ where $u$ is the variable we are differentiating with respect to. Mnemonics: + l
 \end{enumerate}
 \clearpage
 
-\subsection*{Appendix} 
-\subsubsection*{Integration Technique Example.}
+\subsection*{Appendix: Example of Optimization Problem}
+\subsubsection*{One variable problem.} Consider this simple problem.
+\begin{quotation}
+    What is the maximum volume of a box without top that can be made from a square plate with a side of 30 unit, given that you can cut of its corner?
+\end{quotation}
+\begin{figure*}[b]
+    \centering
+    \normfig{../../Rss/Fundamentals/OptimizationBox.png}
+    \caption*{Figure: Plate and its configuration}
+\end{figure*}
 
-1. Trigonometry substitution. Find $\int \dfrac{dx}{\sqrt{9x^2+4}}$. Refer to the Mnemonics, the trigonometry pair is tangent.
+We know the volume of the box is calculated by $V=lwh$, then the volume as function of height is
+\begin{equation*}
+    V(h)=(30-2h)(30-2h)h=4h^3-120h^2+900
+\end{equation*}
+This is the function that we want to maximize. Setting the derivative to zero, we have 
+\begin{equation*}
+    \begin{array}{l l}
+        \dfrac{dV}{dh}&=12h^2-240h+900\\
+        0&=h^2-20h+75
+    \end{array}\implies    
+    h=15\;\lor\; h=5
+\end{equation*}
+Putting those critical number, into $V(h)$, we obtain $V(5)=2000$ and $V(15)=0$. Hence, box with height 5 will maximize the volume.
+
+\subsubsection*{Two variable problem.} More complicated, but still very easy.
+\begin{quotation}
+    Consider a floorless pup tent made from the least possible material with width $2w$, length $l$, creating angle $\theta$. Find $\theta$.
+\end{quotation}
+
+First we consider the volume and area of the shape in question.
+\begin{align*}
+    V&=\frac{2w}{2}w\tan \theta\cdot l=w^2l\tan\theta\\
+    A&=\frac{2w}{2}w\tan \theta\cdot 2+\frac{wl}{\cos \theta}\cdot 2= 2w^2\tan\theta+2wl\sec \theta
+\end{align*}
+Solving for $l$ from the equation of $V$, we get $l=V/w^2\tan \theta$. Then we substitute the result into $A$ to obtain
+\begin{equation*}
+    A=2w^2\tan\theta+\frac{2wV\sec \theta}{w^2\tan\theta}= 2w^2\tan\theta+\frac{2V}{w}\csc\theta
+\end{equation*}
+This is the function that we want to minimize. Since $A$ is a function of two variable $A(w,\theta)$, we need to differentiate it with respect to those two variable
+\begin{align*}
+    \frac{\partial A}{\partial w}&=4w\tan \theta-\frac{2V}{w^2}\csc \theta=0\\
+    \frac{\partial A}{\partial \theta}&=2w^2\sec^2\theta-\frac{2V}{w}\csc\theta\cot\theta=0
+\end{align*}
+Solving those equations for $w^3$, we get
+\begin{align*}
+    w^3=\frac{V\csc\theta}{2\tan\theta}\;\land\; w^3=\frac{V\csc\theta\cot\theta}{\sec^2\theta}
+\end{align*}
+Equating them to obtain
+\begin{equation*}
+    \frac{1}{\sec^2\theta}=\frac{1}{2}\implies \theta=\frac{\pi}{4}=45^\circ 
+\end{equation*}
+
+\subsection*{Appendix: Example of Optimization Problem with Constrain.} 
+We try to solve this example using few methods: elimination, implicit derivative, and Lagrange multiplier. Now, consider this problem.
+\begin{quotation}
+    What is the shortest distance from origin to curve $y=1-x^2$
+\end{quotation} 
+
+\subsubsection*{Elimination.} What we want to minimize is the distance $d=({x^2+y^2})^{1/2}$, however it is more convenient to minimize $f=x^2+y^2$ instead. The function $y=1-x^2$ acts as constraint. Substituting the constraint into our function, we have 
+\begin{equation*}
+    f(x)=x^2+(1-x^2)^2=x^4-x^2+1
+\end{equation*}
+The critical points of this function determined by 
+\begin{equation*}
+    \frac{df}{dx}=4x^3-2x=x(4x^2-2)=0\implies x=0\lor x=\pm\sqrt{1/2}
+\end{equation*}
+Then to determine the maxima or minima of the function, we use second test derivative 
+\begin{equation*}
+    \frac{d^2f}{dx^2}=12x^2-2=\begin{cases}
+        -2, &x=0, \quad\text{Maxima}\\
+        4, &x=\pm \sqrt{1/2},\quad \text{Minima}\\
+    \end{cases}
+\end{equation*}
+Therefore, the minimum distance is 
+\begin{equation*}
+    d=\left[\left(\sqrt{\frac{1}{2}}\right)^2+\left(1-\frac{1}{2}\right)^2\right]^{1/2}=\frac{\sqrt{3}}{2}
+\end{equation*}
+
+\subsubsection*{Implicit differentiation.} We use this method if it is not possible to substitute the constraint $y(x)$ into our function $f$. Differentiating $f(x,y)x^2+y^2$ with respect to $x$
+\begin{equation*}
+    \frac{df}{dx}=2x+2y\frac{dy}{dx}
+\end{equation*}
+From our constraint equation, we have the relation of $dy$ in terms of $dx$ as $dy=-2x\;dx$. Substituting this equation into $df/dx$ while also setting it equal to zero 
+\begin{equation*}
+    2x-4xy=x(1-2y)=0\implies x=0\lor y=1/2
+\end{equation*}
+And we obtain one of the critical points. To obtain the rest, we substitute the result $y=1$ into our constraint equation $y=1-x^2$. We have then 
+\begin{equation*}
+    x=\left(-\sqrt{\frac{1}{2}},0,\sqrt{\frac{1}{2}}\right)
+\end{equation*}
+The second derivative test for this method is rather different from the usual. What differs is simply how to evaluate the second derivative. First we determine the second derivative of $f(x,y)$ with respect to $x$
+\begin{equation*}
+    \frac{d^2f}{dx^2}=\frac{d}{dx}\left(2x+2y\frac{dy}{dx}\right)=2+\left(\frac{dy}{dx}\right)^2 +2y\frac{d^2y}{dx^2}
+\end{equation*}
+At $x=0$, we have $y=1,\;dy/dx=0,\text{ and } d^2y/dy^2=-2$; while at $x=\pm\sqrt{1/2}$, we have $y=1/2,\;dy/dx=\mp\sqrt{2},\text{ and } d^2y/dy^2=-2$. Hence,
+\begin{equation*}
+    \frac{d^2f}{dx^2}\bigg|_{x=0}=-2\text{ (Maxima)}\quad\land\quad \frac{d^2f}{dx^2}\bigg|_{x=\pm\sqrt{1/2}}=-4\text{ (Minima)}
+\end{equation*}
+as before. Substituting the result into the equation for distance $d=(x^2+y^2)^{1/2}$ and we have the same result
+
+\subsubsection*{Lagrange multiplier.} We have the function that we want to maximize $f(x,y)=x^2+y^2$ and constrain $\phi(x,y)=x^2+y=1$. Then we construct the function
+\begin{equation*}
+    F(x,y)=x^2+y^2+\lambda(x^2+y)
+\end{equation*}
+The partial derivative of $F(x,y)$ with respect to each variable is 
+\begin{equation*}
+    \frac{\partial F}{\partial x}=2x+2\lambda x\quad\land\quad \frac{\partial F}{\partial y}=2y+\lambda 
+\end{equation*}
+In addition with the constraint, we then need to solve those three equations
+\begin{align*}
+    2x+2\lambda x&=0\\
+    2y+\lambda& =0\\
+    x^2+y&=1
+\end{align*}
+Solving the first equation
+\begin{equation*}
+    x(1+\lambda)=0\implies x=0\lor\lambda=-1
+\end{equation*}
+Using $\lambda $ on the second equation
+\begin{equation*}
+    2y+\frac{1}{2} =0\implies y=\frac{1}{2}
+\end{equation*}
+Hence the constraint equation reads
+\begin{equation*}
+    x^2+\frac{1}{2}=1\implies x=\pm\sqrt{1/2}
+\end{equation*}
+As before, we obtain critical points $x=\left(-\sqrt{1/2},0,\sqrt{1/2}\right)$. We then can move to the next step:  minima test and calculating the distance, both will need not to be repeated.
+
+\subsection*{Appendix: Integration Technique Example.} 
+\subsubsection*{Trigonometry substitution.} Find $\int \dfrac{dx}{\sqrt{9x^2+4}}$. Refer to the Mnemonics, the trigonometry pair is tangent.
 \begin{align*}
     I&=\int \dfrac{dx}{\sqrt{(3x)^2+2^2}}\\
     \tan\theta&=\frac{3x}{2}
@@ -374,6 +521,7 @@ substituting the $\theta$ function
     &=\frac{1}{3} \ln \bigg | \sqrt{9x^2+4} +3 \bigg|+C
 \end{align*}
 
+\subsection*{Appendix: Moar Integral}
 \subsubsection*{Basic.} Most common integrals.
 \begin{flalign*}
 &\begin{aligned}

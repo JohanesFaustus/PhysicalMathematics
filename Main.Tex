@@ -36,13 +36,23 @@
 \newcolumntype{C}{>{$}c<{$}}
 
 \usepackage{titlesec}
-\titleformat{\subsubsection}[runin]{\bfseries}
-{\thesection.}{}{\indent}
+\titleformat{\chapter}[hang]{\thispagestyle{empty}\centering \Huge \bfseries}{}{}{}[\clearpage]
+\titleformat{\section}[hang]{\bfseries\Large\centering}{}{}{}[\vspace{0.5cm}]
+\titleformat{\subsection}[hang]{\bfseries\large}{}{}{}[\noindent\rule{\textwidth}{0.4pt}]
+\titleformat{\subsubsection}[runin]{\bfseries}{}{}{\indent}
 
-\nocite{Ryan2016}\nocite{Shapiro2014}\nocite{Boas2005}\nocite{Griffiths2017}
+\newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
+\newcommand{\normfigL}[1]{\includegraphics[width=0.8\textwidth]{#1}}
+\newcommand{\dfig}[1]{\includegraphics[width=0.3\textwidth]{#1}}
+
+
 
 \begin{document}
 \pagestyle{empty}
+\nocite{Ryan2016}
+\nocite{Shapiro2014}
+\nocite{Boas2005}
+\nocite{Griffiths2017}
 \subfile{Section/Preamble/Pre.tex}
 \clearpage
 \section*{FUNDAMENTAL}
