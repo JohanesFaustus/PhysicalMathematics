@@ -1,4 +1,4 @@
-\documentclass[../../../Main.tex]{subfiles}
+\documentclass[../../Main.tex]{subfiles}
 \begin{document}
 \subsection*{Identity Involving Partial Derivative}
 The Jacobian of $[u(x,y), v(x,y)]$ with respect to $(x, y)$ is defined by
@@ -165,7 +165,7 @@ We also assume the following quantities
     ;\mu_j=\frac{\partial U}{\partial N}\bigg|_{S, V, N_{i\neq j} }
 \end{equation*}
 
-\subsubsection*{First identity.} As follows
+\subsubsection*{First identity.} As follows.
 \begin{equation*}
     \frac{\partial S}{\partial U}\bigg|_{V, N_i}=\frac{1}{T}
 \end{equation*}
@@ -210,4 +210,36 @@ Then, from the definition of temperature and chemical potential
     \frac{\partial S}{\partial N_j}\bigg|_{U,N_{i\neq j}}=-\frac{\mu_j}{T}\quad \blacksquare
  \end{equation*}
 
+\subsection*{Lagrange Multipliers}
+Let $f(x,y,z)$ be our function that we want to optimize and $\phi(x,y,z)=\text{const}$ be our constraint. We then set the total differential of $f(x,y,z)$ and $\phi(x,y,z)$ equal to zero
+\begin{align*}
+    \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial y}dz&=0\\
+    \frac{\partial \phi}{\partial x}dx + \frac{\partial \phi}{\partial y}dy + \frac{\partial \phi}{\partial y}dz&=0
+\end{align*}
+Next, we construct the function
+\begin{equation*}
+    F(x,y,z)=f(x,y,z)+\lambda\phi(x,y,z)
+\end{equation*}
+and set its total derivative to zero
+\begin{equation*}
+    \left(\frac{\partial f}{\partial x}+ \lambda\frac{\partial \phi}{\partial x}\right)dx + \left(\frac{\partial f}{\partial y}+ \lambda\frac{\partial \phi}{\partial y}\right)dy + \left(\frac{\partial f}{\partial z}+ \lambda\frac{\partial \phi}{\partial z}\right)dz = 0
+\end{equation*}
+It follows that, for any value of $dx,\;dy,\;dz,$ we choose $\lambda$ such that 
+\begin{equation*}
+    \frac{\partial f}{\partial x}+ \lambda\frac{\partial \phi}{\partial x}=0,\quad \frac{\partial f}{\partial y}+ \lambda\frac{\partial \phi}{\partial y}=0,\quad \frac{\partial f}{\partial z}+ \lambda\frac{\partial \phi}{\partial z}=0
+\end{equation*}
+Putting it all together, to optimize $f(x,y,z)$ with constraint $\phi(x,y,z)$, we need to optimize $F(x,y,z)$, which obtained by solving three partial derivative equations and constraint equation $\phi(x,y,z)=\text{const}$. The equations in question are
+\begin{center}
+    $\begin{array}{r c l r c l}
+        \displaystyle\frac{\partial F}{\partial x}&=&0,&\displaystyle\frac{\partial F}{\partial y}&=&0,\\
+        \\
+        \displaystyle\frac{\partial F}{\partial z}&=&0,&\phi&=&\text{const.}
+    \end{array}$
+\end{center}
+
+\subsubsection*{Multiple constraint.} If there are multiple constraints, say $\phi_1$ and $\phi_2$, we function $F$ we construct instead is 
+\begin{equation*}
+    F(x,y,z)=f(x,y,z)+\lambda_1\phi_1(x,y,z)+\lambda_2\phi_2(x,y,z)
+\end{equation*}
+As aside, the function that we want to optimize need not to a function of three variable $x,\;y,\;z$. The previous derivation can be justified for any number of variable. Of course, with more variable there are more variables.
 \end{document}
