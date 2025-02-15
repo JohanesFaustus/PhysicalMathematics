@@ -41,7 +41,7 @@ Ratio Test:
 Special Comparation:
 \begin{align*}
     \lim_{n\to \infty} \frac{A}{C}& \text{ Limit finite $\rightarrow$ A Converges}\\
-    \lim_{n\to \infty} \frac{A}{D}& \text{ Limit > 0 $\rightarrow$ A Diverges}
+    \lim_{n\to \infty} \frac{A}{D}& \text{ Limit $>$ 0 $\rightarrow$ A Diverges}
 \end{align*}
 
 Raabe Test:
@@ -81,11 +81,18 @@ Maclaurin Series:
 
 Maclaurin Expansion for basic function:
 \begin{align*}
-    \sin x&= \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!} &&=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots\\
-    \cos x&= \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}&& = 1-\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots\\
-    e^x&= \sum_{n=0}^{\infty}\frac{x^{n}}{n!}               &&=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}\quad-1<x\leq1\\
-    \ln (1+x)&= \sum_{n=1}^{\infty} \frac{(-1)^{n+1}x^{n}}{(n)}&& =x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}\\
-    (1+x)^p&=\sum_{n=0}^{\infty}\binom{p}{n}x^n&&=+px+\frac{p(p-1)}{2!}x^2\\
-    &&&+\frac{p(p-1)(p-2)}{3!}x^3+\cdots\quad |x|<1
+    \sin x&= \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!} \quad \text{for all }x\\
+    \cos x&= \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}\quad \text{for all }x\\
+    e^x&= \sum_{n=0}^{\infty}\frac{x^{n}}{n!}               \quad\text{for }-1<x\leq1\\
+    \ln (1+x)&= \sum_{n=1}^{\infty} \frac{(-1)^{n+1}x^{n}}{(n)} \quad \text{for all }x\\
+    (1+x)^p&=\sum_{n=0}^{\infty}\binom{p}{n}x^n \quad \text{for }|x|<1
+\end{align*}
+or more explicitly
+\begin{align*}
+    \sin x&=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots\\
+    \cos x&= 1-\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots\\
+    e^x&=1+x+\frac{x^2}{2!}+\frac{x^3}{3!} \\
+    \ln (1+x)&=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}\\
+    (1+x)^p&=+px+\frac{p(p-1)}{2!}x^2 +\frac{p(p-1)(p-2)}{3!}x^3+\cdots
 \end{align*}
 \end{document}

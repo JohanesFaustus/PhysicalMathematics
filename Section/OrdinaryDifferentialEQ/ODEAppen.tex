@@ -1,5 +1,90 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
+\subsection*{Appendix: Frobenius' Method}
+I will demonstrate this technique. Consider the following differential equation.
+\begin{equation*}
+  x^2 y''+ 4xy' + (x^2 + 2)y = 0
+\end{equation*}
+The solution will take the form 
+\begin{equation*}
+  y=\sum_{n=0}^{\infty} a_nx^{n+s}
+\end{equation*}
+Substituting this into each terms, we have 
+\begin{align*}
+  x^2y''&=\sum_{n=0}^{\infty} (n+s) (n+s-1)a_nx^{n+s} \\
+  4xy'&=\sum_{n=0}^{\infty} 4(n+s) a_nx^{n+s}\\
+  x^y&=\sum_{n=0}^{\infty} a_n x^{n+s+2}\\
+  2y&=\sum_{n=0}^{\infty} 2a_nx^{n+s}
+\end{align*}
+Then we put them into table.
+\begin{center}
+$\begin{array}{c || c c c}
+  &x^{n+s}&x^s&x^{s+1}\\
+  \hline\hline
+  x^2y''&(n + s)(n + s - 1)a_n &s(s-1)a_0  &s(s+1)a_1 \\
+  4xy'&4(n+s)a_n &4sa_0 &4(s+1)a_1 \\
+  x^2y&a_{n-2} &-&- \\
+  2y& 2a_n& 2a_0& 2a_1\\
+\end{array}$
+\end{center}
+Using the terms on $x^{s}$ column, we have the following indicial equation.
+\begin{align*}
+  s(s-1)a_0+4sa_0+2a_0&=0\\
+  a_0 \left[s(s+3)+2 \right] &=0
+\end{align*}
+Since $a_0$ cannot be zero, we write 
+\begin{equation*}
+  s^2+3s+2 =0
+\end{equation*}
+By solving the indicial equation we obtain $s=(-1,-2)$. From the $x^{n+s}$, we obtain the general formula for $a_n$ in terms of $a_{n-2}$
+\begin{align*}
+  a_n\left[(n+s)(n+s+3)+2\right]&=-a_{n-2}
+\end{align*}
+We also obtain the fact the value of $a_1$ is zero, proved by the terms in $x^{s+1}$ column 
+\begin{equation*}
+  \begin{rcases*}
+    a_1\left[(s+1)(s+4)+2\right]=0\\
+    s=(-1,-2)
+  \end{rcases*}\implies a_0=0
+\end{equation*}
+
+Since we have two value of $s$, we first consider the case for $s=-1$. The general $a_n$ formula evaluated into 
+\begin{equation*}
+  a_n=-\frac{a_{n-2}}{(n-1)(n+2)+2}=-\frac{a_{n-2}}{n^2+n}=-\frac{a_{n-2}}{n(n+1)}
+\end{equation*}
+The values of $a_n$ for few $n$ are as follows 
+\begin{align*}
+  a_2&=-\frac{a_0}{3!}\\
+  a_4&=-\frac{a_2}{4\cdot 5}=\frac{a_0}{5!}\\
+  a_6&=-\frac{a_4}{6\cdot7}=-\frac{a_0}{7!}
+\end{align*}
+Thus the solution for this case is 
+\begin{multline*}
+  y_{-1}=\sum_{n=0}^{\infty} a_nx^{n-1}=\frac{a_0}{x}-\frac{a_0}{3!}x+\frac{a_0}{5!}x^3-\frac{a_0}{7!}x^5 +\dots\\
+  =\frac{a_0}{x^2}\left(x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots\right)=\frac{a_0}{x^2}\sin x
+\end{multline*}
+
+For the case of $s=-2$, the general $a_n$ formula evaluated into
+\begin{equation*}
+  a_n=-\frac{a_{n-2}}{(n-2)(n+1)+2}=-\frac{a_{n-2}}{n^2-n}=-\frac{a_{n-2}}{n(n-1)}
+\end{equation*}
+The values of $a_n$ for few $n$ are as follows 
+\begin{align*}
+  a_2&=-\frac{a_0}{2!}\\
+  a_4&=-\frac{a_2}{4\cdot 3}=\frac{a_0}{4!}\\
+  a_6&=-\frac{a_4}{6\cdot 5}=-\frac{a_0}{6!}
+\end{align*}
+Thus the solution for this case is 
+\begin{multline*}
+  y_{-2}=\sum_{n=0}^{\infty} a_nx^{n-2}= \frac{a_0}{x^2}-\frac{a_0}{2!}+\frac{a_0}{4!}x^2-\frac{a_0}{6!}x^4 +\dots\\
+  =\frac{a_0}{x^2}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots\right)=\frac{a_0}{x^2}\cos x
+\end{multline*}
+
+Hence the complete form of the solution is 
+\begin{equation*}
+  y=\frac{a_0}{x^2}\left(\cos x +\sin x\right)
+\end{equation*}
+
 \subsection*{Appendix: Differential Equation Study Guide}
 \subsubsection*{First Order Equations.} General Form of ODE
 \begin{align*}
@@ -216,7 +301,7 @@ y_P (t) = -y_1(t) \int \dfrac{y_2(t) f(t)}{W(t)}dt + y_2(t) \int \dfrac{y_1(t) f
 \begin{equation}
 ax^2y''+bxy'+cy=0 \label{eq:CEODE}
 \end{equation}
-with Auxilliary Equation
+with auxiliary Equation
 \begin{equation}
 ar(r-1)+br+c=0\label{eq:CEODEAux}
 \end{equation}
@@ -242,7 +327,7 @@ If $x_0$ is a regular point of \eqref{eq:SS} then
 \begin{equation*}
 y_1(t) = (x-x_0)^n\sum_{k=0}^{\infty}a_k(x-x_k)^k
 \end{equation*}
-At a Regular Singular Point $x_0$, the Indicial Equation
+At a Regular Singular Point $x_0$, the indicial Equation
 \begin{equation}
 r^2+(p(0)-1)r + q(0)=0 \label{eq:indicial}
 \end{equation}

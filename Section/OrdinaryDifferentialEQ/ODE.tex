@@ -1,11 +1,11 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \subsection*{First Order}
-First Order ODE
-\begin{equation}
-    y'+py=Qy
-\end{equation}
-where P and Q are functions of x has the solution
+\subsubsection*{First Order ODE.} Written in the form
+\begin{equation*}
+    y'+P(x)y=Q(x)
+\end{equation*}
+where $P$ and $Q$ are functions of $x$ has the solution
 \begin{align*}
     ye^I&=\int Q e^I\;dx+c\\
     y&=e^{-I}\int Q e^I\;dx+ce^{-I}
@@ -14,21 +14,21 @@ where\begin{equation*}
     I=\int P\;dx
 \end{equation*}
 
-Bernoulli Equation. The differential equation
+\subsubsection*{Bernoulli Equation.} The differential equation
 \begin{align*}
-    y'+Py=Qy^n
+    y'+P(x)y=Q(x)y^n
 \end{align*}
-where P and Q are functions of x can be written as
-\begin{equation}
+where $P$ and $Q$ are functions of $x$. It also can be written as
+\begin{equation*}
     z'+(1-n)Pz=(1 - n)Q
-\end{equation}
-where\begin{align*}
+\end{equation*}
+where
+\begin{align*}
     z = y^{1-n}
 \end{align*}
-This is now a first-order linear equation which we can solve as we did the linear
-equations above. 
+This is now a first-order linear equation which we can solve as we did the linear equations above. 
 
-Exact Equations.  $P (x, y) dx+Q(x, y)dy$ is an exact differential [the differential of $F (x, y)$, or $P dx + Q dy = dF$  ] if
+\subsubsection*{Exact Equations.}  $P (x, y) dx+Q(x, y)dy$ is an exact differential [the differential of $F (x, y)$, or $P dx + Q dy = dF$] if
 \begin{equation*}
     \pardf P=\pardf Q
 \end{equation*}
@@ -39,14 +39,11 @@ and the solution is
 An equation which is not exact may often be made exact by multiplying it by
 an appropriate factor.
 
-Homogeneous Equations. A homogeneous function of x and y of degree n means
-a function which can be written as $x^nf (y/x)$.
-An equation of the from
+\subsubsection*{Homogeneous Equations.} A homogeneous function of $x$ and $y$ of degree $n$ means a function which can be written as $x^nf (y/x)$. An equation in the from
 \begin{equation*}
     P (x, y) dx + Q(x, y) dy = 0
 \end{equation*}
-where P and Q are homogeneous functions of the same degree is called homogeneous.
-Thus
+where $P$ and $Q$ are homogeneous functions of the same degree is called homogeneous. Thus,
 \begin{equation*}
     y'=\df y=-\frac{P (x, y)}{Q(x, y)}-f(\frac{y}{x})
 \end{equation*}
@@ -57,8 +54,8 @@ making the change of variables
 \end{align*}
 
 \subsection*{Second Order}
-\textbf{Second Order with Zero Right Hand Side}. 
-Equation of the from
+\subsubsection*{Second Order with Zero Right-Hand Side.} 
+Equation of the form
 \begin{equation*}
     (D-a)(D-b)y=0,\quad a \neq b
 \end{equation*}
@@ -67,7 +64,7 @@ has the Solution
     y = c_1e^{ax} + c_2e^{bx}
 \end{align*}
 
-Equation of the from
+Equation of the form
 \begin{equation*}
     (D-a)(D-a)y=0,\quad a \neq b
 \end{equation*}
@@ -86,21 +83,19 @@ The solution is now
 \end{align*}
 where $\alpha,\;\beta,\;\gamma,\;c,\;c_1,\;c_2$ are different constant.
 
-\textbf{Second Order with Nonzero Right Hand Side}.
-The equation
+\subsubsection*{Second Order with Nonzero Right-hand Side.} The equation
 \begin{align*}
     a_2\seconddf y+a_1\df y+a_0y=f(x)\\
     \seconddf y+a_1\df y+a_0y=F(x)
 \end{align*}
-has the solution of the from
+has the solution of the form
 \begin{equation*}
     y = y_c + y_p
 \end{equation*}
 where the complementary function $y_c$ is the general solution of the homogeneous
-equation (when right hand side is equal to zero) and $y_p$ is a particular solution (when the right hand side is equal to f(x) or F(x)). 
-The simplest method solving them is by Inspection and Successive Integration of Two First-Order Equations.
+equation (when right-hand side is equal to zero) and $y_p$ is a particular solution, that is when the right-hand side is equal to $f(x)$ or $F(x)$.  The simplest method solving them is by Inspection and Successive Integration of Two First-Order Equations.
 
-\textbf{Exponential Right-Hand Side}. 
+\subsubsection*{Exponential Right-Hand Side.} 
 Suppose we have $F (x) = ke^{cx}$, or
 \begin{equation*}
     (D - a)(D - b)y =ke^{cx}
@@ -116,7 +111,7 @@ assuming a solution of the form:
     \end{cases}
 \end{align*}
 
-\textbf{Complex Exponentials}. To find a particular solution of
+\subsubsection*{Complex Exponential.} To find a particular solution of
 \begin{equation*}
     (D - a)(D - b)y=\begin{cases}
         k\sin \alpha x,\\
@@ -127,9 +122,9 @@ first solve
 \begin{equation*}
     (D - a)(D - b)y=ke^{i\alpha x}
 \end{equation*}
-then then take the real or imaginary part. 
+then take the real or imaginary part. 
 
-\textbf{Method of Undetermined Coefficients}. To find a particular solution of
+\subsubsection*{Method of Undetermined Coefficients.} To find a particular solution of
 \begin{equation*}
     (D - a)(D - b)y=e^{cx}P_n(x)
 \end{equation*}
@@ -145,15 +140,12 @@ where $P_n(x)$ is a polynomial of degree n is
 where $Q_n(x)$ is a polynomial of the same degree as $P_n(x)$ with undetermined
 coefficients to be found to satisfy the given differential equation.
 
-\textbf{Several Terms on the Right-Hand Side: Principle of Superposition}.
-The easiest way of handling a complicated right-hand side: Solve a sep-
-arate equation for each different exponential and add the solutions. The fact that
-this is correct for a linear equation is often called the principle of superposition.
+\subsubsection*{Principle of Superposition.} The easiest way of handling a complicated right-hand side: Solve a separate equation for each different exponential and add the solutions. The fact that this is correct for a linear equation is often called the principle of superposition. 
+
 Note that the principle holds only for linear equations.
 
-\textbf{Use of Fourier Series in Finding Particular Solutions}.
-Suppose that the driving force f(x) is periodic, we then can expand the function using Fourier Series.
-The equation
+\subsubsection*{Fourier Series.}
+Suppose that the driving force $f(x)$ is periodic, we then can expand the function using Fourier Series. The equation
 \begin{equation*}
     a_2\seconddf y+a_1\df y+a_0y=f(x)=\sum_{-\infty}^{\infty}c_ne_{inx}
 \end{equation*}
@@ -161,16 +153,25 @@ can be solved by solving
 \begin{equation*}
     a_2\seconddf y+a_1\df y+a_0y=c_ne_{inx}
 \end{equation*}
-then add the solutions for all n (applying principle of superposition), and we have the solution of first the equation.
+then add the solutions for all $n$ (applying principle of superposition), and we have the solution of first the equation.
 
 \subsection*{Laplace Transform}
-We define $\mathcal{L}(f )$, the Laplace transform of $f (t)$ [also written $F (p)$ since it is a function of $p$ ], by the equation
+We define $\mathcal{L}(f )$, the Laplace transform of $f (t)$ [also written $F (p)$ since it is a function of $p$], by the equation
 \begin{equation*}
     \mathcal{L}(f)=F(P)=\int_{0}^{\infty}f(t)e^{-pt};dt
 \end{equation*}
 
+\subsubsection*{Laplace transform 101.} How 2 Laplace transform in 5 steps!
+\begin{enumerate}
+    \item Transform!
+    \item Do algebra!
+    \item Inverse!
+    \item $\dots$
+    \item Profit!
+\end{enumerate}
+
 \subsection*{Convolution}
-\textbf{Definition.} The integral
+\subsubsection*{Definition.} The integral
 \begin{equation*}
     g*h=\int_{0}^{t}g(t-\tau)h(\tau)d(\tau)=\int_{0}^{t}g(\tau)h(t-\tau)d(\tau)
 \end{equation*}
@@ -192,7 +193,7 @@ Thus
 \end{equation*}
 Observe from $\mathcal{L}34$ that we may use either $g(t - \tau )h(\tau )$ or $g(\tau )h(t - \tau )$ in the integral. It is well to choose whichever form is easier to integrate; it is best to put$ (t - \tau )$ in the simpler function.
 
-\textbf{Fourier Transform of a Convolution.} Let $g_1(\alpha)$ and $g_2(\alpha$) be the Fourier transforms of $f_1(x)$ and $f_2(x)$
+\subsubsection*{Fourier Transform of a Convolution.} Let $g_1(\alpha)$ and $g_2(\alpha)$ be the Fourier transforms of $f_1(x)$ and $f_2(x)$
 \begin{align*}
     g_1(\alpha)\cdot g_2(\alpha)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}f_1(v)e^{-i\alpha v}dv\cdot \frac{1}{2\pi}\int_{-\infty}^{\infty}f_1(u)e^{-i\alpha u}du\\
     &=\biggl(\frac{1}{2\pi}\biggr)^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_1(v)f_2(u)e^{-i\alpha (v+u)}dvdu
@@ -215,4 +216,25 @@ and by symmetry
 \begin{equation*}
     g_1* g_2\text{ and }f_1\cdot f_2\text{ are a pair of Fourier transforms}
 \end{equation*}
+
+\subsection*{Frobenius Method}
+By using this method, we assume that the solution has the form of power series
+\begin{equation*}
+    y=\sum_{n=0}^{\infty} a_nx^{n+s}
+\end{equation*}
+We also assume that the first coefficient, that is $a_0$, is not zero. Computing the derivative of $y$, we obtain
+\begin{align*}
+    y&=\sum_{n=0}^{\infty} a_nx^{n+s} \\
+    y'&=\sum_{n=0}^{\infty} (n+s) a_nx^{n+s-1}\\
+    y''&=\sum_{n=0}^{\infty} (n+s) (n+s-1)a_nx^{n+s-2} 
+\end{align*}
+
+\subsubsection*{Frobenius 101.} How 2 solve differential equation using generalized power series in 5 steps!
+\begin{enumerate}
+    \item Tabulate!
+    \item Find the column in terms of $x^{n+s}$ $x^s\rightarrow$!
+    \item Factor the coefficients that contain $a_0\rightarrow$ and solve the indicial equation!
+    \item Solve it in terms of $a_n=-a_{n-2}$! (not factorial!)
+    \item As a check, put $n=2$ at $a_n$ not $n=0$! (also not factorial!)
+\end{enumerate}
 \end{document}

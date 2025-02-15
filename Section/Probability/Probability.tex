@@ -30,7 +30,7 @@ ways to choose 2 people out of 4 to be president and vice-president. Now, we cha
 ways to choose 2 people out of 4 to be given gift.
 
 \subsection*{Restricted Partition Generating Functions}
-\subsubsection*{Definition.} To find the number of ways distributing $L$ identical object--calledconfiguration--in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use 
+\subsubsection*{Definition.} To find the number of ways distributing, called configuration, $L$ identical object in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use 
 \begin{equation*}
     D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}f(x)\bigg|_{x=0}
 \end{equation*}
@@ -50,20 +50,21 @@ while the total number of configuration form all possible set is
 
 For a special case when $L\leq N$, the expression for $D(N,P,L)$ simplify into 
 \begin{equation*}
-    D(N,P,L)=\frac{1}{L!}\frac{(N++L-1)!}{(N-1)!}
+    D(N,P,L)=\frac{1}{L!}\frac{(N+L-1)!}{(N-1)!}
 \end{equation*}
+This equation gives the number of ways to distribute $L$ indistinguishable objects in $P$ distinguishable box.
 
 \subsubsection*{Derivation.} Let the boxes be numbered $1,\dots, N$ and $p_i$ as number of objects in $i$-th box, then 
 \begin{equation*}
     \sum_{i=1}^{N}p_i=L
 \end{equation*}
-with $0\leq p_i\leq P$. Set obtained form interchanging $p_i$ and $p_k$, with $p_i\neq p_k$ is counted as different set, however the exchange same exchange with $p_i=p_k$ does not count as different set. Let also $n_k$ as the number of boxed having $k$ number object, hence we have these two restricted for our combination
+with $0\leq p_i\leq P$. Set obtained form interchanging $p_i$ and $p_k$, with $p_i\neq p_k$ is counted as different set, however the same exchange with $p_i=p_k$, does not count as different set. Let also $n_k$ as the number of boxed having $k$ number object, hence we have these two restricted for our combination
 \begin{equation*}
     \sum_{k=0}^{P}n_k=N,\quad\sum_{k=0 }^{P }kn_k=L
 \end{equation*}
 which we will denote as restriction $R_\Romannum{1}$ and $R_\Romannum{2}$ respectively.
 
-Now consider the number of configuration $D(N,P,n_{k|P})$ obtained by counting different ways to choose the set of $n_{k|P}\equiv(n_1,\dots,n_P)$, which is evaluated by choosing $n_0$ from $N$ boxes, followed by choosing $n_1$ from $N-n-0$ boxes, and so on. Hence,
+Now consider the number of configuration $D(N,P,n_{k|P})$ obtained by counting different ways to choose the set of $n_{k|P}\equiv(n_1,\dots,n_P)$, which is evaluated by choosing $n_0$ from $N$ boxes, followed by choosing $n_1$ from $N-n_0$ boxes, and so on. Hence,
 \begin{align*}
     D(N,P,n_{k|P})&={N\choose n_0}\cdots{N-\cdots-n_{p-1} \choose n_p}\\
     &=\frac{N!}{n_0!(N-n_0)!}\cdots \frac{(N-\cdots-n_{p-1}!)}{n_p!(N-\cdots-n_p)!}\\
@@ -127,6 +128,6 @@ Substituting it into the expression for $D(N,P,L)$, we see that
 \end{multline*}
 Hence, in general
 \begin{equation*}
-    D(N,P,L)=\frac{1}{L!}\frac{(N++L-1)!}{(N-1)!}\quad \blacksquare
+    D(N,P,L)=\frac{1}{L!}\frac{(N+L-1)!}{(N-1)!}\quad \blacksquare
 \end{equation*}
 \end{document}

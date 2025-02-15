@@ -81,13 +81,13 @@ and
 
 \subsubsection*{Other period.} Fourier Series for function of period $2l$:
 \begin{align*}
-    f(x)&=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos \frac{2\pi nx}{l} +b_n\sin \frac{2\pi nx}{l}\bigg)\\
+    f(x)&=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos \frac{\pi nx}{l} +b_n\sin \frac{\pi nx}{l}\bigg)\\
     &=\sum_{n=-\infty}^{\infty}c_n \exp\frac{in\pi x}{l}
 \end{align*}
 with coefficients:
 \begin{align*}
-    a_n&=\frac{1}{l}\int_{-l}^{l}  f(x)\cos \frac{2\pi nx}{l}\; dx\\
-    b_n&=\frac{1}{l}\int_{-l}^{l}  f(x)\sin \frac{2\pi nx}{l} \;dx\\
+    a_n&=\frac{1}{l}\int_{-l}^{l}  f(x)\cos \frac{\pi nx}{l}\; dx\\
+    b_n&=\frac{1}{l}\int_{-l}^{l}  f(x)\sin \frac{\pi nx}{l} \;dx\\
     c_n&=\frac{1}{2l}\int_{-l}^{l}  f(x)\exp\frac{-in\pi x}{l} \;dx
 \end{align*}
 
@@ -207,21 +207,21 @@ Fourier expansion for odd function.
     \text{odd }f(x),
     \begin{cases}
         a_n&=0\\
-        b_n&=\displaystyle \frac{2}{l}\int_{0}^{l}  f(x)\sin \frac{2\pi nx}{l} \;dx
+        b_n&=\displaystyle \frac{2}{l}\int_{0}^{l}  f(x)\sin \frac{ \pi nx}{l} \;dx
     \end{cases}
 \end{equation*}
 
 Fourier expansion for even function.
 \begin{equation*}
-    \text{odd }f(x),
+    \text{even }f(x),
     \begin{cases}
-        a_n&=\dfrac{2}{l}  \displaystyle \int_{0}^{l}  f(x)\cos \dfrac{2\pi nx}{l} \;dx\\
+        a_n&=\dfrac{2}{l}  \displaystyle \int_{0}^{l}  f(x)\cos \dfrac{\pi nx}{l} \;dx\\
         b_n&=0
     \end{cases}
 \end{equation*}
 
 \subsection*{Theorem}
-Dirichlet Condition. If f(x):
+\subsubsection*{Dirichlet Condition.} If $f(x$):
 \begin{enumerate}
     \item periodic,
     \item x single valued,
@@ -231,7 +231,7 @@ Dirichlet Condition. If f(x):
 \end{enumerate}
 then the Fourier series converges to the midpoint of the jump.
 
-Parseval's theorem. For Fourier expansions
+\subsubsection*{Parseval's theorem.} For Fourier expansions
 \begin{equation*}
     f(x)=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos nx +b_n\sin nx\bigg)\\
 \end{equation*} 
