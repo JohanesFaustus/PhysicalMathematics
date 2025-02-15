@@ -26,7 +26,7 @@ From this we have
     \Gamma(p+1)=p\Gamma(p)
 \end{equation*}
 
-\emph{Proof.} Let us integrate $\Gamma(p+1)$ by parts. Calling $u=x^p$, and $ dv=e^{-x}\;dx$; then we get $du=px^{p-1}$, and $v=-e^{-x}$. Thus 
+\paragraph{Proof.} Let us integrate $\Gamma(p+1)$ by parts. Calling $u=x^p$, and $ dv=e^{-x}\;dx$; then we get $du=px^{p-1}$, and $v=-e^{-x}$. Thus 
 \begin{align*}
     \Gamma(p+1)&=-x^pe^{-x}\bigg|_0^{\infty}+\int_{0}^{\infty}e^{-x}px^{p-1}\;dx\\
     &=p\int_{0}^{\infty}x^{p-1}e^{-x}\;dx\\
@@ -136,30 +136,58 @@ And I get the same result
 \end{equation*}
 Damn, it is really more shrimple.
 
-\subsubsection*{Another form of Gaussian integral.} Here we state without proof.
+\subsubsection*{Another form of Gaussian integral.} Here have few.
 \begin{align*}
-    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)\\
-    \int_{-\infty}^{\infty}\exp \left(\frac{1}{2}ix^2\right)\;dx& = \sqrt{2\pi}\exp \left(\frac{\pi}{4}i\right) \\
+    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx &= \frac{\Gamma (m+1)}{\alpha^{m+1}}\\
     \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\\
+    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)\\
+    \int_{-\infty}^{\infty}\exp \left(\frac{1}{2}ix^2\right)\;dx& = \sqrt{2\pi}\exp \left(\frac{\pi}{4}i\right) 
 \end{align*}
 Here's another one, not really a Gaussian integral, but since it involves natural number it counts
 \begin{equation*}
     \sum_{n=0}^{\infty}n^ke^{-nk}=(-1)^k\frac{d^k}{dk^k}\sum_{n=0}^{\infty}e^{-nx}=(-1)\frac{d^k}{dk^k}\frac{1}{1-e^{-x}}
 \end{equation*}
 
+\paragraph{Proof of the first integral.} Consider
+\begin{equation*}
+    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx
+\end{equation*}
+Substitute $\alpha x=t$ and $dx=dt/\alpha$
+\begin{equation*}
+    \int_{0}^{\infty} \left(\frac{t}{\alpha}\right)^m \frac{\exp(-t)}{\alpha}\;dt=\frac{1}{\alpha^{m+1}}\int_{0}^{\infty} x^{m}e^{-  x}\;dx=\frac{\Gamma (m+1)}{\alpha^{m+1}}\quad\blacksquare
+\end{equation*}
+
+\paragraph{Proof of the second integral.} Consider 
+\begin{equation*}
+    \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx
+\end{equation*}
+By substituting $\alpha x^2$, we have the following variable
+\begin{equation*}
+    x=\sqrt{\frac{t}{a}}\quad\text{and}\quad dx=\frac{1}{2\sqrt{\alpha t}}\;dt
+\end{equation*}
+Thus our integral transforms into 
+\begin{multline*}
+    \int_{0}^{\infty}\left(\frac{t}{a}\right)^{m/2} \frac{\exp (-t)}{2\sqrt{\alpha t}}\; dx=\frac{1}{2\alpha^{(m+1)/2}} \int_{0}^{\infty} t^{(m+1)/2}\exp(-t)\;dt \\
+    =\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\quad \blacksquare
+\end{multline*}
+
+\paragraph{Proof of the third integral.} 404 
+\paragraph{Proof of the fourth integral.} 404 
+
+
 \subsection*{Beta Function}
 \subsubsection*{Definition.} The beta function is also defined by a definite integral
 \begin{equation*}
-    B(p,q)\int_{0}^{1}x^{p-1} (1-x)^{q-1}\;dx 
+    B(p,q)=\int_{0}^{1}x^{p-1} (1-x)^{q-1}\;dx 
 \end{equation*}
-for $p > 0$,and $q > 0$. 
+for $p > 0$, and $q > 0$. 
 
 \subsubsection*{Change of order.} It is easy to show that
 \begin{equation*}
     B(p,q)=B(q,p)
 \end{equation*}
 
-\emph{Proof.} Putting $x=1-y$ and $dx=-dy$
+\paragraph{Proof.} Putting $x=1-y$ and $dx=-dy$
 \begin{align*}
     B(p,q)&=-\int_{1}^{0}(1-y)^{p-1}y^{q-1}\;dy= \int_{0 }^{1}y^{q-1}(1-y)^{p-1}\;dy\\
     B(p,q)&=B(q,p)\quad\blacksquare
@@ -174,11 +202,12 @@ Another form is
     B(p,q)=\int_{0}^{\infty}\frac{y^{p-1}}{(1+y)^{p+q}}\;dy
 \end{equation*}
 
-\emph{Proof.} Putting $x = y/a$ and $dx=dy/a$
+\paragraph{Proof of the first relation.} Putting $x = y/a$ and $dx=dy/a$
 \begin{align*}
     B=\int_{0}^{a}\big(\frac{y}{a}\big)^{p-1}\big(1-\frac{y}{a}\big)^{q-1}\frac{1}{a}\;dy=\frac{1}{a^{p+1-1}}  \int_{0}^{a} y^{p-1}(a-y)^{q-1}\;dy \quad\blacksquare
 \end{align*}
-For the second form, we put $x = y/(1 + y)$ and $dx=dy/(1+y)^2$
+
+\paragraph{Proof of the second relation.} For the second form, we put $x = y/(1 + y)$ and $dx=dy/(1+y)^2$
 \begin{align*}
     B(p,q)&=\int_{0}^{\infty}\bigg(\frac{y}{1+y} \bigg)^{p-1} \bigg(\frac{(1+y)-y}{1+y}\bigg)^{q-1}\frac{1}{(1+y)^2}\;dy\\
     B(p,q)&=\int_{0}^{\infty}\frac{y^{p-1}}{(1+y)^{p+q}}\;dy\quad\blacksquare
@@ -189,7 +218,7 @@ For the second form, we put $x = y/(1 + y)$ and $dx=dy/(1+y)^2$
     B(p,q)=2\int_{0}^{\pi/2}(\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta
 \end{equation*}
 
-\emph{Proof.} Putting $x=\sin^2\theta$ and $dx=2\cos\theta\sin\theta\;d\theta$
+\paragraph{Proof.} Putting $x=\sin^2\theta$ and $dx=2\cos\theta\sin\theta\;d\theta$
 \begin{align*}
     B(p,q)&=\int_{0}^{\pi/2} (\sin^2\theta)^{p-1}(\cos\theta)^{q-1} \cos\theta\sin\theta\;d\theta\\
     B(p,q)&=2\int_{0}^{\pi/2} (\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta\quad\blacksquare
@@ -200,7 +229,7 @@ For the second form, we put $x = y/(1 + y)$ and $dx=dy/(1+y)^2$
     B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}
 \end{equation*}
 
-\emph{Proof.} First we consider the gamma function of $p$
+\paragraph{Proof.} First we consider the gamma function of $p$
 \begin{equation*}
     \Gamma(p)=\int_{0}^{\infty}t^{p-1}e^{-t}\;dt
 \end{equation*}
@@ -230,17 +259,17 @@ There is also closely related integrals which are used and sometimes referred to
 Here are some of their relations.
 \begin{align*}
     \Phi(x)&=\frac{1}{2}+\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr)\\
-    \Phi(x)-\frac{1}{2}&=\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr)\\
     \erf(x)&=2\Phi\bigl(x\sqrt{2}\bigr)-1
 \end{align*}
 
-\emph{Proof.} Consider the definition of $\Phi(x)$. Making the substitution of $u=t/\sqrt{2}$
+\paragraph{Proof.} Consider the definition of $\Phi(x)$. Making the substitution of $u=t/\sqrt{2}$
 \begin{align*}
     \Phi(x)&=\frac{1}{\sqrt{2\pi}}\int_{u=-\infty}^{u=x/\sqrt{2}}e^{-u^2}\sqrt{2}\;du\\
     &=\frac{1}{\sqrt{\pi}} \biggl(\int_{-\infty}^{0}e^{-u^2}\;du+ \int_{0}^{\infty}e^{-u^2}\;du\biggr)\\
     \Phi(x)&=\frac{1}{2}+\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr)\quad\blacksquare
 \end{align*}
-To prove the third relation, we first rewrite the equation as
+
+\paragraph{Proof of the second relation.} To prove the third relation, we first rewrite the equation as
 \begin{align*}
     \erf\bigl(x/\sqrt{2}\bigr)= 2\Phi(x)-1
 \end{align*}
@@ -259,7 +288,7 @@ Its relations with the actual error function are as follows.
     \erfc\big(x/\sqrt{2}\big)&=\sqrt{\frac{2}{\pi}}\int_{x}^{\infty}e^{-t^2/2}\;dt
 \end{align*}
 
-\emph{Proof.} The first relation is quite easy to prove. Consider
+\paragraph{Proof of the first relation.} The first relation is quite easy to prove. Consider
 \begin{equation*}
     \frac{2}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-t^2}\;dt=1
 \end{equation*}
@@ -268,7 +297,8 @@ then
     \frac{2}{\sqrt{\pi}}\biggl(\int_{-\infty}^{x}e^{-t^2}+\int_{x}^{\infty}e^{-t^2}\biggr)&=1\\
     \erf(x)+\erfc(x)=1\quad\blacksquare
 \end{align*}
-To proof the second relation, we substitute the limit of integration from $t=x/\sqrt{2}$ into $x=t\sqrt{2}$
+
+\paragraph{Proof of the second relation.} To proof the second relation, we substitute the limit of integration from $t=x/\sqrt{2}$ into $x=t\sqrt{2}$
 \begin{align*}
     \erfc\bigl(x/\sqrt{2}\bigr)=\frac{2}{\sqrt{\pi}}\int_{x}^{\infty}\frac{e^{t^2/2}}{\sqrt{2}}\;dt=\sqrt{\frac{2}{\pi}}\int_{x}^{\infty}e^{-t^2/2}\;dt\quad\blacksquare
 \end{align*}
