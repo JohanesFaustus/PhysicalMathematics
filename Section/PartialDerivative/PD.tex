@@ -1,5 +1,10 @@
 \documentclass[../../Main.tex]{subfiles}
 \begin{document}
+\subsubsection*{Total Diferential}
+For a function $f=f(x,y,z,\dots)$, its total derivative is defined as 
+\begin{equation*}
+    df=\frac{\partial f}{\partial x}\;dx + \frac{\partial f}{\partial y}\;dy  + \frac{\partial f}{\partial z}\;dz 
+\end{equation*}
 \subsection*{Identity Involving Partial Derivative}
 The Jacobian of $[u(x,y), v(x,y)]$ with respect to $(x, y)$ is defined by
 \begin{equation*}
@@ -242,4 +247,41 @@ Putting it all together, to optimize $f(x,y,z)$ with constraint $\phi(x,y,z)$, w
     F(x,y,z)=f(x,y,z)+\lambda_1\phi_1(x,y,z)+\lambda_2\phi_2(x,y,z)
 \end{equation*}
 As aside, the function that we want to optimize need not to a function of three variable $x,\;y,\;z$. The previous derivation can be justified for any number of variable. Of course, with more variable there are more variables.
+
+\subsection*{Leibniz’ rule for Integral}
+Differentiation under integral sign stated by Leibniz' rule
+\begin{equation*}
+    \frac{d}{dx}\int_{u(x)}^{v(x)}f(x,t)\;dt=\int_{u}^{v}\frac{\partial f}{\partial x}\;dt + f(x,v)\frac{dv}{dx}-f(x,u)\frac{du}{dx}
+\end{equation*}
+
+\subsubsection*{Proof.} Suppose we want $dI/dx$ where
+\begin{equation*}
+    I=\int_{u }^{v }f(t)\;dt
+\end{equation*}
+By the fundamental theorem of calculus
+\begin{equation*}
+    I=F(v)-F(u)=\mathcal{F}(v,u)
+\end{equation*}
+or $I$ is a function of $v$ and $u$. Finding $dI/dx$ is then a partial diﬀerentiation problem. We can write
+\begin{equation*}
+    \frac{dI}{dx}=\frac{\partial I}{\partial v}\frac{dv}{dx}+\frac{\partial I}{\partial u}\frac{du}{dx}
+\end{equation*}
+By the fundamental theorem of calculus, we have 
+\begin{align*}
+    \frac{d}{dv}\int_{a}^{v}f(x)\;dt&=\frac{d}{dv}\bigl[F(v)-F(a)\bigr]=f(v)\\
+    \frac{d}{dv}\int_{u}^{b}f(x)\;dt&=\frac{d}{dv}\bigl[F(b)-F(u)\bigr]=-f(u)
+\end{align*}
+where $u$ and $v$ are a function of $x$, while $a$ and $b$ are a constant. This is the case when we consider $\partial I/\partial v$ or $\partial I/\partial v$; the other variable is constant. Then 
+\begin{equation*}
+    \frac{d}{dx}\int_{u }^{v }f(t)\;dt=f(v)\frac{dv}{dx}-f(u)\frac{du}{dx}
+\end{equation*}
+
+Under not too restrictive conditions, 
+\begin{equation*}
+    \frac{d}{dx}\int_{a }^{b }f(x,t)\;dt =\int_{a }^{b }\frac{\partial f(x,t)}{\partial x}\;dt
+\end{equation*}
+where, as before, $a$ and $b$ are constant. In other words, we can differentiate under the integral sign. It is convenient to collect these formulas into one formula known as Leibniz' rule:
+\begin{equation*}
+    \frac{d}{dx}\int_{u(x)}^{v(x)}f(x,t)\;dt=\int_{u}^{v}\frac{\partial f}{\partial x}\;dt + f(x,v)\frac{dv}{dx}-f(x,u)\frac{du}{dx}\quad\blacksquare
+\end{equation*}
 \end{document}
