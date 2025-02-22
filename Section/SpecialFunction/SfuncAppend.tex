@@ -1,0 +1,54 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\subsection*{Appendix: Using Gamma Function to Evaluate Integral}
+\subsubsection*{Ex. 1.} Consider
+\begin{equation*}
+    \int_{0}^{3}x^3e^{-4x^2}=\frac{\gamma(4,32)}{2\cdot4^2}
+\end{equation*}
+
+\subsubsection*{Ex. 2.} Consider
+\begin{equation*}
+    \int_{1}^{2}x^3e^{-x}\;dx=\gamma(4,2)-\gamma(4,1)
+\end{equation*}
+
+\subsubsection*{Ex. 3.} The distribution function for classical partial with respect to its energy is given by 
+\begin{equation*}
+    n(\epsilon)=\frac{2\pi N}{(\pi kT)^{3/2}}\epsilon^{1/2}\exp \left(-\frac{\epsilon}{kT}\right)
+\end{equation*}
+Suppose we want to determine the fraction of particle with energy more than $\epsilon \geq 3kT$. Said fraction is determined first find the number of particle within the range of energy
+\begin{equation*}
+    n(\epsilon \geq 3kT)=\int_{0}^{3kT}\frac{2\pi N}{(\pi kT)^{3/2}}\epsilon^{1/2}\exp \left(-\frac{\epsilon}{kT}\right)\;d\epsilon
+\end{equation*}
+By substituting $\epsilon/kT=x$, we have $\epsilon=kTx$ and $d\epsilon=kT\;dx$
+\begin{equation*}
+    n(\epsilon \geq 3kT)=\frac{2N}{\sqrt{\pi}}\int_{0}^{3}x^{1/2}\exp \left(-x\right)\;dx=\frac{2N}{\sqrt{\pi}}=\frac{2N}{\sqrt{\pi}}\gamma\left(\frac{3}{2},3\right)
+\end{equation*}
+
+Then the fraction
+\begin{equation*}
+    F=\frac{n(\epsilon \geq 3kT)}{N}=\frac{2}{\sqrt{\pi}}\gamma\left(\frac{3}{2},3\right)
+\end{equation*}
+
+\subsubsection*{Ex. 4.} Now suppose we want to find the fraction of particle whose speed lies within $(\sqrt{2kT/m}, \sqrt{8kT/m})$ where its distribution function is given by 
+\begin{equation*}
+    n(v)=4\pi N\left(\frac{m}{2\pi kT}\right)^{3/2}v^2\exp\left(-\frac{mv^2}{2kT}\right)
+\end{equation*}
+The number of particle within said range is 
+\begin{multline*}
+    n\left(\sqrt{\frac{2kT}{m}}\leq v\leq \sqrt{\frac{8kT}{m}}\right)=4\pi N\left(\frac{m}{2\pi kT}\right)^{3/2}\\
+    \int_{\sqrt{2kT/m}}^{\sqrt{8kT/m}}v^2\exp\left(-\frac{mv^2}{2kT}\right)\;dv
+\end{multline*}
+By substituting $mv^2/2kT=x^2$, we have 
+\begin{equation*}
+    v^2=\frac{2kT}{m}x^2\quad\text{and}\quad dv=\sqrt{\frac{2kT}{m}}\;dx
+\end{equation*}
+and limit of 
+\begin{align*}
+    v=\sqrt{\frac{2kT}{m}}&\implies x=1\\
+    v=\sqrt{\frac{8kT}{m}}&\implies x=2
+\end{align*}
+Then 
+\begin{align*}
+    n=\frac{4N}{\sqrt{\pi}}\frac{m}{2kT}\int_{1}^{2}\frac{2kT}{m}x^2 e^{-x^2} \sqrt{\frac{ 2kT}{m }}\;dx=\frac{4N}{\sqrt{\pi}}\left[\gamma(1.5,1)-\gamma(1.5,2)\right]
+\end{align*}
+\end{document}

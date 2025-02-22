@@ -33,6 +33,15 @@ From this we have
     \Gamma(p-1)&=p\Gamma(p)\quad\blacksquare
 \end{align*}
 
+\subsubsection*{Incomplete gamma function.} Supose the limit of the integral of gamma function is not ($0,\infty$). We define the result function as incomplete gamma function. The first kind is the lower gamma function 
+\begin{equation*}
+    \gamma (p,t)=\int_{0}^{t}x^{p-1}e^{-x}\;dx
+\end{equation*}
+while the second is the upper gamma function
+\begin{equation*}
+    \Gamma (p,t)=\int_{t }^{\infty}x^{p-1}e^{-x}\;dx
+\end{equation*}
+
 \subsubsection*{Negative numbers.} We shall now deﬁne gamma function for $p\leq 0$ by the recursion 
 relation 
 \begin{equation*}
@@ -143,6 +152,12 @@ Damn, it is really more shrimple.
     \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)\\
     \int_{-\infty}^{\infty}\exp \left(\frac{1}{2}ix^2\right)\;dx& = \sqrt{2\pi}\exp \left(\frac{\pi}{4}i\right) 
 \end{align*}
+And also for incomplete gamma integral
+\begin{align*}
+    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx &= \frac{\Gamma (m+1,s\alpha)}{\alpha^{m+1}}\\
+    \int_{s}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2},s\alpha\right)\\
+\end{align*}
+
 Here's another one, not really a Gaussian integral, but since it involves natural number it counts
 \begin{equation*}
     \sum_{n=0}^{\infty}n^ke^{-nk}=(-1)^k\frac{d^k}{dk^k}\sum_{n=0}^{\infty}e^{-nx}=(-1)\frac{d^k}{dk^k}\frac{1}{1-e^{-x}}
@@ -156,19 +171,39 @@ Substitute $\alpha x=t$ and $dx=dt/\alpha$
 \begin{equation*}
     \int_{0}^{\infty} \left(\frac{t}{\alpha}\right)^m \frac{\exp(-t)}{\alpha}\;dt=\frac{1}{\alpha^{m+1}}\int_{0}^{\infty} x^{m}e^{-  x}\;dx=\frac{\Gamma (m+1)}{\alpha^{m+1}}\quad\blacksquare
 \end{equation*}
+Now suppose the limit is not ($0,\infty$), say  ($s,\infty$). Those limits transform
+\begin{align*}
+    x&=s\implies t=\alpha s\\
+    x&=\infty\implies t=\infty
+\end{align*}
+Thus
+\begin{equation*}
+    \int_{s\alpha }^{\infty} \left(\frac{t}{\alpha}\right)^m \frac{\exp(-t)}{\alpha}\;dt=\frac{1}{\alpha^{m+1}}\int_{\alpha s}^{\infty} x^{m}e^{-  x}\;dx=\frac{\Gamma (m+1, s\alpha )}{\alpha^{m+1}}\quad\blacksquare
+\end{equation*}
 
 \paragraph{Proof of the second integral.} Consider 
 \begin{equation*}
     \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx
 \end{equation*}
-By substituting $\alpha x^2$, we have the following variable
+By substituting $t=\alpha x^2$, we have the following variable
 \begin{equation*}
-    x=\sqrt{\frac{t}{a}}\quad\text{and}\quad dx=\frac{1}{2\sqrt{\alpha t}}\;dt
+    x=\sqrt{\frac{t}{\alpha}}\quad\text{and}\quad dx=\frac{1}{2\sqrt{\alpha t}}\;dt
 \end{equation*}
 Thus our integral transforms into 
 \begin{multline*}
-    \int_{0}^{\infty}\left(\frac{t}{a}\right)^{m/2} \frac{\exp (-t)}{2\sqrt{\alpha t}}\; dx=\frac{1}{2\alpha^{(m+1)/2}} \int_{0}^{\infty} t^{(m+1)/2}\exp(-t)\;dt \\
+    \int_{0}^{\infty}\left(\frac{t}{\alpha}\right)^{m/2} \frac{\exp (-t)}{2\sqrt{\alpha t}}\; dt=\frac{1}{2\alpha^{(m+1)/2}} \int_{0}^{\infty} t^{(m+1)/2}\exp(-t)\;dt \\
     =\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\quad \blacksquare
+\end{multline*}
+
+Now suppose the limit is not ($0,\infty$), say  ($s,\infty$). Those limits transform
+\begin{align*}
+    x&=s\implies t=\alpha s^2\\
+    x&=\infty\implies t=\infty
+\end{align*}
+Thus
+\begin{multline*}
+    \int_{\alpha s^2}^{\infty}\left(\frac{t}{\alpha}\right)^{m/2} \frac{\exp (-t)}{2\sqrt{\alpha t}}\; dt=\frac{1}{2\alpha^{(m+1)/2}} \int_{\alpha s^2}^{\infty} t^{(m+1)/2}\exp(-t)\;dt \\
+    =\frac{1}{2\alpha^{(m+1)/2} } \Gamma\left(\frac{m+1}{2}, \alpha s^2\right)\quad \blacksquare
 \end{multline*}
 
 \paragraph{Proof of the third integral.} 404.
