@@ -368,4 +368,54 @@ for real $p>1$. Here are some value of the Riemann zeta function
     \int_{0}^{\infty}\frac{x^{p-1}}{e^x+1}dx& = \left(1-2^{1-p}\right)\Gamma(p) \zeta(p)
 \end{align*}
 
+\subsection*{Striling's Formula}
+Used to express $n!$ or its logaritm for large $n$.
+\begin{equation*}
+    n!\sim n^ne^{-n}\sqrt{2\pi n}
+\end{equation*}
+And for its logaritm
+\begin{equation*}
+    \ln n!=n\ln n- n
+\end{equation*}
+
+\paragraph*{Proof.} By the definition
+\begin{equation*}
+    p!=\int_{0}^{\infty}x^pe^{-x}\;dx
+\end{equation*} 
+We the re write it as 
+\begin{equation*}
+    p!=\int_{0}^{\infty}\exp\left(p\ln x-x\right)\;dx 
+\end{equation*}
+Substitute $x=p+y\sqrt{p}$ and $dx=\sqrt{p}\;dy$
+\begin{equation*}
+    p!=\int_{-\sqrt{p}}^{\infty}\exp\left[p\ln \left(p+y\sqrt{p} \right)-p-y\sqrt{p}\right]\sqrt{p}\;dy 
+\end{equation*}
+The logaritm above may be expressed as 
+\begin{equation*}
+    \ln \left(p+y\sqrt{p} \right)=\ln p+\ln \left(1+\frac{y}{\sqrt{p}}\right)
+\end{equation*}
+Recall the infinite series representation of 
+\begin{equation*}
+    \ln (1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\dots
+\end{equation*}
+Hence 
+\begin{equation*}
+    \ln \left(p+y\sqrt{p} \right)=\ln p+\frac{y}{\sqrt{p}}-\frac{y^2}{2p}+\frac{y^3}{3p^{3/2}}-\dots
+\end{equation*}
+Then substituting back 
+\begin{equation*}
+    p!=\int_{-\sqrt{p}}^{\infty}\exp\left[p\ln p + \left(\frac{py}{\sqrt{p}}-\frac{py^2}{2p}+\frac{py^3}{3p^{3/2}}-\dots\right)-p-y\sqrt{p}\right]\sqrt{p}\;dy 
+\end{equation*}
+Pulling the constant out of the integral 
+\begin{equation*}
+    p!=p^pe^{-p}\sqrt{p}\int_{-\sqrt{p}}^{\infty}\exp\left[-\frac{y^2}{2}+\frac{y^3}{3p^{1/2}}-\dots\right]\;dy 
+\end{equation*}
+For larger $p$, the integral approach the gaussian integral. Therefore
+\begin{equation*}
+    p!\sim p^pe^{-p}\sqrt{2\pi p}\quad \blacksquare
+\end{equation*}
+If we take the its logaritm, the square root term will be negligible and ae are able to write 
+\begin{equation*}
+    \ln p!\sim p\ln p- p\quad \blacksquare
+\end{equation*}
 \end{document}
