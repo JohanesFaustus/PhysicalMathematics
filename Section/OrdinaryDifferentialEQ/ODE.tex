@@ -237,4 +237,149 @@ We also assume that the first coefficient, that is $a_0$, is not zero. Computing
     \item Solve it in terms of $a_n=-a_{n-2}$! (not factorial!)
     \item As a check, put $n=2$ at $a_n$ not $n=0$! (also not factorial!)
 \end{enumerate}
+
+\subsection*{Bessel Function}
+The first kind of Bessel function is written as 
+\begin{align*}
+    J_p(x)&=\sum_{n=0}^{\infty}\frac{(-1)^n(x/2)^{2n+p}}{\Gamma(n+1)\Gamma(n+p+1)}\\
+    J_{-p} (x)&=\sum_{n=0}^{\infty}\frac{(-1)^n(x/2)^{2n-p}}{\Gamma(n+1)\Gamma(n-p+1)}
+\end{align*}
+While the second kind is 
+\begin{equation*}
+    N_p(x)=\frac{\cos(\pi p)J_p(x)-J_{-p}(x)}{\sin(\pi p)}
+\end{equation*}
+
+The Bessel function is used to solve the Bessel's equation of order $p$
+\begin{equation*}
+    x^2 y'' + xy' + (x^2- p^2 )y = 0
+\end{equation*}
+with the solution written as 
+\begin{equation*}
+    y=AJ_p(x)+BN_p(x)
+\end{equation*}
+Another form of Bessel's equation is 
+\begin{equation*}
+    x(xy')' + (K^2x^2- p^2 )y = 0
+\end{equation*}
+and the solution is 
+\begin{equation*}
+    y=AJ_p(Kx)+BN_p(Kx)
+\end{equation*}
+Another equation that can be solved by Bessel function
+\begin{equation*}
+    y''+ \frac{1-2a}{x}y'+ \left[(bcx^{c-1})^2+ \frac{a^2-p^2c^2}{x^2}\right]
+\end{equation*}
+The solution is 
+\begin{equation*}
+    y=x^a Z_p(bx^c)
+\end{equation*}
+where $a,\;b,\;c,\;p$ are constant and $Z$ denote $J$ or $N$ or any linear combination of them.
+
+\subsubsection*{Derivation.} First we write the Bessel's equation as 
+\begin{equation*}
+    x(xy')'+ (x^2-p^2)y=0
+\end{equation*}
+By the Frobenius' method
+\begin{align*}
+    y&=\sum_{n=0}^{\infty} a_nx^{n+s}\\
+    xy'&=\sum_{n=0}^{\infty} a_n(n+s) x^{n+s}\\
+    (xy')'&=\sum_{n=0}^{\infty} a_n(n+s)^2 x^{n+s-1}
+\end{align*}
+and 
+\begin{align*}
+    x(xy')'&=\sum_{n=0}^{\infty} a_n(n+s)^2 x^{n+s}\\
+    x^2y&=\sum_{n=0}^{\infty} a_n x^{n+s+2}\\
+    -p^2y&=-\sum_{n=0}^{\infty} a_np^2x^{n+s}
+\end{align*}
+Tabulate them
+\begin{center}
+$\begin{array}{c || c c c}
+  &x^{n+s}&x^s&x^{s+1}\\
+  \hline\hline
+  x(xy')' &a_n(n+s)^2 &a_0s^2 &a_1(s+1)^2\\
+  x^2y &a_{n-2}&- &-\\
+  -p^2y &-a_np^2&-a_0p^2&-a_1p^2
+\end{array}$
+\end{center}
+
+From this we have the indicial equation
+\begin{equation*}
+    s^2-p^2=0\implies s=\pm p
+\end{equation*}
+
+And the general formula of the coefficient
+\begin{equation*}
+    a_n=-\frac{a_{n-2}}{(n+s)^2-p^2}
+\end{equation*}
+For $s=\pm p$ and odd $n$, the coefficient is zero; proved by 
+\begin{equation*}
+    a_1\left[(s+1)^2-p^2\right]=a_1\left[2p+1\right]=0\implies a_1=0 
+\end{equation*} 
+
+We begin first for the case $s=p$. The coefficient is given by 
+\begin{equation*}
+    a_n=-\frac{a_{n-2}}{(n+p)^2-p^2}=-\frac{a_{n-2}}{n^2-2np}=-\frac{a_{n-2}}{n(n+2p)}
+\end{equation*}
+For even $n$, we write
+\begin{equation*}
+    a_{2n}=-\frac{a_{2n-2}}{2n(2n+2p)}= -\frac{a_{2n-2}}{2^2n(n+p)}
+\end{equation*}
+The coefficients for few odd $n$ are as follows.
+\begin{align*}
+    a_2&=-\frac{a_0}{2^2(p+1)}=-\frac{a_0\Gamma(p+1)}{2^2\Gamma(p+2)}\\
+    a_4&=-\frac{a_2}{2^22(p+2)}=-\frac{a_2\Gamma(p+2)}{2^22\Gamma(p+3)}=\frac{a_0\Gamma(p+1)}{2^42!\Gamma(p+3)}\\
+    a_6&=-\frac{a_4}{2^23(p+3)}=-\frac{a_4\Gamma(p+3)}{2^23\Gamma(p+4)}=-\frac{a_0\Gamma(p+1)}{2^63!\Gamma(p+4)}
+\end{align*}
+
+The solution is written
+\begin{align*}    
+    y=&\;\sum_{n=0}^{\infty} a_nx^{n+p}=a_0x^p+a_2x^{p+2}+a_4 x^{p+4}+a_6x^{p+6}\\
+    =&\;a_0x^p\Gamma(p+1)\bigg[\frac{1}{\Gamma(p+1)}- \frac{(x/2)^2}{\Gamma(p+2)}+\frac{(x/2)^4}{2!\Gamma(p+3)}\\
+    &\quad- \frac{(x/2)^6}{3!\Gamma(p+4)}+\dots\bigg]\\
+    =&\;a_02^p\Gamma(p+1)\left(\frac{x}{2}\right)^p\bigg[\frac{1}{\Gamma(1)\Gamma(p+1)}- \frac{(x/2)^2}{\Gamma(2)\Gamma(p+2)}+\frac{(x/2)^4}{\Gamma(3)\Gamma(p+3)}\\
+    &\quad- \frac{(x/2)^6}{\Gamma(4)\Gamma(p+4)}+\dots\bigg]
+\end{align*}
+If we define 
+\begin{equation*}
+    a_0=\frac{1}{2p\Gamma(p+1)}
+\end{equation*}
+then the solution, which is defined as $J_p(x)$, is written
+\begin{multline*}
+    J_p(x)=\frac{(x/2)}{\Gamma(1)\Gamma(p+2)}-\frac{(x/2)^{p+2}}{\Gamma(3)\Gamma(p+3)} +\frac{(x/2)^{p+4}}{\Gamma(3)\Gamma(p+3)} \\
+    -\frac{(x/2)^{p+6}}{\Gamma(4)\Gamma(p+4)} +\dots
+\end{multline*}
+or
+\begin{equation*}
+    J_p(x)=\sum_{n=0}^{\infty}\frac{(-1)^n(x/2)^{2n+p}}{\Gamma(n+1)\Gamma(n+p+1)}
+\end{equation*}
+
+Next we consider the solution for $s=-p$. Since the steps are the same, we only need to change the sign of $p$. The solution is written
+\begin{equation*}
+    J_{-p} (x)=\sum_{n=0}^{\infty}\frac{(-1)^n(x/2)^{2n-p}}{\Gamma(n+1)\Gamma(n-p+1)}
+\end{equation*}
+
+As an aside, for the Bessel equation written in the form 
+\begin{equation*}
+    x^2y'' +xy' + (K^2x^2- p^2 )y = 0
+\end{equation*}
+All the terms are unchanged except the term 
+\begin{equation*}
+    K^2x^2y=\sum_{n=0}^{\infty} a_n K^2x^{n+s+2}
+\end{equation*}
+This will resul the change of argument in the Bessel equation from $Z(x)$ into $Z(Kx)$.
+
+\subsubsection*{Recursion relation.} Here are few relation of Bessel function with its derivative.
+\begin{flalign*}
+    \begin{aligned}
+        &\frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
+        &\frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}_{p+1}(x)\\
+        &J_{p-1}(x)+J(p+1)(x)=\frac{2p}{x}J_p(x)\\
+        &J_{p-1}(x)- J_{p+1}(x)=2J'(x)\\
+        &J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
+    \end{aligned}
+\end{flalign*}
+And bonus relation that only apply for integral $p$
+\begin{equation*}
+    J_{-p}(x)=(-1)^pJ_p{x},\quad J_p(-x)=(-1)^nJ_n(x)
+\end{equation*}
 \end{document}
