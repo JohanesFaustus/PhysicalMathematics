@@ -42,7 +42,7 @@ while the second is the upper gamma function
     \Gamma (p,t)=\int_{t }^{\infty}x^{p-1}e^{-x}\;dx
 \end{equation*}
 
-\subsubsection*{Negative numbers.} We shall now deﬁne gamma function for $p\leq 0$ by the recursion 
+\subsubsection*{Negative numbers.} We shall now deifne gamma function for $p\leq 0$ by the recursion 
 relation 
 \begin{equation*}
     \Gamma(p)=\frac{\Gamma(p+1)}{p}
@@ -283,6 +283,15 @@ Like Gaussian integral, this is easier to evaluate in polar coordinate
     \Gamma(p)\Gamma(q)&=\Gamma(p+q)B(p,q)\quad\blacksquare
 \end{align*}
 
+\subsubsection*{Incomplete beta function.} Defined as follows.
+\begin{equation*}
+    B_t(p,q)=\int_{0}^{t}x^{p-1}(1-x)^{q-1}\;dx
+\end{equation*}
+This definition is using the first definition of beta function, so for any other definition, say the trigonometric form, we must then change it back into our first derinition using whatever substitution. There is also the ratio
+\begin{equation*}
+    I_t=\frac{B_t(p,q)}{B(p,q)}
+\end{equation*}
+
 \subsection*{Error Function} We define error function as 
 \begin{equation*}
     \erf(x)=\frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-t^2}\;dt
@@ -382,7 +391,7 @@ And for its logaritm
 \begin{equation*}
     p!=\int_{0}^{\infty}x^pe^{-x}\;dx
 \end{equation*} 
-We the re write it as 
+We then rewrite it as 
 \begin{equation*}
     p!=\int_{0}^{\infty}\exp\left(p\ln x-x\right)\;dx 
 \end{equation*}
@@ -410,11 +419,11 @@ Pulling the constant out of the integral
 \begin{equation*}
     p!=p^pe^{-p}\sqrt{p}\int_{-\sqrt{p}}^{\infty}\exp\left[-\frac{y^2}{2}+\frac{y^3}{3p^{1/2}}-\dots\right]\;dy 
 \end{equation*}
-For larger $p$, the integral approach the gaussian integral. Therefore
+For larger $p$, the integral approach the gaussian integral. Therefore,
 \begin{equation*}
     p!\sim p^pe^{-p}\sqrt{2\pi p}\quad \blacksquare
 \end{equation*}
-If we take the its logaritm, the square root term will be negligible and ae are able to write 
+If we take its logaritm, the square root term will be negligible and ae are able to write 
 \begin{equation*}
     \ln p!\sim p\ln p- p\quad \blacksquare
 \end{equation*}
