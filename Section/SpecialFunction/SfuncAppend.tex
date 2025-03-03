@@ -52,4 +52,83 @@ Then
     n=\frac{4N}{\sqrt{\pi}}\frac{m}{2kT}\int_{1}^{2}\frac{2kT}{m}x^2 e^{-x^2} \sqrt{\frac{ 2kT}{m }}\;dx=\frac{4N}{\sqrt{\pi}}\left[\gamma(1.5,1)-\gamma(1.5,2)\right]
 \end{align*}
 
+\subsection*{Appendix: Using Beta Function to Evaluate Integral}
+\subsubsection*{Ex. 1.} Consider
+\begin{equation*}
+    I=\int_{0}^{\pi/2}\cos^n\theta\;d\theta
+\end{equation*}
+In terms of beta function
+\begin{equation*}
+    I=\frac{1}{2}B\left(\frac{n+1}{2},\frac{1}{2}\right)=\frac{1}{2}\frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma\left(\frac{n}{2}+1\right)}
+\end{equation*}
+
+For the case of odd $n$, we write 
+\begin{equation*}
+    \Gamma\left(\frac{n+1}{2}\right)=\frac{n-1}{2}\frac{n-3}{2}\dots1=\frac{(n-1)!!}{2^{(n-1)/2}}
+\end{equation*}
+where its argument is an even number. We also write 
+\begin{equation*}
+    \Gamma\left(\frac{n}{2}+1\right)= \frac{n}{2}\left(\frac{n-2}{2}\right)\dots\sqrt{\pi}=\frac{n!!\sqrt{\pi}}{2^{(n+1)/2}}
+\end{equation*}
+where its argument is an odd number. Hence, 
+\begin{equation*}
+    I=\frac{(n-1)!!}{n!!}
+\end{equation*}
+
+For the case of even $n$, we then write 
+\begin{equation*}
+    \Gamma\left(\frac{n+1}{2}\right)=\frac{n-1}{2}\frac{n-3}{2}\dots\sqrt{\pi}=\frac{\sqrt{\pi}(n-1)!!}{2^{(n+1)/2}}
+\end{equation*}
+where its argument is an odd number. We also write 
+\begin{equation*}
+    \Gamma\left(\frac{n}{2}+1\right)= \frac{n}{2}\left(\frac{n-2}{2}\right)\dots1=\frac{n!!}{2^{(n-1)/2}}
+\end{equation*}
+where its argument is an even number. Hence, 
+\begin{equation*}
+    I=\frac{\pi}{2}\frac{(n-1)!!}{n!!}
+\end{equation*}
+
+Putting it all together
+\begin{equation*}
+    \int_{0}^{\pi/2}\cos^n\theta\;d\theta=\begin{cases}
+        \dfrac{(n-1)!!}{n!!},&\text{for odd $n$}\\\\
+        \dfrac{\pi}{2}\dfrac{(n-1)!!}{n!!},&\text{for even $n$}
+    \end{cases}
+\end{equation*}
+
+\subsubsection*{Ex. 2} Consider 
+\begin{equation*}
+    I=\int_{-1}^{1}x^{2n}(1-x^2)^{1/2}\;dx
+\end{equation*}
+Since the integrand is an even function, we write 
+\begin{equation*}
+    I=2\int_{0}^{1}x^{2n}(1-x^2)^{1/2}\;dx
+\end{equation*}
+Substituting $t=x^2$ and $dt=2\sqrt{t}\;dx$ and writing the resulting integral in terms of beta function
+\begin{equation*}
+    I=\int_{0}^{1}t^{(2n-1)/2}(1-t)^{1/2}\;dt=B\left(n+\frac{1}{2}, \frac{3}{2}\right)
+\end{equation*}
+In terms of gamma function
+\begin{equation*}
+    I=\frac{\Gamma\left(\frac{3}{2}\right)\Gamma\left(n+\frac{1}{2}\right)}{\Gamma(n+2)}
+\end{equation*}
+For any even and odd $n$, we write 
+\begin{equation*}
+    \Gamma\left(n+\frac{1}{2}\right)=\left(\frac{2n-1}{2}\right)\left(\frac{2n-3}{2}\right) \dots \sqrt{\pi}=\frac{(2n-1)!!}{2^n}\sqrt{\pi}
+\end{equation*}
+and 
+\begin{equation*}
+    \Gamma(n+2)=\frac{(2n+2)!!}{2^{n+1}}
+\end{equation*}
+Therefore
+\begin{equation*}
+    I= \frac{(2n-1)!!}{(2n+1)!!}\pi
+\end{equation*}
+Since the result differ for different $n$, we then evaluate for both case and write 
+\begin{equation*}
+    \int_{-1}^{1}x^{2n}(1-x^2)^{1/2}\;dx=\begin{cases}
+        \dfrac{\pi}{2},&\text{for $n=0$}\\\\
+        \dfrac{(2n-1)!!}{(2n+1)!!}\pi,&\text{for interger $n>0$}
+    \end{cases}
+\end{equation*}
 \end{document}
