@@ -389,6 +389,53 @@ Consider scalar function $u$, which may represent gravitational potential in a r
     \nabla^2 u=0
 \end{equation*}
 
+\subsubsection*{Cylindrical domain.} Suppose we evaluate Laplace equation in cylindrical domain. The Laplacian reads
+\begin{equation*}
+    \nabla^2u= \frac{1}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial u}{\partial r}\Biggr)+\frac{1}{r^2} \frac{\partial^2u}{\partial \phi^2}+ \frac{\partial^2u}{\partial z^2}
+\end{equation*}
+By the separation of variables, we assume the solution of $u=R(r)\Phi(\phi)Z(z)$. Thus, the Laplace's equation now reads
+\begin{equation*}
+    \frac{\Phi R}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
+    +\frac{RZ}{r^2} \frac{\partial^2\Phi}{\partial \phi^2}
+    + R\Phi\frac{\partial^2Z}{\partial z^2}=0
+\end{equation*}
+Then we divide by $u=R(r)\Phi(\phi)Z(z)$,
+\begin{equation*}
+    \frac{1}{Rr}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
+    +\frac{1}{\Phi r^2} \frac{\partial^2\Phi}{\partial \phi^2}
+    + \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=0
+\end{equation*}
+Since only last term is the function of $z$ alone, we can safely say that it is a constant. Therefore we define 
+\begin{equation*}
+    \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=K^2\implies Z=Ae^{Kz}+Be^{-KZ}
+\end{equation*}
+Subtituting this value and multiplying by $r^2$, we have
+\begin{equation*}
+    \frac{r}{R}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
+    +\frac{1}{\Phi } \frac{\partial^2\Phi}{\partial \phi^2}
+    +K^2r^2=0
+\end{equation*}
+Now we see that the second term is constant. We define 
+\begin{equation*}
+    \frac{1}{\Phi}\frac{\partial^2 \Phi}{\partial \phi}=-n^2\implies \Phi=C\sin n\theta +D\cos n\theta
+\end{equation*}
+where $n$ is an interger. The reason for said separation constant is due to periodicity. For a position in polar coordinate, we denote them as $\theta+2n\pi$. Hence, for a most physical reason, the position $\theta$ and $\theta+2n\pi$ must give the same result, which is possible if the solution is periodic with period of $2\pi$. Finally, we substitute this and multiplying with $R$ to obtain the radial solution
+\begin{equation*}
+    r\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
+    +(K^2r^2-n^2)R=0
+\end{equation*}
+This is Bessel function, in particular
+\begin{equation*}
+    R=\sum_{m=0}^{\infty}E_mJ_m(Kr)+F_mN_m(Kr)
+\end{equation*}
+Now, Putting it all together, we have the most general solution for the Laplace's equation in cylindrical domain 
+\begin{multline*}
+    u=\sum_{m=0}^{\infty}\left[A_me^{Kz}+B_me^{-KZ}\right]\left[C_m\sin n\theta +D_m\cos n\theta\right]\\
+    \left[E_mJ_m(Kr)+F_mN_m(Kr)\right]
+\end{multline*}
+
+
+
 \subsection*{Poisson’s Equation}
 Consider the same scalar function $u$ as the case of Laplace's equation, however we have a region containing mass, electric charge, or sources of heat or fluid denoted by $f(x,y,z)$. Poisson's equation is written as 
 \begin{equation*}
@@ -416,7 +463,7 @@ Helmholtz's equation is the spatial part of either diffusion or wave equation
 
 \subsection*{Schrodinger's Equation}
 Also known as the wavefunction equation of quantum mechanics
-\begin{equation}
+\begin{equation*}
     -\frac{\hbar^2}{2m}\nabla^2\Psi+V\Psi= i\hbar\frac{\partial \Psi}{\partial t}
-\end{equation}
+\end{equation*}
 \end{document}
