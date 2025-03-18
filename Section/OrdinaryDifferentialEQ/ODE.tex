@@ -39,7 +39,7 @@ and the solution is
 An equation which is not exact may often be made exact by multiplying it by
 an appropriate factor.
 
-\subsubsection*{Homogeneous Equations.} A homogeneous function of $x$ and $y$ of degree $n$ means a function which can be written as $x^nf (y/x)$. An equation in the from
+\subsubsection*{Homogeneous Equations.} A homogeneous function of $x$ and $y$ of degree $n$ means a function which can be written as $x^nf (y/x)$. An equation in the form
 \begin{equation*}
     P (x, y) dx + Q(x, y) dy = 0
 \end{equation*}
@@ -185,7 +185,7 @@ take the Laplace transform of each term, substitute the initial conditions, and 
 \end{equation*}
 Then $y$ the inverse transform of $Y$ in is the inverse transform of a product of two functions whose inverse transforms we know. Let $G(p)$ and $H(p)$ be the transforms of $g(t)$ and $h(t)$
 \begin{equation*}
-    G(p)H(p)=\mathcal{L}(g(t)\cdot h(p))=\mathcal{L}(g*h)
+    G(p)H(p)=\mathcal{L}(g(t)\cdot h(t))=\mathcal{L}(g*h)
 \end{equation*} 
 Thus
 \begin{equation*}
@@ -373,7 +373,7 @@ This will result the change of argument in the Bessel equation from $Z(x)$ into 
     \begin{aligned}
         &\frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
         &\frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}_{p+1}(x)\\
-        &J_{p-1}(x)+J(p+1)(x)=\frac{2p}{x}J_p(x)\\
+        &J_{p-1}(x)+J_{p+1}(x)=\frac{2p}{x}J_p(x)\\
         &J_{p-1}(x)- J_{p+1}(x)=2J'(x)\\
         &J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
     \end{aligned}
@@ -382,4 +382,41 @@ And bonus relation that only apply for integral $p$
 \begin{equation*}
     J_{-p}(x)=(-1)^pJ_p{x},\quad J_p(-x)=(-1)^nJ_n(x)
 \end{equation*}
+
+\subsection*{Laplace's Equation}
+Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
+\begin{equation*}
+    \nabla^2 u=0
+\end{equation*}
+
+\subsection*{Poisson’s Equation}
+Consider the same scalar function $u$ as the case of Laplace's equation, however we have a region containing mass, electric charge, or sources of heat or fluid denoted by $f(x,y,z)$. Poisson's equation is written as 
+\begin{equation*}
+    \nabla^2 u=f(x,y,z)
+\end{equation*}
+
+\subsection*{Heat Flow or Diffusion Equation}
+Now suppose that the temperature is non-steady. The flow of temperature is governed by the equation 
+\begin{equation*}
+    \nabla^2 u=\frac{1}{\alpha}\frac{\partial u}{\partial t}
+\end{equation*}
+where $\alpha$ is a constant called the diﬀusivity.
+
+\subsection*{Wave Equation}
+Here $u$ may represent the displacement from equilibrium; in electricity it may be the current or potential along a transmission line; or it may be a component of \textbf{E} or \textbf{B} in an electromagnetic wave. The equation is written as 
+\begin{equation*}
+    \nabla^2u=\frac{1}{v^2}\frac{\partial^2u}{\partial t^2}
+\end{equation*}
+
+\subsection*{Helmholtz Equation}
+Helmholtz's equation is the spatial part of either diffusion or wave equation
+\begin{equation*}
+    \nabla^2F+k^2F=0
+\end{equation*}
+
+\subsection*{Schrodinger's Equation}
+Also known as the wavefunction equation of quantum mechanics
+\begin{equation}
+    -\frac{\hbar^2}{2m}\nabla^2\Psi+V\Psi= i\hbar\frac{\partial \Psi}{\partial t}
+\end{equation}
 \end{document}
