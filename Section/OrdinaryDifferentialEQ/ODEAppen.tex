@@ -110,4 +110,76 @@ The solution takes the form of
 \begin{equation*}
   y=x^{1/2}Z_{1/3}(2x^{3/2})=x^{1/2}\left[AJ_{1/3}(2x^{3/2})+BN_{1/3}(2x^{3/2})\right]
 \end{equation*}
+
+\subsection*{Steady-state Temperature in a Cylinder}
+Find the steady-state temperature distribution in a semi-infinite solid cylinder of radius $a$ if the base is held at $T$ and the curved sides at 0\textdegree. The boundary condition are 
+\begin{enumerate}
+  \item $u(z=\infty)=0$,
+  \item $u$ does not depend on angular term,
+  \item $u$ converges at origin,
+  \item $u(r=a)=0$, and
+  \item $u(z=0)=100$
+\end{enumerate}
+and the general solution is 
+\begin{multline*}
+  u=\sum_{m=0}^{\infty}\left[A_me^{Kz}+B_me^{-KZ}\right]\left[C_m\sin n\theta +D_m\cos n\theta\right]\\
+  \left[E_mJ_m(Kr)+F_mN_m(Kr)\right]
+\end{multline*}
+We see that the first condition demands that $A_m=0$, the second demands that $n=0$, and the third demands that $F_m=0$. Using the fourth condition on our solution we obtained so far
+\begin{equation*}
+  u(r=a)=GJ_0(Ka)e^{-Kz}=0
+\end{equation*}
+with $G$ as our arbitrary constant. Since the exponential term cannot be zero for arbitrary $z$, the zero must be the Bessel function. We then define 
+\begin{equation*}
+  Ka=k_m
+\end{equation*}
+where $k_m$ is the $m$-th zeros of the Bessel function. Since there are infinite value of them, we write 
+\begin{equation*}
+  u=\sum_{m=1}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)\exp\left(\frac{k_mz}{a}\right)
+\end{equation*}
+All that left is to determine the constant $G_n$, which is obtained from the fourth condition
+\begin{equation*}
+  u(z=0)=\sum_{m=1}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)=T
+\end{equation*} 
+Multiplying by $rJ_0(k_\mu r/a)$ and integrating them from $(0,a)$
+\begin{equation*}
+  \int_{0}^{a}\sum_{m=0}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)J_0\left(\frac{k_\mu r}{a}\right)r\;dr=\int_{0}^{a}TJ_0\left(\frac{k_\mu r}{a}\right)r\;dr
+\end{equation*}
+Let us consider the first integral first. By the only orthoganality of Bessel function, only the term with $m=\mu$ will survive the integral. So we might as well write 
+\begin{equation*}
+  \int_{0}^{a}\sum_{m=0}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)J_0\left(\frac{k_\mu r}{a}\right)r\;dr=\int_{0}^{a}G_mrJ_0^2\left(\frac{k_mr}{a}\right)\;dr
+\end{equation*}
+which evaluate into 
+\begin{equation*}
+  \int_{0}^{a}G_mr\left[J_0\left(\frac{k_mr}{a}\right)\right]^2\;dr=\frac{a^2}{2}G_mJ_1^2
+\end{equation*}
+To evaluate the right side, we need to consider the relation
+\begin{equation*}
+  \frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)
+\end{equation*}
+With $p=1$ and $x=k_mr/a$, the relation turns into 
+\begin{equation*}
+  \frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]=rJ_0\left(\frac{k_m r}{a}\right)
+\end{equation*}
+On using this relation, the right side integral now reads 
+\begin{equation*}
+  \int_{0}^{a}TJ_0\left(\frac{k_\mu r}{a}\right)r\;dr= \int_{0}^{a}T\frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]\;dr
+\end{equation*}
+By the fundamental theorem of calculus, we have 
+\begin{equation*}
+  \int_{0}^{a}T\frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]\;dr=\frac{T_0a^2}{k_m}J_1(k_m)
+\end{equation*}
+Now we equate both side 
+\begin{equation*}
+  \frac{a^2}{2}G_mJ_1^2=\frac{T_0a^2}{k_m}J_1(k_m)
+\end{equation*}
+and solve fo the constant
+\begin{equation*}
+  G_m=\frac{2T_0}{k_mJ_1(k_m)}
+\end{equation*}
+Thus we have the complete solution 
+\begin{equation*}
+  u=\sum_{m=1}^{\infty}\frac{2T_0}{k_mJ_1(k_m)}J_0\left(\frac{k_mr}{a}\right)\exp\left(\frac{k_mz}{a}\right)
+\end{equation*}
+with $k_m$ as the zeros of $J_0$.
 \end{document}
