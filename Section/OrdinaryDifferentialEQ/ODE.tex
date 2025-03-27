@@ -383,6 +383,73 @@ And bonus relation that only apply for integral $p$
     J_{-p}(x)=(-1)^pJ_p{x},\quad J_p(-x)=(-1)^nJ_n(x)
 \end{equation*}
 
+\subsubsection*{Orthogonality.} Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
+\begin{equation*}
+    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
+        0&\alpha\neq \beta\\
+        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
+    \end{cases}
+\end{equation*}
+We can change the integration limit by subtituting $x=r/a$
+\begin{equation*}
+    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
+        0\\
+        \qquad \alpha\neq \beta\\
+        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
+        \qquad\alpha=\beta
+    \end{cases}
+\end{equation*}
+
+To prove the relation orthoganality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
+\begin{align*}
+    x(xy')'+(\alpha^2x^2-p^2)y&=0\\
+    x(xy')'+(\beta^2x^2-p^2)y&=0
+\end{align*}
+which are solved by the functions $J_p(\alpha x)$ and $J_p(\beta x)$ respecttively. For breviety's sake, we define $J_p(\alpha x)\equiv u$,  $J_p(\beta x)\equiv v$ and we write
+\begin{align*}
+    x(xu')'+(\alpha^2x^2-p^2)u&=0\\
+    x(xv')'+(\beta^2x^2-p^2)v&=0
+\end{align*}
+Multiplying the first equation with $u$ and the second with $v$
+\begin{align*}
+    xv(xu')'+(\alpha^2x^2-p^2)uv&=0\\
+    xu(xv')'+(\beta^2x^2-p^2)vu&=0
+\end{align*}
+Subtracting them 
+\begin{align*}
+    xv(xu')'-xu(xv')'+(\alpha^2-p^2)x^2uv&=0\\
+    v(xu')'-u(xv')'+(\alpha^2-p^2)xuv&=0
+\end{align*}
+Note that we can write the first two terms as
+\begin{align*}
+    \frac{d}{dx}\left(vxu'-uxv'\right)&=x'xu'+v(xu)'-u'xv'-u(xv')'\\
+    &=v(xu')'-u(xv')'
+\end{align*}
+On integrating it within $(0,1)$
+\begin{equation*}
+    \left(vxu'-uxv'\right)\bigg|_0^1+\int_{0}^{1}(\alpha^2-p^2)xuv\;dx=0
+\end{equation*}
+By the definition
+\begin{equation*}
+    J_p(\beta)J_p'(\alpha) -J_p(\alpha)j_p'(\beta) +\int_{0}^{1}(\alpha^2-p^2)xJ_p(\alpha)j_p(\beta)\;dx=0
+\end{equation*}
+where the value at lower limit of those two terms are zero. Since both $\alpha$ and $\beta$ are the zeros of the Bessel functions
+\begin{equation*}
+    \int_{0}^{1}(\alpha^2-p^2)xJ_p(\alpha)J_p(\beta)\;dx=0
+\end{equation*}
+If $\alpha\neq\beta$, the terms inside parenthesis are not equal to zero. Hence,
+\begin{equation*}
+    \int_{0}^{1}xJ_p(\alpha)J_p(\beta)\;dx=0
+\end{equation*}
+If $\alpha\neq\beta$, the terms inside parenthesis are not equal to zero. Hence, we can simply divide both side by it and the integral is not zero. To finc its value, suppose that $\beta$ is not a zero, unlike $\alpha$. We can write 
+\begin{equation*}
+    \int_{0}^{1}xJ_p(\alpha)J_p(\beta)\;dx=\frac{\alpha J_p(\beta)J_p(\alpha)}{\beta^2-\alpha^2}
+\end{equation*}
+Now we let $\beta\rightarrow\alpha$ and evaluate the right term using  L'Hôpital's rule to find 
+\begin{equation*}
+    \lim_{\beta\rightarrow\alpha}\frac{\alpha J_p(\beta)J_p'(\alpha)}{\beta^2-\alpha^2} =\lim_{\beta\rightarrow\alpha}\frac{\alpha J_p'(\beta)J_p'(\alpha)}{2\beta}=\frac{1}{2}J_p'(\alpha)
+\end{equation*}
+
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
 \begin{equation*}
@@ -459,7 +526,7 @@ Helmholtz's equation is the spatial part of either diffusion or wave equation
     \nabla^2F+k^2F=0
 \end{equation*}
 
-\subsection*{Schrodinger's Equation}
+\subsection*{Schrödinger's Equation}
 Also known as the wavefunction equation of quantum mechanics
 \begin{equation*}
     -\frac{\hbar^2}{2m}\nabla^2\Psi+V\Psi= i\hbar\frac{\partial \Psi}{\partial t}
