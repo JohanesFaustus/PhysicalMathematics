@@ -275,7 +275,27 @@ The solution is
 \end{equation*}
 where $a,\;b,\;c,\;p$ are constant and $Z$ denote $J$ or $N$ or any linear combination of them.
 
-\subsubsection*{Derivation.} First we write the Bessel's equation as 
+The generating function, expression that encodes an infinite sequence, for Bessel function is 
+\begin{equation*}
+    \exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right] =\sum_{p=-\infty}^{\infty}J_n(x)t^p
+\end{equation*}
+
+Here are few relations of Bessel function with its derivative.
+\begin{flalign*}
+    \begin{aligned}
+        &J_{p-1}(x)+J_{p+1}(x)=\frac{2p}{x}J_p(x)\\
+        &J_{p-1}(x)- J_{p+1}(x)=2J'(x)\\
+        &\frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
+        &\frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}J_{p+1}(x)\\
+        &J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
+    \end{aligned}
+\end{flalign*}
+And bonus relation that only apply for integral $p$
+\begin{equation*}
+    J_{-p}(x)=(-1)^pJ_p{x},\quad J_p(-x)=(-1)^nJ_n(x)
+\end{equation*}
+
+\subsubsection*{Series representation derivation.} First we write the Bessel's equation as 
 \begin{equation*}
     x(xy')'+ (x^2-p^2)y=0
 \end{equation*}
@@ -368,20 +388,58 @@ All the terms are unchanged except the term
 \end{equation*}
 This will result the change of argument in the Bessel equation from $Z(x)$ into $Z(Kx)$.
 
-\subsubsection*{Recursion relation.} Here are few relations of Bessel function with its derivative.
-\begin{flalign*}
-    \begin{aligned}
-        &\frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
-        &\frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}_{p+1}(x)\\
-        &J_{p-1}(x)+J_{p+1}(x)=\frac{2p}{x}J_p(x)\\
-        &J_{p-1}(x)- J_{p+1}(x)=2J'(x)\\
-        &J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
-    \end{aligned}
-\end{flalign*}
-And bonus relation that only apply for integral $p$
+\subsubsection*{Generating function proof.} Proved by writing it out.
+\begin{align*}
+    \exp\left[\frac{xt}{2}\right] \exp\bigg[-\frac{x}{2t}\bigg]&=\sum_{n=0}^{\infty}\frac{(xt/2)^n}{n!}\sum_{m=0}^{\infty} \frac{(-x/2t)^m}{m!}\\
+    \exp\left[\frac{xt}{2}\right] \exp\bigg[-\frac{x}{2t}\bigg]&=\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}(-1)^m\frac{t^{n-m}}{n!m!}\left(\frac{x}{2}\right)^{n+m}
+\end{align*}
+We then define $p\equiv n-m$ to shift the indices
 \begin{equation*}
-    J_{-p}(x)=(-1)^pJ_p{x},\quad J_p(-x)=(-1)^nJ_n(x)
+    \exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right]= \sum_{p=-\infty}^{\infty}\sum_{m=0}^{\infty}\frac{(-1)^m(x/2)^{p+2m}}{(p+m)!m!}t^p=\sum_{p=-\infty}^{\infty}J_p(x)t^p
 \end{equation*}
+
+\subsubsection*{Recursive relation proof.} To prove the first relation, we differentiate the expression for generating function with respect to $t$
+\begin{align*}
+    \frac{x}{2}\left(1+\frac{1}{t^2}\right)\exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right]&=\sum_{p=-\infty}^{\infty}pJ_p(x)t^{p-1}\\
+    \sum_{p=-\infty}^{\infty}\left[J_p(x)+J_{p-2}(x)\right]t^p&= \sum_{p=-\infty}^{\infty}\frac{2p}{x}J_{p+1}t^{p}
+\end{align*}
+Taking the constant for the term $t^p$, we have 
+\begin{equation*}
+    J_p(x)+J_{p-2}(x)=\frac{2p}{x}J_{p+1} 
+\end{equation*}
+
+For the second relation, we differentiate with respect to $x$ instead 
+\begin{align*}
+    \frac{1}{2}\left(t-\frac{1}{t}\right)\exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right]&=\sum_{p=-\infty}^{\infty}J'_p(x)t^{p}\\
+    \sum_{p=-\infty}^{\infty}\left[J_{p+1}(x)+J_{p-1}(x)\right]t^p&= \sum_{p=-\infty}^{\infty}2J'_pt^{p}
+\end{align*}
+and as before, we have 
+\begin{equation*}
+    J_{p+1}(x)+J_{p-1}(x)=2J'_p
+\end{equation*}
+
+For the third relation, we simply evalue the derivative and use both first and second relation
+\begin{align*}
+    \frac{d}{dx}\left[x^pJ_p(x)\right]&= \frac{x^p}{2}\left[J_{p-1}(x)+J_{p+1}(x)\right]+\frac{x^p}{2}\left[J_{p-1}(x)-J_{p+1}(x)\right]\\
+    \frac{d}{dx}\left[x^pJ_p(x)\right]&=x^pJ_{p-1}(x)
+\end{align*}
+
+The fourth relation case is the same with the third 
+\begin{align*}
+    \frac{d}{dx}\left[x^{-p}J_p(x)\right]&= -\frac{x^{-p}}{2}\left[J_{p-1}(x)+J_{p+1}(x)\right]+\frac{x^p}{2}\left[J_{p-1}(x)-J_{p+1}(x)\right]\\
+    \frac{d}{dx}\left[x^{-p}J_p(x)\right]&=x^{-p}J_{p+1}(x)
+\end{align*}
+
+For the fifth, we add both first and second relation to obtain the middle side 
+\begin{align*}
+    2J_{p-1}(x)&=\frac{2p}{x}J_p(x)+2J'_p(x)\\
+    J'_{p}(x)&=J_{p-1}(x)-\frac{p}{x}J_p(x)
+\end{align*}
+and subtract to obtain the right side
+\begin{align*}
+    2J_{p+1}(x)&=\frac{2p}{x}J_p(x)-2J'_p(x)\\
+    J'_{p}(x)&=\frac{p}{x}J_p(x)-J_{p+1}(x)
+\end{align*}
 
 \subsubsection*{Orthogonality.} Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
 \begin{equation*}
