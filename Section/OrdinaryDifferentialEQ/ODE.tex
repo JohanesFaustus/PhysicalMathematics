@@ -388,6 +388,23 @@ All the terms are unchanged except the term
 \end{equation*}
 This will result the change of argument in the Bessel equation from $Z(x)$ into $Z(Kx)$.
 
+\subsubsection*{Orthogonality.} Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
+\begin{equation*}
+    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
+        0&\alpha\neq \beta\\
+        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
+    \end{cases}
+\end{equation*}
+We can change the integration limit by subtituting $x=r/a$
+\begin{equation*}
+    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
+        0\\
+        \qquad \alpha\neq \beta\\
+        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
+        \qquad\alpha=\beta
+    \end{cases}
+\end{equation*}
+
 \subsubsection*{Generating function proof.} Proved by writing it out.
 \begin{align*}
     \exp\left[\frac{xt}{2}\right] \exp\bigg[-\frac{x}{2t}\bigg]&=\sum_{n=0}^{\infty}\frac{(xt/2)^n}{n!}\sum_{m=0}^{\infty} \frac{(-x/2t)^m}{m!}\\
@@ -441,24 +458,7 @@ and subtract to obtain the right side
     J'_{p}(x)&=\frac{p}{x}J_p(x)-J_{p+1}(x)
 \end{align*}
 
-\subsubsection*{Orthogonality.} Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
-\begin{equation*}
-    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
-        0&\alpha\neq \beta\\
-        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
-    \end{cases}
-\end{equation*}
-We can change the integration limit by subtituting $x=r/a$
-\begin{equation*}
-    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
-        0\\
-        \qquad \alpha\neq \beta\\
-        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
-        \qquad\alpha=\beta
-    \end{cases}
-\end{equation*}
-
-To prove the relation orthoganality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
+\subsubsection*{Orthogonality proof.} To prove the relation orthoganality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
 \begin{align*}
     x(xy')'+(\alpha^2x^2-p^2)y&=0\\
     x(xy')'+(\beta^2x^2-p^2)y&=0
@@ -507,6 +507,33 @@ Now we let $\beta\rightarrow\alpha$ and evaluate the right term using  L'Hôpita
 \begin{equation*}
     \lim_{\beta\rightarrow\alpha}\frac{\alpha J_p(\beta)J_p'(\alpha)}{\beta^2-\alpha^2} =\lim_{\beta\rightarrow\alpha}\frac{\alpha J_p'(\beta)J_p'(\alpha)}{2\beta}=\frac{1}{2}J_p'(\alpha)
 \end{equation*}
+
+
+\subsubsection*{Hankel function.} If the first and the second kind of Bessel function are analog to sin and cos, the Hankel function is an analog to $\exp(\pm ix)=\cos x \pm i\sin x$. The function is defined as  
+\begin{align*}
+    H_p^{(1)}(x)&=J_p(x)+iN_p(x)\\
+    H_p^{(2)}(x)&=J_p(x)-iN_p(x)
+\end{align*}
+
+\subsubsection*{Hyperbolic Bessel functions.} This function is the solution of 
+\begin{equation*}
+    x^2y''+xy'-(x^2+p^2)y=0
+\end{equation*}
+and defined as 
+\begin{align*}
+    I_p&=i^{-p}J_p(ix)\\
+    K_p(x)&=\frac{\pi}{2}i^{p+1}H_p^{(1)}(ix)
+\end{align*}
+They are analog to $\sinh x= -isin (ix)$ and $\cosh x=\cos (ix)$ respectively.
+
+\subsubsection*{Spherical Bessel functions.} If $p$ is a half interger
+then the Bessel function $Z_p(x)$ is defined to be spherical Bessel function and defined as follows
+\begin{align*}
+    j_n(x)&=\sqrt{\frac{\pi}{2x}}J_{n+1/2}(x)=x^n\left(-\frac{1}{x}\frac{d}{dx}\right)^n\left(\frac{\sin x}{x}\right)\\
+    y_n(x)&=\sqrt{\frac{\pi}{2x}}Y_{n+1/2}(x)=-x^n\left(-\frac{1}{x}\frac{d}{dx}\right)^n\left(\frac{\cos x}{x}\right)\\
+    h_n^{(1)}(x)&=j_n(x)+iy_n(x)\\
+    h_n^{(2)}(x)&=j_n(x)-iy_n(x)
+\end{align*}
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
