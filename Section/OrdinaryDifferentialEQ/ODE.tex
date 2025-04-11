@@ -282,17 +282,34 @@ The generating function, expression that encodes an infinite sequence, for Besse
 
 Here are few relations of Bessel function with its derivative.
 \begin{flalign*}
-    \begin{aligned}
+    &\begin{aligned}
         &J_{p-1}(x)+J_{p+1}(x)=\frac{2p}{x}J_p(x)\\
-        &J_{p-1}(x)- J_{p+1}(x)=2J'(x)\\
+        &J_{p-1}(x)- J_{p+1}(x)=2J'_p(x)\\
         &\frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
         &\frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}J_{p+1}(x)\\
         &J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
-    \end{aligned}
+    \end{aligned}&&
 \end{flalign*}
 And bonus relation that only apply for integral $p$
 \begin{equation*}
-    J_{-p}(x)=(-1)^pJ_p{x},\quad J_p(-x)=(-1)^nJ_n(x)
+    J_{-p}(x)=(-1)^pJ_p(x),\quad J_p(-x)=(-1)^pJ_p(x)
+\end{equation*}
+
+Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
+\begin{equation*}
+    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
+        0&\alpha\neq \beta\\
+        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
+    \end{cases}
+\end{equation*}
+We can change the integration limit by subtituting $x=r/a$
+\begin{equation*}
+    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
+        0\\
+        \qquad \alpha\neq \beta\\
+        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
+        \qquad\alpha=\beta
+    \end{cases}
 \end{equation*}
 
 \subsubsection*{Series representation derivation.} First we write the Bessel's equation as 
@@ -387,23 +404,6 @@ All the terms are unchanged except the term
     K^2x^2y=\sum_{n=0}^{\infty} a_n K^2x^{n+s+2}
 \end{equation*}
 This will result the change of argument in the Bessel equation from $Z(x)$ into $Z(Kx)$.
-
-\subsubsection*{Orthogonality.} Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
-\begin{equation*}
-    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
-        0&\alpha\neq \beta\\
-        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
-    \end{cases}
-\end{equation*}
-We can change the integration limit by subtituting $x=r/a$
-\begin{equation*}
-    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
-        0\\
-        \qquad \alpha\neq \beta\\
-        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
-        \qquad\alpha=\beta
-    \end{cases}
-\end{equation*}
 
 \subsubsection*{Generating function proof.} Proved by writing it out.
 \begin{align*}
@@ -524,16 +524,80 @@ and defined as
     I_p&=i^{-p}J_p(ix)\\
     K_p(x)&=\frac{\pi}{2}i^{p+1}H_p^{(1)}(ix)
 \end{align*}
-They are analog to $\sinh x= -isin (ix)$ and $\cosh x=\cos (ix)$ respectively.
+They are analog to $\sinh x= -i\sin (ix)$ and $\cosh x=\cos (ix)$ respectively.
 
 \subsubsection*{Spherical Bessel functions.} If $p$ is a half interger
 then the Bessel function $Z_p(x)$ is defined to be spherical Bessel function and defined as follows
 \begin{align*}
-    j_n(x)&=\sqrt{\frac{\pi}{2x}}J_{n+1/2}(x)=x^n\left(-\frac{1}{x}\frac{d}{dx}\right)^n\left(\frac{\sin x}{x}\right)\\
-    y_n(x)&=\sqrt{\frac{\pi}{2x}}Y_{n+1/2}(x)=-x^n\left(-\frac{1}{x}\frac{d}{dx}\right)^n\left(\frac{\cos x}{x}\right)\\
+    j_n(x)&=\sqrt{\frac{\pi}{2x}}J_{n+1/2}(x)=\left(-\frac{d}{dx}\right)^n\left(\frac{\sin x}{x}\right)\\
+    y_n(x)&=\sqrt{\frac{\pi}{2x}}Y_{n+1/2}(x)=\left(\frac{d}{dx}\right)^n\left(\frac{\cos x}{x}\right)\\
     h_n^{(1)}(x)&=j_n(x)+iy_n(x)\\
     h_n^{(2)}(x)&=j_n(x)-iy_n(x)
 \end{align*}
+From this we can obtain 
+\begin{equation*}
+    J_{1/2}(x)=\frac{2}{\pi x}\sin x, \quad J_{-1/2}(x)=\frac{2}{\pi x}\cos x
+\end{equation*} 
+
+\subsection*{Legendre Function}
+The Legendre differential equation
+\begin{equation*}
+    (1-x^2)y''-2xy'+l(l+1)y=0
+\end{equation*}
+has the solution of Legendre polynomial, which by the Rodrigues formula is 
+\begin{equation*}
+    P_l(x)=\frac{1}{2^ll!}\frac{d^l}{dx^l}(x^2-1)^l
+\end{equation*}
+The Legendre polynomial is defined such that $y(1)=P_l(1)=1$.
+
+\subsubsection*{Series derivation.} By assuming the solution has the form of power series, we can use the Frobenius method. We also assume that $s=0$ for simplification. Thus, each term can be represented as power series
+\begin{center}
+    \begin{tabular}{r c l c}
+        \toprule
+        &&&$x^n$\\
+        \midrule
+        $y''$&$=$&$\displaystyle\sum_{n=0}^{\infty} n(n-1)a_nx^{n-2}$ &$(n+2)(n+1)a_{n+2}$ \\
+        $-x^2y''$&$=$&$\displaystyle\sum_{n=0}^{\infty} n(n-1)a_nx^{n}$ &$-n(n-1)a_n$ \\
+        $-2xy'$&$=$&$\displaystyle\sum_{n=0}^{\infty} na_nx^{n}$ & $-na_n$\\
+        $l(l+1)y$&$=$&$\displaystyle\sum_{n=0}^{\infty} l(l+1)a_nx^{n}$ & $l(l+1)a_n$\\
+        \bottomrule
+    \end{tabular}
+\end{center}
+From the $x^n$ coefficient
+\begin{equation*}
+    (n+2)(n+1)a_{n+2}=-a_n[-n(n-1)-n+l(l+1)]
+\end{equation*}
+We write the coefficientof the $a_s$ as follows
+\begin{multline*}
+    -n(n-1)-n+l(l+1)=-n^2-2n+l^2+l=l^2-n^2+l-n\\
+    =(l+n)(l-n)+l-n=(l-n)(l+n+1)
+\end{multline*}
+The formula for $n+2$ term is then
+\begin{equation*}
+    a_{n+2}=-\frac{(l-n)(l+n+1)}{(n+2)(n+1)}a_n
+\end{equation*}
+Here we have few terms
+\begin{align*}
+    a_2&=-\frac{l(l+1)}{2!}a_0\\
+    a_3&=-\frac{(l-1)(l+2)}{3!}a_1\\
+    a_4&=-\frac{(l-2)(l+3)}{4\cdot3}a_2=\frac{l(l+1)(l-2)(l+3)}{4!}a_0\\
+    a_5&=-\frac{(l-3)(l+4)}{5\cdot4}a_3=\frac{(l-1)(l+2)(l-3)(l+4)}{5!}a_1
+\end{align*}
+Since neither $a_0$ and $a_1$ not zero, the solution is a superposition of two series in terms of $a_0$ and $a_1$
+\begin{multline*}
+    y=a_0\left[1-\frac{l(l+1)}{2!}x^2+\frac{l(l+1)(l-2)(l+3)}{4!}x^4-\dots\right]\\
+    +a_1\left[x-\frac{(l-1)(l+2)}{3!}x^3+\frac{(l-1)(l+2)(l-3)(l+4)}{5!}x^5-\dots\right]
+\end{multline*}
+
+Now consider $l=0$. The solution takes the form 
+\begin{equation*}
+    y=a_0+a_1\left[x-\frac{1}{3}x^3+\frac{1}{5}x^5-\dots\right]
+\end{equation*}
+At $x^2=1$ the $a_1$ series is divergent by the integral test
+\begin{equation*}
+    \int^\infty \frac{1}{2n+1}\;dn=\frac{1}{2}\ln (2n+1)\bigg|^{\infty}=\infty
+\end{equation*}
+Therefore we throw the $a_1$ series out. By the definition of Legendre polynomial we have $a_0=1$, thus $P_0(x)=1$. We can use this method to determine the value of $P_l(x)$ for other $l$, but this method is simply terrible to use. There are other method that are more efficient, Rodrigues formula for example.
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
@@ -580,7 +644,7 @@ This is Bessel function, in particular
 \begin{equation*}
     R=\sum_{m=0}^{\infty}E_mJ_m(Kr)+F_mN_m(Kr)
 \end{equation*}
-Now, Putting it all together, we have the most general solution for the Laplace's equation in cylindrical domain 
+Now, putting it all together, we have the most general solution for the Laplace's equation in cylindrical domain 
 \begin{multline*}
     u=\sum_{m=0}^{\infty}\left[A_me^{Kz}+B_me^{-KZ}\right]\left[C_m\sin n\theta +D_m\cos n\theta\right]\\
     \left[E_mJ_m(Kr)+F_mN_m(Kr)\right]
