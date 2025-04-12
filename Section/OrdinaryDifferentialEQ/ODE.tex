@@ -599,6 +599,77 @@ At $x^2=1$ the $a_1$ series is divergent by the integral test
 \end{equation*}
 Therefore we throw the $a_1$ series out. By the definition of Legendre polynomial we have $a_0=1$, thus $P_0(x)=1$. We can use this method to determine the value of $P_l(x)$ for other $l$, but this method is simply terrible to use. There are other method that are more efficient, Rodrigues formula for example.
 
+\subsubsection*{Rodrigues formula proof.} Consider the function $v=(x^2-1)^l$. Differentiate it with respect to $x$
+\begin{equation*}
+    \frac{dv}{dx}=l(x^2-1)^{l-1}2x
+\end{equation*}
+Multiply it with $(x^2-1)$
+\begin{equation*}
+    (x^2-1)\frac{dv}{dx}=2lxv
+\end{equation*}
+Differentiate $l+1$ times, which according to the Leibniz’ rule for differentiation
+\begin{align*}
+    \frac{d^{l+1}}{dx^{l+1}}fg&=\sum_{k=0}^{l+1}\frac{(l+1)!}{k!(l+1-k)!}\left(\frac{d}{dx}\right)^{l+1-k}f\left(\frac{d}{dx}\right)^{k}g\\
+    &=\left(\frac{d}{dx}\right)^{l+1}f\left(\frac{d}{dx}\right)^{0}g+ (l+1)\left(\frac{d}{dx}\right)^{l}f\left(\frac{d}{dx}\right)^{1}g \\
+    &\qquad+\frac{l(l+1)}{2}\left(\frac{d}{dx}\right)^{l-1}f\left(\frac{d}{dx}\right)^{2}g+\dots
+\end{align*}
+For the left side, we take $f=dv/dx$ and $g=(x^2-1)$
+\begin{equation*}
+    \frac{d^{l+1}}{dx^{l+1}}\left[\frac{dv}{dx}(x^2-1)\right]= (x^2-1)\frac{d^{l+2}v}{dx^{l+2}}+2(l+1)x\frac{d^{l+1}v}{dx^{l+1}}+\frac{2l(l+1)}{2!}\frac{d^{l}v}{dx^{l}}
+\end{equation*}
+As for the right side, we take $f=v$ and $g=x$
+\begin{equation*}
+    \frac{d^{l+1}}{dx^{l+1}}\left[2lvx\right]=2lx\frac{d^{l+1}v}{dx^{l+1}} +2l(l+1)\frac{d^{l}v}{dx^{l}}
+\end{equation*}
+Equating both side 
+\begin{align*}
+    (1-x^2)\frac{d^{l+2}v}{dx^{l+2}} +\left[2xl-2x(l+1)\right]\frac{d^{l+1}v}{dx^{l+1}} +\left[2l(l+1)-l(l+1)\right]\frac{d^{l}v}{dx^{l}}&=0\\
+    (1-x^2)\left(\frac{d^lv}{dx^l}\right)' -2x\left(\frac{d^lv}{dx^l}\right)' +l(l+1)\frac{dv}{dx}&=0
+\end{align*}
+This is the Legendre's equation if
+\begin{equation*}
+    y=\frac{d^lv}{dx^l}=\frac{d^l}{dx^l} (x^2-1)^l
+\end{equation*}
+
+The next step is to apply the definition of Legendre polynomial $P_l(1)=1$. This can be achived by determining the value of constant $C$ such that 
+\begin{equation*}
+    y(1)=C\frac{d^l}{dx^l} (x^2-1)^l\bigg|_{x=1}=1
+\end{equation*}
+We use the relation 
+\begin{equation*}
+    \frac{d^l}{dx^l}(x^2-1)^l\bigg|_{x=1}=2^ll!
+\end{equation*}
+which can be proofed by the induction method. First, consider the base case of $l=0$. According to the hypothesis,
+\begin{align*}
+    \frac{d^0}{dx^0}(x^2-1)^0\bigg|_{x=1}&=2^00!\\
+    1&=1
+\end{align*}
+Then consider the inductive case $l+1$
+\begin{equation*}
+    \frac{d^{l+1}}{dx^{l+1}}(x^2-1)^{l+1}\bigg|_{x=1}=2^{l+1}(l+1)!
+\end{equation*}
+By the Leibniz' rule, we set $f=(x^2-1)^l$ and $g=(x^2-1)$
+\begin{multline*}
+    \frac{d^{l+1}}{dx^{l+1}}(x^2-1)^{l+1} =(x^2-1)\frac{d^{l+1}}{dx^{l+1}}(x^2-1)^l +2(l+1)x\frac{d^{l}}{dx^{l}}(x^2-1)^l \\
+    +\frac{2l(l+1)}{2!}\frac{d^{l-1}}{dx^{l-1}}(x^2-1)^l
+\end{multline*}
+On evaluating it at $x=1$, we have the first and the third term to be zero. The first one is obvious enough; but for the third term, note that the term $(x^2-1)$ will survive, thus evaluating at $x=1$ will result in said term to be zero also. All that remain is the second term
+\begin{equation*}
+    \frac{d^{l+1}}{dx^{l+1}}(x^2-1)^{l+1}\bigg|_{x=1}=2(l+1)x\frac{d^{l}}{dx^{l}}(x^2-1)^l
+\end{equation*}
+By using the hypothesis, we have completed our proof
+\begin{equation*}
+    \frac{d^{l+1}}{dx^{l+1}}(x^2-1)^{l+1}\bigg|_{x=1}=2(l+1)x2^ll!=2^{l+1}(l+1)!
+\end{equation*}
+Since the relation have been proofed, we can use it to obtain 
+\begin{equation*}
+    C\frac{d^l}{dx^l} (x^2-1)^l\bigg|_{x=1}=1\implies C=\frac{1}{2^ll!}
+\end{equation*}
+Thus 
+\begin{equation*}
+    y(x)=P_l(x)=\frac{1}{2^ll!}\frac{d^l}{dx^l} (x^2-1)^l
+\end{equation*}
+
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
 \begin{equation*}
