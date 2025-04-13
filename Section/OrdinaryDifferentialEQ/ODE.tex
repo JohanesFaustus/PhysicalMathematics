@@ -280,38 +280,6 @@ The generating function, expression that encodes an infinite sequence, for Besse
     \exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right] =\sum_{p=-\infty}^{\infty}J_n(x)t^p
 \end{equation*}
 
-Here are few relations of Bessel function with its derivative.
-\begin{flalign*}
-    &\begin{aligned}
-        &J_{p-1}(x)+J_{p+1}(x)=\frac{2p}{x}J_p(x)\\
-        &J_{p-1}(x)- J_{p+1}(x)=2J'_p(x)\\
-        &\frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
-        &\frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}J_{p+1}(x)\\
-        &J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
-    \end{aligned}&&
-\end{flalign*}
-And bonus relation that only apply for integral $p$
-\begin{equation*}
-    J_{-p}(x)=(-1)^pJ_p(x),\quad J_p(-x)=(-1)^pJ_p(x)
-\end{equation*}
-
-Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
-\begin{equation*}
-    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
-        0&\alpha\neq \beta\\
-        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
-    \end{cases}
-\end{equation*}
-We can change the integration limit by subtituting $x=r/a$
-\begin{equation*}
-    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
-        0\\
-        \qquad \alpha\neq \beta\\
-        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
-        \qquad\alpha=\beta
-    \end{cases}
-\end{equation*}
-
 \subsubsection*{Series representation derivation.} First we write the Bessel's equation as 
 \begin{equation*}
     x(xy')'+ (x^2-p^2)y=0
@@ -415,7 +383,22 @@ We then define $p\equiv n-m$ to shift the indices
     \exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right]= \sum_{p=-\infty}^{\infty}\sum_{m=0}^{\infty}\frac{(-1)^m(x/2)^{p+2m}}{(p+m)!m!}t^p=\sum_{p=-\infty}^{\infty}J_p(x)t^p
 \end{equation*}
 
-\subsubsection*{Recursive relation proof.} To prove the first relation, we differentiate the expression for generating function with respect to $t$
+\subsubsection*{Recursive relation.} Here are few relations of Bessel function with its derivative.
+\begin{gather*}
+    J_{p-1}(x)+J_{p+1}(x)=\frac{2p}{x}J_p(x)\\
+    J_{p-1}(x)- J_{p+1}(x)=2J'_p(x)\\
+    \frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)\\
+    \frac{d}{dx}[x^{-p}J_p(x)]=-x^{-p}J_{p+1}(x)\\
+    J'_p(x)=-\frac{p}{x}J_p(x)+J_{p-1}(x)=\frac{p}{x}J_p(x)-J_{p+1}(x)
+\end{gather*}
+And bonus relation that only apply for integral $p$
+\begin{gather*}
+    J_{-p}(x)=(-1)^pJ_p(x)\\
+    J_p(-x)=(-1)^pJ_p(x)
+\end{gather*}
+
+
+\paragraph*{First relation proof.} Differentiate the expression for generating function with respect to $t$
 \begin{align*}
     \frac{x}{2}\left(1+\frac{1}{t^2}\right)\exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right]&=\sum_{p=-\infty}^{\infty}pJ_p(x)t^{p-1}\\
     \sum_{p=-\infty}^{\infty}\left[J_p(x)+J_{p-2}(x)\right]t^p&= \sum_{p=-\infty}^{\infty}\frac{2p}{x}J_{p+1}t^{p}
@@ -425,7 +408,7 @@ Taking the constant for the term $t^p$, we have
     J_p(x)+J_{p-2}(x)=\frac{2p}{x}J_{p+1} 
 \end{equation*}
 
-For the second relation, we differentiate with respect to $x$ instead 
+\paragraph*{Second relation proof.} Differentiate with respect to $x$ instead 
 \begin{align*}
     \frac{1}{2}\left(t-\frac{1}{t}\right)\exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right]&=\sum_{p=-\infty}^{\infty}J'_p(x)t^{p}\\
     \sum_{p=-\infty}^{\infty}\left[J_{p+1}(x)+J_{p-1}(x)\right]t^p&= \sum_{p=-\infty}^{\infty}2J'_pt^{p}
@@ -435,19 +418,19 @@ and as before, we have
     J_{p+1}(x)+J_{p-1}(x)=2J'_p
 \end{equation*}
 
-For the third relation, we simply evalue the derivative and use both first and second relation
+\paragraph*{Third relation proof.} Simply evalue the derivative and use both first and second relation
 \begin{align*}
     \frac{d}{dx}\left[x^pJ_p(x)\right]&= \frac{x^p}{2}\left[J_{p-1}(x)+J_{p+1}(x)\right]+\frac{x^p}{2}\left[J_{p-1}(x)-J_{p+1}(x)\right]\\
     \frac{d}{dx}\left[x^pJ_p(x)\right]&=x^pJ_{p-1}(x)
 \end{align*}
 
-The fourth relation case is the same with the third 
+\paragraph*{Fourth relation proof.} The same as the third 
 \begin{align*}
     \frac{d}{dx}\left[x^{-p}J_p(x)\right]&= -\frac{x^{-p}}{2}\left[J_{p-1}(x)+J_{p+1}(x)\right]+\frac{x^p}{2}\left[J_{p-1}(x)-J_{p+1}(x)\right]\\
     \frac{d}{dx}\left[x^{-p}J_p(x)\right]&=x^{-p}J_{p+1}(x)
 \end{align*}
 
-For the fifth, we add both first and second relation to obtain the middle side 
+\paragraph*{Fifth relation proof.} Add both first and second relation to obtain the middle side 
 \begin{align*}
     2J_{p-1}(x)&=\frac{2p}{x}J_p(x)+2J'_p(x)\\
     J'_{p}(x)&=J_{p-1}(x)-\frac{p}{x}J_p(x)
@@ -458,7 +441,24 @@ and subtract to obtain the right side
     J'_{p}(x)&=\frac{p}{x}J_p(x)-J_{p+1}(x)
 \end{align*}
 
-\subsubsection*{Orthogonality proof.} To prove the relation orthoganality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
+\subsubsection*{Orthogonality.} Suppose $\alpha$ and $\beta$ are the zeros of the Bessel function order $p$. We can say that the function $\sqrt{x}J_p(\alpha x)$ is orthogonal with itself on $(0,1)$. We can also say that the functions $J_p^2(\alpha x)$ are orthogonal with respect with weight function $x$. Thus, we write
+\begin{equation*}
+    \int_{0}^{1}xJ_p(\alpha x)J_p(\beta x)\;dx=\begin{cases}
+        0&\alpha\neq \beta\\
+        \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
+    \end{cases}
+\end{equation*}
+We can change the integration limit by subtituting $x=r/a$
+\begin{equation*}
+    \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
+        0\\
+        \qquad \alpha\neq \beta\\
+        \dfrac{a^2}{2}{J'_p}^2(\alpha)=\dfrac{a^2}{2}J_{p+1}^2(\alpha) =\dfrac{a^2}{2}J_{p-1}^2(\alpha)\\
+        \qquad\alpha=\beta
+    \end{cases}
+\end{equation*}
+
+\paragraph*{Proof.} To prove the relation orthoganality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
 \begin{align*}
     x(xy')'+(\alpha^2x^2-p^2)y&=0\\
     x(xy')'+(\beta^2x^2-p^2)y&=0
@@ -669,6 +669,36 @@ Thus
 \begin{equation*}
     y(x)=P_l(x)=\frac{1}{2^ll!}\frac{d^l}{dx^l} (x^2-1)^l
 \end{equation*}
+
+\subsubsection*{Generating function.} The function $\Phi(x,h)$ below is the generating function for the Legendre polynomial
+\begin{equation*}
+    (1-2x+h^2)^{-1/2}=\sum_{l=0}^{\infty}h^lP_l(x)
+\end{equation*}
+
+\paragraph*{Proof.} We first show that  the function inded can be expressed as series. For breviety, we take $u=2xh-h^2$
+\begin{align*}
+    (1-u)^{-1/2} &=\sum_{k=0}^{\infty}\frac{\Gamma(1/2)(-u)^k}{\Gamma(k+1)\Gamma(1/2-k)}\\
+    &=1+\frac{1}{2}u+\frac{(-1/2)(-3/2)}{\Gamma(3)}u^{2}+\dots\\
+    &=1+\frac{1}{2}(2xh-h^2)+\frac{3}{8}(4x^2-4xh^3+h^2)+\dots\\
+    &=1+ xh +\left(\frac{3}{2}x^2-\frac{1}{2}\right)h^2+\dots\\
+    \Phi(x,h)&=P_0(x) +hP_1(x) +h^2P_2(x) +\dots
+\end{align*}
+By evaluating the series at $x=1$, we have the expression in terms of $h$
+\begin{equation*}
+    \Phi(1,h)=P_0(1) +hP_1(1) +h^2P_2(1) +\dots
+\end{equation*}
+thus, the function does indeed have the identity $P_l(1)=1$. Next we will show that the generating function satisfies the Legendre equation by the following formula
+\begin{equation*}
+    (1-x^2)\frac{\partial^2\Phi}{\partial x^2}-2x\frac{\partial\Phi}{\partial x}+h\frac{\partial^2h\Phi}{\partial h^2}=0
+\end{equation*} 
+Substituting the series representation of the generating function 
+\begin{equation*}
+    (1-x^2)\sum_{l=0}^{\infty}h^lP''_l(x) -2x\sum_{l=0}^{\infty}h^lP'_l(x) +\sum_{l=0}^{\infty}(l+1)lh^lP_l(x)=0
+\end{equation*} 
+Taking the coefficient of $h^l$, we obtain the Legendre function
+\begin{equation*}
+    (1-x^2)P''_l(x) -2xP'_l(x) +l(l+1)P_l(x)=0
+\end{equation*} 
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
