@@ -423,7 +423,7 @@ and as before, we have
     J_{p+1}(x)+J_{p-1}(x)=2J'_p
 \end{equation*}
 
-\paragraph*{Third relation proof.} Simply evalue the derivative and use both first and second relation
+\paragraph*{Third relation proof.} Simply evaluate the derivative and use both first and second relation
 \begin{align*}
     \frac{d}{dx}\left[x^pJ_p(x)\right]&= \frac{x^p}{2}\left[J_{p-1}(x)+J_{p+1}(x)\right]+\frac{x^p}{2}\left[J_{p-1}(x)-J_{p+1}(x)\right]\\
     \frac{d}{dx}\left[x^pJ_p(x)\right]&=x^pJ_{p-1}(x)
@@ -453,7 +453,7 @@ and subtract to obtain the right side
         \dfrac{1}{2}{J'_p}^2(\alpha)=\dfrac{1}{2}J_{p+1}^2(\alpha) =\dfrac{1}{2}J_{p-1}^2(\alpha)&\alpha=\beta
     \end{cases}
 \end{equation*}
-We can change the integration limit by subtituting $x=r/a$
+We can change the integration limit by substituting $x=r/a$
 \begin{equation*}
     \int_{0}^{a}rJ_p\left(\alpha \frac{r}{a}\right)J_p\left(\beta \frac{r}{a}\right)\;dr=\begin{cases}
         0\\
@@ -463,12 +463,12 @@ We can change the integration limit by subtituting $x=r/a$
     \end{cases}
 \end{equation*}
 
-\paragraph*{Proof.} To prove the relation orthoganality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
+\paragraph*{Proof.} To prove the relation orthogonality of the Bessel function on $(0,1)$ with respect to the weight function $x$, consider the equations 
 \begin{align*}
     x(xy')'+(\alpha^2x^2-p^2)y&=0\\
     x(xy')'+(\beta^2x^2-p^2)y&=0
 \end{align*}
-which are solved by the functions $J_p(\alpha x)$ and $J_p(\beta x)$ respecttively. For breviety's sake, we define $J_p(\alpha x)\equiv u$,  $J_p(\beta x)\equiv v$ and we write
+which are solved by the functions $J_p(\alpha x)$ and $J_p(\beta x)$ respectively. For brevity's sake, we define $J_p(\alpha x)\equiv u$,  $J_p(\beta x)\equiv v$ and we write
 \begin{align*}
     x(xu')'+(\alpha^2x^2-p^2)u&=0\\
     x(xv')'+(\beta^2x^2-p^2)v&=0
@@ -504,7 +504,7 @@ If $\alpha\neq\beta$, the terms inside parenthesis are not equal to zero. Hence,
 \begin{equation*}
     \int_{0}^{1}xJ_p(\alpha)J_p(\beta)\;dx=0
 \end{equation*}
-If $\alpha\neq\beta$, the terms inside parenthesis are not equal to zero. Hence, we can simply divide both side by it and the integral is not zero. To finc its value, suppose that $\beta$ is not a zero, unlike $\alpha$. We can write 
+If $\alpha\neq\beta$, the terms inside parenthesis are not equal to zero. Hence, we can simply divide both side by it and the integral is not zero. To find its value, suppose that $\beta$ is not a zero, unlike $\alpha$. We can write 
 \begin{equation*}
     \int_{0}^{1}xJ_p(\alpha)J_p(\beta)\;dx=\frac{\alpha J_p(\beta)J_p(\alpha)}{\beta^2-\alpha^2}
 \end{equation*}
@@ -514,7 +514,7 @@ Now we let $\beta\rightarrow\alpha$ and evaluate the right term using  L'Hôpita
 \end{equation*}
 
 
-\subsubsection*{Hankel function.} If the first and the second kind of Bessel function are analog to sin and cos, the Hankel function is an analog to $\exp(\pm ix)=\cos x \pm i\sin x$. The function is defined as  
+\subsubsection*{Hankel's function.} If the first and the second kind of Bessel function are analog to sin and cos, the Hankel's function is an analog to $\exp(\pm ix)=\cos x \pm i\sin x$. The function is defined as  
 \begin{align*}
     H_p^{(1)}(x)&=J_p(x)+iN_p(x)\\
     H_p^{(2)}(x)&=J_p(x)-iN_p(x)
@@ -531,7 +531,7 @@ and defined as
 \end{align*}
 They are analog to $\sinh x= -i\sin (ix)$ and $\cosh x=\cos (ix)$ respectively.
 
-\subsubsection*{Spherical Bessel functions.} If $p$ is a half interger
+\subsubsection*{Spherical Bessel functions.} If $p$ is a half integer
 then the Bessel function $Z_p(x)$ is defined to be spherical Bessel function and defined as follows
 \begin{align*}
     j_n(x)&=\sqrt{\frac{\pi}{2x}}J_{n+1/2}(x)=\left(-\frac{d}{dx}\right)^n\left(\frac{\sin x}{x}\right)\\
@@ -572,7 +572,7 @@ From the $x^n$ coefficient
 \begin{equation*}
     (n+2)(n+1)a_{n+2}=-a_n[-n(n-1)-n+l(l+1)]
 \end{equation*}
-We write the coefficientof the $a_s$ as follows
+We write the coefficient of the $a_s$ as follows
 \begin{multline*}
     -n(n-1)-n+l(l+1)=-n^2-2n+l^2+l=l^2-n^2+l-n\\
     =(l+n)(l-n)+l-n=(l-n)(l+n+1)
@@ -636,7 +636,7 @@ This is the Legendre's equation if
     y=\frac{d^lv}{dx^l}=\frac{d^l}{dx^l} (x^2-1)^l
 \end{equation*}
 
-The next step is to apply the definition of Legendre polynomial $P_l(1)=1$. This can be achived by determining the value of constant $C$ such that 
+The next step is to apply the definition of Legendre polynomial $P_l(1)=1$. This can be achieved by determining the value of constant $C$ such that 
 \begin{equation*}
     y(1)=C\frac{d^l}{dx^l} (x^2-1)^l\bigg|_{x=1}=1
 \end{equation*}
@@ -680,7 +680,7 @@ Thus
     (1-2x+h^2)^{-1/2}=\sum_{l=0}^{\infty}h^lP_l(x)
 \end{equation*}
 
-\paragraph*{Proof.} We first show that  the function inded can be expressed as series. For breviety, we take $u=2xh-h^2$
+\paragraph*{Proof.} We first show that  the function indeed can be expressed as series. For brevity, we take $u=2xh-h^2$
 \begin{align*}
     (1-u)^{-1/2} &=\sum_{k=0}^{\infty}\frac{\Gamma(1/2)(-u)^k}{\Gamma(k+1)\Gamma(1/2-k)}\\
     &=1+\frac{1}{2}u+\frac{(-1/2)(-3/2)}{\Gamma(3)}u^{2}+\dots\\
@@ -708,13 +708,49 @@ Taking the coefficient of $h^l$, we obtain the Legendre function
 \subsubsection*{Recursion relations.} Some examples of recursion
 relations areas follows.
 \begin{gather*}
-    lP_l(x)_=(2l-l)xP_{l-1}(x)-l(-1)P_{l-2}(x)\\
+    lP_l(x)=(2l-l)xP_{l-1}(x)-l(-1)P_{l-2}(x)\\
     xP_l'-P_{l-1}'=lP_l(x)\\
     P_l'(x)xP_{l-1}'=lP_{l-1}(x)\\
     (1-x^2)P_l'(x)=lP_{l-1}(x)lxP_l(x)\\
     (2l+1)P_l(x)=P_{l+1}'(x)-P_{l-1}'{x}\\
     (1-x^2)P_{l-1}'(x=lxP_{l-1})(x)-lP_{l}(x)
 \end{gather*}
+Also some identity
+\begin{equation*}
+    P_l(-x)=(-1)^lP_l(x)
+\end{equation*}
+
+\paragraph*{First relation proof.} Differentiate the generating function with respect to $h$
+\begin{equation*}
+    \frac{\partial \Phi}{\partial h}=-\frac{1}{2}(1-2xh+h^2)^{-3/2}(-2x+2h)
+\end{equation*}
+Or 
+\begin{equation*}
+    (1-2xh+h^2)\frac{\partial \Phi}{\partial h}=(x-h)\Phi
+\end{equation*}
+First write it as power series
+\begin{equation*}
+    (1-2xh+h^2)\sum_{l=0}^{\infty}lh^{l-1}P_l(x)=(x-h)\sum_{l=0}^{\infty}h^lP_l
+\end{equation*}
+then take the $h^{l-1}$ coefficient
+\begin{equation*}
+    lP_l-2x(l-1)P_{l-1}+(l-2)P_{l-2}=xP_{l-1}-P_{l-2}
+\end{equation*}
+Rearrange it 
+\begin{align*}
+    lP_l&=\left[2x(l-1)+x\right]P_{l-1} -\left[l-2+1\right]P_{l-2}\\
+    lP_l&=(2l-l)xP_{l-1}(x)-l(-1)P_{l-2}(x)
+\end{align*}
+
+\paragraph*{Second relation proof.} 404.
+
+\paragraph*{Third relation proof.} 404.
+
+\paragraph*{Fourth relation proof.} 404.
+
+\paragraph*{Fifth relation proof.} 404.
+
+\paragraph*{Sixth relation proof.} 404.
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
@@ -726,6 +762,7 @@ Consider scalar function $u$, which may represent gravitational potential in a r
 \begin{equation*}
     \nabla^2u= \frac{1}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial u}{\partial r}\Biggr)+\frac{1}{r^2} \frac{\partial^2u}{\partial \phi^2}+ \frac{\partial^2u}{\partial z^2}
 \end{equation*}
+
 By the separation of variables, we assume the solution of $u=R(r)\Phi(\phi)Z(z)$. Thus, the Laplace's equation now reads
 \begin{equation*}
     \frac{\Phi R}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
@@ -742,7 +779,7 @@ Since only last term is the function of $z$ alone, we can safely say that it is 
 \begin{equation*}
     \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=K^2\implies Z=Ae^{Kz}+Be^{-KZ}
 \end{equation*}
-Subtituting this value and multiplying by $r^2$, we have
+Substituting this value and multiplying by $r^2$, we have
 \begin{equation*}
     \frac{r}{R}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
     +\frac{1}{\Phi } \frac{\partial^2\Phi}{\partial \phi^2}
@@ -752,14 +789,14 @@ Now we see that the second term is constant. We define
 \begin{equation*}
     \frac{1}{\Phi}\frac{\partial^2 \Phi}{\partial \phi}=-n^2\implies \Phi=C\sin n\theta +D\cos n\theta
 \end{equation*}
-where $n$ is an interger. The reason for said separation constant is due to periodicity. For a position in polar coordinate, we denote them as $\theta+2n\pi$. Hence, for a most physical reason, the position $\theta$ and $\theta+2n\pi$ must give the same result, which is possible if the solution is periodic with period of $2\pi$. Finally, we substitute this and multiplying with $R$ to obtain the radial solution
+where $n$ is an integer. The reason for said separation constant is due to periodicity. For a position in polar coordinate, we denote them as $\theta+2n\pi$. Hence, for a most physical reason, the position $\theta$ and $\theta+2n\pi$ must give the same result, which is possible if the solution is periodic with period of $2\pi$. Finally, we substitute this and multiplying with $R$ to obtain the radial solution
 \begin{equation*}
     r\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
     +(K^2r^2-n^2)R=0
 \end{equation*}
 This is Bessel function, in particular
 \begin{equation*}
-    R=\sum_{m=0}^{\infty}E_mJ_m(Kr)+F_mN_m(Kr)
+    R=\sum_{m=0}^{\infty}E_mJ_m(Kr)+\sum_{m=0}^{\infty}F_mN_m(Kr)
 \end{equation*}
 Now, putting it all together, we have the most general solution for the Laplace's equation in cylindrical domain 
 \begin{multline*}
@@ -778,7 +815,7 @@ Now suppose that the temperature is non-steady. The flow of temperature is gover
 \begin{equation*}
     \nabla^2 u=\frac{1}{\alpha}\frac{\partial u}{\partial t}
 \end{equation*}
-where $\alpha$ is a constant called the diﬀusivity.
+where $\alpha$ is a constant called the diffusivity.
 
 \subsection*{Wave Equation}
 Here $u$ may represent the displacement from equilibrium; in electricity it may be the current or potential along a transmission line; or it may be a component of \textbf{E} or \textbf{B} in an electromagnetic wave. The equation is written as 
@@ -793,7 +830,7 @@ Helmholtz's equation is the spatial part of either diffusion or wave equation
 \end{equation*}
 
 \subsection*{Schrödinger's Equation}
-Also known as the wavefunction equation of quantum mechanics
+Also known as the wave function equation of quantum mechanics
 \begin{equation*}
     -\frac{\hbar^2}{2m}\nabla^2\Psi+V\Psi= i\hbar\frac{\partial \Psi}{\partial t}
 \end{equation*}
