@@ -181,21 +181,21 @@ y_H=e^{\alpha t}(C_1 \cos \beta t + C_2 \sin \beta t) \label{eq:LH3}
 \end{equation}
 The solution of \eqref{eq:linearnonhomog} is $y=y_p+y_h$ where $y_h$ is given by \eqref{eq:LH1} through \eqref{eq:LH3} and $y_p$ is found by undetermined coefficients or reduction of order.
 
-\subsubsection*{Heuristics for Undetermined Coefficients.} Also called Trial and Error
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline 
-If $f(t)=$ & then guess that a particular solution $y_p=$. \\
-\hline\hline
-$P_n(t)$ & $t^s (A_0 + A_1 t + \cdots + A_n t^n)$ \\
-\hline 
-$P_n(t)e^{at}$ & $t^s (A_0 + A_1 t + \cdots + A_n t^n)e^{at}$ \\
-\hline
-$P_n(t)e^{at}\sin bt$ & $t^s e^{at} [(A_0 + A_1 t + \cdots + A_n t^n)\cos bt$ \\
-or $P_n(t)e^{at}\cos bt$ & \ \ \ \ \ $ + (A_0 + A_1 t + \cdots + A_n t^n)\sin bt]$ \\
-\hline 
-\end{tabular}
-\end{center}
+\subsubsection*{Heuristics for Undetermined Coefficients.} Also called Trial and Error.
+\begin{table}[h]
+  \centering
+  \caption*{Table: Heuristics method.}
+  \begin{tabular}{cc } 
+      \toprule
+      If $f(t)=$ & then guess that a particular solution $y_p=$. \\
+      \midrule
+       $P_n(t)$ & $t^s (A_0 + A_1 t + \cdots + A_n t^n)$ \\
+      $P_n(t)e^{at}$ & $t^s (A_0 + A_1 t + \cdots + A_n t^n)e^{at}$ \\
+      $P_n(t)e^{at}\sin bt$ & $t^s e^{at} [(A_0 + A_1 t + \cdots + A_n t^n)\cos bt$ \\
+      or $P_n(t)e^{at}\cos bt$ & \ \ \ \ \ $ + (A_0 + A_1 t + \cdots + A_n t^n)\sin bt]$ \\
+      \bottomrule
+  \end{tabular}
+\end{table}
 
 
 \subsubsection*{Method of Reduction of Order.} When solving \eqref{eq:homog}, given $y_1$, then $y_2$ can be found by solving

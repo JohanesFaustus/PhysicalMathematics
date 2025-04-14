@@ -19,14 +19,25 @@ Substituting this into each term, we have
 Then we put them into table.
 \begin{center}
 $\begin{array}{c || c c c}
-  &x^{n+s}&x^s&x^{s+1}\\
   \hline\hline
-  x^2y''&(n + s)(n + s - 1)a_n &s(s-1)a_0  &s(s+1)a_1 \\
-  4xy'&4(n+s)a_n &4sa_0 &4(s+1)a_1 \\
-  x^2y&a_{n-2} &-&- \\
-  2y& 2a_n& 2a_0& 2a_1\\
+
 \end{array}$
 \end{center}
+\begin{table}[h]
+  \centering
+  \caption{Table}
+  \begin{tabular}{cccc } 
+      \toprule
+      &$x^{n+s}$&$x^s$&$x^{s+1}$\\
+      \midrule
+      $x^2y''$&$(n + s)(n + s - 1)a_n $&$s(s-1)a_0  $&$s(s+1)a_1$ \\
+      $4xy'$&$4(n+s)a_n $&$4sa_0 $&$4(s+1)a_1 $\\
+      $x^2y$&$a_{n-2}$ &$-$&$-$ \\
+      $2y$&$ 2a_n$& $2a_0$&$ 2a_1$\\
+      \bottomrule
+  \end{tabular}
+\end{table}
+
 Using the terms on $x^{s}$ column, we have the following indicial equation.
 \begin{align*}
   s(s-1)a_0+4sa_0+2a_0&=0\\
@@ -111,8 +122,8 @@ The solution takes the form of
   y=x^{1/2}Z_{1/3}(2x^{3/2})=x^{1/2}\left[AJ_{1/3}(2x^{3/2})+BN_{1/3}(2x^{3/2})\right]
 \end{equation*}
 
-\subsection*{Steady-state Temperature in a Cylinder}
-Find the steady-state temperature distribution in a semi-infinite solid cylinder of radius $a$ if the base is held at $T$ and the curved sides at 0\textdegree. The boundary condition are 
+\subsection*{Laplacian in Cylindrical Coordinates.}
+\subsubsection*{Steady-state temperature in a cylinder.} Find the steady-state temperature distribution in a semi-infinite solid cylinder of radius $a$ if the base is held at $T$ and the curved sides at 0\textdegree. The boundary condition are 
 \begin{enumerate}
   \item $u(z=\infty)=0$,
   \item $u$ does not depend on angular term,

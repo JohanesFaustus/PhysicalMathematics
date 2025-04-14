@@ -2,6 +2,9 @@
 \begin{document}
 \subsection*{Appendix II: Laplace Table}
 \begin{longtable}{@{} CCC @{}}
+    \toprule
+    \multicolumn{2}{c}{$\begin{matrix} y = f (t), \quad t > 0 \\\\  y = f (t) = 0, t <0  \end{matrix}$}&Y = L(y) = F (p) \\
+    \midrule
     \mathcal{L}1  & 1 & \begin{matrix} \dfrac{1}{p+a} \\\\  \text{Re }p>0  \end{matrix} \\\\
     \mathcal{L}2 &  e^{-at}  & \begin{matrix} \dfrac{1}{p} \\ \\ \text{Re }p>0 \end{matrix}  \\ \\
     \mathcal{L}3 &  \sin at &  \begin{matrix} \dfrac{a}{p^2+a^2} \\ \\ \text{Re }p>|\text{Im }a| \end{matrix} \\ \\
@@ -46,5 +49,6 @@
                 \mathcal{L}(y^n) &= &p^nY -p^{n-1} y_0-p^{n-2}y_0'-\dots-y_0^{n-1}  
             \end{matrix}
         \end{matrix}$}\\
+    \bottomrule
 \end{longtable}
 \end{document}

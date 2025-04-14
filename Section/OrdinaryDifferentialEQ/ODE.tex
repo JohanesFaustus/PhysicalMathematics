@@ -297,15 +297,20 @@ and
     -p^2y&=-\sum_{n=0}^{\infty} a_np^2x^{n+s}
 \end{align*}
 Tabulate them
-\begin{center}
-$\begin{array}{c || c c c}
-  &x^{n+s}&x^s&x^{s+1}\\
-  \hline\hline
-  x(xy')' &a_n(n+s)^2 &a_0s^2 &a_1(s+1)^2\\
-  x^2y &a_{n-2}&- &-\\
-  -p^2y &-a_np^2&-a_0p^2&-a_1p^2
-\end{array}$
-\end{center}
+
+\begin{table}[h]
+    \centering
+    \caption{Table}
+    \begin{tabular}{cccc } 
+        \toprule
+        &$x^{n+s}$&$x^s$&$x^{s+1}$\\
+        \midrule
+        $x(xy')'$ & $a_n(n+s)^2 $ & $a_0s^2$ &$a_1(s+1)^2$\\
+        $x^2y $&$a_{n-2}$&$- $&$-$\\
+        $-p^2y$ &$-a_np^2$&$-a_0p^2$&$-a_1p^2$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 From this we have the indicial equation
 \begin{equation*}
@@ -699,6 +704,17 @@ Taking the coefficient of $h^l$, we obtain the Legendre function
 \begin{equation*}
     (1-x^2)P''_l(x) -2xP'_l(x) +l(l+1)P_l(x)=0
 \end{equation*} 
+
+\subsubsection*{Recursion relations.} Some examples of recursion
+relations areas follows.
+\begin{gather*}
+    lP_l(x)_=(2l-l)xP_{l-1}(x)-l(-1)P_{l-2}(x)\\
+    xP_l'-P_{l-1}'=lP_l(x)\\
+    P_l'(x)xP_{l-1}'=lP_{l-1}(x)\\
+    (1-x^2)P_l'(x)=lP_{l-1}(x)lxP_l(x)\\
+    (2l+1)P_l(x)=P_{l+1}'(x)-P_{l-1}'{x}\\
+    (1-x^2)P_{l-1}'(x=lxP_{l-1})(x)-lP_{l}(x)
+\end{gather*}
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
