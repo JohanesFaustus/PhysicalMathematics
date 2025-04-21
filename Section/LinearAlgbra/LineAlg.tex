@@ -161,6 +161,29 @@ with determinant
 \end{align*}
 det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
 
+In vector analysis, two vectors are orthogonal if their inner product is zero 
+\begin{equation*}
+    \sum_{i}A_iB_i=0
+\end{equation*}
+
+If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if 
+\begin{equation*}
+    \int_{a}^{b}A(x)B(x)\;dx=0
+\end{equation*}
+
+\subsubsection*{Orthonormality.} The norm of function is defined as 
+\begin{equation*}
+    \int_{a}^{b}=A^*(x)A(x)\;dx=N^2
+\end{equation*}
+We also said the function $N^{-1}A(x)$ to be normalized and has the norm of zero.
+
+\subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them 
+\begin{equation*}
+    f(y)=\sum_{n=1}^{\infty} C_nf(y)
+\end{equation*}
+
+
+
 \subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
 \begin{align*}
     \begin{pmatrix}
@@ -209,7 +232,7 @@ in 3D
 \subsubsection*{Homogeneous equations.} The definition is as follows.
 
 \begin{quote}
-    Sets of linear equations when the constants on the right hand sides are all zero are called homogeneous equations.
+    Sets of linear equations when the constants on the right-hand sides are all zero are called homogeneous equations.
 \end{quote}
 
 Homogeneous equations are never inconsistent; they always have the solution of zero--often called the trivial solution. 
