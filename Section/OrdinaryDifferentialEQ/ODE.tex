@@ -555,6 +555,15 @@ has the solution of Legendre polynomial, which by the Rodrigues formula is
 \end{equation*}
 The Legendre polynomial is defined such that $y(1)=P_l(1)=1$.
 
+Another closely related equation is 
+\begin{equation*}
+    (1-x^2)y''-2xy'+\left[l(l+1)-\frac{m^2}{1-x^2}\right]y =0
+\end{equation*}
+The solution of said function is the associated Legendre function, which defined by the Rodrigues formula as 
+\begin{equation*}
+    P_l^m(x)=\frac{1}{2^ll!}(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)^{l+m}(x^2-1)^l
+\end{equation*}
+
 \subsubsection*{Series derivation.} By assuming the solution has the form of power series, we can use the Frobenius method. We also assume that $s=0$ for simplification. Thus, each term can be represented as power series
 \begin{center}
     \begin{tabular}{r c l c}
@@ -675,6 +684,79 @@ Thus
     y(x)=P_l(x)=\frac{1}{2^ll!}\frac{d^l}{dx^l} (x^2-1)^l
 \end{equation*}
 
+We begin the proof of the Rodrigues formula for associated Legendre polynomial by substituting
+\begin{equation*}
+    y=(1-x^2)^{\frac{m}{2}}u
+\end{equation*}
+Now we evaluate the first derivative
+\begin{align*}
+    y'&=u\frac{m}{2}(1-x^2)^{\frac{m}{2}-1}(-2x)+ (1-x^2)^{\frac{m}{2}}u'\\
+    y'&=(1-x^2)^{\frac{m}{2}}u'-mx(1-x^2)^{\frac{m}{2}-1}u 
+\end{align*}
+Then the second
+\begin{align*}
+    y''&=(1-x^2)^{\frac{m}{2}}u''-mx(1-x^2)^{\frac{m}{2}-1}u' -mx(1-x^2)^{\frac{m}{2}-1}u'\\
+    &\quad-mu\left[(1-x^2)^{\frac{m}{2}-1} +x\left(\frac{m}{2}-1\right)(1-x^2)^{\frac{m}{2}-2}(-2x)\right] \\
+    y''&=(1-x^2)^{\frac{m}{2}}u''-2mx(1-x^2)^{\frac{m}{2}-1}u' \\
+    &\quad-m\left[(1-x^2)^{\frac{m}{2}-1} -2x^2\left(\frac{m}{2}-1\right)(1-x^2)^{\frac{m}{2}-2}\right]u
+\end{align*}
+Now consider the equation that we are going to solve 
+\begin{equation*}
+    (1-x^2)y''-2xy'+\left[l(l+1)-\frac{m^2}{1-x^2}\right]y =0
+\end{equation*}
+On using the substituted value of $y$ and its derivatives, we can write the first term as 
+\begin{align*}
+    (1-x^2)y''&=(1-x^2)^{\frac{m}{2}+1}u''-2mx(1-x^2)^{\frac{m}{2}}u' \\
+    &\quad-m\left[(1-x^2)^{\frac{m}{2}} -2x^2\left(\frac{m}{2}-1\right)(1-x^2)^{\frac{m}{2}-1}\right]u
+\end{align*}
+then the second 
+\begin{equation*}
+    -2xy'=2mx^2(1-x^2)^{\frac{m}{2}-1}u -2x(1-x^2)^{\frac{m}{2}}u'
+\end{equation*}
+and the third
+\begin{equation*}
+    \left[l(l+1)-\frac{m^2}{1-x^2}\right]y=\left[l(l+1)(1-x^2)^{\frac{m}{2}}-m^2(1-x^2)^{\frac{m}{2}-1}\right]u
+\end{equation*}
+Hence we have 
+\begin{gather*}
+    (1-x^2)^{\frac{m}{2}+1}u''-2(m+1)x(1-x^2)^{\frac{m}{2}}u' \\
+    +\bigg[l(l+1)(1-x^2)^{\frac{m}{2}}-m^2(1-x^2)^{\frac{m}{2}-1}\\
+    +2mx^2(1-x^2)^{\frac{m}{2}-1} \\
+    -m(1-x^2)^{\frac{m}{2}} +2mx^2\left(\frac{m}{2}-1\right)(1-x^2)^{\frac{m}{2}-1}\bigg]u=0      
+\end{gather*}
+Terms inside square bracket can be simplified into 
+\begin{equation*}
+    l(l+1)(1-x^2)^{\frac{m}{2}}-m^2(1-x^2)^{\frac{m}{2}-1} -m(1-x^2)^{\frac{m}{2}} +m^2x^2(1-x^2)^{\frac{m}{2}-1}
+\end{equation*}
+Then 
+\begin{equation*}
+    l(l+1)(1-x^2)^{\frac{m}{2}}-m(1-x^2)^{\frac{m}{2}} -m^2(1-x^2)(1-x^2)^{\frac{m}{2}-1}
+\end{equation*}
+Finally 
+\begin{equation*}
+    l(l+1)(1-x^2)^{\frac{m}{2}} -m(m+1)(1-x^2)^{\frac{m}{2}}
+\end{equation*}
+Substituting back and multiplying by $(1-x^2)^2/m$
+\begin{equation*}
+    (1-x^2)u''-2(m+1)xu'+\left[l(l+1)-m(m+1)\right]u=0
+\end{equation*}
+Now the associated Legendre equation turns into the Legendre equation if $m=0$ and has solution of $u=P_l$ or $(1-x^2)^{\frac{m}{2}}P_l$,  the solution is. For the case of general integer $m$, first differentiate it, to obtain
+\begin{gather*}
+    -2xu'' +(1-x^2)u'''-2(m+1)(u'+xu'')\\
+    +\left[l(l+1)-m(m+1)\right]u'=0
+\end{gather*}
+Or 
+\begin{gather*}
+    (1-x^2)(u')''-[2(m+1)+2]x(u')'\\
+    +\left[l(l+1)-m(m+1)-2(m+1)\right]u'=0
+\end{gather*}
+This just the previous Legendre equation with $u\rightarrow u'$ and $m\rightarrow m+1$. If $u=P_l$ is the solution at $m=0$ and $u=P_l'$ is the solution at $m+1$, then by the induction method we can say that for interger $0\leq m\leq l$, $u=(P_l)^{(m)}$ is the solution. To put in anothe words, the solution of associated Legendre equation is 
+\begin{align*}
+    y&=(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)P_l\\
+    y&=\frac{1}{2^ll!}(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)^{l+m}(x^2-1)^l
+\end{align*}
+
+
 \subsubsection*{Generating function.} The function $\Phi(x,h)$ below is the generating function for the Legendre polynomial
 \begin{equation*}
     (1-2x+h^2)^{-1/2}=\sum_{l=0}^{\infty}h^lP_l(x)
@@ -759,6 +841,11 @@ Rearrange it
 On using this, we also obtain the following theorem.
 \begin{equation*}
     \int_{-1}^{1}P_l(x)\cdot(\text{polynomial degree }l<0)\;dx=0
+\end{equation*}
+
+For the case of associated Legendre polynomial, we have 
+\begin{equation*}
+    \int_{-1}^{1}[P_l^m(x)]^2\;dx=\frac{2}{2l+1}\frac{(l+m)!}{(l-m)!}
 \end{equation*}
 
 \paragraph*{Proof.} Consider two Legendre polynomials for two different value of $l$ 
