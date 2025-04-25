@@ -742,7 +742,7 @@ Rearrange it
     lP_l&=(2l-l)xP_{l-1}(x)-l(-1)P_{l-2}(x)
 \end{align*}
 
-\paragraph*{Second relation proof.} 404.
+\paragraph*{Second relation proof.} 404. 
 
 \paragraph*{Third relation proof.} 404.
 
@@ -751,6 +751,82 @@ Rearrange it
 \paragraph*{Fifth relation proof.} 404.
 
 \paragraph*{Sixth relation proof.} 404.
+
+\subsubsection*{Orthogonality.} The following equation state the orthogonality of Legendre polynomial on $(-1,1)$
+\begin{equation*}
+    \int_{-1}^{1}P_l(x)P_m(x)\;dx=\frac{2}{2l+1}\delta_{lm}
+\end{equation*}
+On using this, we also obtain the following theorem.
+\begin{equation*}
+    \int_{-1}^{1}P_l(x)\cdot(\text{polynomial degree }l<0)\;dx=0
+\end{equation*}
+
+\paragraph*{Proof.} Consider two Legendre polynomials for two different value of $l$ 
+\begin{align*}
+    \frac{d}{dx}\left[(1-x^2)P_l'\right] +l(l+1) P_l&=0\\
+    \frac{d}{dx}\left[(1-x^2)P_m'\right] +l(l+1) P_m&=0
+\end{align*}
+Multiply the first equation with $P_m$ and the second with $P_l$
+\begin{align*}
+    P_m\frac{d}{dx}\left[(1-x^2)P_l'\right] +l(l+1) P_lP_m&=0\\
+    P_l\frac{d}{dx}\left[(1-x^2)P_m'\right] +m(m+1) P_lP_m&=0
+\end{align*}
+Subtract both 
+\begin{multline*}
+    P_m\frac{d}{dx}\left[(1-x^2)P_l'\right]
+    -P_l\frac{d}{dx}\left[(1-x^2)P_m'\right]\\
+    +\left[(l(l+1))-m(m+1)\right]P_lP_m
+\end{multline*}
+The first two terms can be written as 
+\begin{align*}
+    \frac{d}{dx}\left[(1-x^2)(P_mP_l'-P_lP_m')\right]&= \frac{d}{dx}\left[(1-x^2)P_mP_l'-(1-x^2P_lP_m')\right]\\
+    &=(1-x^2)P_l'P_m' +P_m\frac{d}{dx}\left[(1-x^2)P_l'\right]\\
+    &\qquad-(1-x^2)P_l'P_m' -P_l\frac{d}{dx}\left[(1-x^2)P_m'\right]
+\end{align*}
+which is what those two terms are. Then integrate between $(-1,1)$
+\begin{multline*}
+    \int_{-1}^{1}\frac{d}{dx}\left[(1-x^2)(P_mP_l'-P_lP_m')\right]\;dx \\
+    +\int_{-1}^{1} \left[(l(l+1))-m(m+1)\right]P_lP_m\;dx=0
+\end{multline*}
+Evaluate it
+\begin{equation*}
+    (1-x^2)(P_mP_l'-P_lP_m')\bigg|_{-1}^{1} +\left[(l(l+1))-m(m+1)\right]\int_{-1}^{1} P_lP_m \; dx=0
+\end{equation*}
+The first term is zero due to the term of $(1-x^2)$; while the second term is also zero if $m=l$, which due to the constant term outside integral. Hence, it is proved that for $m=l$, the following integral is true 
+\begin{equation*}
+    \int_{-1}^{1} P_lP_m \; dx=0
+\end{equation*}
+By considering $P_m$ as a polynomial order $m$, we can also state 
+\begin{equation*}
+    \int_{-1}^{1} P_l\cdot(\text{polynomial degree }l<0)\; dx=0
+\end{equation*}
+
+To prove the value of the integral for the same order $l$, first recall the recursive relation of 
+\begin{equation*}
+    lP_l=xP_l'-P_{l-1}'
+\end{equation*}
+Multiply by $P_l$ and integrate on $(-1,1)$
+\begin{equation*}
+    l\int_{-1}^{1}[P_l]^2\;dx=\int_{-1}^{1}xP_lP_l'\;dx -\int_{-1}^{1}P_lP_{l-1}'\;dx
+\end{equation*}
+The second term is zero since $P_{l-1}'$ is a polynomial order $l-2$. We evaluate the remaining integral using integration by part 
+\begin{equation*}
+    \int_{-1}^{1}xP_lP_l'\;dx =x[P_l]^2\bigg|_{-1}^{1}-\int_{-1}^{1}P_l\frac{d}{dx}\left[xP_l\right]\;dx
+\end{equation*}
+Recalling the $[P_l(-1)]^2=(-1)^{2l}=1$ and using the derivative product rule for the second integral
+\begin{align*}
+    \int_{-1}^{1}xP_lP_l'\;dx &=2-\int_{-1}^{1}[P_l]^2\;dx -\int_{-1}^{1}xP_lP_l'\;dx\\
+    \int_{-1}^{1}xP_lP_l'\;dx&=1-\frac{1}{2}\int_{-1}^{1}[P_l]^2\;dx
+\end{align*}
+Then substituting back into our original equation
+\begin{align*}
+    l\int_{-1}^{1}[P_l]^2\;dx=1-\frac{1}{2}\int_{-1}^{1}[P_l]^2\;dx\\
+    \int_{-1}^{1}[P_l]^2\;dx=\frac{1}{l+1/2}=\frac{2}{2l+1}
+\end{align*}
+Or by using Kronecker delta, we can also express the result as 
+\begin{equation*}
+    \int_{-1}^{1}P_lP_m\;dx=\frac{2}{2l+1}\delta_{lm}
+\end{equation*}
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
