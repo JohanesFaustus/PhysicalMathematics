@@ -561,8 +561,22 @@ Another closely related equation is
 \end{equation*}
 The solution of said function is the associated Legendre function, which defined by the Rodrigues formula as 
 \begin{equation*}
-    P_l^m(x)=\frac{1}{2^ll!}(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)^{l+m}(x^2-1)^l
+    P_l^m(x)=\frac{1}{2^ll!}(1-x^2)^{m/2}\left(\frac{d}{dx}\right)^{l+m}(x^2-1)^l
 \end{equation*}
+For negative value of $m$, we have 
+\begin{equation*}
+    P_l^{-m}(x)=(-1)^m\frac{(l-m)!}{(l+m)!}P_l^m(x)
+\end{equation*}
+Whereas for negative $x$
+\begin{equation*}
+    P_l^{-m}(-x)=(-1)^{l+m}P_l^m(x)
+\end{equation*}
+
+\subsubsection*{Laplace integral representation.} The integral representation for the Legendre polynomial is 
+\begin{equation*}
+    P_l(x)=\frac{1}{\pi}\int_{0}^{\pi}\left(x+\sqrt{x^2-1}\cos\theta\right)^l\;d\theta
+\end{equation*}
+where the domain is $|x|>1$ due to the square root term.
 
 \subsubsection*{Laplace integral representation.} The integral representation for the Legendre polynomial is 
 \begin{equation*}
