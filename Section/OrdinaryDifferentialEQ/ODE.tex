@@ -140,6 +140,16 @@ where $P_n(x)$ is a polynomial of degree n is
 where $Q_n(x)$ is a polynomial of the same degree as $P_n(x)$ with undetermined
 coefficients to be found to satisfy the given differential equation.
 
+\subsubsection*{Euler's equation.} Has the form of 
+\begin{equation*}
+    a_2x^2\frac{d^2y}{dx^2} +a_1x\frac{dy}{dx} +a_0y=f(x)
+\end{equation*}
+By substituting $x=e^z$, we obtain the following equation 
+\begin{equation*}
+    a_2\frac{d^2y}{dx^2} +(a_1-a_2)\frac{dy}{dz} +a_0y=f(e^z)
+\end{equation*}
+
+
 \subsubsection*{Principle of Superposition.} The easiest way of handling a complicated right-hand side: Solve a separate equation for each different exponential and add the solutions. The fact that this is correct for a linear equation is often called the principle of superposition. 
 
 Note that the principle holds only for linear equations.
@@ -561,16 +571,21 @@ Another closely related equation is
 \end{equation*}
 The solution of said function is the associated Legendre function, which defined by the Rodrigues formula as 
 \begin{equation*}
+    P_l^m(x)=(1-x^2)^{m/2}\left(\frac{d}{dx}\right)^{m}P_l(x)
+\end{equation*}
+or
+\begin{equation*}
     P_l^m(x)=\frac{1}{2^ll!}(1-x^2)^{m/2}\left(\frac{d}{dx}\right)^{l+m}(x^2-1)^l
 \end{equation*}
 For negative value of $m$, we have 
 \begin{equation*}
     P_l^{-m}(x)=(-1)^m\frac{(l-m)!}{(l+m)!}P_l^m(x)
 \end{equation*}
-Whereas for negative $x$
+Negative value of $m$ has the same polynomial order with the positive one, they only differ in constant. Whereas for negative $x$
 \begin{equation*}
     P_l^{-m}(-x)=(-1)^{l+m}P_l^m(x)
 \end{equation*}
+
 
 \subsubsection*{Laplace integral representation.} The integral representation for the Legendre polynomial is 
 \begin{equation*}
@@ -769,16 +784,16 @@ Or
     (1-x^2)(u')''-[2(m+1)+2]x(u')'\\
     +\left[l(l+1)-m(m+1)-2(m+1)\right]u'=0
 \end{gather*}
-This just the previous Legendre equation with $u\rightarrow u'$ and $m\rightarrow m+1$. If $u=P_l$ is the solution at $m=0$ and $u=P_l'$ is the solution at $m+1$, then by the induction method we can say that for interger $0\leq m\leq l$, $u=(P_l)^{(m)}$ is the solution. To put in anothe words, the solution of associated Legendre equation is 
+This just the previous Legendre equation with $u\rightarrow u'$ and $m\rightarrow m+1$. If $u=P_l$ is the solution at $m=0$ and $u=P_l'$ is the solution at $m+1$, then by the induction method we can say that for interger $0\leq m\leq l$, $u=(P_l)^{(m)}$ is the solution. To put in another words, the solution of associated Legendre equation is 
 \begin{align*}
-    y&=(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)P_l\\
+    y&=(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)^m P_l\\
     y&=\frac{1}{2^ll!}(1-x^2)^{\frac{m}{2}}\left(\frac{d}{dx}\right)^{l+m}(x^2-1)^l
 \end{align*}
 
 
 \subsubsection*{Generating function.} The function $\Phi(x,h)$ below is the generating function for the Legendre polynomial
 \begin{equation*}
-    (1-2x+h^2)^{-1/2}=\sum_{l=0}^{\infty}h^lP_l(x)
+    (1-2xh+h^2)^{-1/2}=\sum_{l=0}^{\infty}h^lP_l(x)
 \end{equation*}
 
 \paragraph*{Proof.} We first show that  the function indeed can be expressed as series. For brevity, we take $u=2xh-h^2$
@@ -852,6 +867,19 @@ Rearrange it
 \paragraph*{Fifth relation proof.} 404.
 
 \paragraph*{Sixth relation proof.} 404.
+
+\paragraph*{Bonus.} Consider the case of negative value $x$ and $t$ for the $\Phi(x,t)$. Substituting it to the function representation
+\begin{equation*}
+    \Phi(-x,-t)=(1-2(-x)(-h)+(-h)^2)^{-1/2} =(1-2xh+h^2)^{-1/2}
+\end{equation*}
+We see that this is simply $\Phi(x,t)=\sum h^lP_l(x)$. Now, substituting it to the series representation
+\begin{equation*}
+    \Phi(-x,-t)=\sum_{l=0}^{\infty}(-h)^lP_l(-x)=\sum_{l=0}^{\infty}(-1)^lh^lP_l(-x)
+\end{equation*}
+Now taking the coefficient of $h^l$
+\begin{equation*}
+    (-1)^lP_l(-x)=P_l(x)\implies P_l(-x)=(-1)^lP_l(x)
+\end{equation*}
 
 \subsubsection*{Orthogonality.} The following equation state the orthogonality of Legendre polynomial on $(-1,1)$
 \begin{equation*}
