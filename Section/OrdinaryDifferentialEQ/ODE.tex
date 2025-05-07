@@ -149,6 +149,21 @@ By substituting $x=e^z$, we obtain the following equation
     a_2\frac{d^2y}{dx^2} +(a_1-a_2)\frac{dy}{dz} +a_0y=f(e^z)
 \end{equation*}
 
+\paragraph*{Proof.} First, we compute the first derivative of $y$
+\begin{equation*}
+    \frac{dy}{dz}=\frac{dy}{dx}\frac{dx}{dz}=e^z\frac{dy}{dx}=x\frac{dy}{dx}
+\end{equation*}
+Then the second 
+\begin{align*}
+    \frac{d^2y}{dz^2}&=\frac{d}{dz}\left(e^z\frac{dy}{dx}\right)=e^z\frac{dy}{dx} + e^z\frac{d}{dz}\left(\frac{dy}{dx}\right)\\
+   \frac{d^2y}{dz^2}&=\frac{dy}{dz}+x\frac{d}{dx}\left(\frac{dy}{dx}\right)\frac{dx}{dz}=\frac{dy}{dx}+x^2\frac{d^2y}{dx^2}
+\end{align*}
+And substituting it 
+\begin{align*}
+    a_2 \left(\frac{d^2y}{dz^2}-\frac{dy}{dx}\right)+ a_1\frac{dy}{dz} +a_0y&=f(e^z)\\
+    a_2\frac{d^2y}{dz^2}+ (a_1-a_2)\frac{dy}{dz} +a_0y&=f(e^z)
+\end{align*}
+
 \subsubsection*{Principle of Superposition.} The easiest way of handling a complicated right-hand side: Solve a separate equation for each different exponential and add the solutions. The fact that this is correct for a linear equation is often called the principle of superposition. 
 
 Note that the principle holds only for linear equations.
