@@ -568,6 +568,10 @@ Another closely related equation is
 \begin{equation*}
     (1-x^2)y''-2xy'+\left[l(l+1)-\frac{m^2}{1-x^2}\right]y =0
 \end{equation*}
+or by substituting $x=\cos\theta$
+\begin{equation*}
+    \frac{d^2\Phi}{d\theta^2} +\frac{\cos \theta}{\sin\theta}\frac{d\Theta}{d\theta} +\left[l(l+1)-\frac{m^2}{\sin^2\theta}\Theta \right]\Theta =0
+\end{equation*}
 The solution of said function is the associated Legendre function, which defined by the Rodrigues formula as 
 \begin{equation*}
     P_l^m(x)=(1-x^2)^{m/2}\left(\frac{d}{dx}\right)^{m}P_l(x)
@@ -591,11 +595,6 @@ Negative value of $m$ has the same polynomial order with the positive one, they 
     P_l(x)=\frac{1}{\pi}\int_{0}^{\pi}\left(x+\sqrt{x^2-1}\cos\theta\right)^l\;d\theta
 \end{equation*}
 where the domain is $|x|>1$ due to the square root term.
-
-\subsubsection*{Laplace integral representation.} The integral representation for the Legendre polynomial is 
-\begin{equation*}
-    P_l(x)=\frac{1}{\pi}\int_{0}^{\pi}\left(x+\sqrt{x^2-1}\cos\theta\right)^l\;d\theta
-\end{equation*}
 
 \subsubsection*{Series derivation.} By assuming the solution has the form of power series, we can use the Frobenius method. We also assume that $s=0$ for simplification. Thus, each term can be represented as power series
 \begin{center}
@@ -644,7 +643,9 @@ At $x^2=1$ the $a_1$ series is divergent by the integral test
 \begin{equation*}
     \int^\infty \frac{1}{2n+1}\;dn=\frac{1}{2}\ln (2n+1)\bigg|^{\infty}=\infty
 \end{equation*}
-Therefore we throw the $a_1$ series out. By the definition of Legendre polynomial we have $a_0=1$, thus $P_0(x)=1$. We can use this method to determine the value of $P_l(x)$ for other $l$, but this method is simply terrible to use. There are other method that are more efficient, Rodrigues formula for example.
+Therefore we throw the $a_1$ series out. By the definition of Legendre polynomial we have $a_0=1$, thus $P_0(x)=1$. In simple terms, we cans say that for odd value of $l$, we throw the even value of constant $a_0$; and for even value of $l$, we throw away the odd value of constant $a_1$.
+
+We can use this method to determine the value of $P_l(x)$ for other $l$, but this method is simply terrible to use. There are other method that are more efficient, Rodrigues formula for example.
 
 \subsubsection*{Rodrigues formula proof.} Consider the function $v=(x^2-1)^l$. Differentiate it with respect to $x$
 \begin{equation*}
@@ -961,11 +962,31 @@ Or by using Kronecker delta, we can also express the result as
     \int_{-1}^{1}P_lP_m\;dx=\frac{2}{2l+1}\delta_{lm}
 \end{equation*}
 
+\subsubsection*{Another form of associated Legendre equation.} We shall prove
+\begin{equation*}
+    \frac{d^2y}{d\theta^2} +\frac{\cos \theta}{\sin\theta}\frac{dy}{d\theta} +\left[l(l+1)-\frac{m^2}{\sin^2\theta} \right]y =0
+\end{equation*}
+is the associated Legendre equation by substituting $x=\cos\theta$. First we evaluate the differential
+\begin{equation*}
+    \frac{dy}{d\theta}=\frac{dy}{dx}\frac{dx}{d\theta}=-\sin\theta\frac{dy}{dx}=-(1-x^2)^{1/2}\frac{dy}{dx}
+\end{equation*}
+Applying the operator one more 
+\begin{align*}
+    \frac{d^2y}{d\theta^2}&=-(1-x^2)^{1/2}\frac{d}{dx}\left[-(1-x^2)^{1/2}\frac{dy}{dx}\right]\\
+    &=-(1-x^2)^{1/2}\left[\frac{x}{(1-x^2)^{1/2}}\frac{dy}{dx} -(1-x^2)^{1/2}\frac{d^2y}{dx^2}\right]\\
+    \frac{d^2y}{d\theta^2}&=(1-x^2)^{1/2}\frac{d^2y}{dx^2}-x\frac{dy}{dx}
+\end{align*}
+Then we simply substituted both into the another form of the associated Legendre equation
+\begin{align*}
+    (1-x^2)^{1/2}\frac{d^2y}{dx^2}-2x\frac{dy}{dx}+\left[l(l+1)-\frac{m^2}{(1-x^2)^{1/2}} \right]y=0
+\end{align*} 
+
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks. Laplace's equation state that 
 \begin{equation*}
     \nabla^2 u=0
 \end{equation*}
+
 
 \subsubsection*{Cylindrical domain.} Suppose we evaluate Laplace equation in cylindrical domain. The Laplacian reads
 \begin{equation*}
@@ -1063,7 +1084,7 @@ Substituting back $r=e^z$, we obtain the solution in terms of $r$
 
 Next we consider the $\theta$ equation 
 \begin{equation*}
-    \frac{d^2\Phi}{d\theta^2} +\frac{\cos \theta}{\sin\theta}\frac{d\Theta}{d\theta} +\left[l(l+1)-\frac{m^2}{\sin^2\theta}\Theta \right]\Theta =0
+    \frac{d^2\Phi}{d\theta^2} +\frac{\cos \theta}{\sin\theta}\frac{d\Theta}{d\theta} +\left[l(l+1)-\frac{m^2}{\sin^2\theta} \right]\Theta =0
 \end{equation*}
 This is the the associated Legendre equation if we substitute $x=\cos \theta$. Thus we have the solution
 \begin{equation*}
