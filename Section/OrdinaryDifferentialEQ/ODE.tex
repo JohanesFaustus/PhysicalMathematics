@@ -1245,6 +1245,47 @@ and, as before, equation the $h^n$ terms
     2xH_n-2nH_{n-1}&=H_{n+1}
 \end{align*}
 
+\subsection*{Laguerre function}
+The differential equation
+\begin{equation*}
+    xy''+(1-x)y'+ny=0
+\end{equation*}
+has the solution of Laguerre polynomials
+\begin{equation*}
+    L_n(x)=\frac{1}{n!}e^x\left(\frac{d}{dx}\right)^n(x^ne^{-x})
+\end{equation*}
+or if we were to carry the differentiation using Leibniz's rule
+\begin{equation*}
+    L_n(x)=\sum_{m=0}^{n}(-1)^m\binom{n}{m}\frac{x^m}{m!}
+\end{equation*}
+
+Another closely related equation is 
+\begin{equation*}
+    xy''+(k+1-x)y'+ny=0
+\end{equation*}
+which is solved by the associated Laguerre polynomials
+\begin{equation*}
+    L_n^k(x)=(-1)^k\left(\frac{d}{dx}\right)^kL_{n+k}(x)
+\end{equation*}
+
+\subsubsection*{Derivation.} 
+The Laguerre equation
+\begin{equation*}
+    xy''+(1-x)y'+ny=0
+\end{equation*}
+can be solved using Rodrigues formula, where the integral factor is 
+\begin{equation*}
+    \mu=\frac{1}{x}\exp\left(\int_{0}^{x}\frac{1-x}{x}\;dx\right)=\frac{\exp(\ln x-x )}{x}=e^{-x}
+\end{equation*}
+The solution then reads
+\begin{equation*}
+    y=\frac{1}{e^{-x}}\left(\frac{d}{dx}\right)^n\left(x^ne^{-x}\right)
+\end{equation*}
+On multiplying with $1/n!$ we obtain the Laguerre polynomials
+\begin{equation*}
+    L_n(x)=\frac{1}{n!}e^x\left(\frac{d}{dx}\right)^n(x^ne^{-x})
+\end{equation*}
+
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks.
 Laplace's equation state that
