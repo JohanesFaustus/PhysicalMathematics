@@ -1142,6 +1142,16 @@ which is solved by the Hermite polynomial
 Hermite polynomial can also be obtained by multiplying the Hermite function by $(-1)^ne^{x^2/2}$.
 This multiplication is performed such that the polynomial is raising from negative $-\infty$ and orthogonal on $(-\infty,\infty)$.
 
+The generating function $\phi(x,h)$ for Hermite polynomial is 
+\begin{equation*}
+    \exp(2xh-h^2)=\sum_{n=0}^{\infty}H_n(x)\frac{h^n}{n!}
+\end{equation*}
+Using the generating function we obtain the following recursion relation
+\begin{gather*}
+    H_n'(x)=2xH_{n-1}(x)\\
+    H_{n+1}(x)=2xH_{n}(x)-2nH_{n-1}(x)
+\end{gather*}
+
 \subsubsection*{Derivation.} Using the operator $D$, we have
 \begin{align*}
     (D-x)(D+x)y & =(D-x)(Dy+xy)        \\
@@ -1207,6 +1217,33 @@ This is why the Hermite function is defined in such way to allow the function to
 \begin{equation*}
     \int_{-\infty}^{\infty}y_ny_m\;dx=\sqrt{\pi}2^nn!\delta_{nm}
 \end{equation*}
+
+\subsubsection*{Recursive relation derivation.} 
+Derivation the generating function
+\begin{equation*}
+    \exp(2xh-h^2)=\sum_{n=0}^{\infty}H_n(x)\frac{h^n}{n!}
+\end{equation*}
+with respect either $x$ or $h$ will result in the recursive relation.
+The first relation is obtained by performing derivative to the $\phi(x,h)$ with respect to $x$
+\begin{align*}
+    2h\exp(2xh-h^2)&=\sum H_n'\frac{h^n}{n!}\\
+    2\sum\frac{H_{n-1}}{(n-1)!}h^n&=\sum \frac{H_n'}{n!}h^n
+\end{align*}
+and equating the $h^n$ term 
+\begin{align*}
+    2\frac{H_{n-1}}{(n-1)!}&=\frac{H_n'}{n!}\\
+    2nH_{n-1}&=H_n'
+\end{align*}
+In other hand, the second relation is obtained by derivating with respect to $h$
+\begin{align*}
+    (2x-2h)\exp(2xh-h^2)&=\sum\frac{nH_n}{n!}h^{n-1}\\
+    2x\sum \frac{H_n}{n!}h^n-2 \sum \frac{H_{n-1}}{(n-1)!}h^n &=\sum \frac{H_(n+1)}{n!}
+\end{align*}
+and, as before, equation the $h^n$ terms 
+\begin{align*}
+    2x\frac{H_n}{n!}-2\frac{H_{n-1}}{(n-1)!}&=\frac{H_{n+1}}{n!}\\
+    2xH_n-2nH_{n-1}&=H_{n+1}
+\end{align*}
 
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks.
