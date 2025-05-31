@@ -1185,7 +1185,7 @@ We can derive the solution for Hermite equations
 \begin{equation*}
     y''-2xy'+2ny=0
 \end{equation*}
-using the Rodrigues formula. We have the integral factor 
+using the Rodrigues formula. First, the integral factor is evaluated as follows 
 \begin{equation*}
     \mu=\exp\left(\int_{0}^{x}-2x\;dx\right)=e^{-x^2}
 \end{equation*}
@@ -1193,10 +1193,21 @@ The solution is the
 \begin{equation*}
     y=\frac{1}{e^{-x^2}}\left(\frac{d}{dx}\right)^ne^{-x^2}
 \end{equation*}
-We obtain the Hermite polynomial by multiplying the solution with factor of $(-1)^n$
+The Hermite polynomial is obtained by multiplying the solution with factor of $(-1)^n$
 \begin{equation*}
     H_n=(-1)^ne^{x^2}\left(\frac{d}{dx}\right)^ne^{-x^2}
 \end{equation*} 
+
+\subsubsection*{Orthogonality.} We state the orthogonality of Hermite function or Hermite polynomial as follows.
+\begin{equation*}
+    \int_{-\infty}^{\infty}e^{-x^2}H_n(x)H_m(x)\;dx=\sqrt{\pi}2^n n!\delta_{nm}
+\end{equation*} 
+The Hermite polynomial is orthogonal on $(-\infty,\infty)$ with respect to weight function $e^{-x^2}$. 
+This is why the Hermite function is defined in such way to allow the function to be orthogonal on $(-\infty,\infty)$ with respect to itself
+\begin{equation*}
+    \int_{-\infty}^{\infty}y_ny_m\;dx=\sqrt{\pi}2^nn!\delta_{nm}
+\end{equation*}
+
 \subsection*{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks.
 Laplace's equation state that
@@ -1204,15 +1215,14 @@ Laplace's equation state that
     \nabla^2 u=0
 \end{equation*}
 
-
 \subsubsection*{Cylindrical domain.} Suppose we evaluate Laplace equation in cylindrical domain. 
- The Laplacian reads
+The Laplacian reads
 \begin{equation*}
     \nabla^2u= \frac{1}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial u}{\partial r}\Biggr)+\frac{1}{r^2} \frac{\partial^2u}{\partial \phi^2}+ \frac{\partial^2u}{\partial z^2}
 \end{equation*}
 
 By the separation of variables, we assume the solution of $u=R(r)\Phi(\phi)Z(z)$. 
- Thus, the Laplace's equation now reads
+Thus, the Laplace's equation now reads
 \begin{equation*}
     \frac{\Phi R}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
     +\frac{RZ}{r^2} \frac{\partial^2\Phi}{\partial \phi^2}
@@ -1225,7 +1235,7 @@ Then we divide by $u=R(r)\Phi(\phi)Z(z)$,
     + \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=0
 \end{equation*}
 Since only last term is the function of $z$ alone, we can safely say that it is a constant. 
- Therefore, we define
+Therefore, we define
 \begin{equation*}
     \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=K^2\implies Z=Ae^{Kz}+Be^{-KZ}
 \end{equation*}
@@ -1236,7 +1246,7 @@ Substituting this value and multiplying by $r^2$, we have
     +K^2r^2=0
 \end{equation*}
 Now we see that the second term is constant. 
- We define
+We define
 \begin{equation*}
     \frac{1}{\Phi}\frac{\partial^2 \Phi}{\partial \phi}=-n^2\implies \Phi=C\sin n\theta +D\cos n\theta
 \end{equation*}
