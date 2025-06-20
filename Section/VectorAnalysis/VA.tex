@@ -451,5 +451,54 @@ The following conditions are equivalent:
     \item $\oint\mathbf{F} \cdot\;d\mathbf{a}=0$ for any closed surface.
     \item \textbf{F} is the curl  of some scalar function: $\mathbf{F} =- \nabla \A$.
 \end{itemize}
+
+\subsection*{State Function and Conservative Field}
+State function, such as internal energy \(U \) and entropy \(S \), can be thought as conservative field. The condition that must be satisfied by conservative field $\mathbf{V}$ is
+\begin{equation*}
+    \nabla\times \mathbf{V}=0
+\end{equation*}
+Suppose we actually evaluate the curl of vector function $\mathbf{V}(x,y,z)$, we get
+\begin{align*}
+    \nabla\times \mathbf{V}&=\begin{pmatrix}
+        \mathbf{\hat{x}} & \mathbf{\hat{y}} & \mathbf{\hat{z}}\\
+        \dfrac{\partial }{\partial x} & \dfrac{\partial }{\partial y} & \dfrac{\partial }{\partial z}\\
+        V_x& V_y & V_z
+    \end{pmatrix}\\
+    \\
+    \nabla\times \mathbf{V}&=
+    \mathbf{\hat{i}} \biggl(\dfrac{\partial V_z}{\partial y} -\dfrac{\partial V_y}{\partial z}\biggr)+ 
+    \mathbf{\hat{j}} \biggl(\dfrac{\partial V_x}{\partial z}-\dfrac{\partial V_z}{\partial x} \biggr) + 
+    \mathbf{\hat{k}}\biggl( \dfrac{\partial V_y}{\partial x}-\dfrac{\partial V_x}{\partial y}\biggr)
+\end{align*} 
+Since \textbf{V}, as a conservative field, has curl of zero, those term inside parenthesis can be evaluated into
+\begin{equation*}
+    \dfrac{\partial V_z}{\partial y} =\dfrac{\partial V_y}{\partial z},\quad
+    \dfrac{\partial V_x}{\partial z}=\dfrac{\partial V_z}{\partial x},\quad
+    \dfrac{\partial V_y}{\partial x}=\dfrac{\partial V_x}{\partial y}
+\end{equation*}
+For state function \(U(S,V,N)\), the equation reads
+\begin{equation*}
+    \dfrac{\partial U_N}{\partial V} =\dfrac{\partial U_V}{\partial N},\quad
+    \dfrac{\partial U_S}{\partial N}=\dfrac{\partial U_N}{\partial S},\quad
+    \dfrac{\partial U_V}{\partial S}=\dfrac{\partial U_S}{\partial V}
+\end{equation*}
+Of course you can't evaluate the curl of state function, but hear me out. What we consider is not the function $U$ itself, but rather, the differential $dU$. Its total differential may be written as 
+\begin{equation*}
+    dU(S,V,N)=\frac{\partial U}{\partial S}\bigg|_{V,N} dS + \frac{ \partial U}{\partial V}\bigg|_{S,N} dV+ \frac{\partial U}{\partial N}\bigg|_{S,V}dN
+\end{equation*}
+Here, the differentials $(dS,dT,dN)$ act like unit vector, thus we can pretend that $dU$ is a vector field with components of
+\begin{equation*}
+    U_S=\frac{\partial U}{\partial S}\bigg|_{V,N}, \quad
+    U_V=\frac{ \partial U}{\partial V}\bigg|_{S,N},\quad
+    U_N=\frac{\partial U}{\partial N}\bigg|_{S,V}
+\end{equation*}
+Therefore
+\begin{align*}
+    \dfrac{\partial }{\partial V} \frac{\partial U}{\partial N}  = \dfrac{\partial }{\partial N}\frac{ \partial U}{\partial V},\quad
+    \dfrac{\partial }{\partial N}\frac{\partial U}{\partial S}=\dfrac{\partial }{\partial S}\frac{\partial U}{\partial N},\quad
+    \dfrac{\partial }{\partial S}\dfrac{ \partial U}{\partial V}=\dfrac{\partial }{\partial V}\frac{\partial U}{\partial S}
+\end{align*}
+This is what it means to be an exact differential.
+
 \end{document}  
 
