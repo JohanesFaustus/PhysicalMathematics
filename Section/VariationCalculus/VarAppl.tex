@@ -1,0 +1,24 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection*{Application: Shortest Between two points}
+Arbitrary path is given by 
+\begin{equation*}
+    L=\int_{1}^{2}\sqrt{dx^2+dy^2}=\int_{x_1}^{x_2}\sqrt{1+y'^2}\;dx
+\end{equation*}
+We factor $dx$ from the integrand in order to make the function we are optimizing not dependent on the $y$ variable and make the evaluation using Euler-Lagrange equation easier
+\begin{equation*}
+    f(y,y',x)=\sqrt{1+y'^2}
+\end{equation*}
+Then the Euler-Lagrange equation takes the form of 
+\begin{equation*}
+    \frac{\partial f}{\partial y}=\frac{d}{dt}\frac{\partial f}{\partial y'}
+\end{equation*}
+Since $\partial f/\partial y=0$ implies simply that $\partial f/\partial y'$ is a constant. Accordingly, 
+\begin{align*}
+    \frac{\partial f}{\partial y'}&=\frac{y'}{\sqrt{1+y'^2}}=C\\
+    y'^2&=C^2(1+y^2)\\
+    y'^2(1-C^2)&=C^2\\
+    y&=\int\frac{C}{\sqrt{1-C^2}}\;dx=\mathcal{C}x
+\end{align*}
+which is the equation for straight line.
+\end{document}
