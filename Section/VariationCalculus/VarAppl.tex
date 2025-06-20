@@ -13,7 +13,7 @@ Then the Euler-Lagrange equation takes the form of
 \begin{equation*}
     \frac{\partial f}{\partial y}=\frac{d}{dt}\frac{\partial f}{\partial y'}
 \end{equation*}
-Since $\partial f/\partial y=0$ implies simply that $\partial f/\partial y'$ is a constant. Accordingly, 
+$\partial f/\partial y=0$ implies simply that $\partial f/\partial y'$ is a constant. Accordingly, 
 \begin{align*}
     \frac{\partial f}{\partial y'}&=\frac{y'}{\sqrt{1+y'^2}}=C\\
     y'^2&=C^2(1+y^2)\\
@@ -21,4 +21,58 @@ Since $\partial f/\partial y=0$ implies simply that $\partial f/\partial y'$ is 
     y&=\int\frac{C}{\sqrt{1-C^2}}\;dx=\mathcal{C}x
 \end{align*}
 which is the equation for straight line.
+
+\subsubsection*{Application: Brachistochrone}
+Given two points 1 and 2, with 1 higher above the ground, in what shape should we build a frictionless roller coaster track so that a car released from point 1 will reach point 2 in the shortest possible time? 
+
+The speed at which the coaster descend can be determined by the conservation energy principle 
+\begin{align*}
+    mgy&=\frac{1}{2}mv^2
+    v&=\sqrt{2gy}
+\end{align*}
+Thus the time to travel between points 
+\begin{equation*}
+    t=\int_{t_1}^{t_2}\frac{ds}{v}=\int_{t_1}^{t_2}\sqrt{\frac{dx^2+dy^2}{2gh}}
+\end{equation*}
+Since $v$ gives a function of $y$, we take it as independent variable for the same reason as previously 
+\begin{align*}
+    t=\frac{1}{\sqrt{2g}}\int_{t_1}^{t_2}\sqrt{\frac{1+x'^2}{y}}\;dy
+\end{align*}
+Ignoring the constant, the function we want to optimize is 
+\begin{equation*}
+    f(x,x',y)=\sqrt{\frac{1+x'^2}{y}}
+\end{equation*}
+Then the Euler-Lagrange equation takes the form of 
+\begin{equation*}
+    \frac{\partial f}{\partial x}=\frac{d}{dy}\frac{\partial f}{\partial x'}
+\end{equation*}
+$\partial f/\partial x=0$ implies simply that $\partial f/\partial x'$ is a constant. Accordingly, 
+\begin{equation*}
+    \frac{\partial f}{\partial x'}=\frac{x'}{\sqrt{y(1+x'^2)}}=C
+\end{equation*}
+Here we take the constant as $\sqrt{1/2a}$
+\begin{align*}
+    x'^2&=\frac{y(1+x'^2)}{2a}\\
+    x'^2\left(1-\frac{y}{2a}\right)&=\frac{y}{2a}\\
+    x'&=\sqrt{\frac{y}{2a}\frac{1}{2-y/2a}}\\
+    x'&=\sqrt{\frac{y}{2a-y}}\\
+    x=\int \sqrt{\frac{y}{2a-y}}\;dy
+\end{align*}
+To solve this integral, we substitute $y=a(1-\cos\alpha)$ and $dy=a\sin\alpha\;d\theta$
+\begin{align*}
+    x&=\int\left[\frac{a(1-\cos\theta)}{a(1+\cos\theta)}\right]^{1/2}a\sin\theta\;s\theta\\
+    &=a\int \left[\frac{1-\cos\theta}{1+\cos\theta}\right]^{1/2}\left[(1+\cos\theta)(1-\cos\theta)\right]^{1/2}\;d\theta\\
+    &=a\int(1-\cos\theta)\;d\theta\\
+    x&=a(\theta-\sin\theta)+c
+\end{align*}
+Therefore the path of the coaster is given by the following parametric equation
+\begin{equation*}
+    \begin{cases}
+        x=a(\theta-\sin\theta)+c\\
+        y=a(1-\cos\theta)
+    \end{cases}
+\end{equation*}
+
+
+
 \end{document}
