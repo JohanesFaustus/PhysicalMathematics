@@ -1,0 +1,100 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection*{Application: Gram-Schmidt Theorem}
+Convert these linearly independent basis into orthonormal basis
+\begin{equation*}
+	\ket{I}=\begin{bmatrix}
+		3 \\0\\0
+	\end{bmatrix}\quad
+	\ket{II}=\begin{bmatrix}
+		0 \\1\\2
+	\end{bmatrix}
+	\ket{III}=\begin{bmatrix}
+		0 \\2\\5
+	\end{bmatrix}
+\end{equation*}
+
+First normalize
+\begin{equation*}
+	\ket{1}=\frac{\ket{I}}{\sqrt{\braket{I|I}}}=\frac{1}{3}\begin{bmatrix}
+		3 \\0\\0
+	\end{bmatrix}=\begin{bmatrix}
+		1 \\0\\0
+	\end{bmatrix}
+\end{equation*}
+Then we construct
+\begin{equation*}
+	\ket{2'}=\ket{II}-\ket{1}\braket{1|II}=\begin{bmatrix}
+		0 \\1\\2
+	\end{bmatrix}
+	-
+	\begin{bmatrix}
+		1 \\0\\0
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 \\2\\5
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 \\1\\2
+	\end{bmatrix}
+\end{equation*}
+and normalize
+\begin{equation*}
+    \ket{2}=\frac{\ket{2'}}{|2'|}=\frac{1}{\sqrt{5}}\begin{bmatrix}
+        0\\1\\2
+    \end{bmatrix}=
+    \begin{bmatrix}
+        0\\1/\sqrt{5}\\2/\sqrt{5}
+    \end{bmatrix}
+\end{equation*}
+Doing the something for the third base
+\begin{align*}
+    \ket{3'}&=\ket{III}-\ket{1}\braket{1|III}-\ket{2}\braket{2|III}\\
+    &=\begin{bmatrix}
+        0\\2\\5
+    \end{bmatrix}-\begin{bmatrix}
+        1\\0\\0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0\\2\\5
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        0\\1/\sqrt{5}\\2/\sqrt{5}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0&1/\sqrt{5}&2/\sqrt{5}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0\\2\\5
+    \end{bmatrix}\\
+    &=\begin{bmatrix}
+        0\\2\\5
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        0\\12/5\\24/5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0\\-2/5\\1/5
+    \end{bmatrix}
+\end{align*}
+And normalize it 
+\begin{equation*}
+    \ket{3}=\frac{\ket{3'}}{|3'|}=\sqrt{5}\begin{bmatrix}
+        0\\-2/5\\1/5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0\\-2/\sqrt{5}\\1/\sqrt{5}
+    \end{bmatrix}
+\end{equation*}
+\end{document}
