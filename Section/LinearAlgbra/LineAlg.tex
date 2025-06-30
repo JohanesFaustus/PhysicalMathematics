@@ -118,8 +118,8 @@ If the basis of the vector are independent, we can expand into
 	\ket{V}=\sum_i v_i \ket{i}
 \end{equation*}
 
-\subsubsection*{Dual space.} 
-Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket in a basis, while row vector are bra's $\bra{V}$. 
+\subsubsection*{Dual space.}
+Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket in a basis, while row vector are bra's $\bra{V}$.
 They are adjoint of each other.
 Thus, there are two vector space: space of KET $\ket{V}$ and dual space of bra $\bra{V}$.
 
@@ -129,7 +129,7 @@ First, we take the dot product of said vector with an orthonormal base $\bra{j}$
 \begin{equation*}
 	\braket{j|V}=\sum_i v_i\braket{j|i}=v_j
 \end{equation*}
-and obtain the $j$-th component of the vector. 
+and obtain the $j$-th component of the vector.
 Using this, we then write
 \begin{equation*}
 	\ket{V}=\sum_i \ket{i}\braket{i|V}
@@ -369,12 +369,12 @@ Set of basis with orthogonal and normalized condition are called orthonormal bas
 \subsection*{Adjoint Operation}
 The following is a summary on how to perform adjoint in braket notation.
 \begin{quotation}
-	Reverse the order of all factors and make the substitutions $\Omega\leftrightarrow\Omega^\dagger,\ket{}\leftrightarrow \bra{}, a\leftrightarrow a^*$.	
+	Reverse the order of all factors and make the substitutions $\Omega\leftrightarrow\Omega^\dagger,\ket{}\leftrightarrow \bra{}, a\leftrightarrow a^*$.
 \end{quotation}
 From this we also obtain the conjugate expressions
 \begin{align*}
-	\ket{aV}=a \ket{V}\quad&\leftrightarrow \quad\bra{aV}=\bra{V}a^*\\ 
-	\ket{\Omega V}=\Omega \ket{V}\quad&\leftrightarrow\quad\bra{\Omega V}=\bra{V}\Omega^\dagger
+	\ket{aV}=a \ket{V}\quad            & \leftrightarrow \quad\bra{aV}=\bra{V}a^*                 \\
+	\ket{\Omega V}=\Omega \ket{V}\quad & \leftrightarrow\quad\bra{\Omega V}=\bra{V}\Omega^\dagger
 \end{align*}
 
 \subsubsection*{Bra and ket.}
@@ -394,12 +394,12 @@ The matrix $\Omega^\dagger$--also called Hermitian adjoint--represent transpose 
 	\Omega^{\dagger}=(\Omega^*)^T=(\Omega^T)^*
 \end{equation*}
 
-Our general rule of adjoint state 
+Our general rule of adjoint state
 \begin{equation*}
 	(\Omega\Lambda)^\dagger=\Lambda ^\dagger \Omega ^\dagger
 \end{equation*}
 This can however be proved in another method.
-Consider $\bra{\Omega \lambda V}$. First treat $\Omega\Lambda$ as one operator 
+Consider $\bra{\Omega \lambda V}$. First treat $\Omega\Lambda$ as one operator
 \begin{equation*}
 	\bra{(\Omega\Lambda)V}=\bra{V}(\Omega\Lambda) ^\dagger
 \end{equation*}
@@ -407,13 +407,13 @@ Then, treat both as separate operator and pull them out of the bra one by one
 \begin{equation*}
 	\bra{\Omega\Lambda V}=\bra{\Lambda V}\Omega^\dagger=\bra{V}\Lambda ^\dagger \Omega ^\dagger
 \end{equation*}
-Thus, we have 
+Thus, we have
 \begin{equation*}
 	(\Omega\Lambda) ^\dagger=\Lambda ^\dagger\Omega ^\dagger
 \end{equation*}
 
 \subsubsection*{Equation.}
-Suppose we have the equation involving 
+Suppose we have the equation involving
 \begin{equation*}
 	a_1 \ket{V_1}=a_2 \ket{V_2}+a_3 \ket{V_3}\braket{V_4|V_5}+a_4\Omega\Lambda \ket{V_6}
 \end{equation*}
@@ -421,4 +421,55 @@ and we want to take its adjoint
 \begin{equation*}
 	\bra{V_1}a_1 ^*=\bra{V_2}a_2 ^*+\braket{V_4|V_5}\bra{V_3}a_3 ^*+\bra{V_6}\Lambda ^\dagger\Omega ^\dagger a_4 ^*
 \end{equation*}
+
+\subsection*{Gram-Schmidt Theorem}
+The Gram-Schmidt procedure is used to convert linearly independent basis $\ket{I},\dots,\ket{N}$ into an orthonormal one $\ket{1},\dots,\ket{n}$.
+We begin with the first basis vector and normalize it
+\begin{equation*}
+	\ket{1}=\frac{\ket{I}}{|I|}=\frac{\ket{I}}{\sqrt{\braket{I|I}}}
+\end{equation*}
+For our $i$-th basis, we create the projection along all $(i-1)$ vector
+\begin{equation*}
+	\ket{i'}=\ket{I_i}-\sum_{j=1}^{i-1}\ket{j}\braket{j|I_i}
+\end{equation*}
+and normalize it to obtain the orthonormal basis
+\begin{equation*}
+	\ket{i}=\frac{\ket{i'}}{|i'|}
+\end{equation*}
+
+\subsubsection*{Three basis.}
+Let $\ket{I}, \ket{II}, \ket{III}$ be linearly independent basis.
+The first orthonormal vector is
+\begin{equation*}
+	\ket{1}=\frac{\ket{I}}{|I|}
+\end{equation*}
+For the second basis
+\begin{equation*}
+	\ket{2'}=\ket{II}-\ket{1}\braket{1|II}
+\end{equation*}
+The second term is the projection of $\ket{II}$ along the first orthonormal basis.
+By subtracting $\ket{II}$ by this, the only thing that remains is the perpendicular partial.
+Then we normalize the vector
+\begin{equation*}
+	\ket{2}=\frac{\ket{2'}}{|2'|}
+\end{equation*}
+Same goes for the third basis.
+We construct
+\begin{equation*}
+	\ket{3'} =\ket{II}-\ket{1}\braket{1|III}-\ket{2}\braket{2|III}
+\end{equation*}
+then normalize it
+\begin{equation*}
+	\ket{3}=\frac{\ket{3'}}{|3'|}
+\end{equation*}
+
+As a sanity check, we see that the projection of $\ket{1}$ along itself is norm
+\begin{equation*}
+	\braket{1|1}=\frac{I|I }{|I|^2}=1
+\end{equation*}
+and that the $\ket{2'}$ or $\ket{2}$ along the first is orthogonal
+\begin{align*}
+	\braket{1|2'} & =\braket{1|II}-\braket{1|1}\braket{1|II}=0 \\
+	\braket{1|2}  & =\frac{1|2'}{|I||2'|}=0
+\end{align*}
 \end{document}
