@@ -3,283 +3,294 @@
 \subsection*{Introduction}
 \subsubsection*{Elementary row operation.} Rule as follows.
 \begin{enumerate}
-    \item Interchange two rows 
-    \item Multiply (or divide) a row by a (nonzero) constant 
-    \item Add a multiple of one row to another
+	\item Interchange two rows
+	\item Multiply (or divide) a row by a (nonzero) constant
+	\item Add a multiple of one row to another
 \end{enumerate}
 
 \subsubsection*{Rank.} Definition as follows.
 \begin{quote}
-    The number of nonzero rows remaining when a matrix has been row reduced is called the rank of the matrix.
+	The number of nonzero rows remaining when a matrix has been row reduced is called the rank of the matrix.
 \end{quote}
 Or:
 \begin{quote}
-    The order of the largest nonzero determinant is the rank of the matrix. 
+	The order of the largest nonzero determinant is the rank of the matrix.
 \end{quote}
 
 Consider $m$ equation with $n$ constants. We define matrix M and A, where M has $m$ rows and $n$ column--which corresponds to $m$ equation and $n$ unknown--while A has $m$ rows and $n+1$--which corresponds to unknown plus the constant. There are few possible cases.
 \begin{enumerate}
-    \item If (rank M) $<$ (rank A), the equations are inconsistent and there is no solution.
-    \item If (rank M) $=$ (rank A) = $n$ (number of unknowns), there is one solution.
-    \item If (rank M) = (rank A) = $R < n$, then $R$ unknowns can be found in terms of the remaining $n-R$ unknowns.
+	\item If (rank M) $<$ (rank A), the equations are inconsistent and there is no solution.
+	\item If (rank M) $=$ (rank A) = $n$ (number of unknowns), there is one solution.
+	\item If (rank M) = (rank A) = $R < n$, then $R$ unknowns can be found in terms of the remaining $n-R$ unknowns.
 \end{enumerate}
 
 \subsubsection*{Determinant.} For $2\times 2$ matrix:
 \begin{align*}
-    \det A=\begin{vmatrix}
-        a&b\\
-        c&d
-    \end{vmatrix}=ad-bc
+	\det A=\begin{vmatrix}
+		       a & b \\
+		       c & d
+	       \end{vmatrix}=ad-bc
 \end{align*}
 
 Here are some determinant rule.
 \begin{align*}
-    \det(kA)&=k^2\det A &&(2\times2)\\
-    \det(kA)&=k^3\det A &&(3\times3)\\
-    \det(AB)&=\det(BA)=\det(A)\times\det (B)
+	\det(kA) & =k^2\det A                      &  & (2\times2) \\
+	\det(kA) & =k^3\det A                      &  & (3\times3) \\
+	\det(AB) & =\det(BA)=\det(A)\times\det (B)
 \end{align*}
 
 \subsubsection*{Cramer's Rule.} The equations
 \begin{align*}
-    \begin{cases}
-        a_1x+b_1y&=c_1\\
-        a_2x+b_2y&=c_2
-    \end{cases}
+	\begin{cases}
+		a_1x+b_1y & =c_1 \\
+		a_2x+b_2y & =c_2
+	\end{cases}
 \end{align*}
 has the solution:
 \begin{align*}
-    x=\frac{1}{D}
-    \begin{vmatrix}
-        c_1&b_1\\
-        c_2&b_2
-    \end{vmatrix}&&\mathrm{and}&&
-    y=\frac{1}{D}
-    \begin{vmatrix}
-        a_1&c_1\\
-        a_2&c_2
-    \end{vmatrix}
+	x=\frac{1}{D}
+	\begin{vmatrix}
+		c_1 & b_1 \\
+		c_2 & b_2
+	\end{vmatrix} &  & \mathrm{and} &  &
+	y=\frac{1}{D}
+	\begin{vmatrix}
+		a_1 & c_1 \\
+		a_2 & c_2
+	\end{vmatrix}
 \end{align*}
-
-\subsection*{Vector Product}
 
 \subsubsection*{Dot Product.}
 \begin{align*}
-    \A\cdot\B&=|\A|\B|\cos\theta\\
-    &=A_xB_x+A_yB_y+A_zB_z
+	\A\cdot\B & =|\A|\B|\cos\theta    \\
+	          & =A_xB_x+A_yB_y+A_zB_z
 \end{align*}
 The following applies if vector perpendicular:
 \begin{align*}
-    \A\cdot\B&=0
+	\A\cdot\B & =0
 \end{align*}
 The following applies if vector parallel:
 \begin{align*}
-    \frac{A_x}{B_x}=\frac{A_y}{B_y}=\frac{A_z}{B_z}
+	\frac{A_x}{B_x}=\frac{A_y}{B_y}=\frac{A_z}{B_z}
 \end{align*}
 
 \subsubsection*{Cross Product.}
 \begin{align*}
-    \A\times\B&=|\A||\B|\sin\theta\\
-    &=\det\begin{vmatrix}
-        \x&\y&\z\\
-        A_x&A_y&A_z\\
-        B_x&B_y&B_z
-    \end{vmatrix}
+	\A\times\B & =|\A||\B|\sin\theta  \\
+	           & =\det\begin{vmatrix}
+		                  \x  & \y  & \z  \\
+		                  A_x & A_y & A_z \\
+		                  B_x & B_y & B_z
+	                  \end{vmatrix}
 \end{align*}
 The following applies if vector parallel or antiparallel:
 \begin{align*}
-    \A\cdot\B&=0
+	\A\cdot\B & =0
 \end{align*}
+
+\subsection*{Vector in Braket Notation}
+\subsubsection*{Vector space.}
+Linear vector space $\mathbb{V}$ is a collection of vectors $\ket{1},\dots,\ket{n}$ for which there exists definitive rule for addition and multiplication.
+Said rules are as follows.
+\begin{enumerate}
+	\item \textbf{Closure:} $\ket{V}+\ket{W}\in \mathbb{V}$
+	\item \textbf{Distributive in the vector}: $a\left(\ket{V}+\ket{W}\right)=a\ket{V}+a \ket{W}$
+	\item \textbf{Distributive in the scalar}: $(a+b)\ket{V}=a \ket{V}+b \ket{V}$
+	\item \textbf{Associative in the scalar}: $a(b\ket{V}=ab\ket{V})$
+	\item \textbf{Commutative in the addition}: $\ket{V}+\ket{W}+\ket{W}+\ket{V}$
+	\item \textbf{Associative in the addition}: As follows.
+	      \begin{equation*}
+		      \ket{V}+\left(\ket{W}+\ket{P}\right)=\left(\ket{V}+\ket{W}\right)+\ket{P}
+	      \end{equation*}
+	\item \textbf{Null vector}: $\ket{V}+\ket{0}+\ket{V}$
+	\item \textbf{Inverse under addition}: $\ket{-V}+\ket{V}=\ket{0}$
+\end{enumerate}
 
 \subsection*{Lines and Plane}
 Suppose we have vector $\A=a\;\x+b\;\y +c\;\z$ and vector $\mathbf{r}-\mathbf{r_0}=(x-x_0)\;\x+(y-y_0)\;\y +(z-z_0)\;\z$, which parallel to $\A$.
 We can write:
 \begin{align*}
-    \frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}
+	\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}
 \end{align*}
-which is the symmetric equations of a straight line. 
+which is the symmetric equations of a straight line.
 Note that $\mathbf{r}$ and $\mathbf{r_0}$ is not necessarily parallel with $\A$, but $\mathbf{r}-\mathbf{r_0}$ do.
 The parameter equation is:
 \begin{align*}
-    \mathbf{r}-\mathbf{r_0}&=\A t\\
-    \mathbf{r}&=\mathbf{r_0}+\A t
+	\mathbf{r}-\mathbf{r_0} & =\A t              \\
+	\mathbf{r}              & =\mathbf{r_0}+\A t
 \end{align*}
 The previous equation is obtained by the dot identity of parallel vector
 \begin{align*}
-    a(x-x_0)+b(y-y_0)+c(z-z_0)=0
+	a(x-x_0)+b(y-y_0)+c(z-z_0)=0
 \end{align*}
 also called the equation of plane.
 
 \subsection*{Matrix Operation}
-Matrix AB can be multiplied if they are conformable, that is if row A = row B. 
+Matrix AB can be multiplied if they are conformable, that is if row A = row B.
 Matrix multiplication in index notation is:
 \begin{align*}
-    (AB)_{ij}=\sum_{k}A_{ik}B_{kj}
+	(AB)_{ij}=\sum_{k}A_{ik}B_{kj}
 \end{align*}
 where $i$ denote row and $j$ denote column.
 
 \subsubsection*{Commutator}Matrix in general do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
-    [A, B] = AB - BA
+	[A, B] = AB - BA
 \end{align*}
-If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular. 
+If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular.
 \begin{equation*}
-    M^{-1}=\frac{1}{\det M}C^{T}
+	M^{-1}=\frac{1}{\det M}C^{T}
 \end{equation*}
 where $C_{ij}$ is cofactor of $m_{ij}$ or the checker thing you use on determining determinant.
-
 
 \subsection*{Linear Algebra}
 \subsubsection*{Linear combination.} A linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
 The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
 A function of a vector, say $f (r)$, is called linear if
 \begin{align*}
-    f(r_1+r_2)= f(r_1)+ f(r_2)&&\mathrm{and}&&f(ar)=a\;f(r)
+	f(r_1+r_2)= f(r_1)+ f(r_2) &  & \mathrm{and} &  & f(ar)=a\;f(r)
 \end{align*}
 where $a$ is a scalar. $O$ is a linear operator if
 \begin{align*}
-    O(r_1+r_2)= O(r_1)+ O(r_2)&&\mathrm{and}&&O(ar)=a\;O(r)
+	O(r_1+r_2)= O(r_1)+ O(r_2) &  & \mathrm{and} &  & O(ar)=a\;O(r)
 \end{align*}
 
 \subsubsection*{Linear dependence}If $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
 \begin{align*}
-    W=\begin{vmatrix}
-        f_1(x)& f_2(x)&\cdots& f_n(x)\\
-        f_1'(x)& f_2'(x)&\cdots& f_n'(x)\\
-        \vdots&\vdots&\ddots& \vdots\\
-        f_1^{n-1}(x)& f_2^{n-1}(x)&\cdots& f_n^{n-1}(x)\\
-    \end{vmatrix}\not\equiv0
+	W=\begin{vmatrix}
+		  f_1(x)       & f_2(x)       & \cdots & f_n(x)       \\
+		  f_1'(x)      & f_2'(x)      & \cdots & f_n'(x)      \\
+		  \vdots       & \vdots       & \ddots & \vdots       \\
+		  f_1^{n-1}(x) & f_2^{n-1}(x) & \cdots & f_n^{n-1}(x) \\
+	  \end{vmatrix}\not\equiv0
 \end{align*}then the functions are linearly independent.
 
 \subsubsection*{Orthogonality.} Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
 Matrix M is orthogonal if
 \begin{align*}
-    M^{-1}=M^T
-\end{align*} 
+	M^{-1}=M^T
+\end{align*}
 with determinant
 \begin{align*}
-    \det M = \pm 1
+	\det M = \pm 1
 \end{align*}
 det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
 
-In vector analysis, two vectors are orthogonal if their inner product is zero 
+In vector analysis, two vectors are orthogonal if their inner product is zero
 \begin{equation*}
-    \sum_{i}A_iB_i=0
+	\sum_{i}A_iB_i=0
 \end{equation*}
 
-If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if 
+If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if
 \begin{equation*}
-    \int_{a}^{b}A(x)B(x)\;dx=0
+	\int_{a}^{b}A(x)B(x)\;dx=0
 \end{equation*}
 
-\subsubsection*{Orthonormality.} The norm of function is defined as 
+\subsubsection*{Orthonormality.} The norm of function is defined as
 \begin{equation*}
-    \int_{a}^{b}=A^*(x)A(x)\;dx=N^2
+	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
 \end{equation*}
 We also said the function $N^{-1}A(x)$ to be normalized and has the norm of zero.
 
-\subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them 
+\subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
 \begin{equation*}
-    f(y)=\sum_{n=1}^{\infty} C_nf(y)
+	f(y)=\sum_{n=1}^{\infty} C_nf(y)
 \end{equation*}
-
-
 
 \subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
 \begin{align*}
-    \begin{pmatrix}
-        X\\Y
-    \end{pmatrix}=
-    \begin{pmatrix}
-        \cos \theta&-\sin \theta\\
-        \sin \theta& \cos \theta
-    \end{pmatrix}
-    \begin{pmatrix}
-        x\\y
-    \end{pmatrix}
+	\begin{pmatrix}
+		X \\Y
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\cos \theta & -\sin \theta \\
+		\sin \theta & \cos \theta
+	\end{pmatrix}
+	\begin{pmatrix}
+		x \\y
+	\end{pmatrix}
 \end{align*}
 and the one that rotate its axis instead
 \begin{align*}
-    \begin{pmatrix}
-        x'\\y'
-    \end{pmatrix}=
-    \begin{pmatrix}
-        \cos \theta&\sin \theta\\
-        -\sin \theta& \cos \theta
-    \end{pmatrix}
-    \begin{pmatrix}
-        x\\y
-    \end{pmatrix}
+	\begin{pmatrix}
+		x' \\y'
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\cos \theta  & \sin \theta \\
+		-\sin \theta & \cos \theta
+	\end{pmatrix}
+	\begin{pmatrix}
+		x \\y
+	\end{pmatrix}
 \end{align*}
-in 3D 
+in 3D
 \begin{align*}
-    R_x&=\begin{pmatrix}
-        1&0&0\\
-        0&\cos\theta&-\sin\theta\\
-        0&\sin\theta&\cos\theta
-    \end{pmatrix}\\
-    R_y&=\begin{pmatrix}
-        \cos\theta&0&\sin\theta\\
-        0&1&0\\
-        -\sin\theta&0&\cos\theta
-    \end{pmatrix}\\
-    R_z&=\begin{pmatrix}
-        \cos \theta&-\sin \theta&0\\
-        \sin \theta& \cos \theta&0\\
-        0&0&1
-    \end{pmatrix}
+	R_x & =\begin{pmatrix}
+		       1 & 0          & 0           \\
+		       0 & \cos\theta & -\sin\theta \\
+		       0 & \sin\theta & \cos\theta
+	       \end{pmatrix}   \\
+	R_y & =\begin{pmatrix}
+		       \cos\theta  & 0 & \sin\theta \\
+		       0           & 1 & 0          \\
+		       -\sin\theta & 0 & \cos\theta
+	       \end{pmatrix}   \\
+	R_z & =\begin{pmatrix}
+		       \cos \theta & -\sin \theta & 0 \\
+		       \sin \theta & \cos \theta  & 0 \\
+		       0           & 0            & 1
+	       \end{pmatrix}
 \end{align*}
 
 \subsubsection*{Homogeneous equations.} The definition is as follows.
 
 \begin{quote}
-    Sets of linear equations when the constants on the right-hand sides are all zero are called homogeneous equations.
+	Sets of linear equations when the constants on the right-hand sides are all zero are called homogeneous equations.
 \end{quote}
 
-Homogeneous equations are never inconsistent; they always have the solution of zero--often called the trivial solution. 
-If the number of independent equations--that is, the rank of the matrix--is the same as the number of unknowns, this is the only solution. 
+Homogeneous equations are never inconsistent; they always have the solution of zero--often called the trivial solution.
+If the number of independent equations--that is, the rank of the matrix--is the same as the number of unknowns, this is the only solution.
 If the rank of the matrix is less than the number of unknowns, there are infinitely many solutions.
 
 Consider set of $n$ homogeneous equations in $n$ unknowns.
-These equations have only the trivial solution unless the rank of the matrix is less than $n$. 
-This means that at least one row of the row reduced $n$ by $n$ matrix of the coefficients is a zero row. 
+These equations have only the trivial solution unless the rank of the matrix is less than $n$.
+This means that at least one row of the row reduced $n$ by $n$ matrix of the coefficients is a zero row.
 Which mean that the determinant $D$ of the coefficients is zero.
 This fact will be used in eigenvalue problem.
 
 \begin{quote}
-    A system of $n$ homogeneous equations in $n$ unknowns has solutions other than the trivial solution if and only if the determinant of the coefficients is zero.
+	A system of $n$ homogeneous equations in $n$ unknowns has solutions other than the trivial solution if and only if the determinant of the coefficients is zero.
 \end{quote}
-
 
 \subsection*{Special Matrices}
 \subsubsection*{Theorem.}
 \begin{enumerate}
-    \item $(ABC)^T=C^TB^TA^T$
-    \item $(ABC)^{-1}=C^{-1}B^{-1}A^{-1}$
-    \item $Tr(ABC)=Tr(BCA)=Tr(CAB)$.  Trace is the sum of main diagonal. It is a theorem that the
-    trace of a product of matrices is not changed by permuting them in cyclic order.
-    \item If $H$ is a Hermitian matrix, then $U = e^{iH}$ is a unitary matrix.
+	\item $(ABC)^T=C^TB^TA^T$
+	\item $(ABC)^{-1}=C^{-1}B^{-1}A^{-1}$
+	\item $Tr(ABC)=Tr(BCA)=Tr(CAB)$.  Trace is the sum of main diagonal. It is a theorem that the
+	      trace of a product of matrices is not changed by permuting them in cyclic order.
+	\item If $H$ is a Hermitian matrix, then $U = e^{iH}$ is a unitary matrix.
 \end{enumerate}
 
 \subsubsection*{Table of special matrices.} Consider this.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{@{}llr@{}} 
-        \toprule
-        Definition & Condition  \\ 
-        \midrule
-        Real & $A=\bar{A}$  \\  
-        Symmetric & $A=A^T$ \\     
-        Antisymmetric & $A=-A^T$ \\
-        Orthogonal & $A^{-1}=A^T$ \\
-        Pure Imaginary & $A=-\bar{A}$ \\
-        Hermitian & $A=A^{\dagger}$ \\
-        Antihermitian & $A=-A^{\dagger}$\\
-        Unitary & $A^{-1}=A^{\dagger}$\\
-        Normal & $AA^{\dagger}=A^{\dagger}A$\\
-        \bottomrule
-    \end{tabular}
+	\centering
+	\begin{tabular}{@{}llr@{}}
+		\toprule
+		Definition     & Condition                   \\
+		\midrule
+		Real           & $A=\bar{A}$                 \\
+		Symmetric      & $A=A^T$                     \\
+		Antisymmetric  & $A=-A^T$                    \\
+		Orthogonal     & $A^{-1}=A^T$                \\
+		Pure Imaginary & $A=-\bar{A}$                \\
+		Hermitian      & $A=A^{\dagger}$             \\
+		Antihermitian  & $A=-A^{\dagger}$            \\
+		Unitary        & $A^{-1}=A^{\dagger}$        \\
+		Normal         & $AA^{\dagger}=A^{\dagger}A$ \\
+		\bottomrule
+	\end{tabular}
 \end{table}
-
 
 \end{document}
