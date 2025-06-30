@@ -321,4 +321,22 @@ This fact will be used in eigenvalue problem.
 	\end{tabular}
 \end{table}
 
+\subsection*{Inner Product}
+The inner product is defined in such way to obey the following requirement.
+\begin{enumerate}
+	\item \textbf{Skew-symmetry}: $\braket{V|W}=\braket{W|V}^*$
+	\item \textbf{Positive semidefinitness}: $\braket{V|V}\leq 0$. If $\ket{V}=0\ket{0}$, then $\braket{V|V}=\ket{0}$
+	\item \textbf{Linearity in ket} $\braket{V|(a \ket{W}+b \ket{P})}=a\braket{V|W}+b\braket{V|P}$
+\end{enumerate}
+In following this axiom, we arrive at the following definition for inner product
+\begin{equation*}
+	\braket{V|W}=\sum_{i,j}v_i^*w_i\braket{i|j}=\begin{bmatrix}
+		v_1^* & \dots & v_n^*
+	\end{bmatrix}
+	\begin{bmatrix}
+		w_1    \\
+		\vdots \\
+		w_n
+	\end{bmatrix}
+\end{equation*}
 \end{document}
