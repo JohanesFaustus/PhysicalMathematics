@@ -366,5 +366,59 @@ Two vectors with zero inner product are said to be orthogonal.
 If said vector has unit norm instead, it is referred as normalized.
 Set of basis with orthogonal and normalized condition are called orthonormal basis.
 
+\subsection*{Adjoint Operation}
+The following is a summary on how to perform adjoint in braket notation.
+\begin{quotation}
+	Reverse the order of all factors and make the substitutions $\Omega\leftrightarrow\Omega^\dagger,\ket{}\leftrightarrow \bra{}, a\leftrightarrow a^*$.	
+\end{quotation}
+From this we also obtain the conjugate expressions
+\begin{align*}
+	\ket{aV}=a \ket{V}\quad&\leftrightarrow \quad\bra{aV}=\bra{V}a^*\\ 
+	\ket{\Omega V}=\Omega \ket{V}\quad&\leftrightarrow\quad\bra{\Omega V}=\bra{V}\Omega^\dagger
+\end{align*}
 
+\subsubsection*{Bra and ket.}
+Here is how the method in action.
+The following vector is an adjoint of each other
+\begin{equation*}
+	\ket{V}=\sum_iv_i \ket{i}\qquad \bra{V}=\sum_i \bra{i}v_i^*
+\end{equation*}
+We can also write it in terms of projection operation by recalling $v_i=\braket{i|V}$ and $v_i^*=\braket{V|i}$
+\begin{equation*}
+	\ket{V}=\sum_i \ket{i} \braket{i|V}\qquad \bra{V}=\sum_i \braket{V|i}\bra{i}
+\end{equation*}
+
+\subsubsection*{Operator.}
+The matrix $\Omega^\dagger$--also called Hermitian adjoint--represent transpose conjugate of $\Omega$
+\begin{equation*}
+	\Omega^{\dagger}=(\Omega^*)^T=(\Omega^T)^*
+\end{equation*}
+
+Our general rule of adjoint state 
+\begin{equation*}
+	(\Omega\Lambda)^\dagger=\Lambda ^\dagger \Omega ^\dagger
+\end{equation*}
+This can however be proved in another method.
+Consider $\bra{\Omega \lambda V}$. First treat $\Omega\Lambda$ as one operator 
+\begin{equation*}
+	\bra{(\Omega\Lambda)V}=\bra{V}(\Omega\Lambda) ^\dagger
+\end{equation*}
+Then, treat both as separate operator and pull them out of the bra one by one
+\begin{equation*}
+	\bra{\Omega\Lambda V}=\bra{\Lambda V}\Omega^\dagger=\bra{V}\Lambda ^\dagger \Omega ^\dagger
+\end{equation*}
+Thus, we have 
+\begin{equation*}
+	(\Omega\Lambda) ^\dagger=\Lambda ^\dagger\Omega ^\dagger
+\end{equation*}
+
+\subsubsection*{Equation.}
+Suppose we have the equation involving 
+\begin{equation*}
+	a_1 \ket{V_1}=a_2 \ket{V_2}+a_3 \ket{V_3}\braket{V_4|V_5}+a_4\Omega\Lambda \ket{V_6}
+\end{equation*}
+and we want to take its adjoint
+\begin{equation*}
+	\bra{V_1}a_1 ^*=\bra{V_2}a_2 ^*+\braket{V_4|V_5}\bra{V_3}a_3 ^*+\bra{V_6}\Lambda ^\dagger\Omega ^\dagger a_4 ^*
+\end{equation*}
 \end{document}
