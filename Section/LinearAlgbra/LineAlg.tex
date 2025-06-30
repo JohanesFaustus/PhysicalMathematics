@@ -123,6 +123,17 @@ Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket i
 They are adjoint of each other.
 Thus, there are two vector space: space of KET $\ket{V}$ and dual space of bra $\bra{V}$.
 
+\subsubsection*{Vector expansion in an orthonormal base.}
+Suppose we are to expand vector $\ket{V}$ in an  orthonormal base.
+First, we take the dot product of said vector with an orthonormal base $\bra{j}$
+\begin{equation*}
+	\braket{j|V}=\sum_i v_i\braket{j|i}=v_j
+\end{equation*}
+and obtain the $j$-th component of the vector. 
+Using this, we then write
+\begin{equation*}
+	\ket{V}=\sum_i \ket{i}\braket{i|V}
+\end{equation*}
 
 \subsection*{Lines and Plane}
 Suppose we have vector $\A=a\;\x+b\;\y +c\;\z$ and vector $\mathbf{r}-\mathbf{r_0}=(x-x_0)\;\x+(y-y_0)\;\y +(z-z_0)\;\z$, which parallel to $\A$.
