@@ -106,16 +106,16 @@ Said rules are as follows.
 	\item \textbf{Inverse under addition}: $\ket{-V}+\ket{V}=\ket{0}$
 \end{enumerate}
 
-Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors. 
+Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors.
 We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{^n}(C)$ if it is complex.
 
 \subsubsection*{Linear independent.} Set of vectors are said to independent if the only solution to the following equation is trivial
 \begin{equation*}
-    \sum_i a_i\ket{i}=\ket{0}
+	\sum_i a_i\ket{i}=\ket{0}
 \end{equation*}
 If the basis of the vector are independent, we can expand into
 \begin{equation*}
-    \ket{V}=\sum_i v_i \ket{i}
+	\ket{V}=\sum_i v_i \ket{i}
 \end{equation*}
 
 \subsection*{Lines and Plane}
@@ -138,14 +138,29 @@ The previous equation is obtained by the dot identity of parallel vector
 also called the equation of plane.
 
 \subsection*{Matrix Operation}
-Matrix AB can be multiplied if they are conformable, that is if row A = row B.
+Matrix AB can be multiplied if they are conformable, that is if column A = row B.
 Matrix multiplication in index notation is:
 \begin{align*}
 	(AB)_{ij}=\sum_{k}A_{ik}B_{kj}
 \end{align*}
 where $i$ denote row and $j$ denote column.
+For $2\times2$ matrix
+\begin{equation*}
+	\begin{bmatrix}
+		a_{11} & a_{12} \\
+		a_{21} & a_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		b_{11} & b_{12} \\
+		b_{21} & b_{22}
+	\end{bmatrix}=
+	\begin{bmatrix}
+		a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+		a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+	\end{bmatrix}
+\end{equation*}
 
-\subsubsection*{Commutator.} 
+\subsubsection*{Commutator.}
 In general, matrix do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
 	[A, B] = AB - BA
