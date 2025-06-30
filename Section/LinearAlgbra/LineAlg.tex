@@ -106,6 +106,18 @@ Said rules are as follows.
 	\item \textbf{Inverse under addition}: $\ket{-V}+\ket{V}=\ket{0}$
 \end{enumerate}
 
+Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors. 
+We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{^n}(C)$ if it is complex.
+
+\subsubsection*{Linear independent.} Set of vectors are said to independent if the only solution to the following equation is trivial
+\begin{equation*}
+    \sum_i a_i\ket{i}=\ket{0}
+\end{equation*}
+If the basis of the vector are independent, we can expand into
+\begin{equation*}
+    \ket{V}=\sum_i v_i \ket{i}
+\end{equation*}
+
 \subsection*{Lines and Plane}
 Suppose we have vector $\A=a\;\x+b\;\y +c\;\z$ and vector $\mathbf{r}-\mathbf{r_0}=(x-x_0)\;\x+(y-y_0)\;\y +(z-z_0)\;\z$, which parallel to $\A$.
 We can write:
@@ -133,7 +145,8 @@ Matrix multiplication in index notation is:
 \end{align*}
 where $i$ denote row and $j$ denote column.
 
-\subsubsection*{Commutator}Matrix in general do not commute. We define the commutator of the matrices A and B by
+\subsubsection*{Commutator.} 
+In general, matrix do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
 	[A, B] = AB - BA
 \end{align*}
