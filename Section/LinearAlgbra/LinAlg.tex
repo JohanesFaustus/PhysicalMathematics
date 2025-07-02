@@ -338,6 +338,25 @@ This fact will be used in eigenvalue problem.
 	\end{tabular}
 \end{table}
 
+\subsubsection*{Identity matrix.}
+A matrix, who also acts as an operator, which leave the operated vector unchanged
+\begin{equation*}
+	I \ket{V}=\ket{V}\quad \bra{V}I=\bra{V}
+\end{equation*}
+Its element may be written as
+\begin{equation*}
+	I_{ij} \braket{i|I|k}={i|j}=\delta_{ij}
+\end{equation*}
+or using the Kronecker delta.
+Then $n\times n$, using the Kronecker delta, identity matrix may be written
+\begin{equation*}
+	I = \begin{bmatrix}
+		\delta_{11} & \cdots & \delta_{1n} \\
+		\vdots      & \ddots & \vdots      \\
+		\delta_{n1} & \cdots & \delta_{nn}
+	\end{bmatrix}
+\end{equation*}
+
 \subsection*{Inner Product}
 The inner product is defined in such way to obey the following requirement.
 \begin{enumerate}
@@ -483,17 +502,17 @@ Another related theorem is the triangle inequality, which state that the length 
 	|V+W|\leq|V|+|W|
 \end{equation*}
 
-\subsubsection*{Schwarz inequality proof.} 
+\subsubsection*{Schwarz inequality proof.}
 First we define
 \begin{equation*}
 	\ket{Z}=\ket{V}-\frac{\braket{W|V }}{|W|^2}\ket{W}
 \end{equation*}
-Its inner product is 
+Its inner product is
 \begin{align*}
-	\braket{P|P}&=\bigg\langle V-\frac{\braket{W|V }}{|W|^2} W\bigg|V-\frac{\braket{W|V }}{|W|^2}W\bigg\rangle\\
-	&=\braket{V|V} -\frac{\braket{W|V }\braket{V|W }}{|W|^2}-\frac{\braket{V|W }\braket{W|V }}{|W|^2}\\
-	&-\frac{\braket{V|W }\braket{W|V }\braket{W|W}}{|W^4|}\\
-	&=\braket{V|V}-\frac{\braket{W|V }\braket{V|W }}{|W|^2}
+	\braket{P|P} & =\bigg\langle V-\frac{\braket{W|V }}{|W|^2} W\bigg|V-\frac{\braket{W|V }}{|W|^2}W\bigg\rangle    \\
+	             & =\braket{V|V} -\frac{\braket{W|V }\braket{V|W }}{|W|^2}-\frac{\braket{V|W }\braket{W|V }}{|W|^2} \\
+	             & -\frac{\braket{V|W }\braket{W|V }\braket{W|W}}{|W^4|}                                            \\
+	             & =\braket{V|V}-\frac{\braket{W|V }\braket{V|W }}{|W|^2}
 \end{align*}
 According to semidefinitness axiom
 \begin{equation*}
@@ -501,7 +520,7 @@ According to semidefinitness axiom
 \end{equation*}
 Multiply by $|W|^2$ and taking the square root to obtain
 \begin{align*}
-	|V|^2|W|^2&\geq|\braket{V|W}|^2\\
-	|V||W|&\geq|\braket{V|W}|
+	|V|^2|W|^2 & \geq|\braket{V|W}|^2 \\
+	|V||W|     & \geq|\braket{V|W}|
 \end{align*}
 \end{document}
