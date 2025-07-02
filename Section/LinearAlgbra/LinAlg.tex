@@ -109,14 +109,6 @@ Said rules are as follows.
 Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors.
 We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{^n}(C)$ if it is complex.
 
-\subsubsection*{Linear independent.} Set of vectors are said to independent if the only solution to the following equation is trivial
-\begin{equation*}
-	\sum_i a_i\ket{i}=\ket{0}
-\end{equation*}
-If the basis of the vector are independent, we can expand into
-\begin{equation*}
-	\ket{V}=\sum_i v_i \ket{i}
-\end{equation*}
 
 \subsubsection*{Dual space.}
 Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket in a basis, while row vector are bra's $\bra{V}$.
@@ -537,5 +529,25 @@ Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{v}_j^{m_j}$, we define the
 
 Vector along three dimension is denoted as $\mathbb{V}_3(R)$, while its component is $\mathbb{V}_x^1$ on the $x$ direction and the same on other two.
 All vector along the $xy$ is denoted $\mathbb{V}_{xy}^2$.
-Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$
+Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$.
+
+\subsection*{Linear Independence}
+\subsubsection*{Vector.}
+Set of vectors are said to independent if the only solution to the following equation is trivial
+\begin{equation*}
+	\sum_i a_i\ket{i}=\ket{0}
+\end{equation*}
+If the basis of the vector are independent, we can expand into
+\begin{equation*}
+	\ket{V}=\sum_i v_i \ket{i}
+\end{equation*}
+
+\subsubsection*{Operator.}
+Linear operator obey the following rule 
+\begin{align*}
+	\Omega \alpha \ket{V}&=\alpha\Omega \ket{V}\\
+	\Omega\left[\alpha \ket{V_1}+\beta \ket{V_2}\right]&=\Omega\alpha \ket{V_1}+\beta\Omega \ket{V_2}\\
+	\bra{V}\alpha\Omega&=\bra{V}\Omega\alpha\\
+	\left[\bra{V_1}\alpha+\bra{V_2}\beta\right]\Omega&=\alpha \bra{V_1}\Omega +\beta\bra{V_2}\Omega
+\end{align*}
 \end{document}
