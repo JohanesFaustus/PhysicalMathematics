@@ -342,7 +342,7 @@ This fact will be used in eigenvalue problem.
 The inner product is defined in such way to obey the following requirement.
 \begin{enumerate}
 	\item \textbf{Skew-symmetry}: $\braket{V|W}=\braket{W|V}^*$
-	\item \textbf{Positive semidefinitness}: $\braket{V|V}\leq 0$. If $\ket{V}=0\ket{0}$, then $\braket{V|V}=\ket{0}$
+	\item \textbf{Positive semidefinitness}: $\braket{V|V}\geq 0$. If $\ket{V}=0\ket{0}$, then $\braket{V|V}=\ket{0}$
 	\item \textbf{Linearity in ket} $\braket{V|(a \ket{W}+b \ket{P})}=a\braket{V|W}+b\braket{V|P}$
 \end{enumerate}
 In following this axiom, we arrive at the following definition for inner product
@@ -399,7 +399,7 @@ Our general rule of adjoint state
 	(\Omega\Lambda)^\dagger=\Lambda ^\dagger \Omega ^\dagger
 \end{equation*}
 This can however be proved in another method.
-Consider $\bra{\Omega \lambda V}$. First treat $\Omega\Lambda$ as one operator
+Consider $\bra{\Omega \Lambda V}$. First treat $\Omega\Lambda$ as one operator
 \begin{equation*}
 	\bra{(\Omega\Lambda)V}=\bra{V}(\Omega\Lambda) ^\dagger
 \end{equation*}
@@ -471,5 +471,37 @@ and that the $\ket{2'}$ or $\ket{2}$ along the first is orthogonal
 \begin{align*}
 	\braket{1|2'} & =\braket{1|II}-\braket{1|1}\braket{1|II}=0 \\
 	\braket{1|2}  & =\frac{1|2'}{|I||2'|}=0
+\end{align*}
+
+\subsection*{Schwarz Inequality}
+Theorem that ensure the magnitude of inner product never exceed the product of vector magnitude
+\begin{equation*}
+	|\braket{V|W}|\leq|V||W|
+\end{equation*}
+Another related theorem is the triangle inequality, which state that the length of one side of a triangle is less than or equal to the sum of the lengths of the other two sides
+\begin{equation*}
+	|V+W|\leq|V|+|W|
+\end{equation*}
+
+\subsubsection*{Schwarz inequality proof.} 
+First we define
+\begin{equation*}
+	\ket{Z}=\ket{V}-\frac{\braket{W|V }}{|W|^2}\ket{W}
+\end{equation*}
+Its inner product is 
+\begin{align*}
+	\braket{P|P}&=\bigg\langle V-\frac{\braket{W|V }}{|W|^2} W\bigg|V-\frac{\braket{W|V }}{|W|^2}W\bigg\rangle\\
+	&=\braket{V|V} -\frac{\braket{W|V }\braket{V|W }}{|W|^2}-\frac{\braket{V|W }\braket{W|V }}{|W|^2}\\
+	&-\frac{\braket{V|W }\braket{W|V }\braket{W|W}}{|W^4|}\\
+	&=\braket{V|V}-\frac{\braket{W|V }\braket{V|W }}{|W|^2}
+\end{align*}
+According to semidefinitness axiom
+\begin{equation*}
+	\braket{V|V}\geq \frac{\braket{W|V }\braket{ V|W}}{|W|^2}
+\end{equation*}
+Multiply by $|W|^2$ and taking the square root to obtain
+\begin{align*}
+	|V|^2|W|^2&\geq|\braket{V|W}|^2\\
+	|V||W|&\geq|\braket{V|W}|
 \end{align*}
 \end{document}
