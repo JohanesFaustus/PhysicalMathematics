@@ -181,7 +181,7 @@ By thin we can obtain the desired result
 	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
 \end{equation*}
 
-\subsection*{Determinant.} For $2\times 2$ matrix:
+\subsection*{Determinant} For $2\times 2$ matrix:
 \begin{align*}
 	\det A=\begin{vmatrix}
 		       a & b \\
@@ -196,6 +196,45 @@ Here are some determinant rule.
 	\det(AB) & =\det(BA)=\det(A)\times\det (B)
 \end{align*}
 
+\subsubsection*{Minor.} 
+Minor of element $a_{ij}$ is the determinant of submatrix order $(n-1)$ you get after crossing $i$-th row and $h$-th column from order $n$ matrix. 
+Consider the matrix
+\begin{equation*}
+	A=\begin{bmatrix}
+		a_{11}&a_{12}&a_{13}\\
+		a_{21}&a_{22}&a_{23}\\
+		a_{31}&a_{32}&a_{33}\\
+	\end{bmatrix}
+\end{equation*}
+Each minor is then
+\begin{align*}
+M_{11} &= \begin{bmatrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{bmatrix}, \quad
+M_{12} = \begin{bmatrix} a_{21} & a_{23} \\ a_{31} & a_{33} \end{bmatrix}, \quad
+M_{13} = \begin{bmatrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix}, \\
+M_{21} &= \begin{bmatrix} a_{12} & a_{13} \\ a_{32} & a_{33} \end{bmatrix}, \quad
+M_{22} = \begin{bmatrix} a_{11} & a_{13} \\ a_{31} & a_{33} \end{bmatrix}, \quad
+M_{23} = \begin{bmatrix} a_{11} & a_{12} \\ a_{31} & a_{32} \end{bmatrix}, \\
+M_{31} &= \begin{bmatrix} a_{12} & a_{13} \\ a_{22} & a_{23} \end{bmatrix}, \quad
+M_{32} = \begin{bmatrix} a_{11} & a_{13} \\ a_{21} & a_{23} \end{bmatrix}, \quad
+M_{33} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
+\end{align*}
+
+\subsubsection*{Cofactor}
+Cofactor is expressed is the minor that includes sign factors
+\begin{equation*}
+	C_{ij}=(-1)^{i+j}M_{ij}
+\end{equation*}
+As a mnemonic, use the sign pattern to check the sign of the cofactor
+\begin{equation*}
+	(-1)^{i+j}\sim
+	\begin{bmatrix}
++ & - & + & \cdots \\
+- & + & - & \cdots \\
++ & - & + & \cdots \\
+\vdots & \vdots & \vdots & \ddots \\
+\end{bmatrix}
+\end{equation*}
+
 \subsection*{Linear Algebra}
 \subsubsection*{Orthogonality.} Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
 Matrix M is orthogonal if
@@ -207,7 +246,6 @@ with determinant
 	\det M = \pm 1
 \end{align*}
 det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
-
 
 \subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
 \begin{align*}
