@@ -24,21 +24,6 @@ Consider $m$ equation with $n$ constants. We define matrix M and A, where M has 
 	\item If (rank M) = (rank A) = $R < n$, then $R$ unknowns can be found in terms of the remaining $n-R$ unknowns.
 \end{enumerate}
 
-\subsubsection*{Determinant.} For $2\times 2$ matrix:
-\begin{align*}
-	\det A=\begin{vmatrix}
-		       a & b \\
-		       c & d
-	       \end{vmatrix}=ad-bc
-\end{align*}
-
-Here are some determinant rule.
-\begin{align*}
-	\det(kA) & =k^2\det A                      &  & (2\times2) \\
-	\det(kA) & =k^3\det A                      &  & (3\times3) \\
-	\det(AB) & =\det(BA)=\det(A)\times\det (B)
-\end{align*}
-
 \subsubsection*{Cramer's Rule.} The equations
 \begin{align*}
 	\begin{cases}
@@ -146,7 +131,8 @@ The previous equation is obtained by the dot identity of parallel vector
 \end{align*}
 also called the equation of plane.
 
-\subsection*{Matrix Operation}
+\subsection*{Matrix and Operation}
+\subsubsection*{Multiplication.}
 Matrix AB can be multiplied if they are conformable, that is if column A = row B.
 Matrix multiplication in index notation is:
 \begin{align*}
@@ -179,6 +165,8 @@ Two identity involving commutators are
 	[\Omega,\Lambda\theta]&=\Lambda[\Omega,\theta]+[\Omega,\Lambda]\theta\\
 	[\Lambda\Omega,\Theta]&=\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega
 \end{align*}
+
+\subsubsection*{Inverse}
 If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular.
 \begin{equation*}
 	M^{-1}=\frac{1}{\det M}C^{T}
@@ -193,28 +181,22 @@ By thin we can obtain the desired result
 	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
 \end{equation*}
 
+\subsection*{Determinant.} For $2\times 2$ matrix:
+\begin{align*}
+	\det A=\begin{vmatrix}
+		       a & b \\
+		       c & d
+	       \end{vmatrix}=ad-bc
+\end{align*}
+
+Here are some determinant rule.
+\begin{align*}
+	\det(kA) & =k^2\det A                      &  & (2\times2) \\
+	\det(kA) & =k^3\det A                      &  & (3\times3) \\
+	\det(AB) & =\det(BA)=\det(A)\times\det (B)
+\end{align*}
+
 \subsection*{Linear Algebra}
-\subsubsection*{Linear combination.} A linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
-The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
-A function of a vector, say $f (r)$, is called linear if
-\begin{align*}
-	f(r_1+r_2)= f(r_1)+ f(r_2) &  & \mathrm{and} &  & f(ar)=a\;f(r)
-\end{align*}
-where $a$ is a scalar. $O$ is a linear operator if
-\begin{align*}
-	O(r_1+r_2)= O(r_1)+ O(r_2) &  & \mathrm{and} &  & O(ar)=a\;O(r)
-\end{align*}
-
-\subsubsection*{Linear dependence}If $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
-\begin{align*}
-	W=\begin{vmatrix}
-		  f_1(x)       & f_2(x)       & \cdots & f_n(x)       \\
-		  f_1'(x)      & f_2'(x)      & \cdots & f_n'(x)      \\
-		  \vdots       & \vdots       & \ddots & \vdots       \\
-		  f_1^{n-1}(x) & f_2^{n-1}(x) & \cdots & f_n^{n-1}(x) \\
-	  \end{vmatrix}\not\equiv0
-\end{align*}then the functions are linearly independent.
-
 \subsubsection*{Orthogonality.} Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
 Matrix M is orthogonal if
 \begin{align*}
@@ -226,26 +208,6 @@ with determinant
 \end{align*}
 det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
 
-In vector analysis, two vectors are orthogonal if their inner product is zero
-\begin{equation*}
-	\sum_{i}A_iB_i=0
-\end{equation*}
-
-If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if
-\begin{equation*}
-	\int_{a}^{b}A(x)B(x)\;dx=0
-\end{equation*}
-
-\subsubsection*{Orthonormality.} The norm of function is defined as
-\begin{equation*}
-	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
-\end{equation*}
-We also said the function $N^{-1}A(x)$ to be normalized and has the norm of zero.
-
-\subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
-\begin{equation*}
-	f(y)=\sum_{n=1}^{\infty} C_nf(y)
-\end{equation*}
 
 \subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
 \begin{align*}
@@ -381,6 +343,11 @@ In following this axiom, we arrive at the following definition for inner product
 	\end{bmatrix}
 \end{equation*}
 
+If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if
+\begin{equation*}
+	\int_{a}^{b}A(x)B(x)\;dx=0
+\end{equation*}
+
 \subsection*{Norm}
 Norm of a vector is defined as
 \begin{equation*}
@@ -389,6 +356,13 @@ Norm of a vector is defined as
 Two vectors with zero inner product are said to be orthogonal.
 If said vector has unit norm instead, it is referred as normalized.
 Set of basis with orthogonal and normalized condition are called orthonormal basis.
+
+\subsubsection*{Continuous function.}
+The norm of a continuous function is defined as 
+\begin{equation*}
+	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
+\end{equation*}
+We also said the function $N^{-1}A(x)$ to be normalized and has the norm of one.
 
 \subsection*{Adjoint Operation}
 The following is a summary on how to perform adjoint in braket notation.
@@ -545,7 +519,11 @@ All vector along the $xy$ plane is denoted $\mathbb{V}_{xy}^2$.
 Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$, which makes sense since the plane is a linear combination of two basis.
 
 \subsection*{Linear Independence}
+Linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
+
 \subsubsection*{Vector.}
+The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
+where $a$ is a scalar. 
 Set of vectors are said to independent if the only solution to the following equation is trivial
 \begin{equation*}
 	\sum_i a_i\ket{i}=\ket{0}
@@ -555,6 +533,11 @@ If the basis of the vector are independent, we can expand into
 	\ket{V}=\sum_i v_i \ket{i}
 \end{equation*}
 
+A function of a vector, say $f (r)$, is called linear if
+\begin{align*}
+	f(r_1+r_2)= f(r_1)+ f(r_2) &  & \mathrm{and} &  & f(ar)=a\;f(r)
+\end{align*}
+
 \subsubsection*{Operator.}
 Linear operator obey the following rule 
 \begin{align*}
@@ -563,4 +546,24 @@ Linear operator obey the following rule
 	\bra{V}\alpha\Omega&=\bra{V}\Omega\alpha\\
 	\left[\bra{V_1}\alpha+\bra{V_2}\beta\right]\Omega&=\alpha \bra{V_1}\Omega +\beta\bra{V_2}\Omega
 \end{align*}
+$\Omega$ is a linear operator if
+\begin{align*}
+	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
+\end{align*}
+
+
+\subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
+\begin{equation*}
+	f(y)=\sum_{n=1}^{\infty} C_nf(y)
+\end{equation*}
+\subsubsection*{Linear dependence}f $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
+\begin{align*}
+	W=\begin{vmatrix}
+		  f_1(x)       & f_2(x)       & \cdots & f_n(x)       \\
+		  f_1'(x)      & f_2'(x)      & \cdots & f_n'(x)      \\
+		  \vdots       & \vdots       & \ddots & \vdots       \\
+		  f_1^{n-1}(x) & f_2^{n-1}(x) & \cdots & f_n^{n-1}(x) \\
+	  \end{vmatrix}\not\equiv0
+\end{align*}then the functions are linearly independent.
+
 \end{document}
