@@ -97,4 +97,59 @@ And normalize it
         0\\-2/\sqrt{5}\\1/\sqrt{5}
     \end{bmatrix}
 \end{equation*}
+
+\subsection*{Application: Determining determinant}
+Consider the matrix
+\begin{equation*}
+    A=\begin{bmatrix}
+        2&-5&2\\
+        7&3&4\\
+        2&1&5\\
+    \end{bmatrix}
+\end{equation*}
+We use the elements of third column first
+\begin{align*}
+    \det A&=\begin{vmatrix}
+        2&-5&2\\
+        7&3&4\\
+        2&1&5\\
+    \end{vmatrix}
+    =
+    2\begin{vmatrix}
+        7&3\\
+        2&1\\
+    \end{vmatrix}
+    -
+    4\begin{vmatrix}
+        2&-5\\
+        2&1\\
+    \end{vmatrix}
+    +
+    5\begin{vmatrix}
+        2&-5\\
+        7&3\\
+    \end{vmatrix}
+    \\
+    &=2\cdot1-4\cdot11+5\cdot38=148
+\end{align*}
+Then, as a check we use the first row's 
+\begin{align*}
+    \det A    =
+    1\begin{vmatrix}
+        3&4\\
+        1&5\\
+    \end{vmatrix}
+    +
+    5\begin{vmatrix}
+        7&4\\
+        2&5\\
+    \end{vmatrix}
+    +
+    2\begin{vmatrix}
+        7&3\\
+        2&1\\
+    \end{vmatrix}
+    \\
+    &=11+135+2=
+\end{align*}
 \end{document}
