@@ -94,7 +94,6 @@ Said rules are as follows.
 Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors.
 We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{^n}(C)$ if it is complex.
 
-
 \subsubsection*{Dual space.}
 Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket in a basis, while row vector are bra's $\bra{V}$.
 They are adjoint of each other.
@@ -160,10 +159,10 @@ In general, matrix do not commute. We define the commutator of the matrices A an
 \begin{align*}
 	[A, B] = AB - BA
 \end{align*}
-Two identity involving commutators are 
+Two identity involving commutators are
 \begin{align*}
-	[\Omega,\Lambda\theta]&=\Lambda[\Omega,\theta]+[\Omega,\Lambda]\theta\\
-	[\Lambda\Omega,\Theta]&=\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega
+	[\Omega,\Lambda\theta] & =\Lambda[\Omega,\theta]+[\Omega,\Lambda]\theta \\
+	[\Lambda\Omega,\Theta] & =\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega
 \end{align*}
 
 \subsubsection*{Inverse}
@@ -196,43 +195,43 @@ Here are some determinant rule.
 	\det(AB) & =\det(BA)=\det(A)\times\det (B)
 \end{align*}
 
-\subsubsection*{Minor.} 
-Minor of element $a_{ij}$ is the determinant of submatrix order $(n-1)$ you get after crossing $i$-th row and $h$-th column from order $n$ matrix. 
+\subsubsection*{Minor.}
+Minor of element $a_{ij}$ is the determinant of submatrix order $(n-1)$ you get after crossing $i$-th row and $h$-th column from order $n$ matrix.
 Consider the matrix
 \begin{equation*}
 	A=\begin{bmatrix}
-		a_{11}&a_{12}&a_{13}\\
-		a_{21}&a_{22}&a_{23}\\
-		a_{31}&a_{32}&a_{33}\\
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} \\
 	\end{bmatrix}
 \end{equation*}
 Each minor is then
 \begin{align*}
-M_{11} &= \begin{bmatrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{bmatrix}, \quad
-M_{12} = \begin{bmatrix} a_{21} & a_{23} \\ a_{31} & a_{33} \end{bmatrix}, \quad
-M_{13} = \begin{bmatrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix}, \\
-M_{21} &= \begin{bmatrix} a_{12} & a_{13} \\ a_{32} & a_{33} \end{bmatrix}, \quad
-M_{22} = \begin{bmatrix} a_{11} & a_{13} \\ a_{31} & a_{33} \end{bmatrix}, \quad
-M_{23} = \begin{bmatrix} a_{11} & a_{12} \\ a_{31} & a_{32} \end{bmatrix}, \\
-M_{31} &= \begin{bmatrix} a_{12} & a_{13} \\ a_{22} & a_{23} \end{bmatrix}, \quad
-M_{32} = \begin{bmatrix} a_{11} & a_{13} \\ a_{21} & a_{23} \end{bmatrix}, \quad
-M_{33} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
+	M_{11} & = \begin{bmatrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{bmatrix}, \quad
+	M_{12} = \begin{bmatrix} a_{21} & a_{23} \\ a_{31} & a_{33} \end{bmatrix}, \quad
+	M_{13} = \begin{bmatrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix},         \\
+	M_{21} & = \begin{bmatrix} a_{12} & a_{13} \\ a_{32} & a_{33} \end{bmatrix}, \quad
+	M_{22} = \begin{bmatrix} a_{11} & a_{13} \\ a_{31} & a_{33} \end{bmatrix}, \quad
+	M_{23} = \begin{bmatrix} a_{11} & a_{12} \\ a_{31} & a_{32} \end{bmatrix},         \\
+	M_{31} & = \begin{bmatrix} a_{12} & a_{13} \\ a_{22} & a_{23} \end{bmatrix}, \quad
+	M_{32} = \begin{bmatrix} a_{11} & a_{13} \\ a_{21} & a_{23} \end{bmatrix}, \quad
+	M_{33} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
 \end{align*}
 
 \subsubsection*{Cofactor}
 Cofactor is expressed is the minor that includes sign factors
 \begin{equation*}
-	C_{ij}=(-1)^{i+j}M_{ij}
+	\text{C}_{ij}=(-1)^{i+j}M_{ij}
 \end{equation*}
 As a mnemonic, use the sign pattern to check the sign of the cofactor
 \begin{equation*}
 	(-1)^{i+j}\sim
 	\begin{bmatrix}
-+ & - & + & \cdots \\
-- & + & - & \cdots \\
-+ & - & + & \cdots \\
-\vdots & \vdots & \vdots & \ddots \\
-\end{bmatrix}
+		+      & -      & +      & \cdots \\
+		-      & +      & -      & \cdots \\
+		+      & -      & +      & \cdots \\
+		\vdots & \vdots & \vdots & \ddots \\
+	\end{bmatrix}
 \end{equation*}
 
 \subsection*{Linear Algebra}
@@ -396,7 +395,7 @@ If said vector has unit norm instead, it is referred as normalized.
 Set of basis with orthogonal and normalized condition are called orthonormal basis.
 
 \subsubsection*{Continuous function.}
-The norm of a continuous function is defined as 
+The norm of a continuous function is defined as
 \begin{equation*}
 	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
 \end{equation*}
@@ -542,7 +541,7 @@ Multiply by $|W|^2$ and taking the square root to obtain
 \end{align*}
 
 \subsection*{Subspace}
-Given a vector space $\mathbb{V}$, a subset of its elements that form a vector space among themselves is called a subspace. 
+Given a vector space $\mathbb{V}$, a subset of its elements that form a vector space among themselves is called a subspace.
 We will denote a particular subspace $i$ of dimensionality $n$ by $\mathbb{V}_i^n$.
 
 Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{v}_j^{m_j}$, we define their sum $\mathbb{V}_i^{n_i}\oplus\mathbb{V}_j^{m_j}$ as the set containing
@@ -561,7 +560,7 @@ Linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scal
 
 \subsubsection*{Vector.}
 The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
-where $a$ is a scalar. 
+where $a$ is a scalar.
 Set of vectors are said to independent if the only solution to the following equation is trivial
 \begin{equation*}
 	\sum_i a_i\ket{i}=\ket{0}
@@ -577,18 +576,17 @@ A function of a vector, say $f (r)$, is called linear if
 \end{align*}
 
 \subsubsection*{Operator.}
-Linear operator obey the following rule 
+Linear operator obey the following rule
 \begin{align*}
-	\Omega \alpha \ket{V}&=\alpha\Omega \ket{V}\\
-	\Omega\left[\alpha \ket{V_1}+\beta \ket{V_2}\right]&=\Omega\alpha \ket{V_1}+\beta\Omega \ket{V_2}\\
-	\bra{V}\alpha\Omega&=\bra{V}\Omega\alpha\\
-	\left[\bra{V_1}\alpha+\bra{V_2}\beta\right]\Omega&=\alpha \bra{V_1}\Omega +\beta\bra{V_2}\Omega
+	\Omega \alpha \ket{V}                               & =\alpha\Omega \ket{V}                         \\
+	\Omega\left[\alpha \ket{V_1}+\beta \ket{V_2}\right] & =\Omega\alpha \ket{V_1}+\beta\Omega \ket{V_2} \\
+	\bra{V}\alpha\Omega                                 & =\bra{V}\Omega\alpha                          \\
+	\left[\bra{V_1}\alpha+\bra{V_2}\beta\right]\Omega   & =\alpha \bra{V_1}\Omega +\beta\bra{V_2}\Omega
 \end{align*}
 $\Omega$ is a linear operator if
 \begin{align*}
 	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
 \end{align*}
-
 
 \subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
 \begin{equation*}
