@@ -174,11 +174,24 @@ In general, matrix do not commute. We define the commutator of the matrices A an
 \begin{align*}
 	[A, B] = AB - BA
 \end{align*}
+Two identity involving commutators are 
+\begin{align*}
+	[\Omega,\Lambda\theta]&=\Lambda[\Omega,\theta]+[\Omega,\Lambda]\theta\\
+	[\Lambda\Omega,\Theta]&=\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega
+\end{align*}
 If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular.
 \begin{equation*}
 	M^{-1}=\frac{1}{\det M}C^{T}
 \end{equation*}
 where $C_{ij}$ is cofactor of $m_{ij}$ or the checker thing you use on determining determinant.
+The inverse of a product follows
+\begin{equation*}
+	(\Lambda\Omega)^{-1}=\Lambda^{-1}\Omega^{-1}
+\end{equation*}
+By thin we can obtain the desired result
+\begin{equation*}
+	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
+\end{equation*}
 
 \subsection*{Linear Algebra}
 \subsubsection*{Linear combination.} A linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
@@ -527,9 +540,9 @@ Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{v}_j^{m_j}$, we define the
 	\item All linear combination of them.
 \end{enumerate}
 
-Vector along three dimension is denoted as $\mathbb{V}_3(R)$, while its component is $\mathbb{V}_x^1$ on the $x$ direction and the same on other two.
-All vector along the $xy$ is denoted $\mathbb{V}_{xy}^2$.
-Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$.
+Vector along three spatial dimension is denoted as $\mathbb{V}_3(R)$, while its component is $\mathbb{V}_x^1$ on the $x$ direction and the same convention on other two.
+All vector along the $xy$ plane is denoted $\mathbb{V}_{xy}^2$.
+Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$, which makes sense since the plane is a linear combination of two basis.
 
 \subsection*{Linear Independence}
 \subsubsection*{Vector.}
