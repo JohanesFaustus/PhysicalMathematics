@@ -311,7 +311,7 @@ This fact will be used in eigenvalue problem.
 	A system of $n$ homogeneous equations in $n$ unknowns has solutions other than the trivial solution if and only if the determinant of the coefficients is zero.
 \end{quote}
 
-\subsection*{Special Matrices}
+\subsection*{Special Matrices and Operator}
 \subsubsection*{Theorem.}
 \begin{enumerate}
 	\item $(ABC)^T=C^TB^TA^T$
@@ -359,6 +359,29 @@ Then $n\times n$, using the Kronecker delta, identity matrix may be written
 		\vdots      & \ddots & \vdots      \\
 		\delta_{n1} & \cdots & \delta_{nn}
 	\end{bmatrix}
+\end{equation*}
+
+\subsubsection*{Projection Operator}
+The projection operator is defined as 
+\begin{equation*}
+	\mathbb{P}_i=\ket{i}\bra{i}
+\end{equation*}
+This operator can be used to write the expansion of vector
+\begin{equation*}
+	\ket{V}=\sum_i \ket{i}\braket{i|V}=\sum_i \mathbb{P}_i \ket{V}
+\end{equation*}
+Or the identity matrix, which is called the completeness relation
+\begin{equation*}
+	{I}=\sum_i \ket{i}\bra{i}=\sum_i \mathbb{P}_i
+\end{equation*}
+Its action on bra is all the same 
+\begin{equation*}
+	\bra{V}\mathbb{P}_i=\braket{V|i}\bra{i}=v_i^*\bra{i}
+\end{equation*}
+
+Projection operator obey
+\begin{equation*}
+	\mathbb{P}_i\mathbb{P}_j=\delta_{ij}\mathbb{P}_j
 \end{equation*}
 
 \subsection*{Inner Product}
