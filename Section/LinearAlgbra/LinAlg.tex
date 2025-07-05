@@ -362,7 +362,7 @@ Then $n\times n$, using the Kronecker delta, identity matrix may be written
 \end{equation*}
 
 \subsubsection*{Projection Operator}
-The projection operator is defined as 
+The projection operator is defined as
 \begin{equation*}
 	\mathbb{P}_i=\ket{i}\bra{i}
 \end{equation*}
@@ -374,7 +374,7 @@ Or the identity matrix, which is called the completeness relation
 \begin{equation*}
 	{I}=\sum_i \ket{i}\bra{i}=\sum_i \mathbb{P}_i
 \end{equation*}
-Its action on bra is all the same 
+Its action on bra is all the same
 \begin{equation*}
 	\bra{V}\mathbb{P}_i=\braket{V|i}\bra{i}=v_i^*\bra{i}
 \end{equation*}
@@ -382,6 +382,19 @@ Its action on bra is all the same
 Projection operator obey
 \begin{equation*}
 	\mathbb{P}_i\mathbb{P}_j=\delta_{ij}\mathbb{P}_j
+\end{equation*}
+
+\subsubsection*{Hermitian and anti Hermitian.}
+An operator is called Hermitian fit satisfies $\Omega=\Omega ^\dagger$, in other hand an operator is called anti-Hermitian if $\Omega=-\Omega ^\dagger$.
+In the world of linear algebra, Hermitian and anti-Hermitian play the role of pure real and pure imaginary number.
+Just like how we can decompose every number into a sum of pure real and pure imaginary
+\begin{align*}
+	\alpha & =\frac{\alpha+\alpha ^*}{2}+\frac{\alpha-\alpha ^*}{2} \\
+	       & =\frac{(a+ib)+(a-ib)}{2}+\frac{(a+ib)-(a-ib)}{2}=a+ib
+\end{align*}
+we can decompose every operator into its Hermitian and anti Hermitian
+\begin{equation*}
+	\Omega=\frac{\Omega+\Omega ^\dagger}{2}+\frac{\Omega-\Omega ^\dagger}{2}
 \end{equation*}
 
 \subsection*{Inner Product}
