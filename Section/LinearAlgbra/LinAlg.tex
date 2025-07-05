@@ -390,12 +390,36 @@ In the world of linear algebra, Hermitian and anti-Hermitian play the role of pu
 Just like how we can decompose every number into a sum of pure real and pure imaginary
 \begin{align*}
 	\alpha & =\frac{\alpha+\alpha ^*}{2}+\frac{\alpha-\alpha ^*}{2} \\
-	       & =\frac{(a+ib)+(a-ib)}{2}+\frac{(a+ib)-(a-ib)}{2}=a+ib
+	       & =\frac{(a+ib)+(a-ib)}{2}+\frac{(a+ib)-(a-ib)}{2}       \\
+	\alpha & =a+ib
 \end{align*}
 we can decompose every operator into its Hermitian and anti Hermitian
 \begin{equation*}
 	\Omega=\frac{\Omega+\Omega ^\dagger}{2}+\frac{\Omega-\Omega ^\dagger}{2}
 \end{equation*}
+
+\subsubsection*{Unitary operator.}
+Unitary operator is defined as
+\begin{equation*}
+	UU ^\dagger=I
+\end{equation*}
+This definition also implies that $U$ and its Hermitian conjugate are inverse of each.
+As a comparison with complex number, Unitary operator is a unit modulus $e^{i\theta}$, just as $e^{i\theta}e^{-i\theta}=1$.
+
+\paragraph*{Inner product.} This theorem state that unitary operator preserves the inner product between the vectors they act on.
+This can be proved by considering two vectors
+\begin{equation*}
+	\ket{V_1}=U \ket{W_1}\qquad \ket{V_2}=U \ket{W_2}
+\end{equation*}
+Then
+\begin{equation*}
+	\braket{V_2|V_1}=\bra{W_2}U ^\dagger U \ket{W_1}=\braket{W_2|W_2}
+\end{equation*}
+Unitary operator is the generalization of rotation operator from $\mathbb{V}^3(R)$ to $\mathbb{V}^n(C)$, for its preserves the inner product of the vector like the rotation matrix.
+
+For $n\times n$ unitary operator, the column, or the row really, can be seen as the component of $n$ vector, just like operator in general.
+These vector, then, is orthonormal to each other.
+The reason for this is that the operator preserve the inner product, the transformed set of vector is also orthonormal.
 
 \subsection*{Inner Product}
 The inner product is defined in such way to obey the following requirement.
