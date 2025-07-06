@@ -237,4 +237,182 @@ Now we can use the inverse to find the value of the vector
         -4
     \end{bmatrix}
 \end{equation*}
+
+\subsection*{Application: Eigenvalue Problem}
+We shall find the eigenvalue of the hermitian matrix
+\begin{equation*}
+    \Omega=\begin{bmatrix}
+        0&0&1\\
+        0&0&0\\
+        1&0&0\\
+    \end{bmatrix}
+\end{equation*}
+First write the eigenvalue equation
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega}=
+    \begin{bmatrix}
+        -\omega&0&1\\
+        0&-\omega&0\\
+        1&0&-\omega\\
+    \end{bmatrix}
+    \ket{\omega}=0
+\end{equation*}
+The characteristic equation is
+\begin{equation*}
+    -\omega^3+\omega=\omega(\omega^2+1)=0
+\end{equation*}
+This implies the eigenvalues are
+\begin{equation*}
+    \omega=0,\pm 1
+\end{equation*}
+Next, we substitute the eigenvalue into the eigenvalue equation.
+First consider the eigenvalue $\omega=0$
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega_0}=0\implies
+    \begin{bmatrix}
+        0&0&1\\
+        0&0&0\\
+        1&0&0\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1\\
+        v_2\\
+        v_3\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_3=0\\
+        0=0\\
+        v_1=0
+    \end{bmatrix}
+\end{equation*}
+And we get arbitrary $v_2$, to normalize the eigenvector we choose
+\begin{equation*}
+    \bra{\omega_0}=
+    \begin{bmatrix}
+        0&1&0\\
+    \end{bmatrix}
+\end{equation*}
+Next is the case of $\omega=1$
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega_1}=0\implies
+    \begin{bmatrix}
+        -1&0&1\\
+        0&-1&0\\
+        1&0&-1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1\\
+        v_2\\
+        v_3\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -v_1+v_3=0\\
+        -v_2=0\\
+        v_1-v_3=0
+    \end{bmatrix}
+\end{equation*}
+the eigenvector corresponds to the eigenvalue is 
+\begin{equation*}
+    \ket{\omega_1}=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1&0&1
+    \end{bmatrix}
+\end{equation*}
+Finally the last eigenvalue $\omega=-1$
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega_{-1}}=0\implies
+    \begin{bmatrix}
+        1&0&1\\
+        0&1&0\\
+        1&0&1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1\\
+        v_2\\
+        v_3\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_1+v_3=0\\
+        v_2=0\\
+        v_1+v_3=0
+    \end{bmatrix}
+\end{equation*}
+with the eigenvector of 
+\begin{equation*}
+    \bra{\omega_{-1}}=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1&0&-1
+    \end{bmatrix}
+\end{equation*}
+
+We can also use these eigenvectors to diagonal the operator $\Omega$.
+From the eigenvector, we construct the unitary matrix 
+\begin{equation*}
+    U=
+    \begin{bmatrix}
+        0&\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+        1&0&0\\
+        0&\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}
+\end{equation*}
+As a check, we can also confirm the unitary identity of unitary matrix
+\begin{equation*}
+    U ^\dagger U=
+    \begin{bmatrix}
+        0&1&0\\
+        \frac{1}{\sqrt{2}}&0&\frac{1}{\sqrt{2}}\\\
+        \frac{1}{\sqrt{2}}&0&-\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}    \begin{bmatrix}
+        0&\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+        1&0&0\\
+        0&\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1&0&0\\
+        0&1&0\\
+        0&0&1\\
+    \end{bmatrix}
+\end{equation*} 
+As expected.
+We can now jump to the diagonalization
+\begin{align*}
+    U ^\dagger \Omega U&=
+    \begin{bmatrix}
+        0&1&0\\
+        \frac{1}{\sqrt{2}}&0&\frac{1}{\sqrt{2}}\\\
+        \frac{1}{\sqrt{2}}&0&-\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}    
+    \begin{bmatrix}
+        0&0&1\\
+        0&0&0\\
+        1&0&0\\
+    \end{bmatrix} 
+    \begin{bmatrix}
+        0&\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+        1&0&0\\
+        0&\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}\\
+    &=
+    \begin{bmatrix}
+        0&1&0\\
+        \frac{1}{\sqrt{2}}&0&\frac{1}{\sqrt{2}}\\\
+        \frac{1}{\sqrt{2}}&0&-\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}    
+    \begin{bmatrix}
+        0&\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+        1&0&0\\
+        0&\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+    \end{bmatrix}\\
+    U ^\dagger \Omega U&=
+    \begin{bmatrix}
+        0&0&0\\
+        0&1&0\\
+        0&0&-1\\
+    \end{bmatrix}
+\end{align*}
+Which is just the eigenvalue as the diagonal element.
 \end{document}
