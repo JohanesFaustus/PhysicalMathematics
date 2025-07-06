@@ -662,4 +662,56 @@ $\Omega$ is a linear operator if
 	  \end{vmatrix}\not\equiv0
 \end{align*}then the functions are linearly independent.
 
+\subsection*{Eigenvalue Problem}
+Consider linear operator $\Omega$ transforming non-trivial $\ket{V}$
+\begin{equation*}
+	\Omega 	\ket{V}=\ket{W}
+\end{equation*}
+Each operator has certain ket on which its transformation is simply recalling 
+\begin{equation*}
+	\Omega \ket{V}=\omega \ket{V}
+\end{equation*}
+This is the eigenvalue equation which state that $\ket{V}$ is an eigenket of $\Omega$ with eigenvalue $\omega$.
+We begin to solve the problem by writing the eigenvalue equation as 
+\begin{equation*}
+	(\Omega-\omega I)\ket{V}=\ket{0}
+\end{equation*}
+Operating $(\Omega-\omega I)^{-1}$ on both side 
+\begin{equation*}
+	\ket{V}=(\Omega-\omega I)^{-1}\ket{0}
+\end{equation*}
+Any operator acting on null vector can only give null vector, not arbitrary vector $\ket{V}$.
+Therefore, our assumption that operator $(\Omega-\omega I)^{-1}$ exist is false.
+Recalling the inverse of matrix $M$
+\begin{equation*}
+	M^{-1}=\frac{1}{\det M}\text{C}^T
+\end{equation*}
+we see that the condition for non-existent inverse is zero determinant.
+Thus, the condition for non-zero eigenvector is 
+\begin{equation*}
+	\det (\Omega-\omega I)^{-1}=0
+\end{equation*}
+In practice, this equation is enough to determine the eigenvalue and eigenvector.
+For theoretical purpose however, we can determine what form does the solution take.
+To do so, we project the equation with basis bra $\bra{i}$
+\begin{equation*}
+	\bra{i}\Omega-\omega I\ket{V}=0
+\end{equation*}
+or in summation form 
+\begin{equation*}
+	\sum_j (\Omega_{ij}-\omega\delta_{ij})v_j=0
+\end{equation*}
+Setting the determinant to zero gives us the characteristic equation 
+\begin{equation*}
+	\sum_{m=0}^{n}c_m\omega^{m}=0
+\end{equation*}
+
+Once the eigenvalue $\omega$ are found, we can move to the next step of determining the eigenvector.
+We do this by substituting the value of $\omega$ into the equation
+\begin{equation*}
+	(\Omega-\omega I)\ket{V}=\ket{0}
+\end{equation*}
+Then we will obtain set of equations that the equation must obey.
+It is conventional to normalize the eigenvector also.
+In the case of degeneracy, we choose the eigenvector such that they are orthogonal to each other.  
 \end{document}
