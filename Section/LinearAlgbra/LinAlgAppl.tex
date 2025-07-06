@@ -415,4 +415,120 @@ We can now jump to the diagonalization
     \end{bmatrix}
 \end{align*}
 Which is just the eigenvalue as the diagonal element.
+
+\subsection*{Application: Eigenvalue Problem With Degeneracy}
+Now consider operator with matrix element
+\begin{equation*}
+    \Omega=
+    \begin{bmatrix}
+        1&0&1\\
+        0&2&0\\
+        1&0&1\\
+    \end{bmatrix}
+\end{equation*}
+The eigenvalue equation is 
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega}=0\implies
+    \begin{bmatrix}
+        1-\omega&0&1\\
+        0&2-\omega&0\\
+        1&0&1-\omega\\
+    \end{bmatrix}
+    \ket{\omega}=0
+\end{equation*}
+while the characteristic equation
+\begin{equation*}
+    (2-\omega)[(1-\omega)^2-1]=(2-\omega)[\omega^2-2\omega]=(2-\omega)\omega(\omega-2)=0
+\end{equation*}
+which result in eigenvalues of 
+\begin{equation*}
+    \omega=0,2,2
+\end{equation*}
+with $\omega=2$ as degenerate.
+First we consider the eigenvalue $\omega=0$
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega_0}=0\implies
+    \begin{bmatrix}
+        1&0&1\\
+        0&2&0\\
+        1&0&1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1\\
+        v_2\\
+        v_3\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_1+v_2=0\\
+        2v_2=0\\
+        v_1+v_3=0\\
+    \end{bmatrix}
+\end{equation*}
+with eigenvector of
+\begin{equation*}
+    \bra{\omega_0}=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1&0&-1
+    \end{bmatrix}
+\end{equation*}
+Next is the degenerate eigenvalue of $\omega=2$
+\begin{equation*}
+    (\Omega-\omega I)\ket{\omega_2}=0\implies
+    \begin{bmatrix}
+        -1&0&1\\
+        0&0&0\\
+        1&0&-1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1\\
+        v_2\\
+        v_3\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -v_1+v_2=0\\
+        0=0\\
+        -v_1+v_3=0\\
+    \end{bmatrix}
+\end{equation*}
+The eigenvector, which are also degenerate, has the arbitrary component $v_2$.
+This mean that the two degenerate eigenvector lies on the same plane.
+For the first degenerate eigenvector, let us just choose the simplest normalized vector that also satisfies the equation above
+\begin{equation*}
+    \ket{\omega_2,\alpha}=\frac{1}{\sqrt{3}}
+    \begin{bmatrix}
+        1\\
+        1\\
+        1\\
+    \end{bmatrix}
+\end{equation*}
+For the second degenerate eigenvector, we choose in a way such that it is orthonormal with the first.
+The orthogonal condition state that 
+\begin{equation*}
+    \braket{\omega_2,\alpha|^\circ_2, \beta}=0
+\end{equation*}
+Since the degenerate vectors lies in the same plane on arbitrary $v_2$, we shall determine the value of $v_2$ such that $\ket{\omega_2,\alpha}$ is orthogonal with $\ket{\omega_2,\beta}$
+\begin{equation*}
+    \braket{\omega_2,\alpha|\omega_2', \beta}= 
+    \begin{bmatrix}
+        1\\1\\1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1\\
+        \beta\\
+        1\\
+    \end{bmatrix}
+    =\beta+2
+\end{equation*}
+or $\beta=-2$.
+All that left is normalizing it 
+\begin{equation*}
+    \ket{\omega_2,\beta}=\frac{1}{\sqrt{6} }
+    \begin{bmatrix}
+        1\\
+        -2\\
+        1
+    \end{bmatrix}
+\end{equation*}
 \end{document}
