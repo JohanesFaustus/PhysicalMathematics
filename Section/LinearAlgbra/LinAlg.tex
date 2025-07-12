@@ -667,16 +667,16 @@ Consider linear operator $\Omega$ transforming non-trivial $\ket{V}$
 \begin{equation*}
 	\Omega 	\ket{V}=\ket{W}
 \end{equation*}
-Each operator has certain ket on which its transformation is simply recalling 
+Each operator has certain ket on which its transformation is simply recalling
 \begin{equation*}
 	\Omega \ket{V}=\omega \ket{V}
 \end{equation*}
 This is the eigenvalue equation which state that $\ket{V}$ is an eigenket of $\Omega$ with eigenvalue $\omega$.
-We begin to solve the problem by writing the eigenvalue equation as 
+We begin to solve the problem by writing the eigenvalue equation as
 \begin{equation*}
 	(\Omega-\omega I)\ket{V}=\ket{0}
 \end{equation*}
-Operating $(\Omega-\omega I)^{-1}$ on both side 
+Operating $(\Omega-\omega I)^{-1}$ on both side
 \begin{equation*}
 	\ket{V}=(\Omega-\omega I)^{-1}\ket{0}
 \end{equation*}
@@ -687,7 +687,7 @@ Recalling the inverse of matrix $M$
 	M^{-1}=\frac{1}{\det M}\text{C}^T
 \end{equation*}
 we see that the condition for non-existent inverse is zero determinant.
-Thus, the condition for non-zero eigenvector is 
+Thus, the condition for non-zero eigenvector is
 \begin{equation*}
 	\det (\Omega-\omega I)^{-1}=0
 \end{equation*}
@@ -697,11 +697,11 @@ To do so, we project the equation with basis bra $\bra{i}$
 \begin{equation*}
 	\bra{i}\Omega-\omega I\ket{V}=0
 \end{equation*}
-or in summation form 
+or in summation form
 \begin{equation*}
 	\sum_j (\Omega_{ij}-\omega\delta_{ij})v_j=0
 \end{equation*}
-Setting the determinant to zero gives us the characteristic equation 
+Setting the determinant to zero gives us the characteristic equation
 \begin{equation*}
 	\sum_{m=0}^{n}c_m\omega^{m}=0
 \end{equation*}
@@ -713,5 +713,36 @@ We do this by substituting the value of $\omega$ into the equation
 \end{equation*}
 Then we will obtain set of equations that the equation must obey.
 It is conventional to normalize the eigenvector also.
-In the case of degeneracy, we choose the eigenvector such that they are orthogonal to each other.  
+In the case of degeneracy, we choose the eigenvector such that they are orthogonal to each other.
+
+\subsection*{Propagator}
+Propagator is an operator that propagate a state forward in space or time.
+It can be used as a solution to a differential equation.
+For an equation with the form
+\begin{equation*}
+	\ket{\ddot{x}}=\Omega \ket{x(t)}
+\end{equation*}
+have the solution written as
+\begin{equation*}
+	\ket{x(t)}=U(t)\ket{x(0)}
+\end{equation*}
+with the propagator constructed as
+\begin{equation*}
+	U(t)= \sum_i\ket{i} \bra{i}\cos \omega_i t
+\end{equation*}
+
+The steps of solving initial value problem are as follows.
+\begin{enumerate}
+	\item Consider the equation $\ket{\ddot{\psi}(t)}=\Omega\ket{\psi(0)}$
+	\item Solve the eigenvalue of operator $\Omega$ and find its eigenvector
+	\item Find the propagator $U(t)$ in terms of the eigenvectors and eigenvalues
+	of $\Omega$
+	\begin{equation*}
+		U(t)= \sum_i\ket{i} \bra{i}\cos \omega_i t
+	\end{equation*}
+	\item Write the solution
+	\begin{equation*}
+		\ket{\psi(t)}=U(t)\ket{\psi(0)}
+	\end{equation*}
+\end{enumerate}
 \end{document}
