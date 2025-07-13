@@ -760,7 +760,8 @@ Has the following form
 		           &        & e^\omega_n
 	\end{bmatrix}
 \end{equation*}
-\paragraph{Proof.}
+
+\paragraph*{Proof.}
 By going to the eigenbasis of hermitian operator and raising it to the power of $m$
 \begin{equation*}
 	\Omega=
@@ -801,5 +802,35 @@ we have
 		           & \ddots &            \\
 		           &        & e^\omega_n
 	\end{bmatrix}
+\end{align*}
+
+\subsubsection*{Geometric series.}
+For hermitian $\Omega$
+\begin{equation*}
+	\sum_{m=0}^{\infty}\Omega^n=(1-\Omega)^{-1}
+\end{equation*}
+
+\paragraph*{Proof.}
+We write the power series as
+\begin{align*}
+	f(\Omega) & =\sum_{m=0}^{\infty}
+	\begin{bmatrix}
+		\omega_1 &        &          \\
+		         & \ddots &          \\
+		         &        & \omega_n
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\sum_{m=0}^{\infty}\omega_1^n &        &                               \\
+		                              & \ddots &                               \\
+		                              &        & \sum_{m=0}^{\infty}\omega_n^m
+	\end{bmatrix} \\
+	f(\Omega) & =
+	\begin{bmatrix}
+		(1-\omega_1)^{-1} &        &                   \\
+		                  & \ddots &                   \\
+		                  &        & (1-\omega_n)^{-1} \\
+	\end{bmatrix}
+	=(1-\Omega)^{-1}
 \end{align*}
 \end{document}
