@@ -470,6 +470,21 @@ For $n\times n$ unitary operator, the column, or the row really, can be seen as 
 These vector, then, is orthonormal to each other.
 The reason for this is that the operator preserve the inner product, the transformed set of vector is also orthonormal.
 
+\subsubsection*{Dirac delta.}
+Under the integral sign, Dirac delta is defined as 
+\begin{equation*}
+	\int \delta(x-x')f(x')\;dx=f(x)
+\end{equation*}
+where it samples the value of function $f(x')$ at one point $x$.
+This expression also used to define continuous orthogonal basis
+\begin{equation*}
+	\braket{x|x'}=\delta(x-x')
+\end{equation*}
+Dirac delta is an even function proved by 
+\begin{equation*}
+	\delta(x-x')=\braket{x|x'}=\braket{x'\x}^*=\delta(x'-x)^*=\delta(x'-x)
+\end{equation*}
+
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
 The inner product is defined in such way to obey the following requirement.
