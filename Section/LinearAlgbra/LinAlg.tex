@@ -421,7 +421,7 @@ This operator can be used to write the expansion of vector
 \end{equation*}
 Or the identity matrix, which is called the completeness relation
 \begin{equation*}
-	{I}=\sum_i \ket{i}\bra{i}=\sum_i \mathbb{P}_i
+	{I}=\sum_i \ket{i}\bra{i}=\int_i \ket{x}\bra{i}\;dx=\sum_i \mathbb{P}_i
 \end{equation*}
 Its action on bra is all the same
 \begin{equation*}
@@ -471,6 +471,7 @@ These vector, then, is orthonormal to each other.
 The reason for this is that the operator preserve the inner product, the transformed set of vector is also orthonormal.
 
 \subsection*{Inner Product}
+\subsubsection*{Finite dimension.}
 The inner product is defined in such way to obey the following requirement.
 \begin{enumerate}
 	\item \textbf{Skew-symmetry}: $\braket{V|W}=\braket{W|V}^*$
@@ -492,6 +493,16 @@ In following this axiom, we arrive at the following definition for inner product
 If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if
 \begin{equation*}
 	\int_{a}^{b}A(x)B(x)\;dx=0
+\end{equation*}
+
+\subsubsection*{Infinite dimension.}
+The inner product of two continuous function along some interval is defined as
+\begin{equation*}
+	\braket{f|g}=\int_{a}^{b}f ^*(x)g(x)\;dx
+\end{equation*}
+This definition comes after recalling the completeness relation for infinite space 
+\begin{equation*}
+	\braket{f|g}=\bra{f}I \ket{g}=\int_{a }^{b}\braket{f|x}\braket{x|g}\;dx=\int_{a }^{b} f ^*(x)g(x)\;dx
 \end{equation*}
 
 \subsection*{Norm}
@@ -883,4 +894,5 @@ We write the power series as
 	=(1-\Omega)^{-1}
 \end{align*}
 
+\subsection*{title}
 \end{document}
