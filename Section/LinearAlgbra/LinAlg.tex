@@ -736,13 +736,70 @@ The steps of solving initial value problem are as follows.
 	\item Consider the equation $\ket{\ddot{\psi}(t)}=\Omega\ket{\psi(0)}$
 	\item Solve the eigenvalue of operator $\Omega$ and find its eigenvector
 	\item Find the propagator $U(t)$ in terms of the eigenvectors and eigenvalues
-	of $\Omega$
-	\begin{equation*}
-		U(t)= \sum_i\ket{i} \bra{i}\cos \omega_i t
-	\end{equation*}
+	      of $\Omega$
+	      \begin{equation*}
+		      U(t)= \sum_i\ket{i} \bra{i}\cos \omega_i t
+	      \end{equation*}
 	\item Write the solution
-	\begin{equation*}
-		\ket{\psi(t)}=U(t)\ket{\psi(0)}
-	\end{equation*}
+	      \begin{equation*}
+		      \ket{\psi(t)}=U(t)\ket{\psi(0)}
+	      \end{equation*}
 \end{enumerate}
+
+\subsection*{Function of Operator}
+We shall consider the function, such as $e^x$, where $x$ is an operator and determine its meaning.
+We restrict ourselves to those function that can be written as power series an operator that are hermitian.
+
+\subsubsection*{Exponential function.}
+Has the following form
+\begin{equation*}
+	e^\Omega=
+	\begin{bmatrix}
+		e^\omega_1 &        &            \\
+		           & \ddots &            \\
+		           &        & e^\omega_n
+	\end{bmatrix}
+\end{equation*}
+\paragraph{Proof.}
+By going to the eigenbasis of hermitian operator and raising it to the power of $m$
+\begin{equation*}
+	\Omega=
+	\begin{bmatrix}
+		\omega_1 &        &          \\
+		         & \ddots &          \\
+		         &        & \omega_n
+	\end{bmatrix},
+	\qquad
+	\Omega^m=
+	\begin{bmatrix}
+		\omega_1^m &        &            \\
+		           & \ddots &            \\
+		           &        & \omega_n^m
+	\end{bmatrix}
+\end{equation*}
+Inserting this into the series representation of exponential function
+\begin{equation*}
+	e^\Omega=\sum_{m=0}^{\infty}\frac{\Omega^m}{m!}
+\end{equation*}
+we have
+\begin{align*}
+	e^\Omega & =\sum_{m=0}^{\infty}\frac{1}{m!}
+	\begin{bmatrix}
+		\omega_1^m &        &            \\
+		           & \ddots &            \\
+		           &        & \omega_n^m
+	\end{bmatrix}
+	         & =
+	\begin{bmatrix}
+		\sum_{m=0}^{\infty}\frac{\omega_1^m }{m!} &        &                                          \\
+		                                          & \ddots &                                          \\
+		                                          &        & \sum_{m=0}^{\infty}\frac{\omega_n^m}{m!}
+	\end{bmatrix} \\
+	e^\Omega & =
+	\begin{bmatrix}
+		e^\omega_1 &        &            \\
+		           & \ddots &            \\
+		           &        & e^\omega_n
+	\end{bmatrix}
+\end{align*}
 \end{document}
