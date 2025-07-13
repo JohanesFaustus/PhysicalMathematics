@@ -180,6 +180,55 @@ By thin we can obtain the desired result
 	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
 \end{equation*}
 
+\subsubsection*{Derivative (with respect to parameter).}
+Consider the function $\theta(\lambda)=e^{\lambda\Omega}$.
+Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense 
+\begin{equation*}
+	\frac{d}{d\lambda}\theta(\lambda)=\Omega e^{\lambda\Omega}=e^{\lambda\Omega}\Omega=\theta(\lambda)\Omega
+\end{equation*}
+The second and third terms holds true because $[\Omega,e^{\Omega}]=0$. 
+If we are presented with the differential equation with this form, the solution is given by
+\begin{equation*}
+	\theta(\lambda)=ce^{\Omega \lambda}
+\end{equation*}
+with $c$ as operator constant of integration.
+
+\paragraph*{Proof.} We can proof the evaluated method by writing the exponential function as an operator then applying the derivative operator
+\begin{align*}
+	\frac{d }{d\lambda}e^{\lambda\Omega}&=\frac{d }{d\lambda}
+	\begin{bmatrix}
+		e^{\lambda\omega_1} &        &            \\
+		           & \ddots &            \\
+		           &        & e^{\lambda\omega_n}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\omega_1 e^{\lambda\omega_1} &        &            \\
+		           & \ddots &            \\
+		           &        & \omega_n e^{\lambda\omega_n}
+	\end{bmatrix}\\
+	\frac{d }{d\lambda }e^{\lambda\Omega}&=
+	\begin{bmatrix}
+		\omega_1&&\\
+		&\ddots&\\
+		&&\omega_n\\
+	\end{bmatrix}
+	\begin{bmatrix}
+		\lambda e^{\lambda\omega_1} &        &            \\
+		           & \ddots &            \\
+		           &        & \lambda e^{\lambda\omega_n}
+	\end{bmatrix}
+	=\Omega e^{\lambda \Omega}
+\end{align*}  
+If $\Omega$ is not a hermitian however, we can produce the same result by working using the power series representation
+\begin{equation*}
+	\frac{d }{d\lambda }e^{\lambda\Omega}=\frac{d }{d\lambda} \sum_{m=0 }^{\infty }\frac{\lambda^n\Omega^n }{n! }= \sum_{m=1 }^{\infty }\frac{n\lambda^{n-1 }\Omega^{n}}{n!}=\Omega\sum_{m=1 }^{\infty}\frac{\lambda^{n-1} \Omega^{n-1}}{(n-1)!}
+\end{equation*}
+Shifting the index 
+\begin{equation*}
+	\frac{d }{d\lambda }e^{\lambda \Omega}=\Omega\sum_{m=0 }^{\infty}\frac{\lambda^n \Omega^n }{n!}=\Omega e^{\lambda\Omega}
+\end{equation*}
+
 \subsection*{Determinant} For $2\times 2$ matrix:
 \begin{align*}
 	\det A=\begin{vmatrix}
@@ -798,9 +847,9 @@ we have
 	\end{bmatrix} \\
 	e^\Omega & =
 	\begin{bmatrix}
-		e^\omega_1 &        &            \\
+		e^{\omega_1} &        &            \\
 		           & \ddots &            \\
-		           &        & e^\omega_n
+		           &        & e^{\omega_n}
 	\end{bmatrix}
 \end{align*}
 
@@ -833,4 +882,5 @@ We write the power series as
 	\end{bmatrix}
 	=(1-\Omega)^{-1}
 \end{align*}
+
 \end{document}
