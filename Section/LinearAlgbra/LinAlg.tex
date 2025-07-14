@@ -482,7 +482,7 @@ This expression also used to define continuous orthogonal basis
 \end{equation*}
 Dirac delta is an even function proved by 
 \begin{equation*}
-	\delta(x-x')=\braket{x|x'}=\braket{x'\x}^*=\delta(x'-x)^*=\delta(x'-x)
+	\delta(x-x')=\braket{x|x'}=\braket{x'|x}^*=\delta(x'-x)^*=\delta(x'-x)
 \end{equation*}
 Dirac delta is normalized such that 
 \begin{equation*}
@@ -510,6 +510,23 @@ In general, the action of $n$-th order of derivative is
 	\delta^{(n)}(x-x')=\delta(x-x')\frac{d^n }{dx^n}
 \end{equation*}
 
+The integral representation of Dirac delta is 
+\begin{equation*}
+	\delta(x'-x)=\frac{1 }{2\pi} \int_{-\infty}^{\infty} e^{ik(x'-x)}\;dk
+\end{equation*}
+This is obtained from Fourier transformation of given function
+\begin{equation*}
+	f(k)=\frac{1 }{\sqrt{2\pi }}\int_{-\infty}^{\infty} e^{-ikx}f(x)\;dx
+\end{equation*}
+and its inverse
+\begin{equation*}
+	f(x')=\frac{1 }{\sqrt{2\pi }}\int_{-\infty}^{\infty} e^{ikx'}f(k)\;dk
+\end{equation*}
+Substituting the transformation into the inverse
+\begin{equation*}
+	f(x')=\int_{-\infty}^{\infty} \left(\frac{1 }{2\pi}\int_{-\infty}^{\infty} e^{ik(x'-x)\;dk}\right)f(x)\;dx
+\end{equation*}
+The term inside parenthesis is the Dirac delta function.
 
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
@@ -935,5 +952,4 @@ We write the power series as
 	=(1-\Omega)^{-1}
 \end{align*}
 
-\subsection*{title}
 \end{document}
