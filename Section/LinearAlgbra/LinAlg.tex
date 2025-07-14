@@ -493,6 +493,24 @@ Dirac delta is also defined by the limit of a Gaussian function
 	\delta (x-x')=\lim_{\epsilon \rightarrow 0}\frac{1}{\epsilon \sqrt{\pi}}\exp\left[-\frac{(x-x')^2 }{\epsilon^2}\right]
 \end{equation*}
 
+The derivative is defined as following 
+\begin{equation*}
+	\delta'(x-x')=\frac{d }{dx}\delta(x-x')=-\frac{d }{dx}\delta(x'-x)
+\end{equation*}
+The action of this operator is 
+\begin{equation*}
+	\int\delta'(x-x')f(x')\;dx=\frac{d }{dx} f(x)
+\end{equation*}
+which can be proved by 
+\begin{equation*}
+	\int\delta'(x-x')f(x')\;dx=\frac{d }{dx }\int\delta(x-x')f(x')\;dx=\frac{d }{dx}f(x)
+\end{equation*}
+In general, the action of $n$-th order of derivative is 
+\begin{equation*}
+	\delta^{(n)}(x-x')=\delta(x-x')\frac{d^n }{dx^n}
+\end{equation*}
+
+
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
 The inner product is defined in such way to obey the following requirement.
