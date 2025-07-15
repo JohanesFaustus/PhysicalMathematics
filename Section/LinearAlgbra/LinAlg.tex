@@ -528,6 +528,25 @@ Substituting the transformation into the inverse
 \end{equation*}
 The term inside parenthesis is the Dirac delta function.
 
+\subsubsection*{Differential operator.}
+The action of this operator is described by the following equation
+\begin{equation*}
+	\braket{x|D|f}=\left\langle x\bigg| \frac{df }{dx}\right\rangle=\frac{df(x)}{dx}
+\end{equation*}
+
+The operator also can act as the differential Dirac delta function under different basis
+\begin{equation*}
+	D_{xx'}=\braket{x|D|x'}=\delta'(x-x')=\delta(x-x')\frac{d }{dx'}
+\end{equation*}
+This can be seen by inserting the completion identity 
+\begin{equation*}
+	\int \braket{x|D|x'}\braket{x'|f}\;dx'=\int \braket{x|D|x'}f(x')dx'=\frac{df(x)}{dx}
+\end{equation*}
+and comparing it with the action of the derivative of the Dirac delta
+\begin{equation*}
+	\int\delta'(x-x')f(x')\;dx=\frac{d }{dx} f(x)
+\end{equation*}
+
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
 The inner product is defined in such way to obey the following requirement.
