@@ -547,6 +547,20 @@ and comparing it with the action of the derivative of the Dirac delta
 	\int\delta'(x-x')f(x')\;dx=\frac{d }{dx} f(x)
 \end{equation*}
 
+The differential operator is not a Hermitian.
+For $D$ to be a Hermitian, it must satisfy 
+\begin{equation*}
+	D_{xx'}=D_{x'x}^\dagger\qquad\text{or}\qquad \braket{x|D|x'}=\left(\braket{x'|D|x}\right)^\dagger
+\end{equation*}
+The proof is as following
+\begin{equation*}
+	\braket{x|D|x'}=\delta'(x-x')
+\end{equation*}
+and
+\begin{equation*}
+	\left(\braket{x'|D|x}\right)^\dagger=\delta'(x'-x)^*=\delta'(x'-x)-\delta'(x-x')
+\end{equation*}
+
 \subsubsection*{Wave number operator.}
 The operator act as differential operator
 \begin{equation*}
@@ -554,8 +568,9 @@ The operator act as differential operator
 \end{equation*}
 Other related operator is the momentum operator, which is a conjugate to position
 \begin{equation*}
-	P=\hbar K=-i\hbar \frac{d }{dx}
+	P=-\hbar K=-i\hbar \frac{d }{dx}
 \end{equation*}
+%same goes here
 
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
