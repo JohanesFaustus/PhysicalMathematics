@@ -540,7 +540,7 @@ The operator also can act as the differential Dirac delta function under differe
 \end{equation*}
 This can be seen by inserting the completion identity 
 \begin{equation*}
-	\int \braket{x|D|x'}\braket{x'|f}\;dx'=\int \braket{x|D|x'}f(x')dx'=\frac{df(x)}{dx}
+	\int \braket{x|D|x'}\braket{x'|f}\;dx'=\int D_{xx'}f(x')dx'=\frac{df(x)}{dx}
 \end{equation*}
 and comparing it with the action of the derivative of the Dirac delta
 \begin{equation*}
@@ -564,13 +564,53 @@ and
 \subsubsection*{Wave number operator.}
 The operator act as differential operator
 \begin{equation*}
-	K=-iD=i \frac{d }{dx}
+	K=-iD=-i \frac{d }{dx}
 \end{equation*}
 Other related operator is the momentum operator, which is a conjugate to position
 \begin{equation*}
 	P=-\hbar K=-i\hbar \frac{d }{dx}
 \end{equation*}
-%same goes here
+On arbitrary ket $\ket{f}$, its action is similar with the differential operator
+\begin{equation*}
+	\braket{x|K|f}=\left\langle x\bigg|-i \frac{df }{dx}\right\rangle=-i\frac{df(x)}{dx}
+\end{equation*}
+or 
+\begin{equation*}
+	\int K_{xx'}f(x')dx'=-i\frac{df(x)}{dx}
+\end{equation*}
+with 
+\begin{equation*}
+	K_{xx'}=\braket{x|K|x'}=-i\delta'(x-x')
+\end{equation*}
+
+Let $\ket{f}$ and $\bra{g}$ be two kets in function space within $[a,b]$ 
+Suppose we transform $\ket{f}$ by $K$ and project it onto $\bra{g}$. 
+In this basis, $K$ is a Hermitian if the surface term vanishes
+\begin{equation*}
+	-ig ^*(x)f(x)\bigg|_{a}^b=0
+\end{equation*}
+The expression is obtained by considering the Hermitian requirement
+\begin{equation*}
+	\braket{g|K|f}=\left(\braket{f|K|g}\right)^\dagger
+\end{equation*}
+For $K$ to be a Hermitian, it must also obey 
+\begin{multline*}
+	\int_{a }^{b }\int_{ a }^{b }\braket{g|x}\braket{x|K|x'}\braket{x'|f}\;dx\;dx'
+	=\\
+	\left(	\int_{a }^{b }\int_{ a }^{b }\braket{f|x}\braket{x|K|x'}\braket{x'|g}\;dx\;dx'\right)^\dagger
+\end{multline*}
+Rewriting the left-hand side and using integration by part 
+\begin{align*}
+	\int_{a}^{b}\int_{a }^{b}g ^*(x)K_{xx'}f(x')\;dx\;dx'&=\int_{a}^b g ^*(x)\left[-i \frac{d }{dx}f(x)\right]dx\\
+	&=i\int_{a }^{b }f(x) \frac{d }{dx}g ^*(x)\;dx-ig ^*(x)f(x)\bigg|_{a}^b
+\end{align*}
+We are then equating it with the right-hand side, which we write as  
+\begin{align*}
+	\left[\int_{a }^{b}\int_{a }^{b}f ^*(x)K_{xx'}f(x')\;dx\;dx'\right]^\dagger&=
+	\left[\int_{a }^{b }\int_{a}^{b}f ^*(x)\left(-i \frac{d }{dx}g(x)\right)\;dx\right]^\dagger\\
+	&=i\int_{a }^{b }f(x)\frac{d }{dx}g ^*(x)\;dx
+\end{align*}
+Clearly, both side are equal if the surface term is zero.
 
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
