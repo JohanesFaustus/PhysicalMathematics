@@ -182,11 +182,11 @@ By thin we can obtain the desired result
 
 \subsubsection*{Derivative (with respect to parameter).}
 Consider the function $\theta(\lambda)=e^{\lambda\Omega}$.
-Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense 
+Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense
 \begin{equation*}
 	\frac{d}{d\lambda}\theta(\lambda)=\Omega e^{\lambda\Omega}=e^{\lambda\Omega}\Omega=\theta(\lambda)\Omega
 \end{equation*}
-The second and third terms holds true because $[\Omega,e^{\Omega}]=0$. 
+The second and third terms holds true because $[\Omega,e^{\Omega}]=0$.
 If we are presented with the differential equation with this form, the solution is given by
 \begin{equation*}
 	\theta(\lambda)=ce^{\Omega \lambda}
@@ -195,36 +195,36 @@ with $c$ as operator constant of integration.
 
 \paragraph*{Proof.} We can proof the evaluated method by writing the exponential function as an operator then applying the derivative operator
 \begin{align*}
-	\frac{d }{d\lambda}e^{\lambda\Omega}&=\frac{d }{d\lambda}
+	\frac{d }{d\lambda}e^{\lambda\Omega}  & =\frac{d }{d\lambda}
 	\begin{bmatrix}
-		e^{\lambda\omega_1} &        &            \\
-		           & \ddots &            \\
-		           &        & e^{\lambda\omega_n}
+		e^{\lambda\omega_1} &        &                     \\
+		                    & \ddots &                     \\
+		                    &        & e^{\lambda\omega_n}
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		\omega_1 e^{\lambda\omega_1} &        &            \\
-		           & \ddots &            \\
-		           &        & \omega_n e^{\lambda\omega_n}
-	\end{bmatrix}\\
-	\frac{d }{d\lambda }e^{\lambda\Omega}&=
+		\omega_1 e^{\lambda\omega_1} &        &                              \\
+		                             & \ddots &                              \\
+		                             &        & \omega_n e^{\lambda\omega_n}
+	\end{bmatrix} \\
+	\frac{d }{d\lambda }e^{\lambda\Omega} & =
 	\begin{bmatrix}
-		\omega_1&&\\
-		&\ddots&\\
-		&&\omega_n\\
+		\omega_1 &        &          \\
+		         & \ddots &          \\
+		         &        & \omega_n \\
 	\end{bmatrix}
 	\begin{bmatrix}
-		\lambda e^{\lambda\omega_1} &        &            \\
-		           & \ddots &            \\
-		           &        & \lambda e^{\lambda\omega_n}
+		\lambda e^{\lambda\omega_1} &        &                             \\
+		                            & \ddots &                             \\
+		                            &        & \lambda e^{\lambda\omega_n}
 	\end{bmatrix}
 	=\Omega e^{\lambda \Omega}
-\end{align*}  
+\end{align*}
 If $\Omega$ is not a hermitian however, we can produce the same result by working using the power series representation
 \begin{equation*}
 	\frac{d }{d\lambda }e^{\lambda\Omega}=\frac{d }{d\lambda} \sum_{m=0 }^{\infty }\frac{\lambda^n\Omega^n }{n! }= \sum_{m=1 }^{\infty }\frac{n\lambda^{n-1 }\Omega^{n}}{n!}=\Omega\sum_{m=1 }^{\infty}\frac{\lambda^{n-1} \Omega^{n-1}}{(n-1)!}
 \end{equation*}
-Shifting the index 
+Shifting the index
 \begin{equation*}
 	\frac{d }{d\lambda }e^{\lambda \Omega}=\Omega\sum_{m=0 }^{\infty}\frac{\lambda^n \Omega^n }{n!}=\Omega e^{\lambda\Omega}
 \end{equation*}
@@ -471,7 +471,7 @@ These vector, then, is orthonormal to each other.
 The reason for this is that the operator preserve the inner product, the transformed set of vector is also orthonormal.
 
 \subsubsection*{Dirac delta.}
-Under the integral sign, Dirac delta is defined as 
+Under the integral sign, Dirac delta is defined as
 \begin{equation*}
 	\int \delta(x-x')f(x')\;dx=f(x)
 \end{equation*}
@@ -480,11 +480,11 @@ This expression also used to define continuous orthogonal basis
 \begin{equation*}
 	\braket{x|x'}=\delta(x-x')
 \end{equation*}
-Dirac delta is an even function proved by 
+Dirac delta is an even function proved by
 \begin{equation*}
 	\delta(x-x')=\braket{x|x'}=\braket{x'|x}^*=\delta(x'-x)^*=\delta(x'-x)
 \end{equation*}
-Dirac delta is normalized such that 
+Dirac delta is normalized such that
 \begin{equation*}
 	\int_{-\infty}^{\infty}\delta(x-x')\;dx=1
 \end{equation*}
@@ -493,24 +493,24 @@ Dirac delta is also defined by the limit of a Gaussian function
 	\delta (x-x')=\lim_{\epsilon \rightarrow 0}\frac{1}{\epsilon \sqrt{\pi}}\exp\left[-\frac{(x-x')^2 }{\epsilon^2}\right]
 \end{equation*}
 
-The derivative is defined as following 
+The derivative is defined as following
 \begin{equation*}
 	\delta'(x-x')=\frac{d }{dx}\delta(x-x')=-\frac{d }{dx}\delta(x'-x)
 \end{equation*}
-The action of this operator is 
+The action of this operator is
 \begin{equation*}
 	\int\delta'(x-x')f(x')\;dx=\frac{d }{dx} f(x)
 \end{equation*}
-which can be proved by 
+which can be proved by
 \begin{equation*}
 	\int\delta'(x-x')f(x')\;dx=\frac{d }{dx }\int\delta(x-x')f(x')\;dx=\frac{d }{dx}f(x)
 \end{equation*}
-In general, the action of $n$-th order of derivative is 
+In general, the action of $n$-th order of derivative is
 \begin{equation*}
 	\delta^{(n)}(x-x')=\delta(x-x')\frac{d^n }{dx^n}
 \end{equation*}
 
-The integral representation of Dirac delta is 
+The integral representation of Dirac delta is
 \begin{equation*}
 	\delta(x'-x)=\frac{1 }{2\pi} \int_{-\infty}^{\infty} e^{ik(x'-x)}\;dk
 \end{equation*}
@@ -538,7 +538,7 @@ The operator also can act as the differential Dirac delta function under differe
 \begin{equation*}
 	D_{xx'}=\braket{x|D|x'}=\delta'(x-x')=\delta(x-x')\frac{d }{dx'}
 \end{equation*}
-This can be seen by inserting the completion identity 
+This can be seen by inserting the completion identity
 \begin{equation*}
 	\int \braket{x|D|x'}\braket{x'|f}\;dx'=\int D_{xx'}f(x')dx'=\frac{df(x)}{dx}
 \end{equation*}
@@ -548,7 +548,7 @@ and comparing it with the action of the derivative of the Dirac delta
 \end{equation*}
 
 The differential operator is not a Hermitian.
-For $D$ to be a Hermitian, it must satisfy 
+For $D$ to be a Hermitian, it must satisfy
 \begin{equation*}
 	D_{xx'}=D_{x'x}^\dagger\qquad\text{or}\qquad \braket{x|D|x'}=\left(\braket{x'|D|x}\right)^\dagger
 \end{equation*}
@@ -562,29 +562,29 @@ and
 \end{equation*}
 
 \subsubsection*{Wave number operator.}
-The operator act as differential operator
+On the $x$ basis, $K$ acts as differential operator.
+This is misleading, actually. 
+The correct term is, if $K$ acts on a state $\ket{\psi}$, and then we project onto the position basis $\ket{x}$, the resulting expression is given by a differential operator acting on the projected state
 \begin{equation*}
-	K=-iD=-i \frac{d }{dx}
+	\braket{x|K|\psi}=-i \frac{d }{dx}\psi(x)
 \end{equation*}
-Other related operator is the momentum operator, which is a conjugate to position
+On the other hand, $K$ acts multiplicatively at the $k$ basis
 \begin{equation*}
-	P=-\hbar K=-i\hbar \frac{d }{dx}
+	K\ket{k}=k \ket{k}
 \end{equation*}
-On arbitrary ket $\ket{f}$, its action is similar with the differential operator
-\begin{equation*}
-	\braket{x|K|f}=\left\langle x\bigg|-i \frac{df }{dx}\right\rangle=-i\frac{df(x)}{dx}
-\end{equation*}
-or 
-\begin{equation*}
-	\int K_{xx'}f(x')dx'=-i\frac{df(x)}{dx}
-\end{equation*}
-with 
+since $\ket{k}$ is an eigenstate of $K$.
+
+Just like the differential operator, the wave number operator maybe expressed in terms of Dirac delta function
 \begin{equation*}
 	K_{xx'}=\braket{x|K|x'}=-i\delta'(x-x')
 \end{equation*}
+which is obtained the following expression with the definition of the Dirac delta function
+\begin{equation*}
+	\int \braket{x|K|x'}\braket{x'|f}\;dx'=\int K_{xx'}f(x')dx'=-i\frac{df(x)}{dx}
+\end{equation*}
 
-Let $\ket{f}$ and $\bra{g}$ be two kets in function space within $[a,b]$ 
-Suppose we transform $\ket{f}$ by $K$ and project it onto $\bra{g}$. 
+Let $\ket{f}$ and $\ket{g}$ be two kets in function space within $[a,b]$
+Suppose we transform $\ket{f}$ by $K$ and project it onto $\bra{g}$.
 In this basis, $K$ is a Hermitian if the surface term vanishes
 \begin{equation*}
 	-ig ^*(x)f(x)\bigg|_{a}^b=0
@@ -593,24 +593,34 @@ The expression is obtained by considering the Hermitian requirement
 \begin{equation*}
 	\braket{g|K|f}=\left(\braket{f|K|g}\right)^\dagger
 \end{equation*}
-For $K$ to be a Hermitian, it must also obey 
+For $K$ to be a Hermitian, it must also obey
 \begin{multline*}
 	\int_{a }^{b }\int_{ a }^{b }\braket{g|x}\braket{x|K|x'}\braket{x'|f}\;dx\;dx'
 	=\\
 	\left(	\int_{a }^{b }\int_{ a }^{b }\braket{f|x}\braket{x|K|x'}\braket{x'|g}\;dx\;dx'\right)^\dagger
 \end{multline*}
-Rewriting the left-hand side and using integration by part 
+Rewriting the left-hand side and using integration by part
 \begin{align*}
-	\int_{a}^{b}\int_{a }^{b}g ^*(x)K_{xx'}f(x')\;dx\;dx'&=\int_{a}^b g ^*(x)\left[-i \frac{d }{dx}f(x)\right]dx\\
-	&=i\int_{a }^{b }f(x) \frac{d }{dx}g ^*(x)\;dx-ig ^*(x)f(x)\bigg|_{a}^b
+	\int_{a}^{b}\int_{a }^{b}g ^*(x)K_{xx'}f(x')\;dx\;dx' & =\int_{a}^b g ^*(x)\left[-i \frac{d }{dx}f(x)\right]dx                 \\
+	                                                      & =i\int_{a }^{b }f(x) \frac{d }{dx}g ^*(x)\;dx-ig ^*(x)f(x)\bigg|_{a}^b
 \end{align*}
-We are then equating it with the right-hand side, which we write as  
+We are then equating it with the right-hand side, which we write as
 \begin{align*}
-	\left[\int_{a }^{b}\int_{a }^{b}f ^*(x)K_{xx'}f(x')\;dx\;dx'\right]^\dagger&=
-	\left[\int_{a }^{b }\int_{a}^{b}f ^*(x)\left(-i \frac{d }{dx}g(x)\right)\;dx\right]^\dagger\\
-	&=i\int_{a }^{b }f(x)\frac{d }{dx}g ^*(x)\;dx
+	\left[\int_{a }^{b}\int_{a }^{b}f ^*(x)K_{xx'}f(x')\;dx\;dx'\right]^\dagger & =
+	\left[\int_{a }^{b }\int_{a}^{b}f ^*(x)\left(-i \frac{d }{dx}g(x)\right)\;dx\right]^\dagger                                \\
+	                                                                            & =i\int_{a }^{b }f(x)\frac{d }{dx}g ^*(x)\;dx
 \end{align*}
 Clearly, both side are equal if the surface term is zero.
+
+\subsubsection*{Position operator}
+The action in $x$ basis is described as follows
+\begin{equation*}
+	X \ket{x}=x \ket{x}
+\end{equation*}
+while is the $k$ basis
+\begin{equation*}
+	\braket{k|X|\psi}=i \frac{d }{dk}\psi(k)
+\end{equation*}
 
 \subsection*{Inner Product}
 \subsubsection*{Finite dimension.}
@@ -642,7 +652,7 @@ The inner product of two continuous function along some interval is defined as
 \begin{equation*}
 	\braket{f|g}=\int_{a}^{b}f ^*(x)g(x)\;dx
 \end{equation*}
-This definition comes after recalling the completeness relation for infinite space 
+This definition comes after recalling the completeness relation for infinite space
 \begin{equation*}
 	\braket{f|g}=\bra{f}I \ket{g}=\int_{a }^{b}\braket{f|x}\braket{x|g}\;dx=\int_{a }^{b} f ^*(x)g(x)\;dx
 \end{equation*}
@@ -1000,9 +1010,9 @@ we have
 	\end{bmatrix} \\
 	e^\Omega & =
 	\begin{bmatrix}
-		e^{\omega_1} &        &            \\
-		           & \ddots &            \\
-		           &        & e^{\omega_n}
+		e^{\omega_1} &        &              \\
+		             & \ddots &              \\
+		             &        & e^{\omega_n}
 	\end{bmatrix}
 \end{align*}
 
