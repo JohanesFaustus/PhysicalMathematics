@@ -612,7 +612,43 @@ We are then equating it with the right-hand side, which we write as
 \end{align*}
 Clearly, both side are equal if the surface term is zero.
 
-\subsubsection*{Position operator}
+The basis of $k$ has the form of 
+\begin{equation*}
+	\psi_k(x)=\frac{1 }{\sqrt{2\pi}}e^{ikx}
+\end{equation*}
+where $\psi_k(x)\equiv \braket{k|\psi}$ position representation of the abstract momentum eigenbasis $\ket{k}$.
+This expression can be derived by considering the act of $K$ on the $k$ basis and project it on $x$ basis
+\begin{align*}
+	\braket{x|K|k}&=k\braket{x|k}\\
+	\int \braket{x|K|x'}\braket{x'|k}\;dx'k &=\int K_{xx'}k(x')\;dx'=\psi_k(x)\\
+	i\frac{d }{dx }\psi_k(x )&=k \psi_k(x)\\
+\end{align*}
+This differential equation is solved by simple integration
+\begin{align*}
+	\int \frac{1 }{\psi_k(x)}\;d\psi_k(x)&=\int ik\;dx\\
+	ln \psi_k(x)&=ik+A\\
+	\psi_k(x)&=Ae^{ik}
+\end{align*}
+For continuous function, normalize any function into Dirac delta function.
+So
+\begin{equation*}
+	\int_{-\infty}^{\infty} \psi_k ^*(x) \psi_k' (x)\;dx=\delta(k-k')
+\end{equation*}
+The integral gives 
+\begin{align*}
+	\int_{-\infty}^{\infty} A^2e^{i(k-k')x}\;dx=A^2\pi \delta(k-k')
+\end{align*}
+So the value of $A$ that normalize $\psi_k(x)$ is 
+\begin{equation*}
+	A=\frac{1 }{2\pi}\qquad\text{so that}\qquad \braket{x|k}=\psi_k(x)=\frac{1 }{\sqrt{2\pi}}e^{ikx}
+\end{equation*}
+On using this basis, the Fourier transforms is just the passage from one basis $\ket{x}$ to another $\ket{k}$
+\begin{align*}
+	f(k)&=\braket{k|f}=\int_{-\infty}^{\infty} \braket{k|x}\braket{x|f}\;dx=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-ikx} f(x)\;dx\\
+	f(x)&=\braket{x|f}=\int_{-\infty}^{\infty} \braket{x|k}\braket{k|f}\;dk=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{ikx} f(k)\;dk\\
+\end{align*}
+
+\subsubsection*{Position operator.}
 The action in $x$ basis is described as follows
 \begin{equation*}
 	X \ket{x}=x \ket{x}
