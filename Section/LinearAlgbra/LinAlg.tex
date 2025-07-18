@@ -92,7 +92,7 @@ Said rules are as follows.
 \end{enumerate}
 
 Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors.
-We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{^n}(C)$ if it is complex.
+We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{V}^n(C)$ if it is complex.
 
 \subsubsection*{Dual space.}
 Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket in a basis, while row vector are bra's $\bra{V}$.
@@ -398,7 +398,7 @@ A matrix, who also acts as an operator, which leave the operated vector unchange
 \end{equation*}
 Its element may be written as
 \begin{equation*}
-	I_{ij} \braket{i|I|k}={i|j}=\delta_{ij}
+	I_{ij} =\braket{i|I|k}=\braket{i|j}=\delta_{ij}
 \end{equation*}
 or using the Kronecker delta.
 Then $n\times n$, using the Kronecker delta, identity matrix may be written
@@ -626,7 +626,7 @@ This expression can be derived by considering the act of $K$ on the $k$ basis an
 This differential equation is solved by simple integration
 \begin{align*}
 	\int \frac{1 }{\psi_k(x)}\;d\psi_k(x)&=\int ik\;dx\\
-	ln \psi_k(x)&=ik+A\\
+	\ln \psi_k(x)&=ik+A\\
 	\psi_k(x)&=Ae^{ik}
 \end{align*}
 For continuous function, normalize any function into Dirac delta function.
@@ -974,15 +974,17 @@ have the solution written as
 \begin{equation*}
 	\ket{x(t)}=U(t)\ket{x(0)}
 \end{equation*}
-with the propagator constructed as
+The propagator is constructed as
 \begin{equation*}
 	U(t)= \sum_i\ket{i} \bra{i}\cos \omega_i t
 \end{equation*}
+with $\ket{i }$ as the $i$-th eigenvector and $\omega_i$ as the $i$-th eigenvalue.
 
 The steps of solving initial value problem are as follows.
 \begin{enumerate}
 	\item Consider the equation $\ket{\ddot{\psi}(t)}=\Omega\ket{\psi(0)}$
-	\item Solve the eigenvalue of operator $\Omega$ and find its eigenvector
+	\item Solve the eigenvalue of operator $\Omega$
+	\item Find its eigenvector
 	\item Find the propagator $U(t)$ in terms of the eigenvectors and eigenvalues
 	      of $\Omega$
 	      \begin{equation*}

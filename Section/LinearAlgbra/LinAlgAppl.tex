@@ -8,7 +8,7 @@ Convert these linearly independent basis into orthonormal basis
 	\end{bmatrix}\quad
 	\ket{II}=\begin{bmatrix}
 		0 \\1\\2
-	\end{bmatrix}
+	\end{bmatrix}\qquad
 	\ket{III}=\begin{bmatrix}
 		0 \\2\\5
 	\end{bmatrix}
@@ -693,4 +693,90 @@ For given $\ket{x(0)}$ the solution of said ODE is
     \end{bmatrix}
 \end{equation*}
 
+\subsection*{Application: Yet Another Propagator Problem}
+Consider a string of length $L$ clamped at its two ends $x = 0$ and $L$. The displacement $\psi(x,t)$ obeys the wave equation
+\begin{equation*}
+	\frac{\partial^2 \psi }{\partial t^2}=\frac{\partial^2 \psi }{\partial x^2}
+\end{equation*}
+We recognize the differential operator as $-K^2$ which is Hermitian since $\psi(0)=\psi(L)=0$. 
+
+Our general strategy is still the same as previously, that is we find the solution as a function of time $\psi(t)$.
+There is one more step, however, to find the solution as a function of both space and time: we project the solution $\psi(t)$ to $x$ basis.
+
+We move to the first step of solving differential equation using propagator by solving the eigenvalue problem of
+\begin{equation*}
+	\ket{\psi}=K^2 \ket{\psi}
+\end{equation*}
+If we project this in the $x$ basis, the action reads 
+\begin{equation*}
+	-\frac{\partial^2 \psi_k(x)}{\partial x^2}=k^2\psi_k(x)
+\end{equation*}
+with $\psi_k(x)=\braket{x|\psi_k}$.
+The general solution to this differential equation is 
+\begin{equation*}
+	\psi_k(x)=A \cos kx+ B \sin kx 
+\end{equation*}
+We have also the boundaries condition of
+\begin{equation*}
+	\psi_k(x)=
+	\begin{cases}
+		\psi_k(0)=0\\
+		\psi_k(L)=0
+	\end{cases}
+\end{equation*}
+Applying the first condition return
+\begin{equation*}
+	A=0
+\end{equation*}
+For the second condition, if we do not consider trivial solution of $B \neq0$, we obtain the eigenvalue of 
+\begin{equation*}
+	k=\frac{m\pi }{L}
+\end{equation*}
+with $k=[1,-\infty]$.
+We do not consider the zero and the negative value since they do not
+
+Thus we obtain discrete set of  eigenvector, or rather eigenfunction, with label $m$
+\begin{equation*}
+	\psi_m(x)=B \sin \left( \frac{m\pi }{L }x \right)
+\end{equation*}
+For discrete set of continuous, the normalization equation reads
+\begin{equation*}
+	\int_{0 }^{\lambda} \psi_m ^*(x)\psi_{m'}(x)\;dx=\delta_{mm'}
+\end{equation*}
+Substituting the expression for the solution  
+\begin{align*}
+	\int_{0}^{L}B^2 \sin \left( \frac{m\pi }{L }x  \right) \sin \left( \frac{m'\pi }{L }x  \right) \;dx&=\frac{B^2 L }{m\pi }\int_{0 }^{m\pi } \sin^2u\;du\\
+	&=\frac{B^2L }{m\pi}\int_{0 }^{m\pi }\frac{1-\cos u}{2}\;du\\
+	&=\frac{B^2L }{m\pi} \left[ \frac{u }{2}\bigg|_{0 }^{m\pi}-\frac{\cos 2u}{4}\bigg|_{0 }^{2m\pi} \right] \\
+	\int_{0}^{L}B^2 \sin \left( \frac{m\pi }{L }x  \right) \sin \left( \frac{m'\pi }{L }x  \right) \;dx&=\frac{B^2L}{2}
+\end{align*}
+which give the normalization constant of 
+\begin{equation*}
+	B=\sqrt{\frac{2 }{L }}
+\end{equation*} 
+The normalized eigenfunction now reads 
+\begin{equation*}
+	\psi_k(x)=\sqrt{\frac{ 2 }{L  }}\sin \left( \frac{m\pi }{L }x  \right) 
+\end{equation*}
+Let us associate each solution by integer $m$ an abstract $\ket{m}$, which on $x$ basis reads as the said solution
+\begin{equation*}
+	\braket{x|m}=\sqrt{\frac{ 2 }{L  }}\sin \left( \frac{m\pi }{L }x  \right) 
+\end{equation*}
+
+Instead of writing the propagator, we'll just skip to writing the solution for the differential equation since we do not know the expression for the $\ket{m}$.
+As stated previously, we project the solution $\psi(t)$ into $x$ basis to obtain 
+\begin{align*}
+	\psi(x,t)&=\braket{x|\psi(t)}=\bra{x}U(t)\ket{\psi(0)}\\
+	&=\sum_{m=1 }^{\infty }\braket{x|m}\braket{m|\psi(0)}\cos \omega_m t
+\end{align*}
+Using the relation $\omega=kv$, we may the express the angular frequency as the spatial frequency.
+Although feeding $\omega_m=m\pi/L$ directly to the argument of the cosine term does not give a dimensionless quantity, it gives one if one consider that $\omega_m$ is equal to $k_m$ times $v$ which happens to be one in this case.
+Next, we insert the completeness relation
+\begin{equation*}
+	\psi(x,t)=\int_{0 }^{\lambda }\sum_{m=1 }^{\infty }\braket{x|m}\braket{m|x'}\braket{x'|\psi(0)}\cos \omega_m t
+\end{equation*}
+Finally, we obtain the solution 
+\begin{equation*}
+	\psi(x,t)=\sum_{m=1}^{\infty}\frac{2 }{L }\sin \left( \frac{m\pi }{L }x  \right) \cos \left( \frac{m\pi }{L }t \right) \int_{0 }^{L }\sin \left( \frac{m\pi }{L }x'  \right) \psi(x',0)\;dx
+\end{equation*}
 \end{document}
