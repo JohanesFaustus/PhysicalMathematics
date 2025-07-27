@@ -3,6 +3,9 @@
 A concise collection of mathematical tools and concepts essential for understanding and solving problems in physics.  
 Written in LaTeX for clarity, precision, and high-quality typesetting.
 
+## Latest PDF
+[Click the following hyperlink.](https://github.com/JohanesFaustus/PhysicalMathematics/releases/latest/)
+
 ## Overview
 
 This repository is a LaTeX-based compendium of mathematical concepts and tools frequently used in physics. Topics covered include:
@@ -36,7 +39,7 @@ All content is written in LaTeX and compiled to produce high-quality PDF notes.
 Clone the repository and compile the LaTeX source files using your preferred TeX distribution (e.g., TeX Live, MiKTeX, Overleaf).
 
 ```bash
-git clone https://github.com/yourusername/PhysicalMathematics.git
+git clone https://github.com/JohanesFaustus/PhysicalMathematics.git
 cd PhysicalMathematics
 pdflatex main.tex
 
