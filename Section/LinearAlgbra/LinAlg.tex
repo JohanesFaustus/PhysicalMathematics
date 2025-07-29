@@ -1,14 +1,16 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \subsection*{Introduction}
-\subsubsection*{Elementary row operation.} Rule as follows.
+\subsubsection*{Elementary row operation.} 
+Rule as follows.
 \begin{enumerate}
 	\item Interchange two rows
 	\item Multiply (or divide) a row by a (nonzero) constant
 	\item Add a multiple of one row to another
 \end{enumerate}
 
-\subsubsection*{Rank.} Definition as follows.
+\subsubsection*{Rank.} 
+Definition as follows.
 \begin{quote}
 	The number of nonzero rows remaining when a matrix has been row reduced is called the rank of the matrix.
 \end{quote}
@@ -59,6 +61,18 @@ The following applies if vector parallel:
 	\frac{A_x}{B_x}=\frac{A_y}{B_y}=\frac{A_z}{B_z}
 \end{align*}
 
+\subsubsection*{Orthogonality.} 
+Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
+Matrix M is orthogonal if
+\begin{align*}
+	M^{-1}=M^T
+\end{align*}
+with determinant
+\begin{align*}
+	\det M = \pm 1
+\end{align*}
+det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
+
 \subsubsection*{Cross Product.}
 \begin{align*}
 	\A\times\B & =|\A||\B|\sin\theta  \\
@@ -72,6 +86,27 @@ The following applies if vector parallel or antiparallel:
 \begin{align*}
 	\A\cdot\B & =0
 \end{align*}
+
+\subsubsection*{Homogeneous equations.} 
+The definition is as follows.
+
+\begin{quote}
+	Sets of linear equations when the constants on the right-hand sides are all zero are called homogeneous equations.
+\end{quote}
+
+Homogeneous equations are never inconsistent; they always have the solution of zero--often called the trivial solution.
+If the number of independent equations--that is, the rank of the matrix--is the same as the number of unknowns, this is the only solution.
+If the rank of the matrix is less than the number of unknowns, there are infinitely many solutions.
+
+Consider set of $n$ homogeneous equations in $n$ unknowns.
+These equations have only the trivial solution unless the rank of the matrix is less than $n$.
+This means that at least one row of the row reduced $n$ by $n$ matrix of the coefficients is a zero row.
+Which mean that the determinant $D$ of the coefficients is zero.
+This fact will be used in eigenvalue problem.
+
+\begin{quote}
+	A system of $n$ homogeneous equations in $n$ unknowns has solutions other than the trivial solution if and only if the determinant of the coefficients is zero.
+\end{quote}
 
 \subsection*{Vector in Braket Notation}
 \subsubsection*{Vector space.}
@@ -130,7 +165,7 @@ The previous equation is obtained by the dot identity of parallel vector
 \end{align*}
 also called the equation of plane.
 
-\subsection*{Matrix and Operation}
+\subsection*{Matrix Operation}
 \subsubsection*{Multiplication.}
 Matrix AB can be multiplied if they are conformable, that is if column A = row B.
 Matrix multiplication in index notation is:
@@ -283,83 +318,6 @@ As a mnemonic, use the sign pattern to check the sign of the cofactor
 	\end{bmatrix}
 \end{equation*}
 
-\subsection*{Linear Algebra}
-\subsubsection*{Orthogonality.} Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
-Matrix M is orthogonal if
-\begin{align*}
-	M^{-1}=M^T
-\end{align*}
-with determinant
-\begin{align*}
-	\det M = \pm 1
-\end{align*}
-det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
-
-\subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
-\begin{align*}
-	\begin{pmatrix}
-		X \\Y
-	\end{pmatrix}=
-	\begin{pmatrix}
-		\cos \theta & -\sin \theta \\
-		\sin \theta & \cos \theta
-	\end{pmatrix}
-	\begin{pmatrix}
-		x \\y
-	\end{pmatrix}
-\end{align*}
-and the one that rotate its axis instead
-\begin{align*}
-	\begin{pmatrix}
-		x' \\y'
-	\end{pmatrix}=
-	\begin{pmatrix}
-		\cos \theta  & \sin \theta \\
-		-\sin \theta & \cos \theta
-	\end{pmatrix}
-	\begin{pmatrix}
-		x \\y
-	\end{pmatrix}
-\end{align*}
-in 3D
-\begin{align*}
-	R_x & =\begin{pmatrix}
-		       1 & 0          & 0           \\
-		       0 & \cos\theta & -\sin\theta \\
-		       0 & \sin\theta & \cos\theta
-	       \end{pmatrix}   \\
-	R_y & =\begin{pmatrix}
-		       \cos\theta  & 0 & \sin\theta \\
-		       0           & 1 & 0          \\
-		       -\sin\theta & 0 & \cos\theta
-	       \end{pmatrix}   \\
-	R_z & =\begin{pmatrix}
-		       \cos \theta & -\sin \theta & 0 \\
-		       \sin \theta & \cos \theta  & 0 \\
-		       0           & 0            & 1
-	       \end{pmatrix}
-\end{align*}
-
-\subsubsection*{Homogeneous equations.} The definition is as follows.
-
-\begin{quote}
-	Sets of linear equations when the constants on the right-hand sides are all zero are called homogeneous equations.
-\end{quote}
-
-Homogeneous equations are never inconsistent; they always have the solution of zero--often called the trivial solution.
-If the number of independent equations--that is, the rank of the matrix--is the same as the number of unknowns, this is the only solution.
-If the rank of the matrix is less than the number of unknowns, there are infinitely many solutions.
-
-Consider set of $n$ homogeneous equations in $n$ unknowns.
-These equations have only the trivial solution unless the rank of the matrix is less than $n$.
-This means that at least one row of the row reduced $n$ by $n$ matrix of the coefficients is a zero row.
-Which mean that the determinant $D$ of the coefficients is zero.
-This fact will be used in eigenvalue problem.
-
-\begin{quote}
-	A system of $n$ homogeneous equations in $n$ unknowns has solutions other than the trivial solution if and only if the determinant of the coefficients is zero.
-\end{quote}
-
 \subsection*{Special Matrices and Operator}
 \subsubsection*{Theorem.}
 \begin{enumerate}
@@ -410,7 +368,7 @@ Then $n\times n$, using the Kronecker delta, identity matrix may be written
 	\end{bmatrix}
 \end{equation*}
 
-\subsubsection*{Projection Operator}
+\subsubsection*{Projection Operator.}
 The projection operator is defined as
 \begin{equation*}
 	\mathbb{P}_i=\ket{i}\bra{i}
@@ -446,6 +404,51 @@ we can decompose every operator into its Hermitian and anti Hermitian
 \begin{equation*}
 	\Omega=\frac{\Omega+\Omega ^\dagger}{2}+\frac{\Omega-\Omega ^\dagger}{2}
 \end{equation*}
+
+\subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
+\begin{align*}
+	\begin{pmatrix}
+		X \\Y
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\cos \theta & -\sin \theta \\
+		\sin \theta & \cos \theta
+	\end{pmatrix}
+	\begin{pmatrix}
+		x \\y
+	\end{pmatrix}
+\end{align*}
+and the one that rotate its axis instead
+\begin{align*}
+	\begin{pmatrix}
+		x' \\y'
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\cos \theta  & \sin \theta \\
+		-\sin \theta & \cos \theta
+	\end{pmatrix}
+	\begin{pmatrix}
+		x \\y
+	\end{pmatrix}
+\end{align*}
+in 3D
+\begin{align*}
+	R_x & =\begin{pmatrix}
+		       1 & 0          & 0           \\
+		       0 & \cos\theta & -\sin\theta \\
+		       0 & \sin\theta & \cos\theta
+	       \end{pmatrix}   \\
+	R_y & =\begin{pmatrix}
+		       \cos\theta  & 0 & \sin\theta \\
+		       0           & 1 & 0          \\
+		       -\sin\theta & 0 & \cos\theta
+	       \end{pmatrix}   \\
+	R_z & =\begin{pmatrix}
+		       \cos \theta & -\sin \theta & 0 \\
+		       \sin \theta & \cos \theta  & 0 \\
+		       0           & 0            & 1
+	       \end{pmatrix}
+\end{align*}
 
 \subsubsection*{Unitary operator.}
 Unitary operator is defined as
@@ -852,7 +855,7 @@ Multiply by $|W|^2$ and taking the square root to obtain
 Given a vector space $\mathbb{V}$, a subset of its elements that form a vector space among themselves is called a subspace.
 We will denote a particular subspace $i$ of dimensionality $n$ by $\mathbb{V}_i^n$.
 
-Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{v}_j^{m_j}$, we define their sum $\mathbb{V}_i^{n_i}\oplus\mathbb{V}_j^{m_j}$ as the set containing
+Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{V}_j^{m_j}$, we define their sum $\mathbb{V}_i^{n_i}\oplus\mathbb{V}_j^{m_j}$ as the set containing
 \begin{enumerate}
 	\item All vector in the $\mathbb{V}_i^{n_i}$.
 	\item All vector in the $\mathbb{V}_j^{m_j}$.
@@ -896,11 +899,14 @@ $\Omega$ is a linear operator if
 	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
 \end{align*}
 
-\subsubsection*{Complete function.} A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
+\subsubsection*{Complete function.} 
+A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
 \begin{equation*}
 	f(y)=\sum_{n=1}^{\infty} C_nf(y)
 \end{equation*}
-\subsubsection*{Linear dependence}f $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
+
+\subsubsection*{Linear dependence.} 
+$f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
 \begin{align*}
 	W=\begin{vmatrix}
 		  f_1(x)       & f_2(x)       & \cdots & f_n(x)       \\
