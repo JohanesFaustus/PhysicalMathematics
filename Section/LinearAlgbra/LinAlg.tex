@@ -264,6 +264,114 @@ Shifting the index
 	\frac{d }{d\lambda }e^{\lambda \Omega}=\Omega\sum_{m=0 }^{\infty}\frac{\lambda^n \Omega^n }{n!}=\Omega e^{\lambda\Omega}
 \end{equation*}
 
+\subsubsection*{Element representation.}
+The $i$-th row and $j$-th column of a matrix can be represented as 
+\begin{equation*}
+	\bra{i }A \ket{j }=A_{ij}
+\end{equation*}
+
+As an example, consider $2 \times 2$ matrix A and simple kets 
+\begin{equation*}
+	\ket{1}=
+	\begin{bmatrix}
+		1\\
+		0	
+	\end{bmatrix} 
+	\qquad
+	\ket{2}=
+	\begin{bmatrix}
+		0\\
+		1
+	\end{bmatrix} 
+\end{equation*}
+All of its element can be represented as 
+\begin{align*}
+	\bra{1}A \ket{1}&=
+	\begin{bmatrix}
+		1&0	
+	\end{bmatrix} 
+	\begin{bmatrix}
+		A_{11}&A_{12}\\
+		A_{21}&A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1\\
+		0
+	\end{bmatrix} 
+	=
+	\begin{bmatrix}
+		1&0
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11}\\
+		A_{21}
+	\end{bmatrix}
+	=A_{11}\\
+	\bra{1}A \ket{2}&=
+	\begin{bmatrix}
+		1&0	
+	\end{bmatrix} 
+	\begin{bmatrix}
+		A_{11}&A_{12}\\
+		A_{21}&A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		0\\
+		1
+	\end{bmatrix} 
+	=
+	\begin{bmatrix}
+		1&0
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{12}\\
+		A_{22}
+	\end{bmatrix}
+	=A_{12}\\
+	\bra{2}A \ket{1}&=
+	\begin{bmatrix}
+		0&1	
+	\end{bmatrix} 
+	\begin{bmatrix}
+		A_{11}&A_{12}\\
+		A_{21}&A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1\\
+		0
+	\end{bmatrix} 
+	=
+	\begin{bmatrix}
+		0&1
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11}\\
+		A_{21}
+	\end{bmatrix}
+	=A_{21}\\
+	\bra{2}A \ket{2}&=
+	\begin{bmatrix}
+		0&1	
+	\end{bmatrix} 
+	\begin{bmatrix}
+		A_{11}&A_{12}\\
+		A_{21}&A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		0\\
+		1
+	\end{bmatrix} 
+	=
+	\begin{bmatrix}
+		0&1
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{12}\\
+		A_{22}
+	\end{bmatrix}
+	=A_{22}
+\end{align*}
+
 \subsection*{Determinant} For $2\times 2$ matrix:
 \begin{align*}
 	\det A=\begin{vmatrix}
