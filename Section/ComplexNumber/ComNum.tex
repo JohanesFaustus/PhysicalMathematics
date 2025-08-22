@@ -1,8 +1,8 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\subsection*{Introduction}
-\subsubsection*{Complex Number.} Complex number may be written in the rectangular form or polar form
+\subsection{Introduction}
+\subsubsection{Complex Number.} Complex number may be written in the rectangular form or polar form
 \begin{align*}
     z=x+i y=re^{i\theta}=r(\cos\theta+i\sin\theta)
 \end{align*}
@@ -17,12 +17,12 @@ The values of $\theta$ should be found from a diagram rather than a formula, alt
     \mathrm{Im}\; z&=\frac{z-\bar{z}}{zi}
 \end{align*}
 
-\subsubsection*{Conjugate.} Complex numbers come in conjugate pairs; for such pairs are mirror images of each other with the x axis as the mirror. If we write $z = r(\cos \theta + i \sin \theta)$, then
+\subsubsection{Conjugate.} Complex numbers come in conjugate pairs; for such pairs are mirror images of each other with the x axis as the mirror. If we write $z = r(\cos \theta + i \sin \theta)$, then
 \begin{align*}
     \bar{z}=re^{-i\theta}=r(\cos\theta-i\sin\theta)
 \end{align*}
 
-\subsection*{Euler's Formula.} Using series expansion, we write $e^{i\theta}$, where $\theta$ is real
+\subsection{Euler's Formula.} Using series expansion, we write $e^{i\theta}$, where $\theta$ is real
 \begin{align*}
     e^{i\theta}&=1+i\theta+\frac{(i\theta)^2}{2!}+\frac{(i\theta)^3}{3!}+\frac{(i\theta)^4}{4!}+\frac{(i\theta)^5}{5!}\dots\\
     &=1+i\theta- \frac{\theta^2}{2!}-i\frac{\theta^3}{3!}+\frac{\theta^4}{4!}+i\frac{\theta^5}{5!}\dots\\
@@ -47,7 +47,7 @@ for any integral $n$.  The case $r = 1$, the equation becomes DeMoivre's theorem
     e^{in\theta}=\cos n\theta + i \sin n\theta
 \end{equation*}
 
-\subsection*{Function of Complex Number}. We define $e^z$ by the power series
+\subsection{Function of Complex Number}. We define $e^z$ by the power series
 \begin{equation*}
     e^z=\sum_{0}^{\infty}\frac{z}{n!}=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\dots
 \end{equation*}
@@ -76,7 +76,7 @@ We could also deﬁne $\sin z$ and $\cos z$ for complex $z$ by their power serie
 \end{align*}
 The rest of the trigonometric functions of $z$ are deﬁned in the usual way in terms of these; for example, $\tan z = \sin z/ \cos z$
 
-\subsection*{Hyperbolic Function}
+\subsection{Hyperbolic Function}
 
 Hyperbolic sine (abbreviated sinh) and the hyperbolic cosine (abbreviated cosh) is defined from pure imaginary, that is, $ z = iy$. Their deﬁnitions for all $z$ are
 \begin{align*}
@@ -94,7 +94,7 @@ Then we see that the hyperbolic functions of $y$ are (except for one $i$ factor)
 
 The functions $\sin t, \cos t$, and the rest of the gang are called “circular functions” and the functions $\sinh t, \cosh t,$ etc. are called “hyperbolic functions” because $ x = \cos t, y = \sin t,$ satisfy the equation of a circle $x^2 + y^2 = 1$, while $x = \cosh t,  y = \sinh t,$ satisfy the equation of a hyperbola $x^2 - y^2 = 1$.
 
-\subsection*{Logarithm}
+\subsection{Logarithm}
 If 
 \begin{equation*}
     z=e^w
@@ -121,13 +121,13 @@ thus
 \end{align*}
 Since $\theta$ has an inﬁnite number of values (all diﬀering by multiples of $2\pi$), a complex number has inﬁnitely many logarithms, diﬀering from each other by multiples of $2\pi i$.
 
-\subsubsection*{Complex Power.} By deﬁnition, for complex $a$ and $b$ ($a = e$),
+\subsubsection{Complex Power.} By deﬁnition, for complex $a$ and $b$ ($a = e$),
 \begin{equation*}
     a^b=e^{b\ln a}
 \end{equation*}
 
-\subsection*{Analytic Function}
-\subsubsection*{Introduction to Complex Function.} In general, we write
+\subsection{Analytic Function}
+\subsubsection{Introduction to Complex Function.} In general, we write
 \begin{equation*}
     f(z) = f(x + iy) = u(x, y) + iv(x, y)
 \end{equation*}
@@ -137,7 +137,7 @@ Recall that functions are customarily single-valued. Does this mean that we cann
 called a branch of $\ln z$. Thus in using formulas, we always discuss a single branch at a time so that we have a single-valued function. As a matter of terminology, however, you should know that the 
 whole collection of branches is sometimes called a “multiple-valued function.”
 
-\subsubsection*{Definition.} A function $f(z)$ is analytic--or regular or holomorphic or monogenic--in a region--region must be two dimensional, isolated points and curves are not regions--of the complex plane if it has a unique derivative at every point of the region. 
+\subsubsection{Definition.} A function $f(z)$ is analytic--or regular or holomorphic or monogenic--in a region--region must be two dimensional, isolated points and curves are not regions--of the complex plane if it has a unique derivative at every point of the region. 
 
  The derivative of $f(z)$ is deﬁned by the equation
  \begin{equation*}
@@ -146,8 +146,8 @@ whole collection of branches is sometimes called a “multiple-valued function.�
 
 The statement “$f(z)$ is analytic at a point $z = a$” means that $f(z)$ has a derivative at every point inside some small circle about $z = a$. When we say that $f(x)$ has a derivative at $x = x_0$, we mean that these two values are equal. When we say that $f(z)$ has a derivative at $z = z_0$, we mean that $f'(z)$ has the same value no matter how we approach $z_0$. 
 
-\subsection*{Theorems}
-\subsubsection*{Theorem I: Cauchy-Riemann conditions.} If $f(z) = u(x, y) + iv(x, y)$ is analytic in a 
+\subsection{Theorems}
+\subsubsection{Theorem I: Cauchy-Riemann conditions.} If $f(z) = u(x, y) + iv(x, y)$ is analytic in a 
 region, then in that region
 \begin{equation*}
     \frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}
@@ -182,7 +182,7 @@ and
 
 Since we assumed that $df /dz$ exists and is unique (this is what analytic means), these two expressions for $df /dz$ must be equal. Taking real and imaginary parts, we get the Cauchy-Riemann equations. $\quad \blacksquare$
 
-\subsubsection*{Theorem II.} If $u(x, y)$ and $v(x, y)$ and their partial derivatives with respect to $x$ and $y$ are continuous and satisfy the Cauchy-Riemann conditions in a region, then $f(z)$ is analytic at all points inside the region--not necessarily on the boundary.
+\subsubsection{Theorem II.} If $u(x, y)$ and $v(x, y)$ and their partial derivatives with respect to $x$ and $y$ are continuous and satisfy the Cauchy-Riemann conditions in a region, then $f(z)$ is analytic at all points inside the region--not necessarily on the boundary.
 
 \emph{Proof (?).} Although we shall not prove this, we can make it plausible by showing that it is true when we approach $z_0$ along any straight line. Assuming that we approach $z_0$ along a straight line of slope $m$, we will show that $df /dz$ does not depend on $m$ if $u$ and $v$ satisfy Cauchy-Riemann conditions. The equation of the straight line of slope $m$ through the point $z_0 = x_0 + iy_0$ is
 \begin{equation*}
@@ -202,7 +202,7 @@ Using the Cauchy-Riemann equations, we get
 \end{align*}
 Thus $df /dz$ has the same value for approach along any straight line. The theorem states that it also has the same value for approach along any curve.
 
-\subsubsection*{Theorem III.} If $f(z)$ is analytic in a region $R$, then it has derivatives of all orders at points inside the region and can be expanded in a Taylor series about any point $z_0$ inside the region. The power series converges inside the circle about $z_0$ that extends to the nearest singular point $C$.
+\subsubsection{Theorem III.} If $f(z)$ is analytic in a region $R$, then it has derivatives of all orders at points inside the region and can be expanded in a Taylor series about any point $z_0$ inside the region. The power series converges inside the circle about $z_0$ that extends to the nearest singular point $C$.
 \begin{figure*}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{../Rss/Com/Theorem3.png}
@@ -210,13 +210,13 @@ Thus $df /dz$ has the same value for approach along any straight line. The theor
 
 \emph{No proof.} Some definitions are in order. A regular point of $f (z)$ is a point at which $f (z)$ is analytic. A singular point or singularity of $f (z)$ is a point at which $f (z)$ is not analytic. It is called an isolated singular point if $f (z)$ is analytic everywhere else inside some small circle about the singular point.
 
-\subsubsection*{Theorem IV.} Part 1: if $f(z) = u +iv$ is analytic in a region, then $u$ and $v$ satisfy Laplace's equation in the region--that is, $u$ and $v$ are harmonic functions. 
+\subsubsection{Theorem IV.} Part 1: if $f(z) = u +iv$ is analytic in a region, then $u$ and $v$ satisfy Laplace's equation in the region--that is, $u$ and $v$ are harmonic functions. 
 
 Part 2: any function $u$--or $v$--satisfying Laplace's equation in a simply-connected region, is the real or imaginary part of an analytic function $f(z)$.
 
 \emph{No proof.} Thus we can find solutions of Laplace's equation simply by taking the real or imaginary parts of an analytic function of $z$. It is also often possible, starting with a simple function which satisfies Laplace's equation, to find the explicit function $f (z)$ of which it is, say, the real part.
 
-\subsubsection*{Theorem V: Cauchy's theorem.} Let $C$ be a simple--curve which does not cross itself--closed curve with a continuously turning tangent except possibly at a ﬁnite number of points--that is, we allow a ﬁnite number of corners, but otherwise the curve must be smooth. If $f(z)$ is analytic on and inside $C$, then
+\subsubsection{Theorem V: Cauchy's theorem.} Let $C$ be a simple--curve which does not cross itself--closed curve with a continuously turning tangent except possibly at a ﬁnite number of points--that is, we allow a ﬁnite number of corners, but otherwise the curve must be smooth. If $f(z)$ is analytic on and inside $C$, then
 \begin{equation*}
     \oint_C f(z) \;dz = 0
 \end{equation*}
@@ -244,7 +244,7 @@ where we have used the Cauchy-Riemann. In the same way the second integral in is
     i\int_A \biggl(\frac{\partial v}{\partial y}- \frac{\partial v}{\partial y}\biggr)\;dx\;dy=0
 \end{equation*}
 
-\subsubsection*{Theorem VI: Cauchy's integral formula.} If $f(z)$ is analytic on and inside a simple closed curve $C$, the value of $f(z)$ at a point $z = a$ inside $C$ is given by the following contour integral along $C$:
+\subsubsection{Theorem VI: Cauchy's integral formula.} If $f(z)$ is analytic on and inside a simple closed curve $C$, the value of $f(z)$ at a point $z = a$ inside $C$ is given by the following contour integral along $C$:
 \begin{equation*}
     f(a)=\frac{1}{2\pi i}\oint \frac{f(z)}{z-a}\;dz
 \end{equation*}
@@ -284,7 +284,7 @@ thus
     f(a)=\frac{1}{2\pi i}\oint \frac{f(z)}{z-a}\;dz \quad \blacksquare
 \end{equation*}
 
-\subsubsection*{Theorem VII: Laurent's theorem.} Let $C_1$ and $C_2$ be two circles with center at $z_0$. Let $f(z)$ be analytic in the region $R$ between the circles. Then $f(z)$ can be expanded in a series of the form
+\subsubsection{Theorem VII: Laurent's theorem.} Let $C_1$ and $C_2$ be two circles with center at $z_0$. Let $f(z)$ be analytic in the region $R$ between the circles. Then $f(z)$ can be expanded in a series of the form
 \begin{equation*}
     f(z) = a_0 + a_1(z - z_0) + a_2(z - z_0)^2+\dots+\frac{b_1}{z-z_0}+\frac{b_2}{(z-z_0)^2}+\dots
 \end{equation*}
@@ -298,7 +298,7 @@ If there are an infinite number of $b$’s different from zero, $f (z)$ has an e
 
 The coefficient $b_1$ of $1/(z - z_0)$ is called the residue of $f (z)$ at $z = z_0$.
 
-\subsection*{Residue Theorem}
+\subsection{Residue Theorem}
 Suppose we are going to find the value of $\oint  f (z) \;dz$ around a simple closed curve $C$ surrounding an isolated singular point $z_0$ but inclosing no other singularities. Let $f (z)$ be expanded in the Laurent series about $z = z_0$. The integral of the $a$ series 
 \begin{equation*}
     \oint_C a_n(z-z0)^n\;dz=0
@@ -325,10 +325,10 @@ The only term of the Laurent series which has survived the integration process i
 \end{equation*}
 where $R(z)$ sum of the residues of $f (z)$ inside $C$.
 
-\subsection*{Method of Finding Residue}
-\subsubsection*{Laurent Series.} If it is easy to write down the Laurent series for $f (z)$ about $z = z_0$ that is valid near $z_0$, then the residue is just the coefficient $b_1$ of the term $1/(z - z0)$. \textbf{Caution}: Be sure you have the expansion about $z = z_0$.
+\subsection{Method of Finding Residue}
+\subsubsection{Laurent Series.} If it is easy to write down the Laurent series for $f (z)$ about $z = z_0$ that is valid near $z_0$, then the residue is just the coefficient $b_1$ of the term $1/(z - z0)$. \textbf{Caution}: Be sure you have the expansion about $z = z_0$.
 
-\subsubsection*{Simple Pole.} If $f (z)$ has a simple pole at $z = z_0$, we find the residue by multiplying $f (z)$ by $(z - z_0)$ and evaluating the result at $z = z_0$. In general we write
+\subsubsection{Simple Pole.} If $f (z)$ has a simple pole at $z = z_0$, we find the residue by multiplying $f (z)$ by $(z - z_0)$ and evaluating the result at $z = z_0$. In general we write
 \begin{equation*}
     R(z_0) = \lim_{z\rightarrow z_0} (z - z_0)f (z)\bigg|_{z=z_0}
 \end{equation*}
@@ -352,7 +352,7 @@ Perhaps the simplest way--without finding the Laurent series--to find if a funct
 
 Suppose $f (z)$ is written in the form $g(z)/h(z)$, where $g(z)$ and $h(z)$ are analytic. Then you can think of $g(z)$ and $h(z)$ as power series in $(z - z_0)$. If the denominator has the factor $(z - z_0)$ to one higher power than the numerator, then $f (z)$ has a simple pole at $z_0$. 
 
-\subsubsection*{Multiple Poles.} When $f (z)$ has a pole of order $n$, we can use the following
+\subsubsection{Multiple Poles.} When $f (z)$ has a pole of order $n$, we can use the following
 method of finding residues.
 \begin{equation*}
     R(z_0)=\frac{1}{(m-1)!}\biggl(\frac{d}{dz}\biggr)^{m-1}\biggl((z-z_0)^mf(z)\biggr)\bigg|_{z=z_0}

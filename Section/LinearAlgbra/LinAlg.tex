@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\subsection*{Introduction}
-\subsubsection*{Elementary row operation.} 
+\subsection{Introduction}
+\subsubsection{Elementary row operation.} 
 Rule as follows.
 \begin{enumerate}
 	\item Interchange two rows
@@ -9,7 +9,7 @@ Rule as follows.
 	\item Add a multiple of one row to another
 \end{enumerate}
 
-\subsubsection*{Rank.} 
+\subsubsection{Rank.} 
 Definition as follows.
 \begin{quote}
 	The number of nonzero rows remaining when a matrix has been row reduced is called the rank of the matrix.
@@ -26,7 +26,7 @@ Consider $m$ equation with $n$ constants. We define matrix M and A, where M has 
 	\item If (rank M) = (rank A) = $R < n$, then $R$ unknowns can be found in terms of the remaining $n-R$ unknowns.
 \end{enumerate}
 
-\subsubsection*{Cramer's Rule.} The equations
+\subsubsection{Cramer's Rule.} The equations
 \begin{align*}
 	\begin{cases}
 		a_1x+b_1y & =c_1 \\
@@ -47,7 +47,7 @@ has the solution:
 	\end{vmatrix}
 \end{align*}
 
-\subsubsection*{Dot Product.}
+\subsubsection{Dot Product.}
 \begin{align*}
 	\A\cdot\B & =|\A|\B|\cos\theta    \\
 	          & =A_xB_x+A_yB_y+A_zB_z
@@ -61,7 +61,7 @@ The following applies if vector parallel:
 	\frac{A_x}{B_x}=\frac{A_y}{B_y}=\frac{A_z}{B_z}
 \end{align*}
 
-\subsubsection*{Orthogonality.} 
+\subsubsection{Orthogonality.} 
 Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
 Matrix M is orthogonal if
 \begin{align*}
@@ -73,7 +73,7 @@ with determinant
 \end{align*}
 det $\text{M} = 1$ corresponds geometrically to a rotation, and det $\text{M} = -1$ means that a reflection is involved.
 
-\subsubsection*{Cross Product.}
+\subsubsection{Cross Product.}
 \begin{align*}
 	\A\times\B & =|\A||\B|\sin\theta  \\
 	           & =\det\begin{vmatrix}
@@ -87,7 +87,7 @@ The following applies if vector parallel or antiparallel:
 	\A\cdot\B & =0
 \end{align*}
 
-\subsubsection*{Homogeneous equations.} 
+\subsubsection{Homogeneous equations.} 
 The definition is as follows.
 
 \begin{quote}
@@ -108,8 +108,8 @@ This fact will be used in eigenvalue problem.
 	A system of $n$ homogeneous equations in $n$ unknowns has solutions other than the trivial solution if and only if the determinant of the coefficients is zero.
 \end{quote}
 
-\subsection*{Vector in Braket Notation}
-\subsubsection*{Vector space.}
+\subsection{Vector in Braket Notation}
+\subsubsection{Vector space.}
 Linear vector space $\mathbb{V}$ is a collection of vectors $\ket{1},\dots,\ket{n}$ for which there exists definitive rule for addition and multiplication.
 Said rules are as follows.
 \begin{enumerate}
@@ -129,12 +129,12 @@ Said rules are as follows.
 Vector space has $n$ dimension if it can accommodate $n$ linear independent vectors.
 We denote $\mathbb{V}^n(R)$ if the field--that is the scalar used to scale the vector--and $\mathbb{V}^n(C)$ if it is complex.
 
-\subsubsection*{Dual space.}
+\subsubsection{Dual space.}
 Column vectors are concrete manifestations of an abstract vector $\ket{V}$ ket in a basis, while row vector are bra's $\bra{V}$.
 They are adjoint of each other.
 Thus, there are two vector space: space of KET $\ket{V}$ and dual space of bra $\bra{V}$.
 
-\subsubsection*{Vector expansion in an orthonormal base.}
+\subsubsection{Vector expansion in an orthonormal base.}
 Suppose we are to expand vector $\ket{V}$ in an  orthonormal base.
 First, we take the dot product of said vector with an orthonormal base $\bra{j}$
 \begin{equation*}
@@ -146,7 +146,7 @@ Using this, we then write
 	\ket{V}=\sum_i \ket{i}\braket{i|V}
 \end{equation*}
 
-\subsection*{Lines and Plane}
+\subsection{Lines and Plane}
 Suppose we have vector $\A=a\;\x+b\;\y +c\;\z$ and vector $\mathbf{r}-\mathbf{r_0}=(x-x_0)\;\x+(y-y_0)\;\y +(z-z_0)\;\z$, which parallel to $\A$.
 We can write:
 \begin{align*}
@@ -165,8 +165,8 @@ The previous equation is obtained by the dot identity of parallel vector
 \end{align*}
 also called the equation of plane.
 
-\subsection*{Matrix Operation}
-\subsubsection*{Multiplication.}
+\subsection{Matrix Operation}
+\subsubsection{Multiplication.}
 Matrix AB can be multiplied if they are conformable, that is if column A = row B.
 Matrix multiplication in index notation is:
 \begin{align*}
@@ -189,7 +189,7 @@ For $2\times2$ matrix
 	\end{bmatrix}
 \end{equation*}
 
-\subsubsection*{Commutator.}
+\subsubsection{Commutator.}
 In general, matrix do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
 	[A, B] = AB - BA
@@ -200,7 +200,7 @@ Two identity involving commutators are
 	[\Lambda\Omega,\Theta] & =\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega
 \end{align*}
 
-\subsubsection*{Inverse.}
+\subsubsection{Inverse.}
 If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular.
 \begin{equation*}
 	M^{-1}=\frac{1}{\det M}C^{T}
@@ -301,7 +301,7 @@ Therefore, we write
 	M^{-1}&=\frac{\bar{M }}{\det M }
 \end{align*}
 
-\subsubsection*{Derivative (with respect to parameter).}
+\subsubsection{Derivative (with respect to parameter).}
 Consider the function $\theta(\lambda)=e^{\lambda\Omega}$.
 Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense
 \begin{equation*}
@@ -350,7 +350,7 @@ Shifting the index
 	\frac{d }{d\lambda }e^{\lambda \Omega}=\Omega\sum_{m=0 }^{\infty}\frac{\lambda^n \Omega^n }{n!}=\Omega e^{\lambda\Omega}
 \end{equation*}
 
-\subsubsection*{Element representation.}
+\subsubsection{Element representation.}
 The $i$-th row and $j$-th column of a matrix can be represented as 
 \begin{equation*}
 	\bra{i }A \ket{j }=A_{ij}
@@ -458,7 +458,7 @@ All of its element can be represented as
 	=A_{22}
 \end{align*}
 
-\subsection*{Determinant} For $2\times 2$ matrix:
+\subsection{Determinant} For $2\times 2$ matrix:
 \begin{align*}
 	\det A=\begin{vmatrix}
 		       a & b \\
@@ -473,7 +473,7 @@ Here are some determinant rule.
 	\det(AB) & =\det(BA)=\det(A)\times\det (B)
 \end{align*}
 
-\subsubsection*{Minor.}
+\subsubsection{Minor.}
 Minor of element $a_{ij}$ is the determinant of submatrix order $(n-1)$ you get after crossing $i$-th row and $h$-th column from order $n$ matrix.
 Consider the matrix
 \begin{equation*}
@@ -496,7 +496,7 @@ Each minor is then
 	M_{33} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
 \end{align*}
 
-\subsubsection*{Cofactor}
+\subsubsection{Cofactor}
 Cofactor is expressed is the minor that includes sign factors
 \begin{equation*}
 	\text{C}_{ij}=(-1)^{i+j}M_{ij}
@@ -512,8 +512,8 @@ As a mnemonic, use the sign pattern to check the sign of the cofactor
 	\end{bmatrix}
 \end{equation*}
 
-\subsection*{Special Matrices and Operator}
-\subsubsection*{Theorem.}
+\subsection{Special Matrices and Operator}
+\subsubsection{Theorem.}
 \begin{enumerate}
 	\item $(ABC)^T=C^TB^TA^T$
 	\item $(ABC)^{-1}=C^{-1}B^{-1}A^{-1}$
@@ -522,7 +522,7 @@ As a mnemonic, use the sign pattern to check the sign of the cofactor
 	\item If $H$ is a Hermitian matrix, then $U = e^{iH}$ is a unitary matrix.
 \end{enumerate}
 
-\subsubsection*{Table of special matrices.} Consider this.
+\subsubsection{Table of special matrices.} Consider this.
 
 \begin{table}[h]
 	\centering
@@ -543,7 +543,7 @@ As a mnemonic, use the sign pattern to check the sign of the cofactor
 	\end{tabular}
 \end{table}
 
-\subsubsection*{Identity matrix.}
+\subsubsection{Identity matrix.}
 A matrix, who also acts as an operator, which leave the operated vector unchanged
 \begin{equation*}
 	I \ket{V}=\ket{V}\quad \bra{V}I=\bra{V}
@@ -562,7 +562,7 @@ Then $n\times n$, using the Kronecker delta, identity matrix may be written
 	\end{bmatrix}
 \end{equation*}
 
-\subsubsection*{Projection Operator.}
+\subsubsection{Projection Operator.}
 The projection operator is defined as
 \begin{equation*}
 	\mathbb{P}_i=\ket{i}\bra{i}
@@ -585,7 +585,7 @@ Projection operator obey
 	\mathbb{P}_i\mathbb{P}_j=\delta_{ij}\mathbb{P}_j
 \end{equation*}
 
-\subsubsection*{Hermitian and anti Hermitian.}
+\subsubsection{Hermitian and anti Hermitian.}
 An operator is called Hermitian fit satisfies $\Omega=\Omega ^\dagger$, in other hand an operator is called anti-Hermitian if $\Omega=-\Omega ^\dagger$.
 In the world of linear algebra, Hermitian and anti-Hermitian play the role of pure real and pure imaginary number.
 Just like how we can decompose every number into a sum of pure real and pure imaginary
@@ -599,7 +599,7 @@ we can decompose every operator into its Hermitian and anti Hermitian
 	\Omega=\frac{\Omega+\Omega ^\dagger}{2}+\frac{\Omega-\Omega ^\dagger}{2}
 \end{equation*}
 
-\subsubsection*{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
+\subsubsection{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
 \begin{align*}
 	\begin{pmatrix}
 		X \\Y
@@ -644,7 +644,7 @@ in 3D
 	       \end{pmatrix}
 \end{align*}
 
-\subsubsection*{Unitary operator.}
+\subsubsection{Unitary operator.}
 Unitary operator is defined as
 \begin{equation*}
 	UU ^\dagger=I
@@ -667,7 +667,7 @@ For $n\times n$ unitary operator, the column, or the row really, can be seen as 
 These vector, then, is orthonormal to each other.
 The reason for this is that the operator preserve the inner product, the transformed set of vector is also orthonormal.
 
-\subsubsection*{Dirac delta.}
+\subsubsection{Dirac delta.}
 Under the integral sign, Dirac delta is defined as
 \begin{equation*}
 	\int \delta(x-x')f(x')\;dx=f(x)
@@ -725,7 +725,7 @@ Substituting the transformation into the inverse
 \end{equation*}
 The term inside parenthesis is the Dirac delta function.
 
-\subsubsection*{Differential operator.}
+\subsubsection{Differential operator.}
 The action of this operator is described by the following equation
 \begin{equation*}
 	\braket{x|D|f}=\left\langle x\bigg| \frac{df }{dx}\right\rangle=\frac{df(x)}{dx}
@@ -758,7 +758,7 @@ and
 	\left(\braket{x'|D|x}\right)^\dagger=\delta'(x'-x)^*=\delta'(x'-x)-\delta'(x-x')
 \end{equation*}
 
-\subsubsection*{Wave number operator.}
+\subsubsection{Wave number operator.}
 On the $x$ basis, $K$ acts as differential operator.
 This is misleading, actually. 
 The correct term is, if $K$ acts on a state $\ket{\psi}$, and then we project onto the position basis $\ket{x}$, the resulting expression is given by a differential operator acting on the projected state
@@ -845,7 +845,7 @@ On using this basis, the Fourier transforms is just the passage from one basis $
 	f(x)&=\braket{x|f}=\int_{-\infty}^{\infty} \braket{x|k}\braket{k|f}\;dk=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{ikx} f(k)\;dk\\
 \end{align*}
 
-\subsubsection*{Position operator.}
+\subsubsection{Position operator.}
 The action in $x$ basis is described as follows
 \begin{equation*}
 	X \ket{x}=x \ket{x}
@@ -855,8 +855,8 @@ while is the $k$ basis
 	\braket{k|X|\psi}=i \frac{d }{dk}\psi(k)
 \end{equation*}
 
-\subsection*{Inner Product}
-\subsubsection*{Finite dimension.}
+\subsection{Inner Product}
+\subsubsection{Finite dimension.}
 The inner product is defined in such way to obey the following requirement.
 \begin{enumerate}
 	\item \textbf{Skew-symmetry}: $\braket{V|W}=\braket{W|V}^*$
@@ -880,7 +880,7 @@ If we think function as element of vector space, two functions can be said to be
 	\int_{a}^{b}A(x)B(x)\;dx=0
 \end{equation*}
 
-\subsubsection*{Infinite dimension.}
+\subsubsection{Infinite dimension.}
 The inner product of two continuous function along some interval is defined as
 \begin{equation*}
 	\braket{f|g}=\int_{a}^{b}f ^*(x)g(x)\;dx
@@ -890,7 +890,7 @@ This definition comes after recalling the completeness relation for infinite spa
 	\braket{f|g}=\bra{f}I \ket{g}=\int_{a }^{b}\braket{f|x}\braket{x|g}\;dx=\int_{a }^{b} f ^*(x)g(x)\;dx
 \end{equation*}
 
-\subsection*{Norm}
+\subsection{Norm}
 Norm of a vector is defined as
 \begin{equation*}
 	|V|\equiv\sqrt{\braket{V|V}}
@@ -899,14 +899,14 @@ Two vectors with zero inner product are said to be orthogonal.
 If said vector has unit norm instead, it is referred as normalized.
 Set of basis with orthogonal and normalized condition are called orthonormal basis.
 
-\subsubsection*{Continuous function.}
+\subsubsection{Continuous function.}
 The norm of a continuous function is defined as
 \begin{equation*}
 	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
 \end{equation*}
 We also said the function $N^{-1}A(x)$ to be normalized and has the norm of one.
 
-\subsection*{Adjoint Operation}
+\subsection{Adjoint Operation}
 The following is a summary on how to perform adjoint in braket notation.
 \begin{quotation}
 	Reverse the order of all factors and make the substitutions $\Omega\leftrightarrow\Omega^\dagger,\ket{}\leftrightarrow \bra{}, a\leftrightarrow a^*$.
@@ -917,7 +917,7 @@ From this we also obtain the conjugate expressions
 	\ket{\Omega V}=\Omega \ket{V}\quad & \leftrightarrow\quad\bra{\Omega V}=\bra{V}\Omega^\dagger
 \end{align*}
 
-\subsubsection*{Bra and ket.}
+\subsubsection{Bra and ket.}
 Here is how the method in action.
 The following vector is an adjoint of each other
 \begin{equation*}
@@ -928,7 +928,7 @@ We can also write it in terms of projection operation by recalling $v_i=\braket{
 	\ket{V}=\sum_i \ket{i} \braket{i|V}\qquad \bra{V}=\sum_i \braket{V|i}\bra{i}
 \end{equation*}
 
-\subsubsection*{Operator.}
+\subsubsection{Operator.}
 The matrix $\Omega^\dagger$--also called Hermitian adjoint--represent transpose conjugate of $\Omega$
 \begin{equation*}
 	\Omega^{\dagger}=(\Omega^*)^T=(\Omega^T)^*
@@ -952,7 +952,7 @@ Thus, we have
 	(\Omega\Lambda) ^\dagger=\Lambda ^\dagger\Omega ^\dagger
 \end{equation*}
 
-\subsubsection*{Equation.}
+\subsubsection{Equation.}
 Suppose we have the equation involving
 \begin{equation*}
 	a_1 \ket{V_1}=a_2 \ket{V_2}+a_3 \ket{V_3}\braket{V_4|V_5}+a_4\Omega\Lambda \ket{V_6}
@@ -962,7 +962,7 @@ and we want to take its adjoint
 	\bra{V_1}a_1 ^*=\bra{V_2}a_2 ^*+\braket{V_4|V_5}\bra{V_3}a_3 ^*+\bra{V_6}\Lambda ^\dagger\Omega ^\dagger a_4 ^*
 \end{equation*}
 
-\subsection*{Gram-Schmidt Theorem}
+\subsection{Gram-Schmidt Theorem}
 The Gram-Schmidt procedure is used to convert linearly independent basis $\ket{I},\dots,\ket{N}$ into an orthonormal one $\ket{1},\dots,\ket{n}$.
 We begin with the first basis vector and normalize it
 \begin{equation*}
@@ -977,7 +977,7 @@ and normalize it to obtain the orthonormal basis
 	\ket{i}=\frac{\ket{i'}}{|i'|}
 \end{equation*}
 
-\subsubsection*{Three basis.}
+\subsubsection{Three basis.}
 Let $\ket{I}, \ket{II}, \ket{III}$ be linearly independent basis.
 The first orthonormal vector is
 \begin{equation*}
@@ -1013,7 +1013,7 @@ and that the $\ket{2'}$ or $\ket{2}$ along the first is orthogonal
 	\braket{1|2}  & =\frac{1|2'}{|I||2'|}=0
 \end{align*}
 
-\subsection*{Schwarz Inequality}
+\subsection{Schwarz Inequality}
 Theorem that ensure the magnitude of inner product never exceed the product of vector magnitude
 \begin{equation*}
 	|\braket{V|W}|\leq|V||W|
@@ -1023,7 +1023,7 @@ Another related theorem is the triangle inequality, which state that the length 
 	|V+W|\leq|V|+|W|
 \end{equation*}
 
-\subsubsection*{Schwarz inequality proof.}
+\subsubsection{Schwarz inequality proof.}
 First we define
 \begin{equation*}
 	\ket{Z}=\ket{V}-\frac{\braket{W|V }}{|W|^2}\ket{W}
@@ -1045,7 +1045,7 @@ Multiply by $|W|^2$ and taking the square root to obtain
 	|V||W|     & \geq|\braket{V|W}|
 \end{align*}
 
-\subsection*{Subspace}
+\subsection{Subspace}
 Given a vector space $\mathbb{V}$, a subset of its elements that form a vector space among themselves is called a subspace.
 We will denote a particular subspace $i$ of dimensionality $n$ by $\mathbb{V}_i^n$.
 
@@ -1060,10 +1060,10 @@ Vector along three spatial dimension is denoted as $\mathbb{V}_3(R)$, while its 
 All vector along the $xy$ plane is denoted $\mathbb{V}_{xy}^2$.
 Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$, which makes sense since the plane is a linear combination of two basis.
 
-\subsection*{Linear Independence}
+\subsection{Linear Independence}
 Linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
 
-\subsubsection*{Vector.}
+\subsubsection{Vector.}
 The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
 where $a$ is a scalar.
 Set of vectors are said to independent if the only solution to the following equation is trivial
@@ -1080,7 +1080,7 @@ A function of a vector, say $f (r)$, is called linear if
 	f(r_1+r_2)= f(r_1)+ f(r_2) &  & \mathrm{and} &  & f(ar)=a\;f(r)
 \end{align*}
 
-\subsubsection*{Operator.}
+\subsubsection{Operator.}
 Linear operator obey the following rule
 \begin{align*}
 	\Omega \alpha \ket{V}                               & =\alpha\Omega \ket{V}                         \\
@@ -1093,13 +1093,13 @@ $\Omega$ is a linear operator if
 	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
 \end{align*}
 
-\subsubsection*{Complete function.} 
+\subsubsection{Complete function.} 
 A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
 \begin{equation*}
 	f(y)=\sum_{n=1}^{\infty} C_nf(y)
 \end{equation*}
 
-\subsubsection*{Linear dependence.} 
+\subsubsection{Linear dependence.} 
 $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
 \begin{align*}
 	W=\begin{vmatrix}
@@ -1110,7 +1110,7 @@ $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the De
 	  \end{vmatrix}\not\equiv0
 \end{align*}then the functions are linearly independent.
 
-\subsection*{Eigenvalue Problem}
+\subsection{Eigenvalue Problem}
 Consider linear operator $\Omega$ transforming non-trivial $\ket{V}$
 \begin{equation*}
 	\Omega 	\ket{V}=\ket{W}
@@ -1163,7 +1163,7 @@ Then we will obtain set of equations that the equation must obey.
 It is conventional to normalize the eigenvector also.
 In the case of degeneracy, we choose the eigenvector such that they are orthogonal to each other.
 
-\subsection*{Propagator}
+\subsection{Propagator}
 Propagator is an operator that propagate a state forward in space or time.
 It can be used as a solution to a differential equation.
 For an equation with the form
@@ -1196,11 +1196,11 @@ The steps of solving initial value problem are as follows.
 	      \end{equation*}
 \end{enumerate}
 
-\subsection*{Function of Operator}
+\subsection{Function of Operator}
 We shall consider the function, such as $e^x$, where $x$ is an operator and determine its meaning.
 We restrict ourselves to those function that can be written as power series an operator that are hermitian.
 
-\subsubsection*{Exponential function.}
+\subsubsection{Exponential function.}
 Has the following form
 \begin{equation*}
 	e^\Omega=
@@ -1254,7 +1254,7 @@ we have
 	\end{bmatrix}
 \end{align*}
 
-\subsubsection*{Geometric series.}
+\subsubsection{Geometric series.}
 For hermitian $\Omega$
 \begin{equation*}
 	\sum_{m=0}^{\infty}\Omega^n=(1-\Omega)^{-1}

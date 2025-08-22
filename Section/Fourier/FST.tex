@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\subsection*{Introduction}
-\subsubsection*{Sinusoidsal wave Equation.}
+\subsection{Introduction}
+\subsubsection{Sinusoidsal wave Equation.}
 \begin{equation*}
     y=A\sin\frac{2\pi }{\lambda}(x-vt)
 \end{equation*}
@@ -12,7 +12,7 @@ Wave equation in single variable.
     y(t)&=A\sin \omega t&= A\sin 2\pi v t&=A \sin \frac{2\pi}{T}t\\
 \end{align*} 
 
-\subsubsection*{Average Value.} Average of $f(x)$ on $(a, b)$ is 
+\subsubsection{Average Value.} Average of $f(x)$ on $(a, b)$ is 
 \begin{equation*}
     \bar{f}=\frac{1}{b-a}\int_{a}^{b}f(x)\;dx
 \end{equation*}
@@ -35,8 +35,8 @@ Here are some usefull integrals
     \end{cases}
 \end{equation*}
 
-\subsection*{Fourier Series}
-\subsubsection*{2$\boldsymbol{\pi}$ period.} Fourier Series for function of period $2\pi$:
+\subsection{Fourier Series}
+\subsubsection{2$\boldsymbol{\pi}$ period.} Fourier Series for function of period $2\pi$:
 \begin{align*}
     f(x)=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos nx +b_n\sin nx\bigg)=\sum_{n=-\infty}^{\infty}c_n e^{inx}
 \end{align*}
@@ -79,7 +79,7 @@ and
 \end{equation*}
 
 
-\subsubsection*{Other period.} Fourier Series for function of period $2l$:
+\subsubsection{Other period.} Fourier Series for function of period $2l$:
 \begin{align*}
     f(x)&=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos \frac{\pi nx}{l} +b_n\sin \frac{\pi nx}{l}\bigg)\\
     &=\sum_{n=-\infty}^{\infty}c_n \exp\frac{in\pi x}{l}
@@ -91,7 +91,7 @@ with coefficients:
     c_n&=\frac{1}{2l}\int_{-l}^{l}  f(x)\exp\frac{-in\pi x}{l} \;dx
 \end{align*}
 
-\subsection*{Fourier Transform}
+\subsection{Fourier Transform}
 The Fourier integral can be used to represent nonperiodic functions, for example a single voltage pulse not repeated, or a flash of light, or a sound which is not repeated. The Fourier integral also represents a continuous set (spectrum) of frequencies, for example a whole range of musical tones or colors of light rather than a discrete set. Fourier transforms are defined as follows
 \begin{align*}
     f(x)&=\int_{-\infty}^{\infty }g(\alpha)e^{i\alpha x}\;d\alpha\\
@@ -99,13 +99,13 @@ The Fourier integral can be used to represent nonperiodic functions, for example
 \end{align*}
 $g(\alpha)$ corresponds to $c_n$, $\alpha$ corresponds to $n$, and $\int$ corresponds to $\sum $. This agrees with our discussion of the physical meaning and use of Fourier integrals.
 
-\subsubsection*{Fourier Sine Transforms.} We define $f_s(x)$ and $g_s(\alpha)$ as pair of Fourier sine transforms representing odd functions.
+\subsubsection{Fourier Sine Transforms.} We define $f_s(x)$ and $g_s(\alpha)$ as pair of Fourier sine transforms representing odd functions.
 \begin{align*}
     f_s(x)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }g_s(\alpha)\sin \alpha x\;d\alpha\\
     g_s(\alpha)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }f_s(x)\sin \alpha x\;dx
 \end{align*}
 
-\subsubsection*{Fourier Cosine Transforms.} We define $f_c(x)$ and $g_c(\alpha)$ as pair of Fourier cosine transforms representing even functions.
+\subsubsection{Fourier Cosine Transforms.} We define $f_c(x)$ and $g_c(\alpha)$ as pair of Fourier cosine transforms representing even functions.
 \begin{align*}
     f_c(x)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }g_c(\alpha)\cos \alpha x\;d\alpha\\
     g_c(\alpha)&=\sqrt{\frac{2}{\pi}}\int_{0}^{\infty }f_s(x)\cos \alpha x\;dx
@@ -183,7 +183,7 @@ Subsituting $g(x)$ into $f(x)$
 \end{equation*}
 We also see that it has the same numerical factor and all.
 
-\subsection*{Even and Odd Function}
+\subsection{Even and Odd Function}
 Definition.
 \begin{equation*}
     f(x)=
@@ -220,8 +220,8 @@ Fourier expansion for even function.
     \end{cases}
 \end{equation*}
 
-\subsection*{Theorem}
-\subsubsection*{Dirichlet Condition.} If $f(x$):
+\subsection{Theorem}
+\subsubsection{Dirichlet Condition.} If $f(x$):
 \begin{enumerate}
     \item periodic,
     \item x single valued,
@@ -231,7 +231,7 @@ Fourier expansion for even function.
 \end{enumerate}
 then the Fourier series converges to the midpoint of the jump.
 
-\subsubsection*{Parseval's theorem.} For Fourier expansions
+\subsubsection{Parseval's theorem.} For Fourier expansions
 \begin{equation*}
     f(x)=\frac{a_0}{2}+\sum_{1}^{\infty}\bigg(a_n\cos nx +b_n\sin nx\bigg)\\
 \end{equation*} 

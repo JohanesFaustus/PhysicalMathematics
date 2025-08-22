@@ -1,7 +1,7 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
-\subsection*{Gamma Function}
-\subsubsection*{Factorial.} The factorial is defined by integral
+\subsection{Gamma Function}
+\subsubsection{Factorial.} The factorial is defined by integral
 \begin{equation*}
     \int_{0}^{\infty} x^ne^{-\alpha x}\;dx=\frac{n!}{\alpha^{n+1}}
 \end{equation*}
@@ -11,7 +11,7 @@ Putting $\alpha=1$ we get
 \end{equation*}
 Thus we have a definite integral whose value is $n!$ for positive integral $n$. We can also give a meaning to $0!$; by putting $n=0$, we get $0!=1$. By the way, the integral can be evaluated using differentiation under integral sign. 
 
-\subsubsection*{Gamma function definition.} Gamma function is used to define the factorial function for noninterger $n$. We define, for any $p > 0$
+\subsubsection{Gamma function definition.} Gamma function is used to define the factorial function for noninterger $n$. We define, for any $p > 0$
 \begin{equation*}
     \Gamma(p)=\int_{0}^{\infty} x^{p-1}e^{-  x}\;dx
 \end{equation*}
@@ -21,7 +21,7 @@ From this we have
     \Gamma(p+1)&=\int_{0}^{\infty} x^{p}e^{-  x}\;dx=p!
 \end{align*}
 
-\subsubsection*{Recursion relation.} The recursion for gamma function is 
+\subsubsection{Recursion relation.} The recursion for gamma function is 
 \begin{equation*}
     \Gamma(p+1)=p\Gamma(p)
 \end{equation*}
@@ -33,7 +33,7 @@ From this we have
     \Gamma(p-1)&=p\Gamma(p)\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Incomplete gamma function.} Supose the limit of the integral of gamma function is not ($0,\infty$). We define the result function as incomplete gamma function. The first kind is the lower gamma function 
+\subsubsection{Incomplete gamma function.} Supose the limit of the integral of gamma function is not ($0,\infty$). We define the result function as incomplete gamma function. The first kind is the lower gamma function 
 \begin{equation*}
     \gamma (p,t)=\int_{0}^{t}x^{p-1}e^{-x}\;dx
 \end{equation*}
@@ -42,14 +42,14 @@ while the second is the upper gamma function
     \Gamma (p,t)=\int_{t }^{\infty}x^{p-1}e^{-x}\;dx
 \end{equation*}
 
-\subsubsection*{Negative numbers.} We shall now deifne gamma function for $p\leq 0$ by the recursion 
+\subsubsection{Negative numbers.} We shall now deifne gamma function for $p\leq 0$ by the recursion 
 relation 
 \begin{equation*}
     \Gamma(p)=\frac{\Gamma(p+1)}{p}
 \end{equation*}
 From this and the successive use of it, it follows that $\Gamma(p)$ becomes infinite not only at zero but also at all the negative integers.
 
-\subsubsection*{Gaussian integral.} We state here important formula
+\subsubsection{Gaussian integral.} We state here important formula
 \begin{equation*}
     \Gamma(p)\Gamma(1-p)=\frac{\pi}{\sin \pi p}
 \end{equation*}
@@ -145,7 +145,7 @@ And I get the same result
 \end{equation*}
 Damn, it is really more shrimple.
 
-\subsubsection*{Another form of Gaussian integral.} Here have few.
+\subsubsection{Another form of Gaussian integral.} Here have few.
 \begin{align*}
     \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx &= \frac{\Gamma (m+1)}{\alpha^{m+1}}\\
     \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\\
@@ -210,14 +210,14 @@ Thus
 \paragraph{Proof of the fourth integral.} 404. 
 
 
-\subsection*{Beta Function}
-\subsubsection*{Definition.} The beta function is also defined by a definite integral
+\subsection{Beta Function}
+\subsubsection{Definition.} The beta function is also defined by a definite integral
 \begin{equation*}
     B(p,q)=\int_{0}^{1}x^{p-1} (1-x)^{q-1}\;dx 
 \end{equation*}
 for $p > 0$, and $q > 0$. 
 
-\subsubsection*{Change of order.} It is easy to show that
+\subsubsection{Change of order.} It is easy to show that
 \begin{equation*}
     B(p,q)=B(q,p)
 \end{equation*}
@@ -228,7 +228,7 @@ for $p > 0$, and $q > 0$.
     B(p,q)&=B(q,p)\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Integration Range.} The range of integration can be changed with 
+\subsubsection{Integration Range.} The range of integration can be changed with 
 \begin{equation*}
     B(p,q)=\frac{1}{a^{p+q-1}}  \int_{0}^{a} y^{p-1}(a-y)^{q-1}\;dy 
 \end{equation*}
@@ -248,7 +248,7 @@ Another form is
     B(p,q)&=\int_{0}^{\infty}\frac{y^{p-1}}{(1+y)^{p+q}}\;dy\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Trigonometric form.} In terms of sine and cosine, the beta function reads 
+\subsubsection{Trigonometric form.} In terms of sine and cosine, the beta function reads 
 \begin{equation*}
     B(p,q)=2\int_{0}^{\pi/2}(\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta
 \end{equation*}
@@ -259,7 +259,7 @@ Another form is
     B(p,q)&=2\int_{0}^{\pi/2} (\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Gamma Function.}  Beta functions are easily expressed in terms of gamma functions
+\subsubsection{Gamma Function.}  Beta functions are easily expressed in terms of gamma functions
 \begin{equation*}
     B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}
 \end{equation*}
@@ -283,7 +283,7 @@ Like Gaussian integral, this is easier to evaluate in polar coordinate
     \Gamma(p)\Gamma(q)&=\Gamma(p+q)B(p,q)\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Incomplete beta function.} Defined as follows.
+\subsubsection{Incomplete beta function.} Defined as follows.
 \begin{equation*}
     B_t(p,q)=\int_{0}^{t}x^{p-1}(1-x)^{q-1}\;dx
 \end{equation*}
@@ -292,7 +292,7 @@ This definition is using the first definition of beta function, so for any other
     I_t=\frac{B_t(p,q)}{B(p,q)}
 \end{equation*}
 
-\subsection*{Error Function} We define error function as 
+\subsection{Error Function} We define error function as 
 \begin{equation*}
     \erf(x)=\frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-t^2}\;dt
 \end{equation*}
@@ -322,7 +322,7 @@ then we make the substitution $u=x/\sqrt{2}$
     \erf(u)= 2\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u\sqrt{2}} e^{-t^2/2}\;dt-1=2\Phi\bigl(x\sqrt{2}\bigr)-1\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Complementary error function.} Defined as 
+\subsubsection{Complementary error function.} Defined as 
 \begin{equation*}
     \erfc(x)=\frac{2}{\sqrt{\pi}}\int_{x}^{\infty}e^{-t^2}\;dt
 \end{equation*}
@@ -347,7 +347,7 @@ then
     \erfc\bigl(x/\sqrt{2}\bigr)=\frac{2}{\sqrt{\pi}}\int_{x}^{\infty}\frac{e^{t^2/2}}{\sqrt{2}}\;dt=\sqrt{\frac{2}{\pi}}\int_{x}^{\infty}e^{-t^2/2}\;dt\quad\blacksquare
 \end{align*}
 
-\subsubsection*{Imaginary error function.} We deﬁne
+\subsubsection{Imaginary error function.} We deﬁne
 \begin{equation*}
     \erfi(x)=\frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{t^2}\;dt
 \end{equation*}
@@ -357,7 +357,7 @@ Here are some relation to the actual error function.
     \erf\biggl(\frac{1-i }{\sqrt{2}}x\biggr)&=(1-i   )\sqrt{\frac{2}{\pi}}\int_{0}^{x}(\cos^2u+i\sin^2u)\;du
 \end{align*}
 
-\subsection*{Riemann Zeta Function}
+\subsection{Riemann Zeta Function}
 The Riemann zeta function \(\zeta(p)\) is defined by
 \begin{equation*}
     \zeta(p)=\sum_{n=0}^{\infty}\frac{1}{k^p}
@@ -370,14 +370,14 @@ for real $p>1$. Here are some value of the Riemann zeta function
     \end{array}$
 \end{center}
 
-\subsubsection*{Integrals.} Here are some integral in terms of gamma function and Riemann zeta function.
+\subsubsection{Integrals.} Here are some integral in terms of gamma function and Riemann zeta function.
 \begin{align*}
     \int_{0}^{\infty}\frac{x^p}{e^x-1}dx&=\Gamma(p+1)\zeta(p+1)\\
     \int_{0}^{\infty}\frac{x^pe^x}{\left(e^x-1\right)^2}dx&= \Gamma(p+1)\zeta(p)\\
     \int_{0}^{\infty}\frac{x^{p-1}}{e^x+1}dx& = \left(1-2^{1-p}\right)\Gamma(p) \zeta(p)
 \end{align*}
 
-\subsection*{Striling's Formula}
+\subsection{Striling's Formula}
 Used to express $n!$ or its logaritm for large $n$.
 \begin{equation*}
     n!\sim n^ne^{-n}\sqrt{2\pi n}

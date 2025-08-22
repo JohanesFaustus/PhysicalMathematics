@@ -1,6 +1,6 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\subsection*{Vector Operation}
+\subsection{Vector Operation}
 There are four vector operation: Addition,  Multiplication by a scalar, Dot product, and Cross Product.
 (i) Addition of two vectors. Addition is commutative and associative
 \begin{align*}
@@ -56,7 +56,7 @@ Rule (iv): To calculate the cross product, form the determinant whose first row 
     \end{vmatrix}
 \end{align*}
 
-\subsection*{Triple Product}
+\subsection{Triple Product}
 
 (i) Scalar triple product. 
 \begin{align*}
@@ -76,7 +76,7 @@ They are cyclic and in component form\begin{align*}
 \end{equation*}
 The product is linear combination of vector in parentheses.
 
-\subsection*{Separation Vector}
+\subsection{Separation Vector}
 Separation vector defined as vector from the source point $\bar{r'}$ to the field point $\bar{r}$
 \begin{equation*}
     \rcurs \equiv \mathbf{\bar{r} }- \mathbf{\bar{r'}}.
@@ -88,13 +88,13 @@ Separation vector defined as vector from the source point $\bar{r'}$ to the fiel
     \caption*{Figure: Separation vector}
 \end{figure}
 
-\subsection*{Del Operator}
+\subsection{Del Operator}
 Vector operator defined as follows.
 \begin{equation*}
     \nabla = \mathbf{\hat{x}}\frac{\partial}{\partial x}+\mathbf{\hat{y}}\frac{\partial}{\partial y}+\mathbf{\hat{z}}\frac{\partial}{\partial z}
 \end{equation*}
 
-\subsection*{Operation Involving Del Operator}
+\subsection{Operation Involving Del Operator}
 There are three ways the operator $\nabla$ can act:
 \begin{enumerate}
     \item On a scalar function $T$ : $\nabla T$ (the gradient); 
@@ -130,7 +130,7 @@ Curl of vector function \textbf{V} is
 \end{equation*}
 The name curl is also well-chosen, for $\nabla \times  \mathbf{v}$ is a measure of how much the vector \textbf{v} swirls around the point in question. 
 
-\subsection*{Product Rule}
+\subsection{Product Rule}
 There are two ways to construct a scalar as the product of two functions
 \begin{align*}
     fg\quad&\text{(product of two scalar functions)}\\
@@ -163,7 +163,7 @@ and two for curls
     \nabla \times (\A \times \B) = (\B \cdot \nabla)\A - (\A \cdot \nabla)\B + \A(\nabla \cdot \B) - \B(\nabla \cdot \A)
 \end{equation*}
 
-\subsection*{Second Derivative}
+\subsection{Second Derivative}
 
 (1) Divergence of gradient: $\nabla \cdot (\nabla T)$. 
 Called Laplacian of T. Notice that the Laplacian of a scalar T is a scalar. 
@@ -196,13 +196,13 @@ $\nabla  (\nabla \cdot  \mathbf{v})$ is not the same as the Laplacian of a vecto
     \nabla \times (\nabla \times  \mathbf{v})=\nabla (\nabla \cdot  \mathbf{v})-\nabla^2 \mathbf{v}
 \end{equation*}
 
-\subsection*{Fundamental Theorem of Calculus}
+\subsection{Fundamental Theorem of Calculus}
 The fundamental theorem of calculus says the integral of a derivative over some region is given by the value of the function at the end points (boundaries). 
 \begin{equation*}
     \int_{a}^{b} \frac{df}{dx}\;dx=f(b)-f(a)
 \end{equation*}
 
-\subsubsection*{Gradient.} The fundamental theorem for gradients; like the “ordinary” fundamental theorem, it says that the integral (line integral) of a derivative (gradient) is given by the value of the function at the boundaries (a and b).
+\subsubsection{Gradient.} The fundamental theorem for gradients; like the “ordinary” fundamental theorem, it says that the integral (line integral) of a derivative (gradient) is given by the value of the function at the boundaries (a and b).
 \begin{equation*}
     \int_{a}^{b}(\nabla T)\cdot d\mathbf{l}=T(\mathbf{b})-T(\mathbf{a})
 \end{equation*}
@@ -211,7 +211,7 @@ The fundamental theorem of calculus says the integral of a derivative over some 
 
 \emph{Corollary 2:} $\oint (\nabla T)\cdot d\mathbf{l}=0 $ since the beginning and end points are identical.
 
-\subsubsection*{Divergences}.
+\subsubsection{Divergences}.
 Like the other “fundamental theorems,” it says that the integral of a derivative (divergence) over a region (volume V) is equal to the value of the function at the boundary (surface S).
 \begin{equation*}
     \int_{V}(\nabla \cdot \mathbf{v})\;d\tau=\oint_{S}\mathbf{v}\cdot d\mathbf{a}
@@ -222,7 +222,7 @@ If v represents the flow of an incompressible fluid, then the flux of $\mathbf{v
     \int (\text{faucets within the volume})=\oint (\text{ﬂow out through the surface})
 \end{equation*}
 
-\subsubsection*{Curl.} As always, the integral of a derivative (curl) over a region (patch of surface, $S$) is equal to the value of the function at the boundary (perimeter of the patch, $P$). Now, the integral of the curl over some surface (flux of the curl) represents the “total amount of swirl,” and we can determine that just as well by going around the edge and finding how much the flow is following the boundary.
+\subsubsection{Curl.} As always, the integral of a derivative (curl) over a region (patch of surface, $S$) is equal to the value of the function at the boundary (perimeter of the patch, $P$). Now, the integral of the curl over some surface (flux of the curl) represents the “total amount of swirl,” and we can determine that just as well by going around the edge and finding how much the flow is following the boundary.
 \begin{equation*}
     \int_{S}(\nabla \times \mathbf{v})\cdot d\mathbf{a}=\oint_{P}\mathbf{v}\cdot d\mathbf{l}
 \end{equation*}
@@ -231,13 +231,13 @@ If v represents the flow of an incompressible fluid, then the flux of $\mathbf{v
 
 Corollary 2. $\oint (\nabla \times \mathbf{v})\cdot d\mathbf{a}=0$ for any closed surface, since the boundary line, like the mouth of a balloon, shrinks down to a point.
 
-\subsection*{Integration by Parts}
+\subsection{Integration by Parts}
 It applies to the situation in which you are called upon to integrate the product of one function $( f )$ and the derivative of another $(g)$; it says you can transfer the derivative from $g$ to $f$, at the cost of a minus sign and a boundary term.
 \begin{equation*}
     \int_{a}^{b} f\bigg(\frac{dg}{dx}\bigg)\;dx=-\int_{a}^{b} g\bigg(\frac{df}{dx}\bigg)\;dx+ fg \bigg\lvert_{a}^{b}
 \end{equation*}
 
-\subsection*{Curvilinear Coordinates}
+\subsection{Curvilinear Coordinates}
 I shall use arbitrary (orthogonal) curvilinear coordinates ($u, v, w$), developing formulas for the gradient, divergence, curl, and Laplacian in any such system. Infinitesimal displacement vector can be written
 \begin{equation*}
     d\mathbf{l}=f\;d u \;\mathbf{\hat{u}} +g \;d v \;\mathbf{\hat{v}}+h \;d w \;\mathbf{\hat{w}}
@@ -263,29 +263,29 @@ Use table \ref{T1} for references.
     \label{T1}
 \end{table}
 
-\subsubsection*{Gradient.} The gradient of t is
+\subsubsection{Gradient.} The gradient of t is
 \begin{equation*}
     \nabla \mathbf{t} \equiv \frac{1}{f}\frac{\partial t}{\partial u}\mathbf{\hat{u}}+ \frac{1}{g}\frac{\partial t}{\partial v}\mathbf{\hat{v}}+ \frac{1}{h}\frac{\partial t}{\partial w}\mathbf{\hat{w}}
 \end{equation*}
 
-\subsubsection*{Divergence.} The divergence of $\A$ in curvilinear coordinates:
+\subsubsection{Divergence.} The divergence of $\A$ in curvilinear coordinates:
 \begin{equation*}
     \nabla \cdot \A\equiv \frac{1}{fgh} \biggl[ \frac{\partial}{\partial u} (ghA_u)+ \frac{\partial}{\partial v} (fh A_v)+\frac{\partial}{\partial w} (fg A_w)\biggr]
 \end{equation*}
 
-\subsubsection*{Curl.} 
+\subsubsection{Curl.} 
 \begin{multline*}
     \nabla \times \A\equiv \frac{1}{gh} \biggl[\frac{\partial}{\partial v} (hA_w) -\frac{\partial}{\partial w } (g A_{v}) \biggr]\mathbf{\hat{u}}
     +\frac{1}{fh} \biggl[\frac{\partial}{\partial w} (f A_{u}) -\frac{\partial}{\partial u } (h A_{w}) \biggr]\mathbf{\hat{v}}\\
     +\frac{1}{fg} \biggl[\frac{\partial}{\partial u} (g A_{v}) -\frac{\partial}{\partial v } (f A_{u}) \biggr]\mathbf{\hat{w}}
 \end{multline*}
 
-\subsubsection*{Laplacian.} 
+\subsubsection{Laplacian.} 
 \begin{equation*}
     \nabla^2t\equiv \frac{1}{fgh}\biggl[\frac{\partial}{\partial u}\Biggl(\frac{gh}{f}\frac{\partial t}{\partial u}\Biggr)+ \frac{\partial}{\partial v}\Biggl(\frac{fh}{g}\frac{\partial t}{\partial v} \Biggr)+ \frac{\partial}{\partial w}\Biggl(\frac{fg}{h}\frac{\partial t}{\partial w}\Biggr)\biggr]
 \end{equation*}
 
-\subsubsection*{Spherical.}
+\subsubsection{Spherical.}
 \begin{align*}
    & \begin{cases}
         x &= r \sin \theta \cos \phi\\
@@ -310,7 +310,7 @@ Use table \ref{T1} for references.
     \end{cases}
 \end{align*}
 
-\subsubsection*{Cylindrical.}
+\subsubsection{Cylindrical.}
 \begin{align*}
    & \begin{cases}
         x &= s \cos \phi \\
@@ -341,7 +341,7 @@ Use table \ref{T1} for references.
     \caption*{Spherical Coordinates and Cylindrical Coordinates}
 \end{figure*}
 
-\subsection*{Dirac Delta}
+\subsection{Dirac Delta}
 The one-dimensional Dirac delta function, $\delta(x)$, can be pictured as an infinitely high, infinitesimally narrow “spike,” with area 1. That is to say
 \begin{equation*}
     \delta (x-a)=\begin{cases}
@@ -386,7 +386,7 @@ Few Dirac delta function
     \nabla^2 \frac{1}{\rcurs}&=-4\pi \delta^3(\brcurs)
 \end{align*} 
 
-\subsubsection*{Fourier Transform of a $\boldsymbol{\delta}$ function.} Using the definition of a Fourier transform, we write
+\subsubsection{Fourier Transform of a $\boldsymbol{\delta}$ function.} Using the definition of a Fourier transform, we write
 \begin{equation*}
     g(\alpha)=\frac{1}{2\pi}\int_{-\infty}^{\infty}\delta(x-a)e^{-i\alpha x}\;dx =\frac{1}{2\pi} e^{-i\alpha x}
 \end{equation*}
@@ -396,12 +396,12 @@ and its inverse transform
 \end{equation*}
 The integral however does not converge. If we replace the limits by $-n, n$, we obtain a set of functions  which are increasingly peaked around $x = a$ as $n$ increases, but all have area 1.
 
-\subsubsection*{Derivative of a $\boldsymbol{\delta}$ function.} Using repeated integrations by parts gives 
+\subsubsection{Derivative of a $\boldsymbol{\delta}$ function.} Using repeated integrations by parts gives 
 \begin{equation*}
     \int_{-\infty}^{\infty}\phi(x)\delta^{(n)}(x-a)\;dx=(-1)^n\phi^{(n)}(a)
 \end{equation*}
 
-\subsubsection*{Few formulas involving $\boldsymbol{\delta}$ function.} For step function
+\subsubsection{Few formulas involving $\boldsymbol{\delta}$ function.} For step function
 \begin{align*}
     u(x-a)&=\begin{cases}
         1,x>a\\
@@ -411,7 +411,7 @@ The integral however does not converge. If we replace the limits by $-n, n$, we 
 \end{align*}
 It is easy to see how the derivative of step function is equal to delta function.
 
-\subsection*{Helmholtz Theorem}
+\subsection{Helmholtz Theorem}
 Suppose we are told that the divergence of a vector function F(r) is a specified
 scalar function D(r):
 \begin{equation*}
@@ -432,8 +432,8 @@ then F is given uniquely by
     \mathbf{F} =-\nabla U+\nabla \times \mathbf{W}
 \end{equation*}
 
-\subsection*{Potential Theorem}
-\subsubsection*{Curl-less (or “irrotational”) fields.} 
+\subsection{Potential Theorem}
+\subsubsection{Curl-less (or “irrotational”) fields.} 
 The following conditions are equivalent
 (that is, F satisﬁes one if and only if it satisﬁes all the others):
 \begin{itemize}
@@ -443,7 +443,7 @@ The following conditions are equivalent
     \item \textbf{F} is the gradient of some scalar function: $F =- \nabla V$ .
 \end{itemize}
 
-\subsubsection*{Divergence-less (or “solenoidal”) fields.} 
+\subsubsection{Divergence-less (or “solenoidal”) fields.} 
 The following conditions are equivalent:
 \begin{itemize}
     \item $\nabla \cdot \mathbf{F}=0$ everywhere.
@@ -452,7 +452,7 @@ The following conditions are equivalent:
     \item \textbf{F} is the curl  of some scalar function: $\mathbf{F} =- \nabla \A$.
 \end{itemize}
 
-\subsection*{State Function and Conservative Field}
+\subsection{State Function and Conservative Field}
 State function, such as internal energy \(U \) and entropy \(S \), can be thought as conservative field. The condition that must be satisfied by conservative field $\mathbf{V}$ is
 \begin{equation*}
     \nabla\times \mathbf{V}=0
