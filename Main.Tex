@@ -1,9 +1,5 @@
 \documentclass[10pt]{article}
-\title{Physical Mathematics}
-\author{EFF}
-\date{\today}
 
-%\usepackage[a4paper]{geometry}
 \usepackage[paperheight=25.5 cm ,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{amsmath, amsthm, amssymb, esdiff, esint, indentfirst, longtable, array, csquotes, fancyref, array, longtable, romannum, mathtools, booktabs, braket}
 \theoremstyle{definition}
@@ -15,13 +11,12 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{./export.bib}
 
-\graphicspath{ {./Rss/} }
 \newcommand*{\df}{\frac{d}{dx}}
 \newcommand*{\seconddf}{\frac{d^2}{dx^2}}
 \newcommand*{\pardf}{\frac{\partial}{\partial x}}
 \newcolumntype{M}[1]{>{\[}p{#1}<{\]}}
-\def\rcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/ScriptR.pdf}}}$}}}
-\def\brcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/BoldR.pdf}}}$}}}
+\def\rcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/VA/ScriptR.pdf}}}$}}}
+\def\brcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/VA/BoldR.pdf}}}$}}}
 \def\hrcurs{{\mbox{$\hat \brcurs$}}}
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\B}{\mathbf{B}}
@@ -88,64 +83,64 @@
 \begin{document}
 \pagestyle{empty}
 \nocite{*}
-\subfile{Section/Preamble/Pre.tex}
+\subfile{./Chapter/Cover/cov.tex}
 \clearpage
 \section{FUNDAMENTAL}
 \thispagestyle{empty}
-\subfile{Section/Fundamental/Fundamental.tex}
+\subfile{./Chapter/AnalyticApproach/Fundamental/Fundamental.tex}
 \clearpage
 \section{Series}
-\subfile{Section/Series/Series.tex}
+\subfile{./Chapter/AnalyticApproach/Series/Series.tex}
 \clearpage
 
 \section{Complex Analysis}
-\subfile{Section/ComplexNumber/ComNum.tex}
+\subfile{./Chapter/AnalyticApproach/ComplexNumber/ComNum.tex}
 \clearpage
-\subfile{Section/ComplexNumber/CNAppend.tex}
+\subfile{./Chapter/AnalyticApproach/ComplexNumber/CNAppend.tex}
 \clearpage
 
 \section{Linear Algebra}
-\subfile{Section/LinearAlgbra/LinAlg.tex}
+\subfile{./Chapter/AnalyticApproach/LinearAlgbra/LinAlg.tex}
 \clearpage
-\subfile{Section/LinearAlgbra/LinAlgAppl.tex}
+\subfile{./Chapter/AnalyticApproach/LinearAlgbra/LinAlgAppl.tex}
 \clearpage
 
 \section{Partial Differentitation}
-\subfile{Section/PartialDerivative/PD.tex}
+\subfile{./Chapter/AnalyticApproach/PartialDerivative/PD.tex}
 \clearpage
-\subfile{Section/PartialDerivative/PDAppend.tex}
+\subfile{./Chapter/AnalyticApproach/PartialDerivative/PDAppend.tex}
 \clearpage
 
 \section{Vector Analysis}
-\subfile{Section/VectorAnalysis/VA.tex}
+\subfile{./Chapter/AnalyticApproach/VectorAnalysis/VA.tex}
 \clearpage
 
 \section{Fourier Series and Transform}
-\subfile{Section/Fourier/FST.tex}
+\subfile{./Chapter/AnalyticApproach/Fourier/FST.tex}
 \clearpage
 
 \section{Ordinary Diferential Equation}
-\subfile{Section/OrdinaryDifferentialEQ/ODE.tex}
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/ODE.tex}
 \clearpage
-\subfile{Section/OrdinaryDifferentialEQ/ODEAppen.tex}
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/ODEAppen.tex}
 \clearpage
-\subfile{Section/OrdinaryDifferentialEQ/EDEAppend2.tex}
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/EDEAppend2.tex}
 \clearpage
-\subfile{Section/OrdinaryDifferentialEQ/ODEAppend3.tex}
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/ODEAppend3.tex}
 \clearpage
 
 \section{Calculus of Variation}
-\subfile{Section/VariationCalculus/Var.tex}
+\subfile{./Chapter/AnalyticApproach/VariationCalculus/Var.tex}
 \clearpage
-\subfile{Section/VariationCalculus/VarAppl.tex}
+\subfile{./Chapter/AnalyticApproach/VariationCalculus/VarAppl.tex}
 \clearpage
 
 \section{Special Function}
-\subfile{Section/SpecialFunction/Sfunc.tex}
+\subfile{./Chapter/AnalyticApproach/SpecialFunction/Sfunc.tex}
 \clearpage
 
 \section{Probability}
-\subfile{Section/Probability/Probability.tex}
+\subfile{./Chapter/AnalyticApproach/Probability/Probability.tex}
 \clearpage
 
 \printbibliography
