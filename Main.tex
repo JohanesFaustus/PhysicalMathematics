@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}
+
+%Custom papersize, roughly the ratio of smartphone for convinience
+
+\newif\ifaFive
+% default state is false
+
+% \aFivetrue
+
+\ifaFive
+    \usepackage[a5paper]{geometry}
+\else
+    \usepackage[paperheight=25.5 cm,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
+\fi
+
+\input{./Chapter/Preamble/PreCustom.tex}
+
+\begin{document}
+\pagestyle{empty}
+\nocite{*}
+\subfile{./Chapter/Cover/cov.tex}
+\clearpage
+\section{FUNDAMENTAL}
+\thispagestyle{empty}
+\subfile{./Chapter/AnalyticApproach/Fundamental/Fundamental.tex}
+\clearpage
+\section{Series}
+\subfile{./Chapter/AnalyticApproach/Series/Series.tex}
+\clearpage
+
+\section{Complex Analysis}
+\subfile{./Chapter/AnalyticApproach/ComplexNumber/ComNum.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/ComplexNumber/CNAppend.tex}
+\clearpage
+
+\section{Linear Algebra}
+\subfile{./Chapter/AnalyticApproach/LinearAlgbra/LinAlg.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/LinearAlgbra/LinAlgAppl.tex}
+\clearpage
+
+\section{Partial Differentitation}
+\subfile{./Chapter/AnalyticApproach/PartialDerivative/PD.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/PartialDerivative/PDAppend.tex}
+\clearpage
+
+\section{Vector Analysis}
+\subfile{./Chapter/AnalyticApproach/VectorAnalysis/VA.tex}
+\clearpage
+
+\section{Fourier Series and Transform}
+\subfile{./Chapter/AnalyticApproach/Fourier/FST.tex}
+\clearpage
+
+\section{Ordinary Diferential Equation}
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/ODE.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/ODEAppen.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/EDEAppend2.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/OrdinaryDifferentialEQ/ODEAppend3.tex}
+\clearpage
+
+\section{Calculus of Variation}
+\subfile{./Chapter/AnalyticApproach/VariationCalculus/Var.tex}
+\clearpage
+\subfile{./Chapter/AnalyticApproach/VariationCalculus/VarAppl.tex}
+\clearpage
+
+\section{Special Function}
+\subfile{./Chapter/AnalyticApproach/SpecialFunction/Sfunc.tex}
+\clearpage
+
+\section{Probability}
+\subfile{./Chapter/AnalyticApproach/Probability/Probability.tex}
+\clearpage
+
+\printbibliography
+\end{document}
