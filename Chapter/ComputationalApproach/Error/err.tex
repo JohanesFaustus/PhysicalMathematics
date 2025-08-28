@@ -1,0 +1,175 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Types of Errors}
+
+Four general types of errors exist to plague your computations
+\begin{enumerate}
+    \item \textbf{Blunders or bad theory.} Typos in program or data, fault in reasoning (i.e. in the theoretical description), using the wrong data files, etc..
+    \item \textbf{Random errors.} Imprecision caused by events such as fluctuations in electronics, cosmic rays, etc..
+    \item \textbf{Approximation errors.} Imprecision arising from simplifying the math so that a problem can be solved on a computer. e.g. replacement of infinite series by a finite sum, of infinitesimal intervals by finite ones, by variable functions by constants, e.g.
+    \begin{equation*}
+        \sin(x) = \sum_{n=1}^{\infty} \frac{ (-1)^{n-1} x^{2n-1} } { (2n-1)! }
+    \end{equation*}
+    vs 
+    \begin{equation*}
+       \sin(x) \simeq \sum_{n=1}^{N} \frac{ (-1)^{n-1} x^{2n-1} } { (2n-1)! } + \epsilon(x,N)
+    \end{equation*}
+    where $\epsilon(x,N)$  is the approximation (or algorithmic) error = the series from $N+1$ to $\infty$. 
+    For any reasonable approximation, this error should decrease as $N$ increases and should vanish in the limit $N\rightarrow \infty$. 
+    \item \textbf{Round-off errors.} Imprecision arising from the finite number of digits used to store floating-point numbers. 
+    
+    This is analogous to the uncertainty in the measurement of a physical quantity in an elementary physics' lab. Round-off errors accumulate as the computer handles more numbers, i.e. as the number of steps in a computation increases. This may cause some algorithms to become unstable with a rapid increase in error. In some cases the round-off error may become a major component in your answer, leading to "garbage". 
+    
+    e.g. if a computer stores 1/3 as 0.3333 and 2/3 as 0.6667, if we ask the computer to do 2*(1/3) - 2/3 = 0.6666 - 0.6667 = -0.0001. Although small, this error is non-zero. If this is repeated millions of times, the final answer might not even be small! 
+\end{enumerate}
+
+\subsection{Subtractive Cancelation}
+Calculations employing numbers that are stored only approximately on the computer can only be expected to yield approximate answers. 
+We model the computer representation, $x_c$, of the exact number $x$, as:
+\begin{equation*}
+    x_c \simeq x ( 1 + \epsilon_x )
+\end{equation*}
+where $\epsilon_x$ is the relative error in $x_c$. 
+We expect this to be of the same order as the "machine precision". In particular, we expect double-precision numbers to have an error in the 15th decimal place. 
+We can apply this notation to simple subtraction: $a = b - c$.
+On a computer, this would be: $a_c \simeq b_c - c_c \simeq b(1+\epsilon_b) - c( 1 + \epsilon_c)$.
+So
+\begin{equation*}
+    \frac{a_c}{a} \simeq 1 + \epsilon_b \frac{b}{a} - \frac{c}{a} \epsilon_c
+\end{equation*}
+Observe that when we subtract two nearly equal numbers, i.e.,
+\begin{equation*}
+    b \simeq c \gg a
+\end{equation*}
+Then
+\begin{equation*}
+    \frac{a_c}{a} \equiv 1 + \epsilon_a \simeq 1 + \frac{b}{a} (\epsilon_b - \epsilon_c) \simeq 1 + \frac{b}{a}(|\epsilon_b|+|\epsilon_c|)
+\end{equation*}
+
+Even if the relative errors somewhat cancel, they are still multiplied by a large number, $b/a$. 
+This can significantly magnify the error. But since we cannot assume a sign for the errors, we can assume the worst, i.e. that they add up. 
+
+As a more explicit mathematical example, consider the constructing the expansion of $e^{-x}$ for large values of $x$:
+\begin{equation*}
+    e^{-x} = 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + ... 
+\end{equation*}
+The first few terms are large, but of alternating sign, leading to an almost total cancelation in order to yield the final small result. 
+This subtractive cancelation can be eliminated by considering $e^{-x} = 1/e^x$ instead, but round-off errors still remain, which we examine next. 
+
+\subsection{Round-off Errors} 
+Error arises from a single division of the computer representations of two numbers:
+\begin{equation*}
+    a = \frac{b}{c} \rightarrow a_c = \frac{b_c}{c_c} = \frac{b}{c} \left( \frac{1+\epsilon_b}{1+\epsilon_c} \right)
+\end{equation*}
+so
+\begin{equation*}
+    \frac{a_c}{a} = \frac{1+\epsilon_b}{1+\epsilon_c} \simeq (1+\epsilon_b) (1- \epsilon_c) \simeq 1 + \epsilon_b - \epsilon_c
+\end{equation*}
+where we have ignored terms of order $\epsilon^2$. 
+We need to assume the worst for the error subtraction, and get:
+\begin{equation*}
+    \frac{a_c}{a} \simeq 1 + |\epsilon_b| + |\epsilon_c|
+\end{equation*}
+
+We can generalize this to estimate the error in the evaluation of a general function $f(x)$
+\begin{equation*}
+    \epsilon = \frac{ f(x) - f(x_c) } { f(x) } \simeq \frac{\mathrm{d} f(x) / \mathrm{d}x}{f(x)} (x-x_c)
+\end{equation*}
+E.g. for $f(x) = \sqrt{1+x}$
+\begin{align*}
+    \frac{ \mathrm{d} f}{\mathrm{d}x} &= \frac{1}{2} \frac{1}{\sqrt{1+x}}\\ 
+    \epsilon &= \frac{x - x_c}{2 (1+x) }
+\end{align*}
+e.g. Evaluate at $x=\pi/4$ and assume an error in the 4th decimal place of $x$, then we obtain a similar error of $1.5\times 10^{-4}$ on $f(x) = \sqrt{1+x}$. 
+
+\subsection{Round-off Error Accumulation}
+If a calculation has many steps, we can view the error as a step in a random walk. 
+The total distance $R$, covered in $N$ steps of length $r$ is:
+\begin{equation*}
+    R = \sqrt{N} r
+\end{equation*}
+By analogy, the total relative error after $N$ calculations steps, each with machine precision, $\epsilon_m$, is on average:
+\begin{equation*}
+    \epsilon_\mathrm{ro} = \sqrt{N} \epsilon_m
+\end{equation*}
+If the round-off error does not accumulate randomly: a more detailed analysis is needed. 
+In some cases there may be no cancelation, and the error may increase as $N \epsilon_m$ instead. 
+Even worse, in some recursive algorithms, error generation can be coherent, leading to an $N!$ increase in error. 
+
+\subsection{Deterministic Randomness}
+
+Some people are attracted to computing because of its deterministic nature. 
+Nevertheless, many computer cycles are used for Monte Carlo calculations. 
+
+Monte Carlo calculations include elements of chance at their very core (hence the name). T
+hey involve *random-like* numbers generated by a computer to simulate naturally-random processes, such as thermal motion or radioactive decay. 
+
+Monte Carlo techniques are able to solve very challenging problems!
+
+\subsection{Random Sequences}
+
+We define a sequence $r_1, r_2,...$ as random if there are no correlations between the coefficients. 
+But, being random does not mean all numbers in the sequence are equally likely to occur! 
+If all numbers in a sequence are equally likely to occur: the sequence is called uniform.
+Mathematically the likelihood of a number occurring is described by a distribution $P(r)$, where $P(r)\mathrm{d}r$ is the probability of finding $r$ in the interval $[r, r+\mathrm{d}r]$. 
+
+For a uniform distribution: $P(r) = \mathrm{constant}$. 
+The standard random number generator on computers generates uniform distributions between 0 and 1, i.e. it outputs numbers in this interval with equal probability, yet independent of the previous number. 
+
+By their nature computers are deterministic devices, and therefore cannot create a random sequence. 
+Computed random number sequences must contain correlations, and therefore cannot be truly random. 
+This implies that if we know $r_m$ and its preceding elements, then it is always possible to figure out $r_{m+1}$. 
+For this reason, computers are said to generate pseudorandom numbers. 
+
+A primitive alternative to this is to read off a table of truly random numbers, determined by  naturally-random process, such as radioactive decay, or to connect the computer to an experimental device that measures random events. 
+
+\subsection{Random Number Generation}
+
+Sequences of pseudorandom numbers $0 \leq r_i \leq M-1$ over the interval $[0, M-1]$ can be generated on a computer via the "linear congruent" or "power residue" method
+\begin{enumerate}
+    \item Starting with $r_1$, to obtain the next random number $r_2$, multiply $r_1$ by a constant $a$, add another constant $c$ and keep the remainder. 
+    \item Repeat this with $r_2$ to get $r_3$ and so on. So to get $r_{i+1}$, given $r_i$: 
+    \begin{equation*}
+        r_{i+1} = \mathrm{remainder} \left( \frac{a r_i + c}{M} \right)
+    \end{equation*}
+    The initial number, the *seed*, $r_1$ is frequently supplied by the user. 
+\end{enumerate}
+
+In Python the remainder is given by the operator "\%", i.e. the above equation would read: \verb|rnext = (a * rprevious + c)% M|. 
+
+One can then divide the whole sequence by $M$ to get numbers in the interval $[0,1]$. 
+If we want random numbers in an interval $[A,B]$ instead, then we can transform the generated sequence in the interval $[0,1]$, by:
+\begin{equation*}
+    x_i = A + (B-A) r_i   
+\end{equation*}
+
+Note that the linear congruent method becomes completely correlated if a particular integer comes up a second time. 
+The whole cycle then repeats.
+
+If e.g. 48-bit arithmetic is used, then $M \sim 2^{48} \simeq 3\times 10^{14}$. 
+If your program would then use approximately these many random numbers (feasible, e.g. if your program is performing Monte Carlo simulations in many dimensions!), then you may need to "re-seed" (i.e. choose a new seed) to reset the sequence during intermediate steps. 
+
+In Python, the default \verb|random.random()| algorithm is the "Mersernne Twister". 
+It has an extremely long period: $2^{19937} -1$ (a prime number) which is approximately $4.3 \times 10^{6001}$. 
+This is many orders of magnitude larger than the estimated number of particles in the observable universe ($\sim 10^{87}$).
+
+\subsection{Generating Random Numbers of Arbitrary Distributions}
+
+Suppose we possess a random number generator that yields uniform random numbers in the interval $[0,1]$. We can use it to generate random numbers according to any distribution using the *inversion method*. 
+
+The method proceeds as follows
+\begin{enumerate}
+    \item Suppose we want to distribute random numbers according to a function $f(x)$. We first calculate the *cumulative* distribution function (CDF) as: $F(x) = \int^x_0 \mathrm{d}x f(x)$.
+    \item We then find the inverse of the desired CDF, i.e. we solve $y=F(x)$ as $F^{-1}(y)=x$.
+    \item If then "draw" $y_0$ and calculate $x_0 = F^{-1}(y_0)$, then $x_0$ is distributed according to $f(x)$.
+\end{enumerate}
+
+Here's an example for $f(x)=3x^2$ for $x \in [0,1]$. 
+Note that 
+\begin{equation*}
+    \int_0^1 \mathrm{d} x f(x)= 1
+\end{equation*}
+for $f(x)$ in $[0,1]$, as expected for a probability distribution.
+The CDF is $F(x) = x^3$. 
+Then $x = y^{1/3}$ and so we have:
+\end{document}

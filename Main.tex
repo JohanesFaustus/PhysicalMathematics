@@ -1,10 +1,10 @@
-\documentclass[10pt]{article}
+\documentclass[10pt]{report}
 
 %Custom papersize, roughly the ratio of smartphone for convinience
 
 \newif\ifaFive
 % default state is false
-
+% uncomment below to make a5 papersize
 % \aFivetrue
 
 \ifaFive
@@ -19,6 +19,8 @@
 \pagestyle{empty}
 \nocite{*}
 \subfile{./Chapter/Cover/cov.tex}
+\clearpage
+\chapter{Analytic Approach}
 \clearpage
 \section{FUNDAMENTAL}
 \thispagestyle{empty}
@@ -77,6 +79,11 @@
 \section{Probability}
 \subfile{./Chapter/AnalyticApproach/Probability/Probability.tex}
 \clearpage
+
+\chapter{Computational Approach}
+\clearpage
+\section{Error Analysis}
+\subfile{./Chapter/ComputationalApproach/Error/err.tex}
 
 \printbibliography
 \end{document}
