@@ -64,4 +64,36 @@ x1=-1
 x2=4
 print(bisec(f,x1,x2))
 \end{minted}
+
+\subsection{Newton–Raphson Method}
+Recall the Taylor series for continuous function
+\begin{align*}
+    f(x) & =         \frac{1}{n!}(x-a)^n f^{n}(a)              \\
+         & =   f(a)+(x-a)f'(a)+\frac{1}{2!}(x-a)^2f''(a)+\dots
+\end{align*}
+If we use $x=x_r$
+\begin{align*}
+    f(x_r) & =  f(a)+(x_r-a)f'(a)+\frac{(x_r-a)^2}{2!}f''(a)+\dots=0
+\end{align*}
+and $a \approx x_r$
+\begin{equation*}
+    f(a)+(x_r-a)f'(a)=0
+\end{equation*}
+We obtain the Newton–Raphson iteration
+\begin{equation*}
+    x_r=a-\frac{f(a )}{f'(a)}
+\end{equation*}
+
+\subsubsection{Implementation.}
+As shrimple as this
+\begin{minted}{python}
+def NR(f,df,a,eps=10**(-17)):
+loop=0 
+xr=0
+while np.abs(f(a))>eps:
+    xr=a-f(a)/df(a)
+    a=xr 
+    loop+=1
+return xr,loop
+\end{minted}
 \end{document}
