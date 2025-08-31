@@ -1,7 +1,7 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection{Difference Method}
-\subsubsection{Forward difference.} 
+\subsection{Finite Method}
+\subsubsection{Forward difference.}
 The forward difference of a function $f(x)$ with step size $h$ is defined as
 \begin{equation*}
     \Delta f(x)=f(x+h)-f(x)
@@ -28,12 +28,62 @@ Denoted by
 \begin{equation*}
     \delta f(x)=f(x+h/2)-f(x-h/2)
 \end{equation*}
-with the first derivative as 
+with the first derivative as
 \begin{equation*}
     f'(x)\approx \frac{f(x+h/2)-f(x-h/2)}{h}
 \end{equation*}
-or equivalently 
+or equivalently
 \begin{equation*}
     f'(x)\approx \frac{f(x+h)-f(x-h)}{2h}
+\end{equation*}
+
+\subsubsection{Taylor series relation.}
+Recall the Taylor expansion of $f(x)$
+\begin{equation*}
+    f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{equation*}
+Now expand $f(x+h)$ with Taylor expansion by substituting $x=a$ with $a$ as the expansion point
+\begin{equation*}
+    f(x+h) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x+h-a)^n= \sum_{n=0}^{\infty} \frac{f^{(n)}(x)}{n!}h^n
+\end{equation*}
+Now do the same thing for $f(x-h)$ instead
+\begin{equation*}
+    f(x+h) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-h-a)^n= \sum_{n=0}^{\infty} (-1)^n\frac{f^{(n)}(x)}{n!}h^n
+\end{equation*}
+Explicitly, both equation can be written
+\begin{align*}
+    f(x+h) & =  f(x) + h f'(x) + \frac{h^2}{2} f''(x) + \frac{h^3}{6} f^{(3)}(x) + \cdots \\
+    f(x-h) & =  f(x) - h f'(x) + \frac{h^2}{2} f''(x) - \frac{h^3}{6} f^{(3)}(x) + \cdots
+\end{align*}
+
+To obtain forward difference, subtract $f(x+h)$ by $f(x)$ and divide by $h$
+\begin{equation*}
+    \frac{f(x+h) - f(x)}{h} = f'(x) + \frac{h}{2} f''(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
+\end{equation*}
+Thus
+\begin{equation*}
+    f'(x) \approx \frac{f(x+h) - f(x)}{h}, \quad \text{error } = O(h)
+\end{equation*}
+
+In order to obtain backward difference, subtract $f(x-h)$ by $f(x)$ and divide by $h$
+\begin{equation*}
+    \frac{f(x+h) - f(x)}{h} = f'(x) + \frac{h}{2} f''(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
+\end{equation*}
+Thus
+\begin{equation*}
+    f'(x) \approx \frac{f(x) - f(x-h)}{h}, \quad \text{error } = O(h).
+\end{equation*}
+
+To obtain central difference, subtract $f(x+h)$ by $f(x-h)$ and divide by $h$
+\begin{equation*}
+    f(x+h) - f(x-h) = 2h f'(x) + \frac{h^3}{3} f^{(3)}(x) +\cdots
+\end{equation*}
+then divide by $2h$
+\begin{equation*}
+    \frac{f(x+h) - f(x-h)}{2h} = f'(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
+\end{equation*}
+Thus
+\begin{equation*}
+    f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}, \quad \text{error } = O(h^2)
 \end{equation*}
 \end{document}
