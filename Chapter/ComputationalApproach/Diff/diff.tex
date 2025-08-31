@@ -1,0 +1,39 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Difference Method}
+\subsubsection{Forward difference.} 
+The forward difference of a function $f(x)$ with step size $h$ is defined as
+\begin{equation*}
+    \Delta f(x)=f(x+h)-f(x)
+\end{equation*}
+The corresponding approximation of the first derivative is
+\begin{equation*}
+    f'(x)\approx \frac{f(x+h )-f(x )}{h}
+\end{equation*}
+Forward difference uses data at the current and next point.
+
+\subsubsection{Backward difference.}
+The backward difference of a function $f(x)$ with step size $h$ is defined as
+\begin{equation*}
+    \nabla f(x)=f(x)-f(x-h)
+\end{equation*}
+The corresponding approximation of the first derivative is
+\begin{equation*}
+    f'(x)\approx \frac{f(x )-f(x-h )}{h}
+\end{equation*}
+Backward difference uses data at the current and previous point.
+
+\subsubsection{Central difference.}
+Denoted by
+\begin{equation*}
+    \delta f(x)=f(x+h/2)-f(x-h/2)
+\end{equation*}
+with the first derivative as 
+\begin{equation*}
+    f'(x)\approx \frac{f(x+h/2)-f(x-h/2)}{h}
+\end{equation*}
+or equivalently 
+\begin{equation*}
+    f'(x)\approx \frac{f(x+h)-f(x-h)}{2h}
+\end{equation*}
+\end{document}
