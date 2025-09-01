@@ -86,4 +86,34 @@ Thus
 \begin{equation*}
     f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}, \quad \text{error } = O(h^2)
 \end{equation*}
+
+\subsection{1D Linear Convection}
+The equation is written as 
+\begin{equation*}
+    \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0   
+\end{equation*}
+From the definition of a derivative
+\begin{equation*}
+    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0 
+\end{equation*}
+Our discrete equation, then, is
+\begin{equation*}
+    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0 
+\end{equation*}
+Where $n$ and $n+1$ are two consecutive steps in time, while $i-1$ and $i$ are two neighboring points of the discretized $x$ coordinate. 
+If there are given initial conditions, then the only unknown in this discretization is $u_i^{n+1}$, which can be solved as 
+\begin{equation*}
+    u_i^{n+1} = u_i^n - c \frac{\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)
+\end{equation*}
+
+\subsubsection*{Implementiation.}
+Given the initial conditions, the solution can be written in python numerically as  
+\begin{minted}[breaklines]{python}
+un = numpy.ones(nx) #initialize a temporary array
+for n in range(nt):  #loop for values of n from 0 to nt, so it will run nt times
+    un = u.copy() ##copy the existing values of u into un
+    #for i in range(1, nx): ## you can try commenting this line and...
+    for i in range(nx): ## ... uncommenting this line and see what happens!
+        u[i] = un[i] - c * dt / dx * (un[i] - un[i-1])
+\end{minted}
 \end{document}
