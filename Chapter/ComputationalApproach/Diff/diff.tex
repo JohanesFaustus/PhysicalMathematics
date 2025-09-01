@@ -5,15 +5,15 @@ The Courant number measures how far information (e.g., a fluid particle or wave 
 \begin{equation*}
     \sigma=\frac{u \Delta t}{\Delta x}
 \end{equation*}
-Numerical stability typically requires $\sigma<1$, and as such we can write the time steps $\Delta x$ as 
+Numerical stability typically requires $\sigma<1$, and as such we can write the time steps $\Delta x$ as
 \begin{equation*}
     \Delta t=\frac{\sigma \Delta x }{u}
 \end{equation*}
 
 For example, consider some loop at which time iteration is required.
 In each iteration of our time loop, we use the existing data about our wave to estimate the speed of the wave in the subsequent time step.
-What has happened is that over the time period $\Delta t$, the wave is travelling a distance which is greater than \verb|dx|.  The length \verb|dx| of each grid box is related to the number of total points \verb|nx|, so stability can be enforced if the $\Delta t$ step size is calculated with respect to the size of \verb|dx|. 
- 
+What has happened is that over the time period $\Delta t$, the wave is travelling a distance which is greater than \verb|dx|.  The length \verb|dx| of each grid box is related to the number of total points \verb|nx|, so stability can be enforced if the $\Delta t$ step size is calculated with respect to the size of \verb|dx|.
+
 \subsection{Finite Method}
 \subsubsection{Forward difference.}
 The forward difference of a function $f(x)$ with step size $h$ is defined as
@@ -102,20 +102,20 @@ Thus
 \end{equation*}
 
 \subsection{1D Linear Convection}
-The equation is written as 
+The equation is written as
 \begin{equation*}
-    \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0   
+    \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0
 \end{equation*}
 From the definition of a derivative
 \begin{equation*}
-    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0 
+    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
 Our discrete equation, then, is
 \begin{equation*}
-    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0 
+    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
-Where $n$ and $n+1$ are two consecutive steps in time, while $i-1$ and $i$ are two neighboring points of the discretized $x$ coordinate. 
-If there are given initial conditions, then the only unknown in this discretization is $u_i^{n+1}$, which can be solved as 
+Where $n$ and $n+1$ are two consecutive steps in time, while $i-1$ and $i$ are two neighboring points of the discretized $x$ coordinate.
+If there are given initial conditions, then the only unknown in this discretization is $u_i^{n+1}$, which can be solved as
 \begin{equation*}
     u_i^{n+1} = u_i^n - c \frac{\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)
 \end{equation*}
@@ -126,17 +126,17 @@ The equation takes the form
     \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = 0
 \end{equation*}
 Instead of a constant factor $c$ multiplying the second term, now we have the solution $u$ multiplying it, causing the equation to be non-linear.
-As before, the discrete form is 
+As before, the discrete form is
 \begin{equation*}
     \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n-u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
-or more practically written as 
+or more practically written as
 \begin{equation*}
     u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n)
 \end{equation*}
 
 \subsubsection*{Implementiation.}
-Given the initial conditions, the solution can be written in python numerically, using the Courant number, as  
+Given the initial conditions, the solution can be written in python numerically, using the Courant number, as
 \begin{minted}[breaklines]{python}
 def linearconv(nx):
     dx = 2 / (nx - 1)
@@ -180,4 +180,18 @@ and for the non-linear equation
         
     pyplot.plot(numpy.linspace(0, 2, nx), u)
 \end{minted}
+
+\subsection{1D Diffusion Equation}
+The one-dimensional diffusion equation is
+\begin{equation*}
+    \frac{\partial u}{\partial t}= \nu \frac{\partial^2 u}{\partial x^2}
+\end{equation*}
+The discrete version is 
+\begin{equation*}
+    \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
+\end{equation*}
+or 
+\begin{equation*}
+    u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
+\end{equation*}
 \end{document}
