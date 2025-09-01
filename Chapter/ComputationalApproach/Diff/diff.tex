@@ -160,7 +160,7 @@ def linearconv(nx):
 \end{minted}
 and for the non-linear equation
 \begin{minted}[breaklines]{python}
-    def nonlinear(nx):
+def nonlinear(nx):
     dx = 2 / (nx - 1)
     nt = 20    #nt is the number of timesteps we want to calculate
     c = 1
@@ -217,4 +217,21 @@ or
 \begin{equation*}
     u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
 \end{equation*}
+
+\subsubsection*{Implementiation.}
+In python
+\begin{minted}[breaklines]{python}
+def diffus(start,end,nx,u):
+    dx = 2 / (nx - 1)
+    nt = 20    
+    nu = 0.3   
+    sigma = .2 
+    dt = sigma * dx**2 / nu 
+    un=numpy.zeros(nx)
+    for i in range(1,nt):
+        un=u.copy()
+        for j in range(1,nx-1):
+                u[j]=un[j]+nu*dt/dx**2*(u[j+1]-2*u[j]+u[j-1])
+    pyplot.plot(numpy.linspace(start,end,nx),u)
+\end{minted}
 \end{document}
