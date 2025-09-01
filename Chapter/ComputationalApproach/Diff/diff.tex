@@ -106,14 +106,64 @@ If there are given initial conditions, then the only unknown in this discretizat
     u_i^{n+1} = u_i^n - c \frac{\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)
 \end{equation*}
 
+\subsection{Non-linear convection.}
+The equation takes the form
+\begin{equation*}
+    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = 0
+\end{equation*}
+Instead of a constant factor $c$ multiplying the second term, now we have the solution $u$ multiplying it, causing the equation to be non-linear.
+As before, the discrete form is 
+\begin{equation*}
+    \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n-u_{i-1}^n}{\Delta x} = 0
+\end{equation*}
+or more practically written as 
+\begin{equation*}
+    u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n)
+\end{equation*}
+
 \subsubsection*{Implementiation.}
-Given the initial conditions, the solution can be written in python numerically as  
+Given the initial conditions, the solution can be written in python numerically, using the Courant number, as  
 \begin{minted}[breaklines]{python}
-un = numpy.ones(nx) #initialize a temporary array
-for n in range(nt):  #loop for values of n from 0 to nt, so it will run nt times
-    un = u.copy() ##copy the existing values of u into un
-    #for i in range(1, nx): ## you can try commenting this line and...
-    for i in range(nx): ## ... uncommenting this line and see what happens!
-        u[i] = un[i] - c * dt / dx * (un[i] - un[i-1])
+def linearconv(nx):
+    dx = 2 / (nx - 1)
+    nt = 20    #nt is the number of timesteps we want to calculate
+    c = 1
+    sigma = .5
+    
+    dt = sigma * dx
+
+    u = numpy.ones(nx) 
+    u[int(.5/dx):int(1 / dx + 1)] = 2
+
+    un = numpy.ones(nx)
+
+    for n in range(nt):  #iterate through time
+        un = u.copy() ##copy the existing values of u into un
+        for i in range(1, nx):
+            u[i] = un[i] - c * dt / dx * (un[i] - un[i-1])
+        
+    pyplot.plot(numpy.linspace(0, 2, nx), u)
+\end{minted}
+and for the non-linear equation
+\begin{minted}[breaklines]{python}
+    def nonlinear(nx):
+    dx = 2 / (nx - 1)
+    nt = 20    #nt is the number of timesteps we want to calculate
+    c = 1
+    sigma = .5
+    
+    dt = sigma * dx
+
+    u = numpy.ones(nx) 
+    u[int(.5/dx):int(1 / dx + 1)] = 2
+
+    un = numpy.ones(nx)
+
+    for n in range(nt):  #iterate through time
+        un = u.copy() ##copy the existing values of u into un
+        for i in range(1, nx):
+           u[i] = un[i] - un[i] * dt / dx * (un[i] - un[i-1]) 
+        
+    pyplot.plot(numpy.linspace(0, 2, nx), u)
 \end{minted}
 \end{document}
