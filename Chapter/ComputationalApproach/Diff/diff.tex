@@ -1,5 +1,19 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+\subsection{Courant Number}
+The Courant number measures how far information (e.g., a fluid particle or wave front) travels across the grid during one time step relative to the grid spacing.
+\begin{equation*}
+    \sigma=\frac{u \Delta t}{\Delta x}
+\end{equation*}
+Numerical stability typically requires $\sigma<1$, and as such we can write the time steps $\Delta x$ as 
+\begin{equation*}
+    \Delta t=\frac{\sigma \Delta x }{u}
+\end{equation*}
+
+For example, consider some loop at which time iteration is required.
+In each iteration of our time loop, we use the existing data about our wave to estimate the speed of the wave in the subsequent time step.
+What has happened is that over the time period $\Delta t$, the wave is travelling a distance which is greater than \verb|dx|.  The length \verb|dx| of each grid box is related to the number of total points \verb|nx|, so stability can be enforced if the $\Delta t$ step size is calculated with respect to the size of \verb|dx|. 
+ 
 \subsection{Finite Method}
 \subsubsection{Forward difference.}
 The forward difference of a function $f(x)$ with step size $h$ is defined as
@@ -106,7 +120,7 @@ If there are given initial conditions, then the only unknown in this discretizat
     u_i^{n+1} = u_i^n - c \frac{\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)
 \end{equation*}
 
-\subsection{Non-linear convection.}
+\subsubsection{Non-linear convection.}
 The equation takes the form
 \begin{equation*}
     \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = 0
