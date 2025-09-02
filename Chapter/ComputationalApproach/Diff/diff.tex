@@ -110,7 +110,7 @@ From the definition of a derivative
 \begin{equation*}
     \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
-Our discrete equation, then, is
+Using forward difference for time and backward difference for spatial, our discrete equation is
 \begin{equation*}
     \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
@@ -231,7 +231,33 @@ def diffus(start,end,nx,u):
     for i in range(1,nt):
         un=u.copy()
         for j in range(1,nx-1):
-                u[j]=un[j]+nu*dt/dx**2*(u[j+1]-2*u[j]+u[j-1])
+            u[j]=un[j]+nu*dt/dx**2*(u[j+1]-2*u[j]+u[j-1])
     pyplot.plot(numpy.linspace(start,end,nx),u)
 \end{minted}
+
+\subsection{1D Burgers's Equation}
+Burgers' equation is a combination of non-linear convection and diffusion, which in one spatial dimension looks like this
+\begin{equation*}
+    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = \nu \frac{\partial ^2u}{\partial x^2}
+\end{equation*}
+The analytic solution is given by 
+\begin{gather*}
+    u= -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 
+    \phi = \exp \bigg(\frac{-(x-4t)^2}{4 \nu (t+1)} \bigg) + \exp \bigg(\frac{-(x-4t -2 \pi)^2}{4 \nu(t+1)} \bigg)
+\end{gather*}
+with initial conditions of 
+\begin{gather*}
+    u = -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 
+    \phi = \exp \bigg(\frac{-x^2}{4 \nu} \bigg) + \exp \bigg(\frac{-(x-2 \pi)^2}{4 \nu} \bigg)
+\end{gather*}
+and periodic boundary conditions of $u(0)=u(2\pi)$
+
+The discretized version is 
+\begin{equation*}
+    \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n - u_{i-1}^n}{\Delta x} = \nu \frac{u_{i+1}^n - 2u_i^n + u_{i-1}^n}{\Delta x^2}
+\end{equation*}
+or 
+\begin{equation*}
+    u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n) + \nu \frac{\Delta t}{\Delta x^2}(u_{i+1}^n - 2u_i^n + u_{i-1}^n)
+\end{equation*}
 \end{document}
