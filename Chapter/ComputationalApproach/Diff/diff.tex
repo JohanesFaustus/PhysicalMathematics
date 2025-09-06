@@ -242,15 +242,15 @@ Burgers' equation is a combination of non-linear convection and diffusion, which
 \end{equation*}
 The analytic solution is given by 
 \begin{gather*}
-    u= -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 
+    u= -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
     \phi = \exp \bigg(\frac{-(x-4t)^2}{4 \nu (t+1)} \bigg) + \exp \bigg(\frac{-(x-4t -2 \pi)^2}{4 \nu(t+1)} \bigg)
 \end{gather*}
 with initial conditions of 
 \begin{gather*}
-    u = -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 
+    u = -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
     \phi = \exp \bigg(\frac{-x^2}{4 \nu} \bigg) + \exp \bigg(\frac{-(x-2 \pi)^2}{4 \nu} \bigg)
 \end{gather*}
-and periodic boundary conditions of $u(0)=u(2\pi)$
+and periodic boundary conditions of $u(0)=u(2\pi)$.
 
 The discretized version is 
 \begin{equation*}

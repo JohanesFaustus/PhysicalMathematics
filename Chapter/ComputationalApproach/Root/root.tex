@@ -19,50 +19,69 @@ If
 then by the Intermediate Value Theorem, there exists at least one root $\xi \in (a,b)$ such that $f(\xi) = 0$.
 
 \subsubsection{Algorithm.}
-Define function $f$ and two point $[x_1$, $x_2]$ as out initial guess.
-Compute the midpoint:
-\[
-    x_t= \frac{x_1+x_2}{2}.
-\]
-Evaluate $f(x_t)$, then
+As the following.
 \begin{enumerate}
-    \item If $f(x_t) = 0$, then $x_t$ is the root.
-    \item If $f(x_1) f(x_t) < 0$, then set $x_2 = x_1$. This condition implies that the root lies between $[x_1,x_t]$
-    \item Otherwise, set $a = c$, since $f(x_1)f(x_t)>0$ imply that the root lies on $[x_t,x_2]$
+    \item Define function $f$ and two point $[x_1$, $x_2]$ as out initial guess. Also define $\varepsilon$, where $\varepsilon > 0$ is the prescribed tolerance.
+    \item Compute the midpoint:
+          \begin{equation*}
+              x_t= \frac{x_1+x_2}{2}.
+          \end{equation*}
+    \item Evaluate $f(x_t)$, then
+          \begin{enumerate}
+              \item If $f(x_t) = 0$, then $x_t$ is the root.
+              \item If $f(x_1) f(x_t) < 0$, then set $x_2 = x_t$. This condition implies that the root lies between $[x_1,x_t]$
+              \item Otherwise, set $x_1 = x_t$, since $f(x_1)f(x_t)>0$ imply that the root lies on $[x_t,x_2]$.
+          \end{enumerate}
+          Repeat until the interval length is sufficiently small:
+          \begin{equation*}
+              |x_2 - x_1| < \varepsilon
+          \end{equation*}
+          or until
+          \begin{equation*}
+              |f(x_t)| < \varepsilon,
+          \end{equation*}
 \end{enumerate}
-Repeat until the interval length is sufficiently small:
-\[
-    |b-a| < \varepsilon
-\]
-or until
-\[
-    |f(c)| < \varepsilon,
-\]
-where $\varepsilon > 0$ is the prescribed tolerance.
+
+\begin{algorithm}
+\caption{Bisection Method}
+\begin{algorithmic}
+\REQUIRE Function $f$, interval $[a,b]$ with $f(a)f(b)<0$, tolerance $\varepsilon$
+\IF{$f(a)\cdot f(b) \geq 0$}
+    \STATE \textbf{raise error} ``Root not bracketed''
+\ENDIF
+\REPEAT
+    \STATE $c \gets \dfrac{a+b}{2}$
+    \IF{$f(c) = 0$}
+        \RETURN $c$
+    \ENDIF
+    \IF{$f(a)\cdot f(c) < 0$}
+        \STATE $b \gets c$
+    \ELSE
+        \STATE $a \gets c$
+    \ENDIF
+\UNTIL{$|b-a| < \varepsilon$ \OR $|f(c)| < \varepsilon$}
+\RETURN $c$
+\end{algorithmic}
+\end{algorithm}
 
 \subsubsection{Implementation.}
-In python, to calculate $f(x)=x^2-x-6$
+In python 
 \begin{minted}{python}
-import numpy as np
-def bisec(f,x1,x2,eps=10**(-17)):
+def bisec(f,x1,x2):
     loop=0
+    xt=(x1+x2)/2
+    eps=10**(-17)
     if f(x1)*f(x2)>=0:
-        return ValueError("")
+        raise ValueError("no root within this range")
     else:
-        xt=(x1+x2)/2
-        while np.abs(f(xt))>eps:
+        while np.abs(f(xt))>eps and np.abs(x1-x2)>eps:
             if f(x1)*f(xt)<0:
                 x2=xt 
             else:
                 x1=xt 
             xt=(x1+x2)/2
             loop+=1
-        return xt,loop
-
-f= lambda x: x**2-x-6
-x1=-1
-x2=4
-print(bisec(f,x1,x2))
+        print( xt,loop)
 \end{minted}
 
 \subsection{Newton–Raphson Method}
@@ -88,12 +107,12 @@ We obtain the Newton–Raphson iteration
 As shrimple as this
 \begin{minted}{python}
 def NR(f,df,a,eps=10**(-17)):
-loop=0 
-xr=0
-while np.abs(f(a))>eps:
-    xr=a-f(a)/df(a)
-    a=xr 
-    loop+=1
-return xr,loop
+    loop=0 
+    xr=0
+    while np.abs(f(a))>eps:
+        xr=a-f(a)/df(a)
+        a=xr 
+        loop+=1
+    return xr,loop
 \end{minted}
 \end{document}
