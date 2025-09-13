@@ -65,7 +65,8 @@ As the following.
 \end{algorithm}
 
 \subsubsection{Implementation.}
-In python 
+In python
+
 \begin{minted}{python}
 def bisec(f,x1,x2):
     loop=0
@@ -115,4 +116,74 @@ def NR(f,df,a,eps=10**(-17)):
         loop+=1
     return xr,loop
 \end{minted}
+
+\subsection{Hybrid Newton-Raphson Bisection Method}
+This method combine the Newton-Raphson with Bisection method, it is designed to exploit the rapid convergence of Newton–Raphson while preserving the guaranteed convergence of bisection.
+The bisection method serves as a safeguard to guarantee the existence of a root within the chosen interval. 
+Once such an interval is established, the Newton–Raphson method is applied to accelerate convergence toward the root. 
+
+\subsubsection*{Implementation.} As always, in python
+\begin{minted}{python}
+def BNR(f,dfdx,xi,xf,dx,eps=10**(-6)):
+    roots=[]
+    loops=[]
+    a=xi
+    while a<xf:
+        b=a+dx 
+        if b>xf:
+            break
+        if f(a)*f(b)<=0:
+            xr=(a+b)/2
+            loop=0 
+            while np.abs(f(xr))>eps and loop<100:
+                xr=xr-f(xr)/dfdx(f,xr)
+                loop+=1
+            roots.append(float(xr))
+            loops.append(loop)
+        a=b
+    if not roots:
+        raise ValueError("No root found in interval")
+    print( roots,loops)
+\end{minted}
+
+As a bonus, this function can be used to find the root of the Bessel function, which can be written as 
+\begin{minted}[breaklines]{python}
+    def Jn(x, n, eps=10**(-6)):
+    xo2 = x / 2.0
+    x2 = xo2 * xo2
+    a0 = 1.0
+
+    for i in range(1, n+1):
+        a0 = a0 * xo2 / i
+    
+    ss = a0
+    error = a0
+    k = 1
+    
+    while error > eps:
+        a0 = -a0 * x2 / ((n + k) * k)
+        ss = ss + a0
+        error = abs(a0)
+        k += 1
+    
+    return ss
+\end{minted}
+To explain the code, first recall the Bessel function
+\begin{equation*}
+J_n(x) = \sum_{k=0}^{\infty} \frac{(-1)^k}{k! \, (n+k)!} \left( \frac{x}{2} \right)^{2k+n}
+\end{equation*}
+The $k$-th term then may be written 
+\begin{equation*}
+    a_k = \frac{(-1)^k}{k! \, (n+k)!} \left( \frac{x}{2} \right)^{2k+n}
+\end{equation*}
+To avoid using factorial, we write the $k+1$-term in terms of $k$-th term
+\begin{equation*}
+    a_{k+1} &= \frac{(-1)^{k+1}(x/2)^{2k+n+2}}{(k+1)!(n+k+1)!}\\
+    &= -\frac{(-1)^k(x/2)^2(x/2)^{2k+n }}{(k+1)k!(n+k+1)(n+k)!}\\
+    a_{k+1}&= -a_k\frac{(x/2)^2}{(k+1)(n+k+1)}
+\end{equation*}
+Using this, we initialize the first term as 
+\begin{equation*}
+    a_0=\frac{1 }{n!}\left( \frac{x }{2 } \right) ^n
+\end{equation*}
 \end{document}
