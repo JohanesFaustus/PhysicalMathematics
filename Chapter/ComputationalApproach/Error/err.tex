@@ -23,6 +23,15 @@ Four general types of errors exist to plague your computations
     e.g. if a computer stores 1/3 as 0.3333 and 2/3 as 0.6667, if we ask the computer to do 2*(1/3) - 2/3 = 0.6666 - 0.6667 = -0.0001. Although small, this error is non-zero. If this is repeated millions of times, the final answer might not even be small! 
 \end{enumerate}
 
+\subsection{Measure of Errors}
+Error can be measured by how far an approximate value deviates from the exact value, without specifying where the error originates.
+If $x$ is the exact (true) value and $\tilde{x}$ is the approximate (measured or computed) value, then
+\begin{align*}
+    \text{Absolute error}&= |x-\tilde{x}|\\
+    \text{Relative errors} &=  \frac{|\tilde{x}-x|}{|x|}
+\end{align*}
+Absolute error gives the magnitude of deviation without regard to the size of the true value. Relative error normalizes this deviation with respect to the true value, thus giving a scale-independent measure.
+
 \subsection{Subtractive Cancelation}
 Calculations employing numbers that are stored only approximately on the computer can only be expected to yield approximate answers. 
 We model the computer representation, $x_c$, of the exact number $x$, as:

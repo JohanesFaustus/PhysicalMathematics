@@ -14,7 +14,10 @@ def bisec(f,x1,x2,eps=10**(-17)):
             loop+=1
         return xt,loop
 
-f= lambda x: x**2-x-6
+def f(x):
+    f= lambda x: x**2-x-6
+    return f(x)
+
 x1=-1
 x2=4
 print(bisec(f,x1,x2))
