@@ -1,6 +1,6 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\section{Beer's Law}
+\subsection{Beer's Law}
 The general form of Beer’s law describes how a beam of radiation is attenuated as it propagates through an absorbing medium.
 In three-dimensional space, when the attenuation coefficient is not constant but varies with position, the law generalizes to a path integral form
 \begin{equation*}
@@ -14,9 +14,58 @@ To obtain a form suitable for tomographic reconstruction, one takes the natural 
 The left-hand side is experimentally measurable, since $I$ and $I_0$ are detector readings.
 The right-hand side is the line integral of the attenuation coefficient along the X-ray path
 Defining the projection function $p(\theta, t)$, one obtains
-\begin{equation}
+\begin{equation*}
     p(\theta, t) 
     = \int_{\mathcal{L}(\theta,t)} \mu(x,y) \, ds,
-\end{equation}
+\end{equation*}
 where $\theta$ is the projection angle and $t$ denotes the detector position. 
+
+\subsection{Rodon Transform}
+Consider parallel-beam geometry with attenuated intensity of $I_0$.
+A new coordinate system is defined by rotating $(x,y)$ counterclockwise over the angle $\theta$, which given by the transformation of 
+\begin{equation*}
+    \begin{bmatrix}
+        x\\y
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \cos \theta& -\sin \theta\\
+        \sin \theta & \cos \theta\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        r\\s
+    \end{bmatrix}
+    \quad \text{or }\quad
+    \begin{bmatrix}
+        r\\s
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \cos \theta& \sin \theta\\
+        -\sin \theta & \cos \theta\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x\\y
+    \end{bmatrix}
+\end{equation*}
+For a fixed angle $\theta$ the measured intensity profile as a function of $r$ is given by
+\begin{align*}
+    I_\theta(r)&= I_0 \exp \left[ -\sum_s f(x,y)\Delta s \right] \\
+    I_\theta(r)&= I_0 \exp \left[ -\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s \right]
+\end{align*}
+For each measured intensity, we can compute the corresponding attenuation line sum.
+Each intensity profile is then transformed into an attenuation profile as
+\begin{equation*}
+    p_\theta(r)=-\frac{\ln I_0(r )}{I_0}
+\end{equation*}
+with $p_\theta(r)$ as the projection function of the function $(x,y)$ along the angle $\theta$.
+It can also be understood that 
+\begin{equation*}
+    p_\theta(r)=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s 
+\end{equation*}
+Stacking all the projections $p_\theta(r)$ together results in a 2D data set $p(r,\theta)$ which is called a sinogram.
+The transformation of a function $f(x,y)$ into the sinogram $p(r,\theta)$ is called the Radon transform.
+\begin{equation*}
+    p(r,\theta)=R \left[ f(x,y) \right]=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s 
+\end{equation*}
 \end{document}
