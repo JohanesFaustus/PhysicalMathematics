@@ -1287,6 +1287,22 @@ On multiplying with $1/n!$ we obtain the Laguerre polynomials
     L_n(x)=\frac{1}{n!}e^x\left(\frac{d}{dx}\right)^n(x^ne^{-x})
 \end{equation*}
 
+\subsubsection{Recursive relation.}
+The Laguerre polynomials satisfy the recurrence relation
+\begin{equation*}
+(n+1)L_{n+1}(x) = (2n+1 - x)L_n(x) - nL_{n-1}(x),
+\end{equation*}
+with initial conditions
+\begin{equation*}
+L_0(x) = 1, \qquad L_1(x) = 1 - x.
+\end{equation*}
+
+For the associated Laguerre polynomials $L_n^k(x)$, the recurrence relation generalizes to
+\begin{equation*}
+(n+1)L_{n+1}^k(x) = \big(2n+1+\alpha - x\big)L_n^k(x) - (n+\alpha)L_{n-1}^k(x).
+\end{equation*}
+
+
 \subsection{Laplace's Equation}
 Consider scalar function $u$, which may represent gravitational potential in a region containing no mass, the electrostatic potential in a charge-free region, the steady-state temperature in a region containing no sources of heat, or the velocity potential for an incompressible fluid with no vortices and no sources or sinks.
 Laplace's equation state that
