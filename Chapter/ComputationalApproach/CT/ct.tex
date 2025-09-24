@@ -28,12 +28,11 @@ To obtain a form suitable for tomographic reconstruction, one takes the natural 
 \end{equation*}
 The left-hand side is experimentally measurable, since $I$ and $I_0$ are detector readings.
 The right-hand side is the line integral of the attenuation coefficient along the X-ray path
-Defining the projection function $p(\theta, t)$, one obtains
+Defining the projection function $p(r,\theta)$, one obtains
 \begin{equation*}
-    p(\theta, t)
-    = \int_{\mathcal{L}(\theta,t)} \mu(x,y) \, ds,
+    p(r, \theta)    = \int_{S} \mu(x,y) \, ds,
 \end{equation*}
-where $\theta$ is the projection angle and $t$ denotes the detector position.
+where $\theta$ is the projection angle and $r$ denotes the detector position.
 
 \subsection{Rodon Transform}
 Consider parallel-beam geometry with attenuated intensity of $I_0$.
@@ -92,4 +91,30 @@ It states that if $\Delta s$ is the beam width, then the maximum sampling distan
 
 A general rule is followed that states that the number of views should be $\pi/2$ times the number of detector samples
 For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 detector samples and 150 views are required.
+
+\subsection{Data Acquisition in Translation-Rotation}
+\begin{enumerate}
+    \item \textbf{Calibration.} Measure the detector intensity without the object for every detector position; denote this as $I_0(r)$.
+    \item \textbf{Discretization.} Choose the number of detector samples (translations) per projection $N_s$ and the number of projection angles $N_\theta$. Fix sampling step $\Delta r$ along the detector direction and angular step $\Delta \theta$.
+    \item \textbf{Acquisition.} For each angle $\theta_j$, with $j=1,\dots,N_\theta$, perform:
+    \begin{enumerate}
+        \item Ensure the source–detector pair is at angle $\theta_j$
+        \item Translate (or read the detector array) along $r$ axis to obtain measured intensity $I(r_i,\theta_j)$ for each detector samples $r_i$, with $i=1,\dots,N_s$.
+        \item Store the corrected detector readings.
+    \end{enumerate}
+    \item \textbf{Projection profile.} Apply negative logarithm to linearize the Beer–Lambert relation
+    \begin{equation*}
+        p(r_i,\theta_j)=-\ln \left( \frac{I(r_i,\theta_j)}{I_0(r)} \right) 
+    \end{equation*}
+    This quantity equals the line integral of the attenuation coefficient along the ray
+    \begin{equation*}
+            p(r_i,\theta_j)
+    = \int_{S} \mu(x,y) \, ds,
+    \end{equation*}
+    \item \textbf{Sinogram.} Assemble all values $p(r_i,\theta_j)$ into a two-dimensional matrix $S$ with rows for detector positions $\theta_i$ and columns for projection angles $\theta_j$. Visualizing this matrix produces the sinogram. The sinogram matrix has dimensions
+    \begin{equation*}
+        \dim (S)=N_s\times N_\theta
+    \end{equation*}
+    where $N_s$ is the number of detector samples per projection and $N_\theta$ is the number of projection angles.
+\end{enumerate}
 \end{document}
