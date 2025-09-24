@@ -14,6 +14,7 @@
     \item \textbf{Reconstruction.} The mathematical process of recovering $\mu(x,y)$, i.e. the attenuation map of the object, from the sinogram. Methods include filtered backprojection and iterative reconstruction.
     \item \textbf{Pixel / Voxel.} Pixel: one element of the reconstructed 2D CT image. Voxel: the 3D analogue when slices are stacked.
 \end{enumerate}
+
 \subsection{Beer's Law}
 The general form of Beer’s law describes how a beam of radiation is attenuated as it propagates through an absorbing medium.
 In three-dimensional space, when the attenuation coefficient is not constant but varies with position, the law generalizes to a path integral form
@@ -82,4 +83,13 @@ The transformation of a function $f(x,y)$ into the sinogram $p(r,\theta)$ is cal
 \begin{equation*}
     p(r,\theta)=R \left[ f(x,y) \right]=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s
 \end{equation*}
+
+\subsection{Sampling}
+In practice, the sinogram $p(r,\theta)$ given by the Rodon transformation becomes $p(n\Delta  r,m\Delta\theta)$ with $M$ rows and $N$ columns.
+
+The minimum number of detector samples required to prevent distortion due to aliasing is called the Nyquist criterion.
+It states that if $\Delta s$ is the beam width, then the maximum sampling distance is $\Delta s/2$, or at least two samples per beam width are required. 
+
+A general rule is followed that states that the number of views should be $\pi/2$ times the number of detector samples
+For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 detector samples and 150 views are required.
 \end{document}
