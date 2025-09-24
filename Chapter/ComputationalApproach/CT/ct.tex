@@ -1,5 +1,19 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+\subsection{Introduction}
+\begin{enumerate}
+    \item \textbf{Attenuation coefficient.} A material property that quantifies how strongly the material absorbs or scatters X-rays. Units: $\text{cm}^{-1}$. It is the physical quantity reconstructed in CT imaging.
+    \item \textbf{Intensity.} $I_0$: the incident X-ray intensity before passing through the object (air scan).  $I$: the transmitted X-ray intensity measured by the detector.
+    \item \textbf{Projection.} The set of attenuation measurements collected at one fixed rotation angle of the source--detector system. It corresponds mathematically to line integrals of $\mu(x,y)$ along rays oriented at that angle.
+    \item \textbf{Ray / Line integral.} Each individual X-ray path through the object. The measured attenuation for one ray is proportional to the integral of $\mu$ along its path.
+    \item \textbf{Detector element (bin).} A single sensor in the detector array that records X-ray intensity for one ray. Multiple bins together form the projection profile for a given angle.
+    \item \textbf{Projection profile (absorption profile).} The one-dimensional array of attenuation values for all detector bins at a given projection angle. Also called line profile.
+    \item \textbf{Sinogram.} The two-dimensional array formed by stacking projection profiles for all angles. Dimension: number of detector bins ($N_s$) $\times$ number of projection angles ($N_\theta$).
+    \item \textbf{View / Angle.} One orientation of the X-ray source and detector around the object. Each view corresponds to one projection.
+    \item \textbf{Field of view (FOV).} The maximum circular cross-section of the object that can be fully imaged, determined by the geometry of the source and detector.
+    \item \textbf{Reconstruction.} The mathematical process of recovering $\mu(x,y)$, i.e. the attenuation map of the object, from the sinogram. Methods include filtered backprojection and iterative reconstruction.
+    \item \textbf{Pixel / Voxel.} Pixel: one element of the reconstructed 2D CT image. Voxel: the 3D analogue when slices are stacked.
+\end{enumerate}
 \subsection{Beer's Law}
 The general form of Beer’s law describes how a beam of radiation is attenuated as it propagates through an absorbing medium.
 In three-dimensional space, when the attenuation coefficient is not constant but varies with position, the law generalizes to a path integral form
@@ -15,57 +29,57 @@ The left-hand side is experimentally measurable, since $I$ and $I_0$ are detecto
 The right-hand side is the line integral of the attenuation coefficient along the X-ray path
 Defining the projection function $p(\theta, t)$, one obtains
 \begin{equation*}
-    p(\theta, t) 
+    p(\theta, t)
     = \int_{\mathcal{L}(\theta,t)} \mu(x,y) \, ds,
 \end{equation*}
-where $\theta$ is the projection angle and $t$ denotes the detector position. 
+where $\theta$ is the projection angle and $t$ denotes the detector position.
 
 \subsection{Rodon Transform}
 Consider parallel-beam geometry with attenuated intensity of $I_0$.
-A new coordinate system is defined by rotating $(x,y)$ counterclockwise over the angle $\theta$, which given by the transformation of 
+A new coordinate system is defined by rotating $(x,y)$ counterclockwise over the angle $\theta$, which given by the transformation of
 \begin{equation*}
     \begin{bmatrix}
-        x\\y
+        x \\y
     \end{bmatrix}
     =
     \begin{bmatrix}
-        \cos \theta& -\sin \theta\\
-        \sin \theta & \cos \theta\\
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta  \\
     \end{bmatrix}
     \begin{bmatrix}
-        r\\s
+        r \\s
     \end{bmatrix}
     \quad \text{or }\quad
     \begin{bmatrix}
-        r\\s
+        r \\s
     \end{bmatrix}
     =
     \begin{bmatrix}
-        \cos \theta& \sin \theta\\
-        -\sin \theta & \cos \theta\\
+        \cos \theta  & \sin \theta \\
+        -\sin \theta & \cos \theta \\
     \end{bmatrix}
     \begin{bmatrix}
-        x\\y
+        x \\y
     \end{bmatrix}
 \end{equation*}
 For a fixed angle $\theta$ the measured intensity profile as a function of $r$ is given by
 \begin{align*}
-    I_\theta(r)&= I_0 \exp \left[ -\sum_s f(x,y)\Delta s \right] \\
-    I_\theta(r)&= I_0 \exp \left[ -\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s \right]
+    I_\theta(r) & = I_0 \exp \left[ -\sum_s f(x,y)\Delta s \right]                                                                    \\
+    I_\theta(r) & = I_0 \exp \left[ -\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s \right]
 \end{align*}
 For each measured intensity, we can compute the corresponding attenuation line sum.
 Each intensity profile is then transformed into an attenuation profile as
 \begin{equation*}
-    p_\theta(r)=-\frac{\ln I_0(r )}{I_0}
+    p_\theta(r)=-\ln \left(  \frac{I_0(r )}{I_0}\right)
 \end{equation*}
 with $p_\theta(r)$ as the projection function of the function $(x,y)$ along the angle $\theta$.
-It can also be understood that 
+It can also be understood that
 \begin{equation*}
-    p_\theta(r)=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s 
+    p_\theta(r)=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s
 \end{equation*}
 Stacking all the projections $p_\theta(r)$ together results in a 2D data set $p(r,\theta)$ which is called a sinogram.
 The transformation of a function $f(x,y)$ into the sinogram $p(r,\theta)$ is called the Radon transform.
 \begin{equation*}
-    p(r,\theta)=R \left[ f(x,y) \right]=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s 
+    p(r,\theta)=R \left[ f(x,y) \right]=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s
 \end{equation*}
 \end{document}
