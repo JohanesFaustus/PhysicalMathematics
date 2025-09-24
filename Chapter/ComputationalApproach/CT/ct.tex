@@ -1,0 +1,22 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\section{Beer's Law}
+The general form of Beer’s law describes how a beam of radiation is attenuated as it propagates through an absorbing medium.
+In three-dimensional space, when the attenuation coefficient is not constant but varies with position, the law generalizes to a path integral form
+\begin{equation*}
+    I=I_0\exp \left( \int_S \mu(\mathbf{r })\;ds \right)
+\end{equation*}
+
+To obtain a form suitable for tomographic reconstruction, one takes the natural logarithm and rearranges
+\begin{equation*}
+    \ln\!\left(\frac{I_0}{I}\right) = \int_{S} \mu(\mathbf{r}) \, ds.
+\end{equation*}
+The left-hand side is experimentally measurable, since $I$ and $I_0$ are detector readings.
+The right-hand side is the line integral of the attenuation coefficient along the X-ray path
+Defining the projection function $p(\theta, t)$, one obtains
+\begin{equation}
+    p(\theta, t) 
+    = \int_{\mathcal{L}(\theta,t)} \mu(x,y) \, ds,
+\end{equation}
+where $\theta$ is the projection angle and $t$ denotes the detector position. 
+\end{document}
