@@ -194,5 +194,58 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
           \end{equation*}
 \end{enumerate}
 
-
+\subsubsection{Implementation.} 
+In python.
+\begin{minted}[breaklines]{python}
+def gaussian_elimination(Omega, W):
+\end{minted}
+We define the function that takes \verb|Omega| the coefficient matrix $\Omega \in \mathbb{R}^{n \times n}$ and \verb|W| as the constant column vector $W \in \mathbb{R}^{n \times 1}$
+\begin{minted}[breaklines]{python}
+    W = W.reshape(-1, 1).astype(float)
+    
+    # Form augmented matrix [Omega | W]
+    
+    # Forward elimination
+    
+    # Back substitution
+    
+\end{minted}
+\verb|reshape(-1,1)| forces $W$ into shape $(n,1)$,  a column vector in other words.
+\verb|.astype(float)| ensures floating-point arithmetic is used (required for divisions).
+\begin{minted}[breaklines]{python}
+    n = W.shape[0]
+    A = np.hstack([Omega.astype(float), W]) 
+\end{minted}
+\verb|n| is the system size (number of rows).
+\verb|np.hstack| horizontally concatenates the coefficient matrix and the constant column to form the augmented matrix $[\Omega|W]$.
+\begin{minted}[breaklines]{python}
+    for k in range(n-1):
+        pivot = A[k, k]
+        for i in range(k+1, n):
+            factor = A[i, k] / pivot
+            A[i, k:] = A[i, k:] - factor * A[k, k:] 
+\end{minted}
+This loop creates zeros below the pivot. 
+Outer loop \verb|k| is the pivot row (from row 0 to row n-2).
+\verb|pivot = A[k,k]| takes the pivot element $\omega_{kk}$.
+Inner loop \verb|i| compute the factor
+\begin{equation*}
+    F=\frac{A[i,k]}{A[k,k]}=\frac{\omega_{ik }}{\omega_{kk}}
+\end{equation*}
+for each \verb|i|, the updates the row \verb|A[i,k]|. 
+After this phase, $A$ is in row echelon (upper triangular) form.
+\begin{minted}[breaklines]{python}
+    x = np.zeros((n,1))
+    for i in range(n-1, -1, -1):
+        x[i,0] = (A[i, -1] - np.dot(A[i, i+1:n], x[i+1:,0])) / A[i, i]
+\end{minted}
+Create solution vector \verb|x| as a column $(n,1)$, then iterate backwards from last row to first row.
+For each row \verb|i|, use the back substitution formula
+\begin{equation*}
+    x_i =\frac{\omega_i ^* -\sum_{j=i+i }^{n }w_{ij}^*x_j}{\omega_{ii }^*}
+\end{equation*}
+Finally, simply return the solution vector \verb|x| and the augmented matrix in upper triangular form \verb|A|.
+\begin{minted}[breaklines]{python}
+    return x, A    
+\end{minted}
 \end{document}
