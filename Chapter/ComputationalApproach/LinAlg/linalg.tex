@@ -29,11 +29,11 @@ Has the augmented matrix
 
 \subsection{Gaussian Elimination}
 Gaussian elimination is an algorithm in linear algebra for solving systems of linear equations, computing the rank of a matrix, and finding the inverse of invertible matrices.
-The algorithm is as follows.
+After forming the augmented matrix $A=[\Omega|W]$, the algorithm is as follows.
 
 \begin{enumerate}
     \item \textbf{Step 1: Pivot in column 1.}
-          Choose $\omega_{11}$ as pivot (if $\omega_{11}=0$, swap with a lower row).
+          Choose $a_{11}$ as pivot (if $a_{11}=0$, swap with a lower row).
           For $i=2,\dots,n$, eliminate entries below the pivot.
           \begin{equation*}
               R_i \;\leftarrow\; R_i - \frac{a_{i1}}{a_{11}} R_1
@@ -104,11 +104,11 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
               R_2 \leftarrow R_2 - \left(\frac{-3}{2}\right)R_1 \quad \Rightarrow \quad
               R_2=
               \begin{bmatrix}
-                -3\\-1\\2\\-1\\
+                  -3 \\-1\\2\\-1\\
               \end{bmatrix}
               - \frac{3 }{2}
               \begin{bmatrix}
-                2\\1\\-1\\8
+                  2 \\1\\-1\\8
               \end{bmatrix}
               =
               \begin{bmatrix}
@@ -118,13 +118,13 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
           For row 3:
           \begin{equation*}
               R_3 \leftarrow R_3 - \left(\frac{-2}{2}\right)R_1 \quad \Rightarrow \quad
-                R_3=
+              R_3=
               \begin{bmatrix}
-                -2\\1\\2\\-3\\
+                  -2 \\1\\2\\-3\\
               \end{bmatrix}
               +
               \begin{bmatrix}
-                2\\1\\-1\\8
+                  2 \\1\\-1\\8
               \end{bmatrix}
               =
               \begin{bmatrix}
@@ -144,17 +144,17 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
           Eliminate below, only row 3 though
           \begin{equation*}
               R_3 \leftarrow R_3 - \frac{2}{0.5} R_2 \quad \Rightarrow \quad
-                R_3=
+              R_3=
               \begin{bmatrix}
-                0\\2\\1\\5\\
+                  0 \\2\\1\\5\\
               \end{bmatrix}
               -4
               \begin{bmatrix}
-                -\\0.5\\0.5\\1
+                  - \\0.5\\0.5\\1
               \end{bmatrix}
               =
               \begin{bmatrix}
-                0\\0\\-1\\1
+                  0 \\0\\-1\\1
               \end{bmatrix}
           \end{equation*}
           Thus:
@@ -194,7 +194,7 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
           \end{equation*}
 \end{enumerate}
 
-\subsubsection{Implementation.} 
+\subsubsection{Implementation.}
 In python.
 \begin{minted}[breaklines]{python}
 def gaussian_elimination(Omega, W):
@@ -202,13 +202,6 @@ def gaussian_elimination(Omega, W):
 We define the function that takes \verb|Omega| the coefficient matrix $\Omega \in \mathbb{R}^{n \times n}$ and \verb|W| as the constant column vector $W \in \mathbb{R}^{n \times 1}$
 \begin{minted}[breaklines]{python}
     W = W.reshape(-1, 1).astype(float)
-    
-    # Form augmented matrix [Omega | W]
-    
-    # Forward elimination
-    
-    # Back substitution
-    
 \end{minted}
 \verb|reshape(-1,1)| forces $W$ into shape $(n,1)$,  a column vector in other words.
 \verb|.astype(float)| ensures floating-point arithmetic is used (required for divisions).
@@ -225,14 +218,14 @@ We define the function that takes \verb|Omega| the coefficient matrix $\Omega \i
             factor = A[i, k] / pivot
             A[i, k:] = A[i, k:] - factor * A[k, k:] 
 \end{minted}
-This loop creates zeros below the pivot. 
+This loop creates zeros below the pivot.
 Outer loop \verb|k| is the pivot row (from row 0 to row n-2).
 \verb|pivot = A[k,k]| takes the pivot element $\omega_{kk}$.
 Inner loop \verb|i| compute the factor
 \begin{equation*}
     F=\frac{A[i,k]}{A[k,k]}=\frac{\omega_{ik }}{\omega_{kk}}
 \end{equation*}
-for each \verb|i|, the updates the row \verb|A[i,k]|. 
+for each \verb|i|, the updates the row \verb|A[i,k]|.
 After this phase, $A$ is in row echelon (upper triangular) form.
 \begin{minted}[breaklines]{python}
     x = np.zeros((n,1))
@@ -248,4 +241,32 @@ Finally, simply return the solution vector \verb|x| and the augmented matrix in 
 \begin{minted}[breaklines]{python}
     return x, A    
 \end{minted}
+
+\subsection{Gauss-Jordan Elimination}
+If Gaussian elimination stops after forward elimination and relies on back substitution, Gauss–Jordan elimination extends the elimination upward (zeroing entries above pivots) and normalizes pivots to 1, so no back substitution is required.
+The algorithm is similar with Gaussian elimination, however it diverges after the upper triangular augmented  matrix is obtained.
+\begin{enumerate}
+    \item \textbf{Result:} the matrix is now upper triangular like the case of Gaussian elimination
+          \[
+              \begin{bmatrix}
+                  \omega_{11}^{*} & \omega_{12}^{*} & \cdots & \omega_{1n}^{*} & w_1^{*} \\
+                  0               & \omega_{22}^{*} & \cdots & \omega_{2n}^{*} & w_2^{*} \\
+                  0               & 0               & \cdots & \omega_{3n}^{*} & w_3^{*} \\
+                  \vdots          & \vdots          & \ddots & \vdots          & \vdots  \\
+                  0               & 0               & \cdots & \omega_{nn}^{*} & w_n^{*}
+              \end{bmatrix}
+          \]
+    \item \textbf{Step 4: Normalization of pivots.}
+    Each pivot $a_{kk}$ is scaled to 1 with 
+    \begin{equation*}
+        R_k \leftarrow \frac{1 }{a_{kk}}R_k 
+    \end{equation*}
+    \item \textbf{Step 5: Elimination above the pivots.}
+    The goal is to make the coefficient matrix into the identity.
+    For each pivot column $k$, we remove nonzero entries above the pivot by subtracting suitable multiples of row $k$
+    \begin{equation*}
+        R_i \leftarrow R_i -a_{ik}R_k
+    \end{equation*}
+    where $a_{ik}$ is the entry currently in row $i$ column $k$.
+\end{enumerate}
 \end{document}
