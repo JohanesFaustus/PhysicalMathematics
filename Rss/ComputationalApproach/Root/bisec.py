@@ -86,4 +86,5 @@ def BNR(f,dfdx,xi,xf,dx,eps=10**(-6)):
         a=b
     if not roots:
         raise ValueError("No root found in interval")
-    print( roots,loops)
+    print("Akar fungsi adalah ",roots)
+    Print("dengan jumlah looping ",loops)

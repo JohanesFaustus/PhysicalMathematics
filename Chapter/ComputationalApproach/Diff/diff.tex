@@ -106,10 +106,6 @@ The equation is written as
 \begin{equation*}
     \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0
 \end{equation*}
-From the definition of a derivative
-\begin{equation*}
-    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
-\end{equation*}
 Using forward difference for time and backward difference for spatial, our discrete equation is
 \begin{equation*}
     \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
@@ -155,8 +151,6 @@ def linearconv(nx):
         un = u.copy() ##copy the existing values of u into un
         for i in range(1, nx):
             u[i] = un[i] - c * dt / dx * (un[i] - un[i-1])
-        
-    pyplot.plot(numpy.linspace(0, 2, nx), u)
 \end{minted}
 and for the non-linear equation
 \begin{minted}[breaklines]{python}
@@ -179,6 +173,25 @@ def nonlinear(nx):
            u[i] = un[i] - un[i] * dt / dx * (un[i] - un[i-1]) 
         
     pyplot.plot(numpy.linspace(0, 2, nx), u)
+\end{minted}
+As a bonus we can define the function where it begins with sinusoidal and after one period, it disappears
+\begin{minted}[breaklines]{python}
+def y(nx):
+    u=numpy.zeros(nx)
+    quarter=int(len(nx)/4)
+    alpha = quarter / (2 * numpy.pi) 
+
+    for i in range(0,quarter):
+        u[i] = numpy.sin(i / alpha)
+    return u
+\end{minted}
+Other is a simple step function
+\begin{minted}[breaklines]{python}
+def z(nx):
+    u = numpy.zeros(nx) 
+    quarter=int(len(nx)/4)
+    half=int(len(nx)/2)
+    u[quarter:half] = 1
 \end{minted}
 
 \subsection{1D Diffusion Equation}
@@ -221,18 +234,62 @@ or
 \subsubsection*{Implementiation.}
 In python
 \begin{minted}[breaklines]{python}
-def diffus(start,end,nx,u):
+def diffus(u,nt,CFL):
+    nx=len(u)
     dx = 2 / (nx - 1)
-    nt = 20    
     nu = 0.3   
-    sigma = .2 
+    sigma=CFL
     dt = sigma * dx**2 / nu 
     un=numpy.zeros(nx)
     for i in range(1,nt):
         un=u.copy()
         for j in range(1,nx-1):
             u[j]=un[j]+nu*dt/dx**2*(u[j+1]-2*u[j]+u[j-1])
-    pyplot.plot(numpy.linspace(start,end,nx),u)
+    return u
+\end{minted}
+
+\subsection{2D Diffusion Equation}
+In two-dimensional, we have
+\begin{equation*}
+\frac{\partial u}{\partial t} = \nu \left( 
+\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} 
+\right)
+\end{equation*}
+Similar like the 1D counterpart, we only need to add the second spatial direction
+\begin{equation*}
+\frac{u_{i,j}^{\,n+1} - u_{i,j}^{\,n}}{\Delta t} 
+= \nu \left(
+\frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2} 
++ \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2} 
+\right)
+\end{equation*}
+or 
+\begin{equation*}
+u_{i,j}^{\,n+1} = u_{i,j}^{\,n} + \nu \Delta t \left[
+\frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2} 
++ \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
+\right]
+\end{equation*}
+To make the computation easier, the diffusion constant is often used
+\begin{equation*}
+    \alpha_i =\nu \frac{\Delta t }{\Delta i^2}
+\end{equation*}
+
+\subsubsection{Implementiation.} As before.
+\begin{minted}[breaklines]{python}
+def diffus_2D(u,nt,alpha):
+    nx = len(u)       
+    ny = len(u[0])    
+    dx = 2 / (nx - 1)
+    dy = 2 / (ny - 1)
+
+    un=numpy.zeros_like(u)
+    for i in range(nt):
+        un=u.copy()
+        for j in range(1,nx-1):
+            for k in range(1,ny-1):
+                u[j,k]=un[j,k]+alpha*(un[j+1,k]-2*un[j,k]+un[j-1,k]+un[j,k+1]-2*un[j,k]+un[j,k-1])
+    return u
 \end{minted}
 
 \subsection{1D Burgers's Equation}
