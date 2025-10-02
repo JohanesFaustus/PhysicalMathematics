@@ -186,7 +186,6 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
           \end{equation*}
     \item \textbf{Final solution:}
           \begin{equation*}
-              \quad
               x =
               \begin{bmatrix}
                   2 \\ 3 \\ -1
@@ -257,16 +256,90 @@ The algorithm is similar with Gaussian elimination, however it diverges after th
               \end{bmatrix}
           \]
     \item \textbf{Step 4: Normalization of pivots.}
-    Each pivot $a_{kk}$ is scaled to 1 with 
-    \begin{equation*}
-        R_k \leftarrow \frac{1 }{a_{kk}}R_k 
-    \end{equation*}
+          Each pivot $a_{kk}$ is scaled to 1 with
+          \begin{equation*}
+              R_k \leftarrow \frac{1 }{a_{kk}}R_k
+          \end{equation*}
     \item \textbf{Step 5: Elimination above the pivots.}
-    The goal is to make the coefficient matrix into the identity.
-    For each pivot column $k$, we remove nonzero entries above the pivot by subtracting suitable multiples of row $k$
-    \begin{equation*}
-        R_i \leftarrow R_i -a_{ik}R_k
-    \end{equation*}
-    where $a_{ik}$ is the entry currently in row $i$ column $k$.
+          The goal is to make the coefficient matrix into the identity.
+          For each pivot column $k$, we remove nonzero entries above the pivot by subtracting suitable multiples of row $k$
+          \begin{equation*}
+              R_i \leftarrow R_i -a_{ik}R_k
+          \end{equation*}
+          where $a_{ik}$ is the entry currently in row $i$ column $k$.
+\end{enumerate}
+
+\subsubsection{Example.} Using previous example, the upper triangular form is
+\begin{equation*}
+    \begin{bmatrix}
+        2 & 1   & -1  & 8 \\
+        0 & 0.5 & 0.5 & 1 \\
+        0 & 0   & -1  & 1
+    \end{bmatrix}
+\end{equation*}
+\begin{enumerate}
+    \item \textbf{Normalization.}
+          For the first row,
+          \begin{equation*}
+              R_1 \leftarrow \frac{1 }{2 }R_1\qquad\Rightarrow\qquad R_1=
+              \begin{bmatrix}
+                  1 \\1/2\\-1/2\\4
+              \end{bmatrix}
+          \end{equation*}
+          For the second row,
+          \begin{equation*}
+              R_2 \leftarrow 2R_2 \qquad\Rightarrow\qquad R_2=
+              \begin{bmatrix}
+                  0 \\1\\1\\2
+              \end{bmatrix}
+          \end{equation*}
+          For the third row,
+          \begin{equation*}
+              R_3 \leftarrow -R_3 \qquad\Rightarrow\qquad R_3=
+              \begin{bmatrix}
+                  0 \\0\\1\\-1
+              \end{bmatrix}
+          \end{equation*}
+          So the matrix becomes:
+          \begin{equation*}
+              \begin{bmatrix}
+                  1 & 1/2 & -1/2 & 4 \\
+                  0 & 1   & 1    & 2 \\
+                  0 & 0   & 1    & 1
+              \end{bmatrix}
+          \end{equation*}
+    \item \textbf{Elimination above the pivot.}
+          For pivot in row 3
+          \begin{equation*}
+              \begin{cases}
+                  R_2\leftarrow R_2-R_3 \\
+                  R_1\leftarrow R_1-\frac{1 }{2}R_2
+              \end{cases}
+              \qquad \Rightarrow \qquad
+              A=
+              \begin{bmatrix}
+                  1 & 1/2 & 0 & 3.5 \\
+                  0 & 1   & 0 & 3   \\
+                  0 & 0   & 1 & 1
+              \end{bmatrix}
+          \end{equation*}
+          For pivot in row 2
+          \begin{equation*}
+              R_1 \leftarrow R_1-\frac{1 }{2 }R_2
+              \qquad \Rightarrow \qquad
+              A=
+              \begin{bmatrix}
+                  1 & 0 & 0 & 2 \\
+                  0 & 1 & 0 & 3 \\
+                  0 & 0 & 1 & 1
+              \end{bmatrix}
+          \end{equation*}
+    \item \textbf{Final solution:} The same as Gaussian elimination
+          \begin{equation*}
+              x =
+              \begin{bmatrix}
+                  2 \\ 3 \\ -1
+              \end{bmatrix}
+          \end{equation*}
 \end{enumerate}
 \end{document}
