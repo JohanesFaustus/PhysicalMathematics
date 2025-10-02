@@ -342,4 +342,27 @@ The algorithm is similar with Gaussian elimination, however it diverges after th
               \end{bmatrix}
           \end{equation*}
 \end{enumerate}
+
+\subsubsection{Implementation.}
+Roughly the same as Gaussian elimination, however we do not use the backwards substitution.
+We use normalization and elimination above pivots
+\begin{minted}[breaklines]{python}
+    for k in range(n-1, -1, -1):  
+        pivot = A[k, k]
+        A[k, :] = A[k, :] / pivot 
+        for i in range(k):
+            factor = A[i, k]
+            A[i, :] = A[i, :] - factor * A[k, :]
+\end{minted}
+This iterates over pivot positions starting from the last row $k=n-1$ up to the first row $k=0$. 
+This ensures we handle the bottom-most pivot first and move upward.
+Then, current pivot is extracted from the diagonal entry \verb|A[k,k]| and being normalized.
+The inner loop eliminates all entries above the pivot in column \verb|k|.
+For each row \verb|i<k|, the multiplier (factor) is simply the entry \verb|A[i,k]|
+Subtracting \verb|factor * A[k,:]| from row \verb|i| forces \verb|A[i,k]=0|.
+\begin{minted}[breaklines]{python}
+    sol = A[:, -1]
+    return sol, A
+\end{minted}
+Finally, after finishing the loop, the left block of the augmented matrix is the identity matrix and the solution  with the augmented matrix are returned.
 \end{document}
