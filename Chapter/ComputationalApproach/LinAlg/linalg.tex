@@ -1,0 +1,29 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+Many methods solving linear system here uses the definition of augmented matrix.
+Consider the linear  equation in the form
+\begin{equation*}
+    \Omega x=W
+\end{equation*}
+with $\Omega$ as is the coefficient matrix, $x$ column vector of unknowns, and $W$ column vector of constants.
+The augmented matrix $[\Omega|W]$ is simply the coefficient matrix $\Omega$ with the constant vector $W$ appended as an extra column.
+
+For example a system in the form $\Omega x=W$
+\begin{equation*}
+    \begin{cases}
+        \omega_{11}x_1 + \omega_{12}x_2 + \dots + \omega_{1n}x_n & = w_1, \\
+                                                  & \vdots      \\
+        \omega_{n1}x_1 + \omega_{n2}x_2 + \dots + \omega_{nn}x_n & = w_n.
+    \end{cases}
+\end{equation*}
+Has the augmented matrix
+\begin{equation*}
+    [\Omega|W] =
+    \begin{bmatrix}
+        \omega_{11} & \omega_{12} & \cdots & \omega_{1n} & w_1 \\
+        \omega_{21} & \omega_{22} & \cdots & \omega_{2n} & w_2 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots   \\
+        \omega_{n1} & \omega_{n2} & \cdots & \omega_{nn} & w_n
+    \end{bmatrix}.
+\end{equation*}
+\end{document}

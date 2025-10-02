@@ -131,7 +131,7 @@ or more practically written as
     u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n)
 \end{equation*}
 
-\subsubsection*{Implementiation.}
+\subsubsection*{Implementation.}
 Given the initial conditions, the solution can be written in python numerically, using the Courant number, as
 \begin{minted}[breaklines]{python}
 def linearconv(nx):
