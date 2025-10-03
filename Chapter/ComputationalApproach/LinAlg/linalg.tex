@@ -365,4 +365,47 @@ Subtracting \verb|factor * A[k,:]| from row \verb|i| forces \verb|A[i,k]=0|.
     return sol, A
 \end{minted}
 Finally, after finishing the loop, the left block of the augmented matrix is the identity matrix and the solution  with the augmented matrix are returned.
+
+\subsection{LU Decomposition}
+LU decomposition is essentially a formalization of Gaussian elimination without carrying along the right-hand side $W$.
+Instead of modifying the augmented system, one factors the coefficient matrix $\Omega$ into the product of two triangular matrices
+\begin{equation*}
+    \Omega=LU
+\end{equation*}
+The element of $\Omega$ given by 
+\begin{equation*}
+    (LU)_{ij}=\sum_{k=1 }^{n}L_{ik}U_{kj}
+\end{equation*}
+On rearranging, we can obtain the expression for $U_{ij}$ used in Doolittle method.
+Here is the algorithm in Doolittle’s method.
+\begin{enumerate}
+    \item \textbf{Step 1: Compute $U$ entries.} Using
+    \begin{equation*}
+        U_{ij} = \Omega_{ij} - \sum_{k=1}^{i-1} L_{ik} U_{kj}
+    \end{equation*}
+    Since $U$ is upper triangular, only $k \leq i$ terms contribute on the expression for the element of $\Omega$
+    \item \textbf{Step 2: Compute $L$ entries.} Using
+    \begin{equation*}
+        L_{ij} = \frac{1}{U_{jj}} \left( \Omega_{ij} - \sum_{k=1}^{j-1} L_{ik} U_{kj} \right).
+    \end{equation*}
+    By the Doolittle method, we define $L_{ii}=i$ for all $i$
+    \item \textbf{Step 3: Forward substitution.} Define $Ux=y$, then solve
+    \begin{equation*}
+        Ly=W
+    \end{equation*}
+    by forward substitution.
+    For $i = 1,2,\ldots,n$,
+    \begin{equation*}
+        y_i = W_i - \sum_{j=1}^{i-1} L_{i,j} y_j, 
+    \end{equation*}
+    \item \textbf{Step 4: Backwards substitution.} From the defined, we solve
+    \begin{equation*}
+        Ux=y
+    \end{equation*}
+    with backwards substitution.
+    For $i = n, n-1, \ldots, 1$,
+    \begin{equation*}
+       x_i = \frac{1}{U_{i,i}} \left( y_i - \sum_{j=i+1}^{n} U_{i,j} x_j \right)
+    \end{equation*}
+\end{enumerate}
 \end{document}
