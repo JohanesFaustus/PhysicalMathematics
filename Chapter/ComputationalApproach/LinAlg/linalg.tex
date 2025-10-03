@@ -67,7 +67,7 @@ After forming the augmented matrix $A=[\Omega|W]$, the algorithm is as follows.
               x_n = \frac{w_n^{*}}{\omega_{nn}^{*}}
           \]
           Substituting upward gives each preceding variable until $x_1$ is obtained.
-          Thus the solution vector $x$ is fully determined.
+          Thus, the solution vector $x$ is fully determined.
 \end{enumerate}
 
 \subsubsection{Example.}
@@ -505,6 +505,69 @@ Here is the algorithm in Doolittle’s method.
           \end{equation*}
 \end{enumerate}
 
-\end{document}
+\subsubsection{Implementation.} 
+As usual, we write in python. 
+Here we create two code, first to create the decomposition and to actually solve it.
+\begin{minted}[breaklines]{python}
+def lu_decomposition(Omega):
+\end{minted}
+We take \verb|Omega|, a square matrix size $(n \times n)$.
+\begin{minted}[breaklines]{python}
+    n = Omega.shape[0]
+    L = np.zeros((n, n))
+    U = np.zeros((n, n))
+\end{minted}
+We determine the size of the square matrix \verb|Omega|. 
+Then we prepare two $(n \times  b)$ zero matrices \verb|L| and \verb|U| that will be filled progressively.
+\begin{minted}[breaklines]{python}
+    for j in range(i, n):
+        U[i, j] = Omega[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
+\end{minted}
+This computes row \verb|i| of \verb|U|.
+\begin{minted}[breaklines]{python}
+    for j in range(i, n):
+        if i == j:
+            L[i, i] = 1.0
+        else:
+            L[j, i] = (Omega[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[i, i]
+\end{minted}
+This computes column \verb|i| of \verb|L|.
+If \verb|i==j|, $l_{ij}=1$ since it is the diagonal.
+Else, we compute it normally.
+\begin{minted}[breaklines]{python}
+    return L, U
+\end{minted}
+Finally, we return the decomposed matrices \verb|L| and \verb|U|.
 
-\subsection*{Step 5: Back substitution (\(Ux=y\))}
+Next we move to the function to solve the linear system using the decomposed matrix and the right-hand constant.
+\begin{minted}[breaklines]{python}
+def lu_solver(L, U, W):
+\end{minted}
+Here \verb|L| and \verb|U| act as the decomposed matrix, while \verb|W| is right-hand side constant from $\Omega x=W$.
+\begin{minted}[breaklines]{python}
+    y = np.zeros((n, 1))
+    for i in range(n):
+        y[i, 0] = W[i, 0] - sum(L[i, j] * y[j, 0] for j in range(i))
+\end{minted}
+The forward substitution for the equation $Ly=W$. 
+It works by allocating \verb|y| as a vector of zeros, then for each row \verb|i|, compute \verb|y[i]|
+\begin{equation*}
+    y_i=W_i-\sum_{k=0 }^{i-1 }l_{ij}y_{j}
+\end{equation*}
+Because \verb|L| is lower triangular with unit diagonal, the diagonal entry \verb|L[i,i]| is 1, so it does not appear in the denominator.
+\begin{minted}[breaklines]{python}
+    x = np.zeros_like(W, dtype=float)
+    for i in range(n - 1, -1, -1):
+        x[i] = (y[i] - sum(U[i, j] * x[j] for j in range(i + 1, n))) / U[i, i]
+\end{minted}
+The backwards substitution for the equation $Ux=y$. 
+It works by allocating \verb|x| as a vector of zeros, then for each row \verb|i| in decreasing order from bottom row \verb|n-1| to top row 0, compute \verb|y[i]|
+\begin{equation*}
+    x_i=\frac{1 }{U_{ii}}\left( y_i-\sum_{k=i+1 }^{n-1 }u_{ik}x_{k} \right) 
+\end{equation*}
+The backward order is necessary because each \verb|x[i]| depends on \verb|x[j]| for \verb|k > i|.
+\begin{minted}[breaklines]{python}
+    return x
+\end{minted}
+Finally, all that left is to return the solution \verb|x|.
+\end{document}

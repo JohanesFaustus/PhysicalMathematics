@@ -52,14 +52,41 @@ def gauss_jordan(Omega, W):
     return sol, A
 
 
-# Example
+def lu_decomp(Omega):
+    n = Omega.shape[0]
+    L = np.zeros((n, n))
+    U = np.zeros((n, n))
+
+    for i in range(n):
+        # Compute U[i, j] for j >= i
+        for j in range(i, n):
+            U[i, j] = Omega[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
+        # Compute L[j, i] for j >= i
+        for j in range(i, n):
+            if i == j:
+                L[i, i] = 1.0
+            else:
+                L[j, i] = (Omega[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[
+                    i, i
+                ]
+
+    return L, U
+
+
+def lu_solve(L, U, W):
+    n = L.shape[0]
+    y = np.zeros((n, 1))
+    for i in range(n):
+        y[i, 0] = W[i, 0] - sum(L[i, j] * y[j, 0] for j in range(i))
+    x = np.zeros((n, 1))
+    for i in reversed(range(n)):
+        x[i, 0] = (y[i, 0] - sum(U[i, j] * x[j, 0] for j in range(i + 1, n))) / U[i, i]
+    return x
 
 
 # Example system
 Omega = np.array([[2, 1, -1], [-3, -1, 2], [-2, 1, 2]], dtype=float)
-
 W = np.array([[8], [-11], [-3]], dtype=float)
 
-solut, final_matrix = gauss_jordan(Omega, W)
-print("Solution:", solut)
-print("Final augmented matrix:\n", final_matrix)
+L, U = lu_decomp(Omega)
+sol = lu_solve(L, U, W)
