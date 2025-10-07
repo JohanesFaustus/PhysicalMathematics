@@ -15,11 +15,31 @@
     \item \textbf{Pixel / Voxel.} Pixel: one element of the reconstructed 2D CT image. Voxel: the 3D analogue when slices are stacked.
 \end{enumerate}
 
+\subsection{Conventional Radiography and CT}
+In conventional radiography, the image represents a 2D projection of the anatomical structures along the direction of the X-ray beam. 
+Consequently, no true depth or slice information can be extracted.
+
+In contrast, CT employs a rotating X-ray source and a detector array that acquire multiple projections of the object from different angles. 
+These projections are then processed mathematically. 
+Each pixel in a CT image corresponds to a specific volumetric element (voxel) with a defined X-ray attenuation coefficient, allowing three-dimensional representation and quantitative measurement of tissue density.
+
+Here are few reason why CT is prefered.
+\begin{enumerate}
+    \item Improve contrast to enable visualization of different types of soft tissue with X-ray energies. 
+    \item Enable 3D visualization.
+    \item Visualization of a slice of the anatomy along any imaging plane. 
+\end{enumerate}
+
+The reason CT visualization is generaly better tha conventional radiography is because the attenuation coefficients of most soft tissues are very similar at diagnostic X-ray energies, radiographs exhibit poor soft tissue contrast. 
+Dense materials such as bone or metal absorb X-rays much more strongly, thereby dominating the image contrast and obscuring the visualization of low-density structures such as blood vessels, muscle, or internal organ boundaries.
+Consequently, structures composed primarily of soft tissue—such as the heart, liver, or vasculature—are not well distinguished in conventional X-ray images.
+CT overcomes this limitation by reconstructing thin slices, thus eliminating superposition of overlying structures and allows the detection of small differences in attenuation between soft tissues.
+
 \subsection{Beer's Law}
 The general form of Beer’s law describes how a beam of radiation is attenuated as it propagates through an absorbing medium.
 In three-dimensional space, when the attenuation coefficient is not constant but varies with position, the law generalizes to a path integral form
 \begin{equation*}
-    I=I_0\exp \left( \int_S \mu(\mathbf{r })\;ds \right)
+    I=I_0\exp \left( -\int_S \mu(\mathbf{r })\;ds \right)
 \end{equation*}
 
 To obtain a form suitable for tomographic reconstruction, one takes the natural logarithm and rearranges
