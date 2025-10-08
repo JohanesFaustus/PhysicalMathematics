@@ -126,6 +126,10 @@ In practice, the sinogram $p(r,\theta)$ given by the Rodon transformation become
 
 The minimum number of detector samples required to prevent distortion due to aliasing is called the Nyquist criterion.
 It states that if $\Delta s$ is the beam width, then the maximum sampling distance is $\Delta s/2$, or at least two samples per beam width are required.
+The spatial frequency is then
+\begin{equation*}
+    k_N = \frac{1 }{2\Delta s}
+\end{equation*}
 
 A general rule is followed that states that the number of views should be $\pi/2$ times the number of detector samples
 For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 detector samples and 150 views are required.
@@ -372,7 +376,7 @@ To obtain a sharper and quantitatively accurate reconstruction, one applies a fi
 \subsection{Filtered Backprojection Reconstruction}
 Essentialy, this formula
 \begin{equation*}
-    f(x,y) = \int_{-\infty }^{\infty}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
+    f(x,y) = \int_{0}^{2\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
 \end{equation*}
 The algorithm, however, is as follows.
 \begin{enumerate}
@@ -382,6 +386,7 @@ The algorithm, however, is as follows.
               P_{\theta}(k) = \mathcal{F}\{p_{\theta}(r)\}
               = \int_{-\infty}^{\infty} p_{\theta}(r)\, e^{-i2\pi kr}\,dr.
           \]
+          with $H(k)=|k|$ frequency-domain filter.
 
     \item \textbf{Frequency-domain filtering (ramp filter).} Multiply each transformed projection by the ramp filter $|k|$
           \[
@@ -439,7 +444,56 @@ The central slice theorem gives the 1D Fourier transform of the projection at an
 with $\mathcal{F} \left\{ p_\theta(r) \right\}=F(k,\theta)$ as the 1D Fourier transform.
 Hence, we can write the expression for laminogram as
 \begin{equation*}
-    f(x,y) = \int_{-\infty }^{\infty}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
+    f(x,y) = \int_{0}^{2\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
 \end{equation*}
-Here $|k|$ arises from the Jacobian of the coordinate transformation, but physicaly it can be understood as the filter such that $\mathcal{F} \left\{ p_\theta(r) \right\} |k|$ is the filtered projection
+Here $|k|$ arises from the Jacobian of the coordinate transformation, but physicaly it can be understood as the filter such that $\mathcal{F} \left\{ p_\theta(r) \right\} |k|$ is the filtered projection with $H(k)=|k|$ as the projection.
+
+\subsection{Discrete Filtered Backprojection Reconstruction}
+Of course digital computers require discrete representations of FBP equation.
+Going from continuous space to discrete space is usually straightforward, with $\int \rightarrow \sum $, $dk\rightarrow\Delta k$, $d\theta\rightarrow\Delta \theta$ and $|k|\rightarrow H(k)$ as the ramp filter.
+
+The algorithm is mostly the same as normal FBP.
+The only conceptual difference between the continuous and discrete algorithms lies in the filtering step.
+In the continuous formulation, filtering is represented by $|k|$,  whereas in the discrete implementation it is performed either as frequency-domain multiplication with $H[k]$ or equivalently as spatial-domain convolution with $h[n]$.
+\begin{enumerate}
+    \item \textbf{Discrete Fourier transform of each projection.}
+
+          For each sampled projection $p_\theta[n]$, compute its one-dimensional discrete Fourier transform (DFT):
+          \[
+              P_\theta[k] = \sum_{n=0}^{N-1} p_\theta[n]\, e^{-i 2\pi kn / N}.
+          \]
+
+    \item \textbf{Discrete filtering step.}
+
+          The continuous multiplication by $|k|$ becomes a multiplication by a discrete filter $H[k]$:
+          \[
+              \tilde{P}_\theta[k] = H[k]\, P_\theta[k],
+          \]
+          where $H[k]$ corresponds to the digital approximation of the ramp filter (e.g.\ Ram-Lak, Shepp–Logan, Hann, or Hamming).
+          Equivalently, by the convolution theorem,
+          \[
+              \tilde{p}_\theta[n] = (h * p_\theta)[n],
+          \]
+          since
+          \[
+              \tilde{p}_{\theta}(r)
+              = \mathcal{F}^{-1}\{\tilde{P}_{\theta}(k)\}
+              = \mathcal{F}^{-1}\{|k|\,P_{\theta}(k)\}
+              = \mathcal{F}^{-1}\{|k|\} * \mathcal{F}^{-1}\{P_{\theta}(k)\}
+          \]
+
+    \item \textbf{Inverse discrete Fourier transform.}
+
+          Obtain the filtered projection in the spatial domain:
+          \[
+              \tilde{p}_\theta[n] = \frac{1}{N} \sum_{k=0}^{N-1} \tilde{P}_\theta[k]\, e^{i 2\pi kn / N}.
+          \]
+
+    \item \textbf{Discrete backprojection.}
+
+          Reconstruct the image by summing over all projection angles:
+          \[
+              f[i,j] = \sum_{m=0}^{M-1} \tilde{p}_{\theta_m}(x_i\cos\theta_m + y_j\sin\theta_m)\, \Delta\theta.
+          \]
+\end{enumerate}
 \end{document}
