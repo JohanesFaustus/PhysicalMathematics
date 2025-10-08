@@ -44,13 +44,13 @@ In three-dimensional space, when the attenuation coefficient is not constant but
 
 To obtain a form suitable for tomographic reconstruction, one takes the natural logarithm and rearranges
 \begin{equation*}
-    \ln\!\left(\frac{I_0}{I}\right) = \int_{S} \mu(\mathbf{r}) \, ds.
+    \ln\!\left(\frac{I_0}{I}\right) = \int_{S} \mu(\mathbf{r}) \; ds.
 \end{equation*}
 The left-hand side is experimentally measurable, since $I$ and $I_0$ are detector readings.
 The right-hand side is the line integral of the attenuation coefficient along the X-ray path
 Defining the projection function $p(r,\theta)$, one obtains
 \begin{equation*}
-    p_\theta(r)    = \int_{S} \mu(x,y) \, ds,
+    p_\theta(r)    = \int_{S} \mu(x,y) \; ds,
 \end{equation*}
 where $\theta$ is the projection angle and $r$ denotes the detector position.
 
@@ -106,6 +106,16 @@ It can also be understood that
     p_\theta(r)=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s
 \end{equation*}
 Stacking all the projections $p_\theta(r)$ together results in a 2D data set $p(r,\theta)$ which is called a sinogram.
+\begin{equation*}
+    p(r,\theta)=\begin{cases}
+        p_0(r),               & \theta=0             \\
+        p_{\Delta\theta}(r),  & \theta=\Delta\theta  \\
+        p_{2\Delta\theta}(r), & \theta=2\Delta\theta \\
+        \vdots
+    \end{cases}
+\end{equation*}
+In other words, you get the sinogram by plotting $p(r,\theta)$ with $r$ in the $x$ axis and $\theta$ in the $y$ axis.
+
 The transformation of a function $f(x,y)$ into the sinogram $p(r,\theta)$ is called the Radon transform.
 \begin{equation*}
     p(r,\theta)=R \left[ f(x,y) \right]=\sum_s f \left( r \cos \theta-s \sin \theta,r \sin \theta+s \cos \theta \right) \Delta s
@@ -137,7 +147,7 @@ For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 
           This quantity equals the line integral of the attenuation coefficient along the ray
           \begin{equation*}
               p(r_i,\theta_j)
-              = \int_{S} \mu(x,y) \, ds,
+              = \int_{S} \mu(x,y) \; ds,
           \end{equation*}
     \item \textbf{Sinogram.} Assemble all values $p(r_i,\theta_j)$ into a two-dimensional matrix $S$ with rows for detector positions $\theta_i$ and columns for projection angles $\theta_j$. Visualizing this matrix produces the sinogram. The sinogram matrix has dimensions
           \begin{equation*}
@@ -302,24 +312,27 @@ Now image data and projections match
 \end{equation*}
 
 \subsection{Fourier Reconstruction}
-In practice, re-sampling from polar to rectangular coordinates involves considerable interpolation, which makes the resultant estimate of $f(x,y)$ noisy and unacceptable for clinical diagnostic purposes. 
+In practice, re-sampling from polar to rectangular coordinates involves considerable interpolation, which makes the resultant estimate of $f(x,y)$ noisy and unacceptable for clinical diagnostic purposes.
 There are two work around, first using smaller $\Delta s$ and $\Delta \theta$, and the second is using filtered backprojection method.
 
 \begin{enumerate}
     \item \textbf{1D Fourier transform.} For each projection \( p_\theta(r) \), compute its one-dimensional Fourier transform with respect to the detector coordinate \( r \):
-    \[
-    P_\theta(k) = \int_{-\infty}^{\infty} p_\theta(r)\, e^{-i 2 \pi k r}\, dr.
-    \]
-    Each resulting \( P_\theta(k) \) represents the frequency content of the projection at angle \( \theta \).
+          \[
+              P_\theta(k) = \int_{-\infty}^{\infty} p_\theta(r)\; e^{-i 2 \pi k r}\; dr.
+          \]
+          Each resulting \( P_\theta(k) \) represents the frequency content of the projection at angle \( \theta \).
 
     \item \textbf{2D Fourier transform.} The data \( P_\theta(k) \) are placed in the frequency domain on a polar grid defined by \( (k, \theta) \), forming \( P(k,\theta) \).
 
-    \item \textbf{Interpolation.} The frequency data are then resampled or interpolated from this polar grid \( P(k,\theta) \) onto a Cartesian grid \( F(k_x, k_y) \). This step is necessary because the two-dimensional inverse Fourier transform requires uniformly sampled data in \( k_x, k_y \) space.
+    \item \textbf{Interpolation.} The frequency data are then resampled or interpolated from this polar grid \( P(k,\theta) \) onto a Cartesian grid \( F(k_x, k_y) \). This step is justified by central slice theorem, which state
+          \begin{equation*}
+              P(k,\theta)=F(k_x,k_y)
+          \end{equation*}
 
     \item \textbf{2D Inverse Fourier transform.} Finally, the two-dimensional inverse Fourier transform is applied to \( F(k_x, k_y) \) to reconstruct the spatial domain image \( f(x,y) \)
-    \[
-    f(x,y) = \iint F(k_x, k_y)\, e^{i 2 \pi (k_x x + k_y y)}\, dk_x\, dk_y.
-    \]
+          \[
+              f(x,y) = \iint F(k_x, k_y)\; e^{i 2 \pi (k_x x + k_y y)}\; dk_x\; dk_y.
+          \]
 \end{enumerate}
 \begin{figure*}
     \centering
@@ -328,14 +341,13 @@ There are two work around, first using smaller $\Delta s$ and $\Delta \theta$, a
 \end{figure*}
 
 \subsection{Backprojection Reconstruction}
-This method is inferior to the filtered backprojection.
-It produces a blurred image, because each projection is “smeared” along the line.
-The algorithm is composed only taking $p_\theta$ and plugging it into 
+This method is inferior to the filtered backprojection, as it produces a blurred image, because each projection is “smeared” along the line.
+The algorithm is composed only taking $p_\theta$ and plugging it into
 \begin{equation*}
-       f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} p_\theta(r)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta 
+    f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} p_\theta(r)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta
 \end{equation*}
 
-\subsubsection{Derivation.} 
+\subsubsection{Derivation.}
 Mathematically the back projection of a single measured projection along an unknown density is given by
 \begin{equation*}
     b_\theta(x,y)=\int_{-\infty}^{\infty} p_\theta(r)\delta(x\cos\theta+y\sin\theta -r)\;dr
@@ -356,4 +368,78 @@ The blurring is caused by impulse response of the unfiltered backprojection oper
 This $1/r$ dependence explains the blurring inherent to simple backprojection: rather than reconstructing a sharp delta at the origin, the algorithm produces a radially decaying intensity.
 
 To obtain a sharper and quantitatively accurate reconstruction, one applies a filter (usually a ramp filter in the frequency domain) to each projection before or during backprojection.
+
+\subsection{Filtered Backprojection Reconstruction}
+Essentialy, this formula
+\begin{equation*}
+    f(x,y) = \int_{-\infty }^{\infty}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
+\end{equation*}
+The algorithm, however, is as follows.
+\begin{enumerate}
+    \item \textbf{Fourier transform of each projection.}
+          For each projection $p_\theta(r)$ compute its one-dimensional Fourier transform with respect to $r$
+          \[
+              P_{\theta}(k) = \mathcal{F}\{p_{\theta}(r)\}
+              = \int_{-\infty}^{\infty} p_{\theta}(r)\, e^{-i2\pi kr}\,dr.
+          \]
+
+    \item \textbf{Frequency-domain filtering (ramp filter).} Multiply each transformed projection by the ramp filter $|k|$
+          \[
+              \tilde{P}_{\theta}(k) = |k|\, P_{\theta}(k).
+          \]
+
+    \item \textbf{Inverse transform to spatial domain.}
+          Perform the inverse one-dimensional Fourier transform to obtain the filtered projection
+          \[
+              \tilde{p}_{\theta}(r) = \mathcal{F}^{-1}\{\tilde{P}_{\theta}(k)\}
+              = \int_{-\infty}^{\infty} \tilde{P}_{\theta}(k)\, e^{i2\pi kr}\,dk.
+          \]
+
+    \item \textbf{Backprojection.} Reconstruct the image by integrating all filtered projections over the angular range
+          \[
+              f(x,y) = \int_{0}^{\pi}
+              \tilde{p}_{\theta}(x\cos\theta + y\sin\theta)\, d\theta.
+          \]
+\end{enumerate}
+
+We begin by restating the back-projection relationship for the laminogram
+\begin{equation*}
+    f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} p(r,\theta)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta
+\end{equation*}
+where we have used $p_\theta(r)\rightarrow p(r,\theta)$ for obvious reason.
+Restructuring this into a Fourier transform
+\begin{equation*}
+    f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty} P(r,\theta)e^{i2\pi kr}\;dk\right)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta
+\end{equation*}
+Applying the CST
+\begin{equation*}
+    f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty} F(r,\theta)e^{i2\pi kr}\;dk\right)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta
+\end{equation*}
+Performing the integration over r, we obtain
+\begin{equation*}
+    f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} F(r,\theta)\exp \left[ i2 \pi k \left( x \cos \theta+ y \sin \theta \right)  \right] \;dk\;d\theta
+\end{equation*}
+
+Now consider 2D Fourier transform
+\begin{equation*}
+    f(x,y) = \int_{-\infty }^{\infty}\int_{-\infty }^{\infty}F(k_x,k_y)\exp \left[{i 2\pi k (k_x x + k_y y)}\right]\; dk_x \; dk_y
+\end{equation*}
+or in polar coordinate
+\begin{equation*}
+    f(x,y) = \int_{0 }^{2\pi}\int_{-\infty }^{\infty}F(k,\theta) \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] k \; dk \; d\theta
+\end{equation*}
+This can be modified to
+\begin{equation*}
+    f(x,y) = \int_{0 }^{\pi}\int_{-\infty }^{\infty}F(k,\theta) \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] |k| \; dk \; d\theta
+\end{equation*}
+The central slice theorem gives the 1D Fourier transform of the projection at angle $\theta$, so
+\begin{equation*}
+    f(x,y) = \int_{0 }^{\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\}  \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] |k| \; dk \; d\theta
+\end{equation*}
+with $\mathcal{F} \left\{ p_\theta(r) \right\}=F(k,\theta)$ as the 1D Fourier transform.
+Hence, we can write the expression for laminogram as
+\begin{equation*}
+    f(x,y) = \int_{-\infty }^{\infty}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
+\end{equation*}
+Here $|k|$ arises from the Jacobian of the coordinate transformation, but physicaly it can be understood as the filter such that $\mathcal{F} \left\{ p_\theta(r) \right\} |k|$ is the filtered projection
 \end{document}
