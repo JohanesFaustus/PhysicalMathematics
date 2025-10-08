@@ -15,6 +15,19 @@
     \item \textbf{Pixel / Voxel.} Pixel: one element of the reconstructed 2D CT image. Voxel: the 3D analogue when slices are stacked.
 \end{enumerate}
 
+\subsection{CT Generaion}
+\begin{enumerate}
+    \item \textbf{First gen.} Employed a pencil-beam geometry consisting of a single narrow X-ray beam and a single detector. The system performed a translate–rotate motion, meaning that for each projection angle, the source–detector pair translated linearly across the patient to acquire one-dimensional transmission data. After each translation, the assembly rotated incrementally before repeating the scan.
+    \item \textbf{second gen.} Introduced a narrow fan beam and a linear detector array containing multiple detectors. The source–detector assembly still performed a translate–rotate motion, but because several rays were measured simultaneously, the acquisition time was reduced substantially.
+    \item \textbf{third gen.} Adopted a wide fan beam $30 ^\circ$ capable of covering the entire cross-section of the patient. A curved detector array rotated synchronously with the X-ray tube around the patient, eliminating the need for translation.
+    \item \textbf{Fourth gen.} Employed a stationary, complete ring of detectors surrounding the patient, while only the X-ray tube rotated. This eliminated mechanical constraints associated with rotating detector assemblies and improved reliability, though at the cost of increased scatter and calibration complexity.
+    \item \textbf{First gen.} Consists of an electronically steered electron beam swept across a target ring of tungsten. This electron-beam CT (EBCT) shows high spatial and temporal resolution and there are no moving parts. 
+\end{enumerate}
+\begin{figure*}
+    \centering
+    \normfigL{../../../Rss/ComputationalApproach/CT/CTgen.png}
+    \caption*{Figure: Generations of X-ray CT machines}
+\end{figure*}
 \subsection{Conventional Radiography and CT}
 In conventional radiography, the image represents a 2D projection of the anatomical structures along the direction of the X-ray beam.
 Consequently, no true depth or slice information can be extracted.
