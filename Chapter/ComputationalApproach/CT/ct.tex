@@ -50,11 +50,13 @@ The left-hand side is experimentally measurable, since $I$ and $I_0$ are detecto
 The right-hand side is the line integral of the attenuation coefficient along the X-ray path
 Defining the projection function $p(r,\theta)$, one obtains
 \begin{equation*}
-    p(r, \theta)    = \int_{S} \mu(x,y) \, ds,
+    p_\theta(r)    = \int_{S} \mu(x,y) \, ds,
 \end{equation*}
 where $\theta$ is the projection angle and $r$ denotes the detector position.
 
 \subsection{Rodon Transform}
+The Radon transform describes how a two-dimensional function, such as the attenuation coefficient distribution $\mu(x,y)$, is projected onto a set of line integrals at various angular orientations.
+
 Consider parallel-beam geometry with attenuated intensity of $I_0$.
 A new coordinate system is defined by rotating $(x,y)$ counterclockwise over the angle $\theta$, which given by the transformation of
 \begin{equation*}
@@ -137,4 +139,54 @@ For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 
     \end{equation*}
     where $N_s$ is the number of detector samples per projection and $N_\theta$ is the number of projection angles.
 \end{enumerate}
+
+\subsection{Brute Force Reconstruction}
+Image reconstruction is the process of estimating an image $f(x,y)$ from from a set of projections $p(r,\theta)$.
+With this method, the projection set defines a system of simultaneous linear equations that in theory can be solved using algorithms from linear algebra.
+
+\subsubsection{Example.}
+Consider the following 2x2 image with 6 projections
+\begin{equation*}
+    \begin{matrix}
+&w & x &  12 \\
+&y & z &  8 \\
+13 & 11 & 9 & 7
+\end{matrix}
+\end{equation*}
+These can be organized into a system of equations
+\begin{equation*}
+\begin{bmatrix}
+1 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1 \\
+1 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 \\
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+w \\ x \\ y \\ z
+\end{bmatrix}
+=
+\begin{bmatrix}
+12 \\ 8 \\ 11 \\ 9 \\ 7 \\ 13
+\end{bmatrix}
+\end{equation*}
+This is an over-determined system of equations; there are 5 equations and 4 unknowns.
+As a consequence, some of the rows and columns are linearly dependent.
+We can solve it using normal equation
+\begin{equation*}
+    \Omega^T \Omega \mathbf{x}=\Omega^T W
+\end{equation*}
+In python, we can use 
+\begin{minted}[breaklines]{python}
+Omega_T_Omega = Omega.T @ Omega
+Omega_T_W = Omega.T @ W
+\end{minted}
+to reproduce $\Omega^T \Omega$ and $\Omega^T W$.
+Specifically, \verb|Omega.T| is the transpose of Omega, and \verb|@| denotes matrix multiplication.
+Also, since the matrix is initialized with \verb|numpy| array, the operation is also handled by \verb|numpy|
+\begin{minted}[breaklines]{python}
+Omega = np.array([...], dtype=float)
+W = np.array([...], dtype=float)
+\end{minted}
 \end{document}
