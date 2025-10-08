@@ -469,12 +469,12 @@ In the continuous formulation, filtering is represented by $|k|$,  whereas in th
           \[
               \tilde{P}_\theta[k] = H[k]\, P_\theta[k],
           \]
-          where $H[k]$ corresponds to the digital approximation of the ramp filter (e.g.\ Ram-Lak, Shepp–Logan, Hann, or Hamming).
-          Equivalently, by the convolution theorem,
+          where $H[k]$ corresponds to the digital approximation of the ramp filter.
+          Equivalently,
           \[
               \tilde{p}_\theta[n] = (h * p_\theta)[n],
           \]
-          since
+          since, by the convolution theorem
           \[
               \tilde{p}_{\theta}(r)
               = \mathcal{F}^{-1}\{\tilde{P}_{\theta}(k)\}
@@ -496,4 +496,30 @@ In the continuous formulation, filtering is represented by $|k|$,  whereas in th
               f[i,j] = \sum_{m=0}^{M-1} \tilde{p}_{\theta_m}(x_i\cos\theta_m + y_j\sin\theta_m)\, \Delta\theta.
           \]
 \end{enumerate}
+
+\subsubsection{Ram-Lak filter.}
+The practical Ram-Lak filter is band-limited within the Nyquist frequency $k_N=1/2\Delta s$ domain
+\[
+    H_{\text{RamLak}}(k) =
+    \begin{cases}
+        |k|, & |k| \le k_N, \\
+        0,   & |k| > k_N,
+    \end{cases}
+\]
+The corresponding spatial-domain representation is obtained by inverse Fourier transform:
+\[
+    h_{\text{RamLak}}(r) =
+    \int_{-k_N}^{k_N} |k|\, e^{i2\pi k r}\, dk
+    = \frac{k_N \sin(2\pi k_N r)}{\pi r}
+    - \frac{1 - \cos(2\pi k_N r)}{2\pi^2 r^2}.
+\]
+In practice, this discrete sequence is real and even, and can be expressed analytically as
+\[
+    h_{\text{RamLak}}[m] =
+    \begin{cases}
+        0,                             & m \text{ even}, \\
+        -\dfrac{1}{(\pi n\Delta r)^2}, & m \text{ odd},  \\
+        \dfrac{1}{4(\Delta r)^2},      & m = 0.
+    \end{cases}
+\]
 \end{document}
