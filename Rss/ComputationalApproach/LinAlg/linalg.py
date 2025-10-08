@@ -85,8 +85,15 @@ def lu_solve(L, U, W):
 
 
 # Example system
-Omega = np.array([[2, 1, -1], [-3, -1, 2], [-2, 1, 2]], dtype=float)
-W = np.array([[8], [-11], [-3]], dtype=float)
+Omega = np.array([[1,1,0,0], [0,0,1,1], [1,0,1,0],[0,1,0,1],[1,0,0,1],[0,1,1,0]], dtype=float)
+W = np.array([[12],[8], [11], [9],[7],[13]], dtype=float)
 
-L, U = lu_decomp(Omega)
-sol = lu_solve(L, U, W)
+# L, U = lu_decomp(Omega)
+# sol = lu_solve(L, U, W)
+Omega_T_Omega = Omega.T @ Omega
+Omega_T_W = Omega.T @ W
+
+# Solve using your Gauss–Jordan function
+sol, A = gauss_jordan(Omega_T_Omega, Omega_T_W)
+print(sol)
+

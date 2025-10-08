@@ -16,21 +16,21 @@
 \end{enumerate}
 
 \subsection{Conventional Radiography and CT}
-In conventional radiography, the image represents a 2D projection of the anatomical structures along the direction of the X-ray beam. 
+In conventional radiography, the image represents a 2D projection of the anatomical structures along the direction of the X-ray beam.
 Consequently, no true depth or slice information can be extracted.
 
-In contrast, CT employs a rotating X-ray source and a detector array that acquire multiple projections of the object from different angles. 
-These projections are then processed mathematically. 
+In contrast, CT employs a rotating X-ray source and a detector array that acquire multiple projections of the object from different angles.
+These projections are then processed mathematically.
 Each pixel in a CT image corresponds to a specific volumetric element (voxel) with a defined X-ray attenuation coefficient, allowing three-dimensional representation and quantitative measurement of tissue density.
 
 Here are few reason why CT is prefered.
 \begin{enumerate}
-    \item Improve contrast to enable visualization of different types of soft tissue with X-ray energies. 
+    \item Improve contrast to enable visualization of different types of soft tissue with X-ray energies.
     \item Enable 3D visualization.
-    \item Visualization of a slice of the anatomy along any imaging plane. 
+    \item Visualization of a slice of the anatomy along any imaging plane.
 \end{enumerate}
 
-The reason CT visualization is generaly better tha conventional radiography is because the attenuation coefficients of most soft tissues are very similar at diagnostic X-ray energies, radiographs exhibit poor soft tissue contrast. 
+The reason CT visualization is generaly better tha conventional radiography is because the attenuation coefficients of most soft tissues are very similar at diagnostic X-ray energies, radiographs exhibit poor soft tissue contrast.
 Dense materials such as bone or metal absorb X-rays much more strongly, thereby dominating the image contrast and obscuring the visualization of low-density structures such as blood vessels, muscle, or internal organ boundaries.
 Consequently, structures composed primarily of soft tissue—such as the heart, liver, or vasculature—are not well distinguished in conventional X-ray images.
 CT overcomes this limitation by reconstructing thin slices, thus eliminating superposition of overlying structures and allows the detection of small differences in attenuation between soft tissues.
@@ -56,6 +56,12 @@ where $\theta$ is the projection angle and $r$ denotes the detector position.
 
 \subsection{Rodon Transform}
 The Radon transform describes how a two-dimensional function, such as the attenuation coefficient distribution $\mu(x,y)$, is projected onto a set of line integrals at various angular orientations.
+
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/ComputationalApproach/CT/ParallelBeam.png}
+    \caption*{Figure: Parallel Beam}
+\end{figure*}
 
 Consider parallel-beam geometry with attenuated intensity of $I_0$.
 A new coordinate system is defined by rotating $(x,y)$ counterclockwise over the angle $\theta$, which given by the transformation of
@@ -109,7 +115,7 @@ The transformation of a function $f(x,y)$ into the sinogram $p(r,\theta)$ is cal
 In practice, the sinogram $p(r,\theta)$ given by the Rodon transformation becomes $p(n\Delta  r,m\Delta\theta)$ with $M$ rows and $N$ columns.
 
 The minimum number of detector samples required to prevent distortion due to aliasing is called the Nyquist criterion.
-It states that if $\Delta s$ is the beam width, then the maximum sampling distance is $\Delta s/2$, or at least two samples per beam width are required. 
+It states that if $\Delta s$ is the beam width, then the maximum sampling distance is $\Delta s/2$, or at least two samples per beam width are required.
 
 A general rule is followed that states that the number of views should be $\pi/2$ times the number of detector samples
 For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 detector samples and 150 views are required.
@@ -119,25 +125,25 @@ For example, if the field of view is 50 cm and the beam width is 1 cm, then 100 
     \item \textbf{Calibration.} Measure the detector intensity without the object for every detector position; denote this as $I_0(r)$.
     \item \textbf{Discretization.} Choose the number of detector samples (translations) per projection $N_s$ and the number of projection angles $N_\theta$. Fix sampling step $\Delta r$ along the detector direction and angular step $\Delta \theta$.
     \item \textbf{Acquisition.} For each angle $\theta_j$, with $j=1,\dots,N_\theta$, perform:
-    \begin{enumerate}
-        \item Ensure the source–detector pair is at angle $\theta_j$
-        \item Translate (or read the detector array) along $r$ axis to obtain measured intensity $I(r_i,\theta_j)$ for each detector samples $r_i$, with $i=1,\dots,N_s$.
-        \item Store the corrected detector readings.
-    \end{enumerate}
+          \begin{enumerate}
+              \item Ensure the source–detector pair is at angle $\theta_j$
+              \item Translate (or read the detector array) along $r$ axis to obtain measured intensity $I(r_i,\theta_j)$ for each detector samples $r_i$, with $i=1,\dots,N_s$.
+              \item Store the corrected detector readings.
+          \end{enumerate}
     \item \textbf{Projection profile.} Apply negative logarithm to linearize the Beer–Lambert relation
-    \begin{equation*}
-        p(r_i,\theta_j)=-\ln \left( \frac{I(r_i,\theta_j)}{I_0(r)} \right) 
-    \end{equation*}
-    This quantity equals the line integral of the attenuation coefficient along the ray
-    \begin{equation*}
-            p(r_i,\theta_j)
-    = \int_{S} \mu(x,y) \, ds,
-    \end{equation*}
+          \begin{equation*}
+              p(r_i,\theta_j)=-\ln \left( \frac{I(r_i,\theta_j)}{I_0(r)} \right)
+          \end{equation*}
+          This quantity equals the line integral of the attenuation coefficient along the ray
+          \begin{equation*}
+              p(r_i,\theta_j)
+              = \int_{S} \mu(x,y) \, ds,
+          \end{equation*}
     \item \textbf{Sinogram.} Assemble all values $p(r_i,\theta_j)$ into a two-dimensional matrix $S$ with rows for detector positions $\theta_i$ and columns for projection angles $\theta_j$. Visualizing this matrix produces the sinogram. The sinogram matrix has dimensions
-    \begin{equation*}
-        \dim (S)=N_s\times N_\theta
-    \end{equation*}
-    where $N_s$ is the number of detector samples per projection and $N_\theta$ is the number of projection angles.
+          \begin{equation*}
+              \dim (S)=N_s\times N_\theta
+          \end{equation*}
+          where $N_s$ is the number of detector samples per projection and $N_\theta$ is the number of projection angles.
 \end{enumerate}
 
 \subsection{Brute Force Reconstruction}
@@ -148,28 +154,28 @@ With this method, the projection set defines a system of simultaneous linear equ
 Consider the following 2x2 image with 6 projections
 \begin{equation*}
     \begin{matrix}
-&w & x &  12 \\
-&y & z &  8 \\
-13 & 11 & 9 & 7
-\end{matrix}
+           & w  & x & 12 \\
+           & y  & z & 8  \\
+        13 & 11 & 9 & 7
+    \end{matrix}
 \end{equation*}
 These can be organized into a system of equations
 \begin{equation*}
-\begin{bmatrix}
-1 & 1 & 0 & 0 \\
-0 & 0 & 1 & 1 \\
-1 & 0 & 1 & 0 \\
-0 & 1 & 0 & 1 \\
-1 & 0 & 0 & 1 \\
-0 & 1 & 1 & 0
-\end{bmatrix}
-\begin{bmatrix}
-w \\ x \\ y \\ z
-\end{bmatrix}
-=
-\begin{bmatrix}
-12 \\ 8 \\ 11 \\ 9 \\ 7 \\ 13
-\end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 1 \\
+        1 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 0 & 1 \\
+        0 & 1 & 1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        w \\ x \\ y \\ z
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        12 \\ 8 \\ 11 \\ 9 \\ 7 \\ 13
+    \end{bmatrix}
 \end{equation*}
 This is an over-determined system of equations; there are 5 equations and 4 unknowns.
 As a consequence, some of the rows and columns are linearly dependent.
@@ -177,16 +183,144 @@ We can solve it using normal equation
 \begin{equation*}
     \Omega^T \Omega \mathbf{x}=\Omega^T W
 \end{equation*}
-In python, we can use 
+In python, we can use
 \begin{minted}[breaklines]{python}
 Omega_T_Omega = Omega.T @ Omega
 Omega_T_W = Omega.T @ W
 \end{minted}
 to reproduce $\Omega^T \Omega$ and $\Omega^T W$.
-Specifically, \verb|Omega.T| is the transpose of Omega, and \verb|@| denotes matrix multiplication.
+Specifically, \verb|Omega.T| is the transpose of \verb|Omega| and \verb|@| denotes matrix multiplication.
 Also, since the matrix is initialized with \verb|numpy| array, the operation is also handled by \verb|numpy|
 \begin{minted}[breaklines]{python}
 Omega = np.array([...], dtype=float)
 W = np.array([...], dtype=float)
 \end{minted}
+
+\subsection{Iterative Reconstruction Reconstruction}
+The iterative reconstruction (also known as algebraic reconstruction technique-ART) consists of three steps:
+\begin{enumerate}
+    \item Make an initial guess at the solution
+    \item Compute projections based on the guess
+    \item Refine the guess based on the weighted difference between the actual projections and the desired projections $p^{i+1}=p^i+g(\text{desired}-\text{actual})$
+\end{enumerate}
+The ART was the original reconstruction method used in medical imaging.
+The method works, but is slow and susceptible to noise. With more noise, the convergence is very slow, and is not guaranteed.
+
+\subsubsection{Example.}
+Consider the same 2x2 image with 6 projections
+\begin{equation*}
+    \begin{matrix}
+           & w  & x & 12 \\
+           & y  & z & 8  \\
+        13 & 11 & 9 & 7
+    \end{matrix}
+\end{equation*}
+First let us make initial guess of zero
+\begin{equation*}
+    \begin{matrix}
+          & 0 & 0 & 0 \\
+          & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{matrix}
+\end{equation*}
+Then, let us refine the horizontal estimates with $g=1/2$
+\begin{equation*}
+    \begin{bmatrix}
+        w \\ x \\ y \\ z
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 + \dfrac{(12 - 0)}{2} \\
+        0 + \dfrac{(12 - 0)}{2} \\
+        0 + \dfrac{(8 - 0)}{2}  \\
+        0 + \dfrac{(8 - 0)}{2}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        6 \\ 6 \\ 4 \\ 4
+    \end{bmatrix}
+\end{equation*}
+which yield
+\begin{equation*}
+    \begin{matrix}
+           & 6  & 6  & 12 \\
+           & 4  & 4  & 8  \\
+        10 & 10 & 10 & 10
+    \end{matrix}
+\end{equation*}
+
+Next, let us refine the vertical estimates
+\begin{equation*}
+    \begin{bmatrix}
+        w \\ x \\ y \\ z
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        6 + \dfrac{(11 - 10)}{2} \\
+        6 + \dfrac{(9 - 10)}{2}  \\
+        4 + \dfrac{(11 - 10)}{2} \\
+        4 + \dfrac{(9 - 10)}{2}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        6.5 \\ 5.5 \\ 4.5 \\ 3.5
+    \end{bmatrix}
+\end{equation*}
+which yield
+\begin{equation*}
+    \begin{matrix}
+           & 6.5 & 6.5 & 13 \\
+           & 4.5 & 3.5 & 8  \\
+        10 & 11  & 9   & 10
+    \end{matrix}
+\end{equation*}
+
+Next, let us refine the diagonal estimates
+\begin{equation*}
+    \begin{bmatrix}
+        w \\ x \\ y \\ z
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        6.5 + \dfrac{(7 - 10)}{2}  \\
+        5.5 + \dfrac{(13 - 10)}{2} \\
+        4.5 + \dfrac{(13 - 10)}{2} \\
+        3.5 + \dfrac{(7 - 10)}{2}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        5 \\ 7 \\ 6 \\ 2
+    \end{bmatrix}
+\end{equation*}
+Now image data and projections match
+\begin{equation*}
+    \begin{matrix}
+           & 5  & 7 & 12 \\
+           & 6  & 2 & 8  \\
+        13 & 11 & 9 & 7
+    \end{matrix}
+\end{equation*}
+
+\subsection{Backprojection Reconstruction}
+\begin{enumerate}
+    \item \textbf{1D Fourier transform.} For each projection \( p_\theta(r) \), compute its one-dimensional Fourier transform with respect to the detector coordinate \( r \):
+    \[
+    P_\theta(k) = \int_{-\infty}^{\infty} p_\theta(r)\, e^{-i 2 \pi k r}\, dr.
+    \]
+    Each resulting \( P_\theta(k) \) represents the frequency content of the projection at angle \( \theta \).
+
+    \item \textbf{2D Fourier transform.} The data \( P_\theta(k) \) are placed in the frequency domain on a polar grid defined by \( (k, \theta) \), forming \( P(k,\theta) \).
+
+    \item \textbf{Interpolation.} The frequency data are then resampled or interpolated from this polar grid \( P(k,\theta) \) onto a Cartesian grid \( F(k_x, k_y) \). This step is necessary because the two-dimensional inverse Fourier transform requires uniformly sampled data in \( k_x, k_y \) space.
+
+    \item \textbf{2D Inverse Fourier transform.} Finally, the two-dimensional inverse Fourier transform is applied to \( F(k_x, k_y) \) to reconstruct the spatial domain image \( f(x,y) \)
+    \[
+    f(x,y) = \iint F(k_x, k_y)\, e^{i 2 \pi (k_x x + k_y y)}\, dk_x\, dk_y.
+    \]
+\end{enumerate}
+\begin{figure*}
+    \centering
+    \normfigL{../../../Rss/ComputationalApproach/CT/sampling.png}
+    \caption*{Figure: Sampling grid, polar and cartesian}
+\end{figure*}
 \end{document}
