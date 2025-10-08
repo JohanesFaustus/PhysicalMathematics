@@ -301,7 +301,10 @@ Now image data and projections match
     \end{matrix}
 \end{equation*}
 
-\subsection{Backprojection Reconstruction}
+\subsection{Fourier Reconstruction}
+In practice, re-sampling from polar to rectangular coordinates involves considerable interpolation, which makes the resultant estimate of $f(x,y)$ noisy and unacceptable for clinical diagnostic purposes. 
+There are two work around, first using smaller $\Delta s$ and $\Delta \theta$, and the second is using filtered backprojection method.
+
 \begin{enumerate}
     \item \textbf{1D Fourier transform.} For each projection \( p_\theta(r) \), compute its one-dimensional Fourier transform with respect to the detector coordinate \( r \):
     \[
@@ -323,4 +326,34 @@ Now image data and projections match
     \normfigL{../../../Rss/ComputationalApproach/CT/sampling.png}
     \caption*{Figure: Sampling grid, polar and cartesian}
 \end{figure*}
+
+\subsection{Backprojection Reconstruction}
+This method is inferior to the filtered backprojection.
+It produces a blurred image, because each projection is “smeared” along the line.
+The algorithm is composed only taking $p_\theta$ and plugging it into 
+\begin{equation*}
+       f_b(x,y)=\int_{0 }^{\pi}\int_{-\infty}^{\infty} p_\theta(r)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta 
+\end{equation*}
+
+\subsubsection{Derivation.} 
+Mathematically the back projection of a single measured projection along an unknown density is given by
+\begin{equation*}
+    b_\theta(x,y)=\int_{-\infty}^{\infty} p_\theta(r)\delta(x\cos\theta+y\sin\theta -r)\;dr
+\end{equation*}
+The $    b_\theta(x,y)$ is the back-projected density due to the projection $p_\theta(r)$ and the  Dirac delta function signify that the integration is performed in the beam path.
+The this is due to the Dirac delta function enforces that only those spatial points receive contributions from the measured value $p_\theta(r)$.
+
+Adding up these densities at all angles, we obtain the laminogram
+\begin{equation*}
+    f_b(x,y)=\int_{0 }^{\pi} b_\theta(x,y)\;d\theta=\int_{0 }^{\pi}\int_{-\infty}^{\infty} p_\theta(r)\delta(x\cos\theta+y\sin\theta -r)\;dr\;d\theta
+\end{equation*}
+which represents a distorted picture of the anatomy through which the X-ray beam passes.
+
+The blurring is caused by impulse response of the unfiltered backprojection operator
+\begin{equation*}
+    f_b(x,y)=f(x,y)*\frac{1 }{r}
+\end{equation*}
+This $1/r$ dependence explains the blurring inherent to simple backprojection: rather than reconstructing a sharp delta at the origin, the algorithm produces a radially decaying intensity.
+
+To obtain a sharper and quantitatively accurate reconstruction, one applies a filter (usually a ramp filter in the frequency domain) to each projection before or during backprojection.
 \end{document}
