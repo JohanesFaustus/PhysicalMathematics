@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def gaussian_elimination(Omega, W):
+def GaussElimWOPivot(Omega, W):
     # Ensure W is a column vector (n,1)
     W = W.reshape(-1, 1).astype(float)
 
@@ -15,6 +15,37 @@ def gaussian_elimination(Omega, W):
         for i in range(k + 1, n):
             factor = A[i, k] / pivot
             A[i, k:] = A[i, k:] - factor * A[k, k:]
+
+    # Back substitution
+    x = np.zeros((n, 1))
+    for i in range(n - 1, -1, -1):
+        x[i, 0] = (A[i, -1] - np.dot(A[i, i + 1 : n], x[i + 1 :, 0])) / A[i, i]
+
+    return x, A
+
+
+def GaussElim(Omega, W):
+    # Ensure W is a column vector (n,1)
+    W = W.reshape(-1, 1).astype(float)
+    # Form augmented matrix [Omega | W]
+    n = W.shape[0]
+    A = np.hstack([Omega.astype(float), W])
+
+    # Forward elimination
+    for k in range(n - 1):
+        # Find pivot row
+        pivot_row = np.argmax(np.abs(A[k:, k])) + k
+        if A[pivot_row, k] == 0:
+            raise ValueError("Matrix is singular.")
+        # Swap rows if necessary
+        if pivot_row != k:
+            A[[k, pivot_row]] = A[[pivot_row, k]]
+
+        pivot = A[k, k]
+        # Eliminate below pivot
+        for i in range(k + 1, n):
+            factor = A[i, k] / pivot
+            A[i, k:] -= factor * A[k, k:]
 
     # Back substitution
     x = np.zeros((n, 1))
@@ -85,15 +116,69 @@ def lu_solve(L, U, W):
 
 
 # Example system
-Omega = np.array([[1,1,0,0], [0,0,1,1], [1,0,1,0],[0,1,0,1],[1,0,0,1],[0,1,1,0]], dtype=float)
-W = np.array([[12],[8], [11], [9],[7],[13]], dtype=float)
+# Simple system
+Omega1 = np.array(
+    [
+        [2, 1, -1],
+        [-3, -1, 2],
+        [-2, 1, 2],
+    ],
+    dtype=float,
+)
 
-# L, U = lu_decomp(Omega)
-# sol = lu_solve(L, U, W)
-Omega_T_Omega = Omega.T @ Omega
-Omega_T_W = Omega.T @ W
+W1 = np.array(
+    [
+        [8],
+        [-11],
+        [-3],
+    ],
+    dtype=float,
+)
 
-# Solve using your Gauss–Jordan function
-sol, A = gauss_jordan(Omega_T_Omega, Omega_T_W)
+# Overdetermined system (more equations than unknowns)
+Omega2 = np.array(
+    [
+        [1, 1, 0, 0],
+        [0, 0, 1, 1],
+        [1, 0, 1, 0],
+        [0, 1, 0, 1],
+        [1, 0, 0, 1],
+        [0, 1, 1, 0],
+    ],
+    dtype=float,
+)
+W2 = np.array(
+    [
+        [12],
+        [8],
+        [11],
+        [9],
+        [7],
+        [13],
+    ],
+    dtype=float,
+)
+
+# System wich have zero pivot
+Omega3 = np.array(
+    [
+        [3, 5, 5],
+        [3, 5, 9],
+        [5, 9, 17],
+    ],
+    dtype=float,
+)
+W3 = np.array(
+    [[6], [7], [11]],
+    dtype=float,
+)
+
+
+# L, U = lu_decomp(Omega2)
+# sol = lu_solve(L, U, W2)
+
+sol, A = GaussElimWOPivot(Omega1, W1)
+sol_analitic = np.linalg.solve(Omega1, W1)
+
 print(sol)
-
+print(sol_analitic)

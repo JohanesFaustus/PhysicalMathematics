@@ -32,6 +32,7 @@ Gaussian elimination is an algorithm in linear algebra for solving systems of li
 After forming the augmented matrix $A=[\Omega|W]$, the algorithm is as follows.
 
 \begin{enumerate}
+    \item \textbf{Pivoting.} Ensure that the pivot $a_{kk}$ is not zero.
     \item \textbf{Step 1: Pivot in column 1.}
           Choose $a_{11}$ as pivot (if $a_{11}=0$, swap with a lower row).
           For $i=2,\dots,n$, eliminate entries below the pivot.
@@ -91,22 +92,42 @@ We define the function that takes \verb|Omega| the coefficient matrix $\Omega \i
 \end{minted}
 \verb|n| is the system size (number of rows).
 \verb|np.hstack| horizontally concatenates the coefficient matrix and the constant column to form the augmented matrix $[\Omega|W]$.
+
+Next for the pivot and forward elimination.
 \begin{minted}[breaklines]{python}
     for k in range(n-1):
+\end{minted}
+This outer loop \verb|k| is the pivot row (from row 1 or index 0 to row \verb|n| or index \verb|n-1|).
+\begin{minted}[breaklines]{python}
+        pivot_row = np.argmax(np.abs(A[k:, k])) + k
+\end{minted}
+\verb|pivot_row| is the row containing the largest pivot candidate below or at the current diagonal position.
+This is obtained by \verb|np.abs(A[k:,k])| taking the absolute value of column \verb|k|, starting form row \verb|k| to the last.
+Then \verb|np.argmax()| return the index relative to the slice \verb|A[k:,k]|.
+Lastly, \verb|+ k| is used to converts it to the correct row index in the full matrix.
+\begin{minted}[breaklines]{python}
+        if A[pivot_row, k] == 0:
+            raise ValueError("Matrix is singular.")
+\end{minted}
+If the largest element in the column is zero, the pivot cannot be found, and the matrix is singular.
+\begin{minted}[breaklines]{python}
+        if pivot_row != k:
+            A[[k, pivot_row]] = A[[pivot_row, k]]
+\end{minted}
+The row swapping \verb|A[[k, pivot_row]] = A[[pivot_row, k]]| is only performed when \verb|pivot_row| is not the same as \verb|k| using \verb|!=|.
+\begin{minted}[breaklines]{python}
         pivot = A[k, k]
         for i in range(k+1, n):
             factor = A[i, k] / pivot
-            A[i, k:] = A[i, k:] - factor * A[k, k:] 
+            A[i, k:] -= factor * A[k, k:] 
 \end{minted}
-This loop creates zeros below the pivot.
-Outer loop \verb|k| is the pivot row (from row 0 to row n-2).
-\verb|pivot = A[k,k]| takes the pivot element $\omega_{kk}$.
-Inner loop \verb|i| compute the factor
+\verb|pivot = A[k,k]| takes the pivot element $\omega_{kk}$ and the inner loop \verb|i| compute the factor
 \begin{equation*}
     F=\frac{A[i,k]}{A[k,k]}=\frac{\omega_{ik }}{\omega_{kk}}
 \end{equation*}
 for each \verb|i|, the updates the row \verb|A[i,k]|.
-After this phase, $A$ is in row echelon (upper triangular) form.
+
+Now we start the back substitution, since $A$ is in row echelon (upper triangular) form.
 \begin{minted}[breaklines]{python}
     x = np.zeros((n,1))
     for i in range(n-1, -1, -1):
