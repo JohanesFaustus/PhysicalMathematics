@@ -1,0 +1,53 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Linear Regression (unfinished)}
+The simplest form models the dependent variable \( y \) as a linear combination of independent variables \( x_j \):
+\begin{equation*}
+    y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \varepsilon,
+\end{equation*}
+where the coefficients \( \beta_j \) are estimated by minimizing the sum of squared residuals.
+
+\subsection{Multiple Linear Regression (unfinished)}
+A generalization of linear regression with several independent variables.  
+The same formulation holds but with \( p > 1 \) predictors.
+
+\subsection{Polynomial Regression (unfinished)}
+An extension of linear regression where the predictors are powers of a single variable:
+\begin{equation*}
+    y = a + b x + c x^2 + d x^3 + \cdots + \varepsilon.
+\end{equation*}
+Although nonlinear in \( x \), the model is linear in its parameters, and thus solvable by the least-squares method.
+
+\subsection{Regularized Regression (unfinished)}
+To prevent overfitting or manage multicollinearity, penalty terms are introduced:
+\begin{align}
+    \text{Ridge:} &\quad \min_{\boldsymbol{\beta}} \left[ \sum_i (y_i - \mathbf{x}_i^T \boldsymbol{\beta})^2 + \lambda \|\boldsymbol{\beta}\|_2^2 \right], \\
+    \text{Lasso:} &\quad \min_{\boldsymbol{\beta}} \left[ \sum_i (y_i - \mathbf{x}_i^T \boldsymbol{\beta})^2 + \lambda \|\boldsymbol{\beta}\|_1 \right].
+\end{align}
+
+\subsection{Logistic Regression (unfinished)}
+Despite its name, logistic regression is used for binary classification.  
+It models the probability of one class as
+\begin{equation*}
+    P(y=1|x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \cdots)}}.
+\end{equation*}
+
+\subsection{Nonlinear Regression (unfinished)}
+When the model depends nonlinearly on its parameters, for instance:
+\begin{equation*}
+    y = A e^{-Bx} + C,
+\end{equation*}
+the parameters \( A, B, C \) cannot be solved by linear algebra and must be obtained through iterative optimization.
+
+\subsection{Robust Regression (unfinished)}
+To reduce the influence of outliers, the least-squares criterion is replaced by alternative loss functions, such as the absolute deviation.
+
+\subsection{Bayesian Regression (unfinished)}
+Regression parameters are treated as random variables with prior distributions.  
+Given data, posterior distributions of parameters are obtained via Bayes' theorem.
+
+\subsection{Gaussian Process Regression (unfinished)}
+A nonparametric Bayesian approach in which a Gaussian process defines a prior over possible functions.  
+It is especially useful in physical modeling when data are sparse.
+
+\end{document}

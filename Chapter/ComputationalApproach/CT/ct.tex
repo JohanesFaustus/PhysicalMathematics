@@ -389,7 +389,7 @@ To obtain a sharper and quantitatively accurate reconstruction, one applies a fi
 \subsection{Filtered Backprojection Reconstruction}
 Essentialy, this formula
 \begin{equation*}
-    f(x,y) = \int_{0}^{2\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
+    f(x,y) = \int_{0}^{\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
 \end{equation*}
 The algorithm, however, is as follows.
 \begin{enumerate}
@@ -457,7 +457,7 @@ The central slice theorem gives the 1D Fourier transform of the projection at an
 with $\mathcal{F} \left\{ p_\theta(r) \right\}=F(k,\theta)$ as the 1D Fourier transform.
 Hence, we can write the expression for laminogram as
 \begin{equation*}
-    f(x,y) = \int_{0}^{2\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
+    f(x,y) = \int_{0}^{\pi}\int_{-\infty }^{\infty}\mathcal{F} \left\{ p_\theta(r) \right\} |k| \exp \left[{i 2\pi k (x\cos\theta + y\sin\theta)}\right] \; dk \; d\theta
 \end{equation*}
 Here $|k|$ arises from the Jacobian of the coordinate transformation, but physicaly it can be understood as the filter such that $\mathcal{F} \left\{ p_\theta(r) \right\} |k|$ is the filtered projection with $H(k)=|k|$ as the projection.
 
@@ -470,14 +470,12 @@ The only conceptual difference between the continuous and discrete algorithms li
 In the continuous formulation, filtering is represented by $|k|$,  whereas in the discrete implementation it is performed either as frequency-domain multiplication with $H[k]$ or equivalently as spatial-domain convolution with $h[n]$.
 \begin{enumerate}
     \item \textbf{Discrete Fourier transform of each projection.}
-
           For each sampled projection $p_\theta[n]$, compute its one-dimensional discrete Fourier transform (DFT):
           \[
               P_\theta[k] = \sum_{n=0}^{N-1} p_\theta[n]\, e^{-i 2\pi kn / N}.
           \]
 
     \item \textbf{Discrete filtering step.}
-
           The continuous multiplication by $|k|$ becomes a multiplication by a discrete filter $H[k]$:
           \[
               \tilde{P}_\theta[k] = H[k]\, P_\theta[k],
@@ -496,14 +494,12 @@ In the continuous formulation, filtering is represented by $|k|$,  whereas in th
           \]
 
     \item \textbf{Inverse discrete Fourier transform.}
-
           Obtain the filtered projection in the spatial domain:
           \[
               \tilde{p}_\theta[n] = \frac{1}{N} \sum_{k=0}^{N-1} \tilde{P}_\theta[k]\, e^{i 2\pi kn / N}.
           \]
 
     \item \textbf{Discrete backprojection.}
-
           Reconstruct the image by summing over all projection angles:
           \[
               f[i,j] = \sum_{m=0}^{M-1} \tilde{p}_{\theta_m}(x_i\cos\theta_m + y_j\sin\theta_m)\, \Delta\theta.

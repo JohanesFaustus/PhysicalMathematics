@@ -5,10 +5,10 @@
 \newif\ifaFive
 % default state is false
 % uncomment below to make a5 papersize
-% \aFivetrue
+\aFivetrue
 
 \ifaFive
-    \usepackage[a5paper]{geometry}
+    \usepackage[a5paper, left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
 \else
     \usepackage[paperheight=25.5 cm,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
 \fi
@@ -99,6 +99,10 @@
 
 \section{Numerical Linear Algebra}
 \subfile{./Chapter/ComputationalApproach/LinAlg/linalg.tex}
+\clearpage
+
+\section{Regression}
+\subfile{./Chapter/ComputationalApproach/Regress/reg.tex}
 \clearpage
 
 \section{Computed Tomography}
