@@ -55,7 +55,7 @@ def GaussElim(Omega, W):
     return x, A
 
 
-def gauss_jordan(Omega, W):
+def GaussJordWOPivot(Omega, W):
     # Ensure W is a column vector (n,1)
     W = W.reshape(-1, 1).astype(float)
 
@@ -69,6 +69,43 @@ def gauss_jordan(Omega, W):
         for i in range(k + 1, n):
             factor = A[i, k] / pivot
             A[i, k:] = A[i, k:] - factor * A[k, k:]
+
+    # Normalize pivots and eliminate above pivots (Jordan step)
+    for k in range(n - 1, -1, -1):  # work backwards
+        pivot = A[k, k]
+        A[k, :] = A[k, :] / pivot  # normalize pivot to 1
+        for i in range(k):
+            factor = A[i, k]
+            A[i, :] = A[i, :] - factor * A[k, :]  # eliminate above
+
+    # The solution is now the last column
+    sol = A[:, -1]
+    return sol, A
+
+
+def GaussJord(Omega, W):
+    # Ensure W is a column vector (n,1)
+    W = W.reshape(-1, 1).astype(float)
+
+    # Form augmented matrix [Omega | W]
+    n = W.shape[0]
+    A = np.hstack([Omega.astype(float), W])
+
+    # Forward elimination (Gaussian elimination step)
+    for k in range(n - 1):
+        # Find pivot row
+        pivot_row = np.argmax(np.abs(A[k:, k])) + k
+        if A[pivot_row, k] == 0:
+            raise ValueError("Matrix is singular.")
+        # Swap rows if necessary
+        if pivot_row != k:
+            A[[k, pivot_row]] = A[[pivot_row, k]]
+
+        pivot = A[k, k]
+        # Eliminate below pivot
+        for i in range(k + 1, n):
+            factor = A[i, k] / pivot
+            A[i, k:] -= factor * A[k, k:]
 
     # Normalize pivots and eliminate above pivots (Jordan step)
     for k in range(n - 1, -1, -1):  # work backwards
@@ -177,8 +214,8 @@ W3 = np.array(
 # L, U = lu_decomp(Omega2)
 # sol = lu_solve(L, U, W2)
 
-sol, A = GaussElimWOPivot(Omega1, W1)
-sol_analitic = np.linalg.solve(Omega1, W1)
+sol, A = GaussJord(Omega3, W3)
+sol_analitic = np.linalg.solve(Omega3, W3)
 
 print(sol)
 print(sol_analitic)
