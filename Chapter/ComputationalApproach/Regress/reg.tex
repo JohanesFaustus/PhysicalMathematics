@@ -16,131 +16,182 @@ where the coefficients \( \beta_j \) are estimated by minimizing the sum of squa
 A generalization of linear regression with several independent variables.
 The same formulation holds but with \( p > 1 \) predictors.
 
-\subsection{Polynomial Regression (unfinished)}
+\subsection{Polynomial Regression}
+For $N$ distinct data points, the highest possible polynomial degree $m$ that can be exactly fitted is $N-1$.
+\begin{equation*}
+    \begin{cases}
+        m<N-1 & \text{overdetermined, minimizes the deviation} \\
+        m=N-1 & \text{determined, becomes interpolation}       \\
+        m>N-1 & \text{underdetermined, solution is non-unique}
+    \end{cases}
+\end{equation*}
+
+From a mathematical and statistical standpoint, increasing the number of data points $N$ generally provides a more reliable and physically meaningful model than increasing the polynomial degree $m$
+
+The algorithm is simply as follows.
+\begin{enumerate}
+    \item Give data points \((x_i, F_i)\) for \(i = 1, \dots, N\) and a polynomial model of degree \(m\),
+    \item Constructs the design matrix
+          \begin{equation*}
+              \mathbf{F} =
+              \begin{bmatrix}
+                  F_1 \\ F_2 \\ \vdots \\ F_N
+              \end{bmatrix},
+              \qquad
+              \mathbf{X} =
+              \begin{bmatrix}
+                  1      & x_1    & x_1^2  & \cdots & x_1^m  \\
+                  1      & x_2    & x_2^2  & \cdots & x_2^m  \\
+                  \vdots & \vdots & \vdots & \ddots & \vdots \\
+                  1      & x_N    & x_N^2  & \cdots & x_N^m
+              \end{bmatrix},
+              \qquad
+              \boldsymbol{\beta} =\begin{bmatrix}
+                  \beta_0 \\ \beta_1 \\ \beta_2\\ \ldots \\ \beta_m
+              \end{bmatrix}
+          \end{equation*}
+    \item Solve the normal equation
+    \begin{equation*}
+        \mathbf{X}^{T}\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^{T}\mathbf{F}
+    \end{equation*}
+    using whatever system of linear equation solver.
+    \item Use the solution to constructs
+          \begin{equation*}
+              \mathbf{F} = \sum_{i=0}^{m} \beta_i x^i
+          \end{equation*}
+\end{enumerate}
+
+\subsubsection{Derivation.}
 Consider a set of $N$ data points $(x_i,F_i)$ where $x_i$ is the independent variable and $F_i$ the measured dependent variable.
 The aim is to approximate the data by a polynomial of degree $m$
-\begin{equation}
+\begin{equation*}
     F(x) = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \cdots + \beta_m x^m,
-\end{equation}
-where the coefficients \(\boldsymbol{\beta} = (\beta_0, \beta_1, \ldots, \beta_m)^{T}\) are to be determined.
+\end{equation*}
+where the coefficients \(\boldsymbol{\beta} =\begin{bmatrix}
+    \beta_0 & \beta_1 & \ldots & \beta_m
+\end{bmatrix}^{T}\) are to be determined.
 In matrix form, the system can be written as
-\begin{equation}
-    \mathbf{F} = \mathbf{X}\boldsymbol{\beta}
-\end{equation}
+\begin{equation*}
+    \mathbf{X}\boldsymbol{\beta}=\mathbf{F}
+\end{equation*}
 where
-\begin{equation}
+\begin{equation*}
     \mathbf{F} =
-    \begin{pmatrix}
+    \begin{bmatrix}
         F_1 \\ F_2 \\ \vdots \\ F_N
-    \end{pmatrix},
+    \end{bmatrix},
     \qquad
     \mathbf{X} =
-    \begin{pmatrix}
+    \begin{bmatrix}
         1      & x_1    & x_1^2  & \cdots & x_1^m  \\
         1      & x_2    & x_2^2  & \cdots & x_2^m  \\
         \vdots & \vdots & \vdots & \ddots & \vdots \\
         1      & x_N    & x_N^2  & \cdots & x_N^m
-    \end{pmatrix},
-\end{equation}
+    \end{bmatrix},
+    \qquad
+    \boldsymbol{\beta} =\begin{bmatrix}
+        \beta_0 \\ \beta_1 \\ \beta_2\\ \ldots \\ \beta_m
+    \end{bmatrix}
+\end{equation*}
 This can be solved by rewriting it using normal equation $    \mathbf{X}^{T}\mathbf{X}\hat{\boldsymbol{\beta}} = \mathbf{X}^{T}\mathbf{F}$.
 We write the term $    \mathbf{X}^{T}\mathbf{X}$ as
 \begin{align*}
     \mathbf{X}^T\mathbf{X} & =
-    \begin{pmatrix}
+    \begin{bmatrix}
         1      & 1      & 1      & \cdots & 1      \\
         x_1    & x_2    & x_3^2  & \cdots & x_N^2  \\
         \vdots & \vdots & \vdots & \ddots & \vdots \\
         x_1^m  & x_2^m  & x_3^m  & \cdots & x_N^m
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         1      & x_1    & x_1^2  & \cdots & x_1^m  \\
         1      & x_2    & x_2^2  & \cdots & x_2^m  \\
         \vdots & \vdots & \vdots & \ddots & \vdots \\
         1      & x_N    & x_N^2  & \cdots & x_N^m
-    \end{pmatrix} \\
+    \end{bmatrix} \\
     \mathbf{X}^T\mathbf{X} & =
-    \begin{pmatrix}
+    \begin{bmatrix}
         N            & \sum x_i       & \sum x_i^2     & \sum x_i^3     & \cdots & \sum x_i^m     \\
         \sum x_i     & \sum x_i^2     & \sum x_i^3     & \sum x_i^4     & \cdots & \sum x_i^{m+1} \\
         \sum x_i^2   & \sum x_i^3     & \sum x_i^4     & \sum x_i^5     & \cdots & \sum x_i^{m+2} \\
         \sum x_i^3   & \sum x_i^4     & \sum x_i^5     & \sum x_i^6     & \cdots & \sum x_i^{m+3} \\
         \vdots       & \vdots         & \vdots         & \vdots         & \ddots & \vdots         \\
         \sum x_i^{m} & \sum x_i^{m+1} & \sum x_i^{m+2} & \sum x_i^{m+3} & \cdots & \sum x_i^{2m}
-    \end{pmatrix}
+    \end{bmatrix}
 \end{align*}
 And, the $\mathbf{X}^T \mathbf{F}$ can be written as
 \begin{align*}
     \mathbf{X}^T \mathbf{F} & =
-    \begin{pmatrix}
+    \begin{bmatrix}
         1      & 1      & 1      & \cdots & 1      \\
         x_1    & x_2    & x_3^2  & \cdots & x_N^2  \\
         \vdots & \vdots & \vdots & \ddots & \vdots \\
         x_1^m  & x_2^m  & x_3^m  & \cdots & x_N^m
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         F_1 \\ F_2 \\ \vdots \\ F_N
-    \end{pmatrix}  \\
+    \end{bmatrix}  \\
     \mathbf{X}^T \mathbf{F} & =
-    \begin{pmatrix}
+    \begin{bmatrix}
         \sum F_i \\ \sum x_i F_i \\ \sum x_i^2 F_i \\ \sum x_i^3 F_i \\ \vdots \\ \sum x_i^m F_i
-    \end{pmatrix}
+    \end{bmatrix}
 \end{align*}
 As such we have
 \begin{equation*}
-    \begin{pmatrix}
+    \begin{bmatrix}
         N            & \sum x_i       & \sum x_i^2     & \cdots & \sum x_i^m     \\
         \sum x_i     & \sum x_i^2     & \sum x_i^3     & \cdots & \sum x_i^{m+1} \\
         \sum x_i^2   & \sum x_i^3     & \sum x_i^4     & \cdots & \sum x_i^{m+2} \\
         \sum x_i^3   & \sum x_i^4     & \sum x_i^5     & \cdots & \sum x_i^{m+3} \\
         \vdots       & \vdots         & \vdots         & \ddots & \vdots         \\
         \sum x_i^{m} & \sum x_i^{m+1} & \sum x_i^{m+2} & \cdots & \sum x_i^{2m}
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         \beta_0 \\
         \beta_1 \\
         \beta_2 \\
         \beta_3 \\
         \vdots  \\
         \beta_m
-    \end{pmatrix}
+    \end{bmatrix}
     =
-    \begin{pmatrix}
+    \begin{bmatrix}
         \sum F_i \\ \sum x_i F_i \\ \sum x_i^2 F_i \\ \sum x_i^3 F_i \\ \vdots \\ \sum x_i^m F_i
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 
 \subsubsection{Normal equation.}
 The normal equation is obtained by minimizing the sum of squared deviations between the observed data and the fitted model.
 The derivation is as follows.
 The least-squares objective function is defined as
-\begin{equation}
+\begin{equation*}
     S(\boldsymbol{\beta}) = \sum_{i=1}^{N}
     \left[ F_i - \left( \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \cdots + \beta_m x_i^m \right) \right]^2.
-\end{equation}
+\end{equation*}
 In compact matrix notation, this can be written as
-\begin{equation}
+\begin{equation*}
     S(\boldsymbol{\beta}) = (\mathbf{F} - \mathbf{X}\boldsymbol{\beta})^{T}(\mathbf{F} - \mathbf{X}\boldsymbol{\beta}).
-\end{equation}
+\end{equation*}
 
 To find the optimal coefficients \(\hat{\boldsymbol{\beta}}\) that minimize \(S\), one takes the gradient of \(S\) with respect to \(\boldsymbol{\beta}\):
-\begin{equation}
+\begin{equation*}
     \nabla_{\boldsymbol{\beta}} S =
     \frac{\partial S}{\partial \boldsymbol{\beta}}
     = -2\mathbf{X}^{T}\mathbf{F} + 2\mathbf{X}^{T}\mathbf{X}\boldsymbol{\beta}.
-\end{equation}
+\end{equation*}
 
 Setting the gradient equal to zero yields the condition for the minimum:
-\begin{equation}
+\begin{equation*}
     \nabla_{\boldsymbol{\beta}} S = 0
     \quad \Longrightarrow \quad
     \mathbf{X}^{T}\mathbf{X}\hat{\boldsymbol{\beta}} = \mathbf{X}^{T}\mathbf{F}
-\end{equation}
+\end{equation*}
 
 These are known as the normal equations.
 Provided that \(\mathbf{X}^{T}\mathbf{X}\) is invertible, the least-squares estimate of the coefficient vector is obtained as
-\begin{equation}
+\begin{equation*}
     \hat{\boldsymbol{\beta}} = (\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{F}.
-\end{equation}
+\end{equation*}
 
 \subsection{Regularized Regression (unfinished)}
 To prevent overfitting or manage multicollinearity, penalty terms are introduced:

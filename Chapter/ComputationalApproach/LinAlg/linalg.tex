@@ -66,131 +66,12 @@ After forming the augmented matrix $A=[\Omega|W]$, the algorithm is as follows.
           \[
               x_n = \frac{w_n^{*}}{\omega_{nn}^{*}}
           \]
-          Substituting upward gives each preceding variable until $x_1$ is obtained.
+          Substituting upward using
+          \begin{equation*}
+              x_i =\frac{\omega_i ^* -\sum_{j=i+i }^{n }w_{ij}^*x_j}{\omega_{ii }^*}
+          \end{equation*}
+          gives each preceding variable until $x_1$ is obtained.
           Thus, the solution vector $x$ is fully determined.
-\end{enumerate}
-
-\subsubsection{Example.}
-Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
-\begin{equation*}
-    \begin{bmatrix}
-        2  & 1  & -1 \\
-        -3 & -1 & 2  \\
-        -2 & 1  & 2
-    \end{bmatrix}
-    \begin{bmatrix}
-        x_1 \\ x_2 \\ x_3
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        8 \\ -11 \\ -3
-    \end{bmatrix}
-\end{equation*}
-
-\text{The augmented matrix is:}\begin{equation*}
-    \quad
-    [\Omega|W] =
-    \begin{bmatrix}
-        2  & 1  & -1 & 8   \\
-        -3 & -1 & 2  & -11 \\
-        -2 & 1  & 2  & -3
-    \end{bmatrix}
-\end{equation*}
-\begin{enumerate}
-    \item \textbf{Pivot in column 1.}
-          Using $\omega_{11} = 2$ as pivot, we eliminate below row.
-          For row 2:
-          \begin{equation*}
-              R_2 \leftarrow R_2 - \left(\frac{-3}{2}\right)R_1 \quad \Rightarrow \quad
-              R_2=
-              \begin{bmatrix}
-                  -3 \\-1\\2\\-1\\
-              \end{bmatrix}
-              - \frac{3 }{2}
-              \begin{bmatrix}
-                  2 \\1\\-1\\8
-              \end{bmatrix}
-              =
-              \begin{bmatrix}
-                  0 \\ 0.5 \\ 0.5 \\ 1
-              \end{bmatrix}
-          \end{equation*}
-          For row 3:
-          \begin{equation*}
-              R_3 \leftarrow R_3 - \left(\frac{-2}{2}\right)R_1 \quad \Rightarrow \quad
-              R_3=
-              \begin{bmatrix}
-                  -2 \\1\\2\\-3\\
-              \end{bmatrix}
-              +
-              \begin{bmatrix}
-                  2 \\1\\-1\\8
-              \end{bmatrix}
-              =
-              \begin{bmatrix}
-                  0 \\ 2 \\ 1 \\ 5
-              \end{bmatrix}
-          \end{equation*}
-          So the matrix becomes:
-          \begin{equation*}
-              \begin{bmatrix}
-                  2 & 1   & -1  & 8 \\
-                  0 & 0.5 & 0.5 & 1 \\
-                  0 & 2   & 1   & 5
-              \end{bmatrix}
-          \end{equation*}
-    \item \textbf{Pivot in column 2.}
-          Pivot is $\omega_{22}^{(1)} = 0.5$.
-          Eliminate below, only row 3 though
-          \begin{equation*}
-              R_3 \leftarrow R_3 - \frac{2}{0.5} R_2 \quad \Rightarrow \quad
-              R_3=
-              \begin{bmatrix}
-                  0 \\2\\1\\5\\
-              \end{bmatrix}
-              -4
-              \begin{bmatrix}
-                  - \\0.5\\0.5\\1
-              \end{bmatrix}
-              =
-              \begin{bmatrix}
-                  0 \\0\\-1\\1
-              \end{bmatrix}
-          \end{equation*}
-          Thus:
-          \begin{equation*}
-              \begin{bmatrix}
-                  2 & 1   & -1  & 8 \\
-                  0 & 0.5 & 0.5 & 1 \\
-                  0 & 0   & -1  & 1
-              \end{bmatrix}
-          \end{equation*}
-
-    \item \textbf{Step 3: Pivot in column 3.}
-          Pivot is $\omega_{33}^{(2)} = -1$. No elimination is needed because there are no rows below.
-          The system is now in upper triangular form.
-    \item \textbf{Back substitution:}
-          From the last row:
-          \begin{equation*}
-              - x_3 = 1 \quad \Rightarrow \quad x_3 = -1.
-          \end{equation*}
-
-          From the second row:
-          \begin{equation*}
-              0.5x_2 + 0.5x_3 = 1 \quad \Rightarrow \quad 0.5x_2 - 0.5 = 1 \quad \Rightarrow \quad x_2 = 3.
-          \end{equation*}
-
-          From the first row:
-          \begin{equation*}
-              2x_1 + x_2 - x_3 = 8 \quad \Rightarrow \quad 2x_1 + 3 - (-1) = 8 \quad \Rightarrow \quad x_1 = 2.
-          \end{equation*}
-    \item \textbf{Final solution:}
-          \begin{equation*}
-              x =
-              \begin{bmatrix}
-                  2 \\ 3 \\ -1
-              \end{bmatrix}
-          \end{equation*}
 \end{enumerate}
 
 \subsubsection{Implementation.}
@@ -269,80 +150,6 @@ The algorithm is similar with Gaussian elimination, however it diverges after th
           where $a_{ik}$ is the entry currently in row $i$ column $k$.
 \end{enumerate}
 
-\subsubsection{Example.} Using previous example, the upper triangular form is
-\begin{equation*}
-    \begin{bmatrix}
-        2 & 1   & -1  & 8 \\
-        0 & 0.5 & 0.5 & 1 \\
-        0 & 0   & -1  & 1
-    \end{bmatrix}
-\end{equation*}
-\begin{enumerate}
-    \item \textbf{Normalization.}
-          For the first row,
-          \begin{equation*}
-              R_1 \leftarrow \frac{1 }{2 }R_1\qquad\Rightarrow\qquad R_1=
-              \begin{bmatrix}
-                  1 \\1/2\\-1/2\\4
-              \end{bmatrix}
-          \end{equation*}
-          For the second row,
-          \begin{equation*}
-              R_2 \leftarrow 2R_2 \qquad\Rightarrow\qquad R_2=
-              \begin{bmatrix}
-                  0 \\1\\1\\2
-              \end{bmatrix}
-          \end{equation*}
-          For the third row,
-          \begin{equation*}
-              R_3 \leftarrow -R_3 \qquad\Rightarrow\qquad R_3=
-              \begin{bmatrix}
-                  0 \\0\\1\\-1
-              \end{bmatrix}
-          \end{equation*}
-          So the matrix becomes:
-          \begin{equation*}
-              \begin{bmatrix}
-                  1 & 1/2 & -1/2 & 4 \\
-                  0 & 1   & 1    & 2 \\
-                  0 & 0   & 1    & 1
-              \end{bmatrix}
-          \end{equation*}
-    \item \textbf{Elimination above the pivot.}
-          For pivot in row 3
-          \begin{equation*}
-              \begin{cases}
-                  R_2\leftarrow R_2-R_3 \\
-                  R_1\leftarrow R_1-\frac{1 }{2}R_2
-              \end{cases}
-              \qquad \Rightarrow \qquad
-              A=
-              \begin{bmatrix}
-                  1 & 1/2 & 0 & 3.5 \\
-                  0 & 1   & 0 & 3   \\
-                  0 & 0   & 1 & 1
-              \end{bmatrix}
-          \end{equation*}
-          For pivot in row 2
-          \begin{equation*}
-              R_1 \leftarrow R_1-\frac{1 }{2 }R_2
-              \qquad \Rightarrow \qquad
-              A=
-              \begin{bmatrix}
-                  1 & 0 & 0 & 2 \\
-                  0 & 1 & 0 & 3 \\
-                  0 & 0 & 1 & 1
-              \end{bmatrix}
-          \end{equation*}
-    \item \textbf{Final solution:} The same as Gaussian elimination
-          \begin{equation*}
-              x =
-              \begin{bmatrix}
-                  2 \\ 3 \\ -1
-              \end{bmatrix}
-          \end{equation*}
-\end{enumerate}
-
 \subsubsection{Implementation.}
 Roughly the same as Gaussian elimination, however we do not use the backwards substitution.
 We use normalization and elimination above pivots
@@ -410,103 +217,8 @@ Here is the algorithm in Doolittle’s method.
           \end{equation*}
 \end{enumerate}
 
-\subsubsection{Example.} Using previous example
-\begin{equation*}
-    \begin{bmatrix}
-        2  & 1  & -1 \\
-        -3 & -1 & 2  \\
-        -2 & 1  & 2
-    \end{bmatrix}
-    \begin{bmatrix}
-        x_1 \\ x_2 \\ x_3
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        8 \\ -11 \\ -3
-    \end{bmatrix}
-\end{equation*}
-
-\begin{enumerate}
-    \item \textbf{Decomposition.}
-          For $k=1$ (that is, compute first row of $U$ and first column of $L$). The formula for $U$  with $i=1$ yields empty sum
-          \begin{equation*}
-              u_{1j} = \omega_{1j}\Rightarrow
-              \begin{cases}
-                  u_{11}=2 \\u_{12}=1\\u_{13}=-1
-              \end{cases}
-          \end{equation*}
-          For the first column of $L$ the sum is empty and $u_{11}=2$, hence
-          \begin{equation*}
-              l_{21} = \frac{\omega_{21}}{u_{11}} = -\frac{3}{2}, \qquad
-              l_{31} = \frac{\omega_{31}}{u_{11}} = -1.
-          \end{equation*}
-          Now for $k=2$, the second row of $U$ reads
-          \begin{equation*}
-              u_{2j}=\omega_{2j}-\sum_{k=1 }^{1}l_{2k}u_{kj}=\omega_{2j}-l_{21}u_{1j}\Rightarrow
-              \begin{cases}
-                  u_{22} = \frac{1}{2}  \\
-                  u_{23}  = \frac{1}{2} \\
-              \end{cases}
-          \end{equation*}
-          and the second column of $L$
-          \begin{equation*}
-              l_{32} = \frac{1}{u_{22}} \left( \omega_{32} -\sum_{k=1 }^{1} l_{3k}u_{k2} \right)=\frac{1}{1/2}\left(1 - (-1)\cdot 1\right) = 4
-          \end{equation*}
-          And finally for $k=3$, the third row of $U$ reads
-          \begin{multline*}
-              u_{33} =\omega_{33}-\sum_{k=1 }^{2}l_{3k}u_{k3}= \omega_{33} - (l_{31}u_{13} + l_{32}u_{23})\\
-               = 2 - \big( (-1)(-1) + 4\cdot \frac{1}{2} \big) = -1.
-          \end{multline*}
-    \item \textbf{Result.} We have
-          \begin{equation*}
-              L=\begin{bmatrix}
-                  1            & 0 & 0 \\
-                  -\frac{3}{2} & 1 & 0 \\
-                  -1           & 4 & 1
-              \end{bmatrix},
-              \qquad
-              U=\begin{bmatrix}
-                  2 & 1           & -1          \\
-                  0 & \frac{1}{2} & \frac{1}{2} \\
-                  0 & 0           & -1
-              \end{bmatrix}.
-          \end{equation*}
-    \item \textbf{Forward substitution.} From the equation $Ly=W$, the first row reads
-          \begin{equation*}
-              y_1 = w_1 = 8
-          \end{equation*}
-          Next the second row
-          \begin{equation*}
-              -\frac{3}{2}y_1 + y_2 = w_2 \qquad\Rightarrow\qquad y_2 = -11 + \frac{3}{2}\cdot 8 = 1
-          \end{equation*}
-          And the third
-          \begin{equation*}
-              - y_1 + 4y_2 + y_3 = w_3 \qquad\Rightarrow\qquad y_3 = -3 + 8 - 4 = 1
-          \end{equation*}
-          This yields
-          \begin{equation*}
-              y = \begin{bmatrix} 8 \\ 1 \\ 1 \end{bmatrix}
-          \end{equation*}
-    \item \textbf{Backwards substitution.} From the equation $Ux=y$, the first row reads
-          \begin{equation*}
-              - x_3 = y_3 \qquad\Rightarrow\qquad x_3 = -1
-          \end{equation*}
-          Next the second row
-          \begin{equation*}
-              \frac{1}{2}x_2 + \frac{1}{2}x_3 = y_2 \qquad\Rightarrow\qquad x_2 =2 \left(1 + \frac{1}{2} \right)
-          \end{equation*}
-          And the third
-          \begin{equation*}
-              2x_1 + x_2 - x_3 = y_1 \qquad\Rightarrow\qquad x_1 =\frac{1 }{2} (8 - 3 - 1) = 4 
-          \end{equation*}
-          This yields our solution
-          \begin{equation*}
-              x = \begin{bmatrix}2 \\ 3 \\ -1\end{bmatrix}.
-          \end{equation*}
-\end{enumerate}
-
-\subsubsection{Implementation.} 
-As usual, we write in python. 
+\subsubsection{Implementation.}
+As usual, we write in python.
 Here we create two code, first to create the decomposition and to actually solve it.
 \begin{minted}[breaklines]{python}
 def lu_decomposition(Omega):
@@ -517,7 +229,7 @@ We take \verb|Omega|, a square matrix size $(n \times n)$.
     L = np.zeros((n, n))
     U = np.zeros((n, n))
 \end{minted}
-We determine the size of the square matrix \verb|Omega|. 
+We determine the size of the square matrix \verb|Omega|.
 Then we prepare two $(n \times  b)$ zero matrices \verb|L| and \verb|U| that will be filled progressively.
 \begin{minted}[breaklines]{python}
     for j in range(i, n):
@@ -549,7 +261,7 @@ Here \verb|L| and \verb|U| act as the decomposed matrix, while \verb|W| is right
     for i in range(n):
         y[i, 0] = W[i, 0] - sum(L[i, j] * y[j, 0] for j in range(i))
 \end{minted}
-The forward substitution for the equation $Ly=W$. 
+The forward substitution for the equation $Ly=W$.
 It works by allocating \verb|y| as a vector of zeros, then for each row \verb|i|, compute \verb|y[i]|
 \begin{equation*}
     y_i=W_i-\sum_{k=0 }^{i-1 }l_{ij}y_{j}
@@ -560,10 +272,10 @@ Because \verb|L| is lower triangular with unit diagonal, the diagonal entry \ver
     for i in range(n - 1, -1, -1):
         x[i] = (y[i] - sum(U[i, j] * x[j] for j in range(i + 1, n))) / U[i, i]
 \end{minted}
-The backwards substitution for the equation $Ux=y$. 
+The backwards substitution for the equation $Ux=y$.
 It works by allocating \verb|x| as a vector of zeros, then for each row \verb|i| in decreasing order from bottom row \verb|n-1| to top row 0, compute \verb|y[i]|
 \begin{equation*}
-    x_i=\frac{1 }{U_{ii}}\left( y_i-\sum_{k=i+1 }^{n-1 }u_{ik}x_{k} \right) 
+    x_i=\frac{1 }{U_{ii}}\left( y_i-\sum_{k=i+1 }^{n-1 }u_{ik}x_{k} \right)
 \end{equation*}
 The backward order is necessary because each \verb|x[i]| depends on \verb|x[j]| for \verb|k > i|.
 \begin{minted}[breaklines]{python}
