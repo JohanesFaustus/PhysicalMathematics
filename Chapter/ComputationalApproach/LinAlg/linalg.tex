@@ -216,7 +216,7 @@ Here is the algorithm in Doolittle’s method.
           Since $U$ is upper triangular, only $k \leq i$ terms contribute on the expression for the element of $\Omega$
           And using
           \begin{equation*}
-              l_{ij} = \frac{1}{u_{jj}} \left( \omega_{ij} - \sum_{k=1}^{j-1} l_{ik} u_{kj} \right)
+              l_{ji} = \frac{1}{u_{ii}} \left( \omega_{ji} - \sum_{k=1}^{i-1} l_{jk} u_{ki} \right)
           \end{equation*}
           By the Doolittle method, we define $l_{ii}=1$ for all $i$
     \item \textbf{Step 2: Forward substitution.} Define $Ux=y$, then solve

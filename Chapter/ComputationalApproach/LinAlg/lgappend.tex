@@ -26,7 +26,7 @@ Let us consider the following $3 \times 3$ system in the form $\Omega x=W$
         -2 & 1  & 2  & -3
     \end{bmatrix}
 \end{equation*}
-\subsubsection{Gauss elimination.} 
+\subsubsection{Gauss elimination.}
 Following the algorithm.
 \begin{enumerate}
     \item \textbf{Pivot in column 1.}
@@ -125,89 +125,8 @@ Following the algorithm.
           \end{equation*}
 \end{enumerate}
 
-\subsubsection{Gaussian-Jordan elimination.} 
-Following the procedure.
-\begin{enumerate}
-    \item \textbf{Decomposition.}
-          For $k=1$ (that is, compute first row of $U$ and first column of $L$). The formula for $U$  with $i=1$ yields empty sum
-          \begin{equation*}
-              u_{1j} = \omega_{1j}\Rightarrow
-              \begin{cases}
-                  u_{11}=2 \\u_{12}=1\\u_{13}=-1
-              \end{cases}
-          \end{equation*}
-          For the first column of $L$ the sum is empty and $u_{11}=2$, hence
-          \begin{equation*}
-              l_{21} = \frac{\omega_{21}}{u_{11}} = -\frac{3}{2}, \qquad
-              l_{31} = \frac{\omega_{31}}{u_{11}} = -1.
-          \end{equation*}
-          Now for $k=2$, the second row of $U$ reads
-          \begin{equation*}
-              u_{2j}=\omega_{2j}-\sum_{k=1 }^{1}l_{2k}u_{kj}=\omega_{2j}-l_{21}u_{1j}\Rightarrow
-              \begin{cases}
-                  u_{22} = \frac{1}{2}  \\
-                  u_{23}  = \frac{1}{2} \\
-              \end{cases}
-          \end{equation*}
-          and the second column of $L$
-          \begin{equation*}
-              l_{32} = \frac{1}{u_{22}} \left( \omega_{32} -\sum_{k=1 }^{1} l_{3k}u_{k2} \right)=\frac{1}{1/2}\left(1 - (-1)\cdot 1\right) = 4
-          \end{equation*}
-          And finally for $k=3$, the third row of $U$ reads
-          \begin{multline*}
-              u_{33} =\omega_{33}-\sum_{k=1 }^{2}l_{3k}u_{k3}= \omega_{33} - (l_{31}u_{13} + l_{32}u_{23})\\
-               = 2 - \big( (-1)(-1) + 4\cdot \frac{1}{2} \big) = -1.
-          \end{multline*}
-    \item \textbf{Result.} We have
-          \begin{equation*}
-              L=\begin{bmatrix}
-                  1            & 0 & 0 \\
-                  -\frac{3}{2} & 1 & 0 \\
-                  -1           & 4 & 1
-              \end{bmatrix},
-              \qquad
-              U=\begin{bmatrix}
-                  2 & 1           & -1          \\
-                  0 & \frac{1}{2} & \frac{1}{2} \\
-                  0 & 0           & -1
-              \end{bmatrix}.
-          \end{equation*}
-    \item \textbf{Forward substitution.} From the equation $Ly=W$, the first row reads
-          \begin{equation*}
-              y_1 = w_1 = 8
-          \end{equation*}
-          Next the second row
-          \begin{equation*}
-              -\frac{3}{2}y_1 + y_2 = w_2 \qquad\Rightarrow\qquad y_2 = -11 + \frac{3}{2}\cdot 8 = 1
-          \end{equation*}
-          And the third
-          \begin{equation*}
-              - y_1 + 4y_2 + y_3 = w_3 \qquad\Rightarrow\qquad y_3 = -3 + 8 - 4 = 1
-          \end{equation*}
-          This yields
-          \begin{equation*}
-              y = \begin{bmatrix} 8 \\ 1 \\ 1 \end{bmatrix}
-          \end{equation*}
-    \item \textbf{Backwards substitution.} From the equation $Ux=y$, the first row reads
-          \begin{equation*}
-              - x_3 = y_3 \qquad\Rightarrow\qquad x_3 = -1
-          \end{equation*}
-          Next the second row
-          \begin{equation*}
-              \frac{1}{2}x_2 + \frac{1}{2}x_3 = y_2 \qquad\Rightarrow\qquad x_2 =2 \left(1 + \frac{1}{2} \right)
-          \end{equation*}
-          And the third
-          \begin{equation*}
-              2x_1 + x_2 - x_3 = y_1 \qquad\Rightarrow\qquad x_1 =\frac{1 }{2} (8 - 3 - 1) = 4 
-          \end{equation*}
-          This yields our solution
-          \begin{equation*}
-              x = \begin{bmatrix}2 \\ 3 \\ -1\end{bmatrix}.
-          \end{equation*}
-\end{enumerate}
-
-\subsubsection{LU decomposition.} 
-Using the upper triangular matrix obtained by the Gaussian elimination 
+\subsubsection{Gaussian-Jordan elimination.}
+Using the upper triangular matrix obtained by the Gaussian elimination
 \begin{equation*}
     \begin{bmatrix}
         2 & 1   & -1  & 8 \\
@@ -281,4 +200,137 @@ we follow the order.
               \end{bmatrix}
           \end{equation*}
 \end{enumerate}
+\subsubsection{LU decomposition.}
+Following the procedure.
+\begin{enumerate}
+    \item \textbf{Decomposition.}
+          For $i=1$ (that is, compute first row of $U$ and first column of $L$).
+          The formula for $U$ with $i=1$ have empty sum
+          \begin{equation*}
+              u_{1j}=\omega_{2j}-\sum_{k=1 }^{0}l_{1k}u_{kj}=\omega_{1j}
+          \end{equation*}
+          This yields for each $j$
+          \begin{equation*}
+              u_{1j} =
+              \begin{cases}
+                  u_{11}=\omega_{11}=2 \\
+                  u_{12}=\omega_{12}=1 \\
+                  u_{13}=\omega_{13}=-1
+              \end{cases}
+          \end{equation*}
+          For the first column of $L$ the sum is empty
+          \begin{equation*}
+              l_{j1}=\frac{1 }{u_{11}}\left( \omega_{j1}-\sum_{k=1}^{ 0 }l_{jk}u_{k1} \right) =\frac{\omega_{j1 }}{u_{11}}
+          \end{equation*}
+          with $u_{11}=2$, this yields for each $j$
+          \begin{equation*}
+              l_{j1} =
+              \begin{cases}
+                  l_{11} & = \dfrac{\omega_{11 }}{u_{11}}=1    \\[8pt]
+                  l_{21} & = \dfrac{\omega_{21 }}{u_{11}}=-3/2 \\[8pt]
+                  l_{31} & = \dfrac{\omega_{31 }}{u_{11}}=-1   \\[8pt]
+              \end{cases}
+          \end{equation*}
+
+          Now for $i=2$, the second row of $U$ reads
+          \begin{equation*}
+              u_{2j}=\omega_{2j}-\sum_{k=1 }^{1}l_{2k}u_{kj}=\omega_{2j}-l_{21}u_{1j}
+          \end{equation*}
+          This yields for each $j$
+          \begin{equation*}
+              u_{2j} =
+              \begin{cases}
+                  u_{21}=\omega_{21}-l_{21}u_{11}=0   \\
+                  u_{22}=\omega_{22}-l_{21}u_{13}=1/2 \\
+                  u_{23}=\omega_{23}-l_{21}u_{13}=1/2 \\
+              \end{cases}
+          \end{equation*}
+          And the second column of $L$
+          \begin{equation*}
+              l_{j2}=\frac{1 }{u_{22}}\left( \omega_{j2}-\sum_{k=1}^{ 1 }l_{jk}u_{k2} \right) = \frac{\omega_{j2 }-l_{j1}u_{12}}{u_{22}}
+          \end{equation*}
+          with $u_{22}=1/2$, this yields for each $j$
+          \begin{equation*}
+              l_{j2} =
+              \begin{cases}
+                  l_{12} & = \dfrac{\omega_{12 }-l_{11}u_{12}}{u_{22}}=0 \\[8pt]
+                  l_{22} & = \dfrac{\omega_{22 }-l_{21}u_{12}}{u_{22}}=1 \\[8pt]
+                  l_{32} & = \dfrac{\omega_{32 }-l_{31}u_{12}}{u_{22}}=4 \\[8pt]
+              \end{cases}
+          \end{equation*}
+
+          And finally for $i=3$, the third row of $U$ reads
+          \begin{equation*}
+              u_{3j}=\omega_{3j}-\sum_{k=1 }^{2}l_{3k}u_{kj}=\omega_{3j}-l_{31}u_{1j}-l_{32}u_{2j}
+          \end{equation*}
+          This yields for each $j$
+          \begin{equation*}
+              u_{3j} =
+              \begin{cases}
+                  u_{31}=\omega_{31}-l_{31}u_{11}-l_{32}u_{21}=0  \\
+                  u_{32}=\omega_{32}-l_{31}u_{12}-l_{32}u_{22}=0  \\
+                  u_{33}=\omega_{33}-l_{31}u_{13}-l_{32}u_{23}=-1 \\
+              \end{cases}
+          \end{equation*}
+          And the second column of $L$
+          \begin{equation*}
+              l_{j3}=\frac{1 }{u_{33}}\left( \omega_{j3}-\sum_{k=1}^{ 2 }l_{jk}u_{k3} \right) = \frac{\omega_{j3 }-l_{j1}u_{13}-l_{j2}u_{23}}{u_{33}}
+          \end{equation*}
+          with $u_{33}=-1$, this yields for each $j$
+          \begin{equation*}
+              l_{j2} =
+              \begin{cases}
+                  l_{13} & =\dfrac{\omega_{13 }-l_{11}u_{13}-l_{12}u_{23}}{u_{33}}= 0 \\[8pt]
+                  l_{23} & =\dfrac{\omega_{23 }-l_{21}u_{13}-l_{22}u_{23}}{u_{33}}= 0 \\[8pt]
+                  l_{33} & =\dfrac{\omega_{33 }-l_{31}u_{13}-l_{32}u_{23}}{u_{33}}= 1 \\[8pt]
+              \end{cases}
+          \end{equation*}
+    \item \textbf{Result.} We have
+          \begin{equation*}
+              L=\begin{bmatrix}
+                  1            & 0 & 0 \\
+                  -\frac{3}{2} & 1 & 0 \\
+                  -1           & 4 & 1
+              \end{bmatrix},
+              \qquad
+              U=\begin{bmatrix}
+                  2 & 1           & -1          \\
+                  0 & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0           & -1
+              \end{bmatrix}.
+          \end{equation*}
+    \item \textbf{Forward substitution.} From the equation $Ly=W$, the first row reads
+          \begin{equation*}
+              y_1 = w_1 = 8
+          \end{equation*}
+          Next the second row
+          \begin{equation*}
+              -\frac{3}{2}y_1 + y_2 = w_2 \qquad\Rightarrow\qquad y_2 = -11 + \frac{3}{2}\cdot 8 = 1
+          \end{equation*}
+          And the third
+          \begin{equation*}
+              - y_1 + 4y_2 + y_3 = w_3 \qquad\Rightarrow\qquad y_3 = -3 + 8 - 4 = 1
+          \end{equation*}
+          This yields
+          \begin{equation*}
+              y = \begin{bmatrix} 8 \\ 1 \\ 1 \end{bmatrix}
+          \end{equation*}
+    \item \textbf{Backwards substitution.} From the equation $Ux=y$, the first row reads
+          \begin{equation*}
+              - x_3 = y_3 \qquad\Rightarrow\qquad x_3 = -1
+          \end{equation*}
+          Next the second row
+          \begin{equation*}
+              \frac{1}{2}x_2 + \frac{1}{2}x_3 = y_2 \qquad\Rightarrow\qquad x_2 =2 \left(1 + \frac{1}{2} \right)
+          \end{equation*}
+          And the third
+          \begin{equation*}
+              2x_1 + x_2 - x_3 = y_1 \qquad\Rightarrow\qquad x_1 =\frac{1 }{2} (8 - 3 - 1) = 4
+          \end{equation*}
+          This yields our solution
+          \begin{equation*}
+              x = \begin{bmatrix}2 \\ 3 \\ -1\end{bmatrix}.
+          \end{equation*}
+\end{enumerate}
+
 \end{document}
