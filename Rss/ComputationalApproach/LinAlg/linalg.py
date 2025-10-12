@@ -246,14 +246,14 @@ W3 = np.array(
     dtype=float,
 )
 
+L, U = LUDecomWOPivot(Omega4)
+# sol = LUSolve(L, U, W4)
 
-L, U = LUDecomWOPivot(Omega1)
-sol = LUSolve(L, U, W3)
+sol, A = GaussElim(Omega4, W4)
 
-sol = LUSolve(L, U, W1)
 sol_analitic = np.linalg.solve(Omega3, W3)
 
 print(sol)
 # print(Omega2.T @ Omega2)
 # print(L, "\n", U, "\n", L @ U)
-# print(sol_analitic)
+print(sol_analitic)

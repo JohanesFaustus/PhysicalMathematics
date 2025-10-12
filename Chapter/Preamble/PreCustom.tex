@@ -1,4 +1,4 @@
-\usepackage{amsmath, amsthm, amssymb, esdiff, esint, indentfirst, longtable, array, csquotes, fancyref, array, longtable, romannum, mathtools, booktabs, braket,minted,}
+\usepackage{amsmath, amsthm, amssymb, esdiff, esint, indentfirst, longtable, array, csquotes, fancyref, array, longtable, romannum, mathtools, booktabs, braket,minted,pgf,lmodern}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
@@ -12,24 +12,39 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{./export.bib}
 
+\def\mathdefault#1{#1}
+\everymath=\expandafter{\the\everymath\displaystyle}
+
+\graphicspath{{./Rss/}}
+\newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
+\newcommand{\normfigL}[1]{\includegraphics[width=0.8\textwidth]{#1}}
+\newcommand{\dfig}[1]{\includegraphics[width=0.4\textwidth]{#1}}
+\newcommand{\tfig}[1]{\includegraphics[width=0.3\textwidth]{#1}}
+\newcommand{\fullfig}[1]{\includegraphics[width=\textwidth]{#1}}
+\newcommand{\fullpgf}[1]{\resizebox{\textwidth}{!}{\input{#1}}}
 \newcommand*{\df}{\frac{d}{dx}}
 \newcommand*{\seconddf}{\frac{d^2}{dx^2}}
 \newcommand*{\pardf}{\frac{\partial}{\partial x}}
-\newcolumntype{M}[1]{>{\[}p{#1}<{\]}}
-\def\rcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../../../Rss/AnalyticsApproach/VA/ScriptR.pdf}}}$}}}
-\def\brcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../../../Rss/AnalyticsApproach/VA/BoldR.pdf}}}$}}}
-\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\B}{\mathbf{B}}
 \newcommand{\C}{\mathbf{C}}
 \newcommand{\x}{\mathbf{\hat{x}}}
 \newcommand{\y}{\mathbf{\hat{y}}}
 \newcommand{\z}{\mathbf{\hat{z}}}
+
+\newcolumntype{M}[1]{>{\[}p{#1}<{\]}}
+\newcolumntype{C}{>{$}c<{$}}
+
+\def\rcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../../../Rss/AnalyticsApproach/VA/ScriptR.pdf}}}$}}}
+\def\brcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../../../Rss/AnalyticsApproach/VA/BoldR.pdf}}}$}}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
 \DeclareMathOperator{\erfi}{erfi}
+
 \allowdisplaybreaks
-\newcolumntype{C}{>{$}c<{$}}
 
 \usepackage{xcolor}
 \definecolor{myblue}{HTML}{2d2d3f}
@@ -43,9 +58,9 @@
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
 {\thispagestyle{empty}\centering \Huge \bfseries}
-{}                                              
-{0pt}                                             
-{}                                                
+{}
+{0pt}
+{}
 \titlespacing*{\chapter}{0pt}{\fill}{\fill}
 
 \titleformat{\section}[hang]
@@ -57,26 +72,19 @@
 
 \titleformat{\subsection}[hang]
 {\bfseries\large}
-{} 
+{}
 {0pt}
 {}
 [\noindent\rule{\textwidth}{0.4pt}]
 
 \titleformat{\subsubsection}[runin]
 {\bfseries}
-{} 
+{}
 {0pt}
 {\indent}
 
 \titleformat{\paragraph}[runin]
 {\itshape}
-{} 
+{}
 {0pt}
 {\indent}
-
-\graphicspath{{./Rss/}}
-\newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
-\newcommand{\normfigL}[1]{\includegraphics[width=0.8\textwidth]{#1}}
-\newcommand{\dfig}[1]{\includegraphics[width=0.4\textwidth]{#1}}
-\newcommand{\tfig}[1]{\includegraphics[width=0.3\textwidth]{#1}}
-\newcommand{\fullfig}[1]{\includegraphics[width=\textwidth]{#1}}

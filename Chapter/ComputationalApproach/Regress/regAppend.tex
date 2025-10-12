@@ -1,0 +1,95 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Appendix: Regression of Stefan's Data}
+For the application of regression, we shall use Stefan's of black body measurement.
+We follow the algorithm.
+
+\begin{figure}[h]
+    \centering
+    \normfig{../../../Rss/ComputationalApproach/Regr/Stefan}
+    \caption*{Figure: Stefan's data}
+\end{figure}
+
+\begin{enumerate}
+    \item The data are as follows
+          \begin{multline*}
+              (x_i,F_i)= (800, 0.87); (864, 1.1); (927, 1.5); (991, 1.8);\\
+              (1055, 2.2); (1119, 2.8); (1183, 3.7); (1247, 5); (1311, 6.8);\\
+              (1375, 8.6); (1439, 10); (1502, 12.5); (1566, 15.5)
+          \end{multline*}
+
+
+    \item We also have the design matrix, for $m=4$ ($m=14$ like the original data is not supported)
+          \begin{equation*}
+              \mathbf{X}=
+              \begin{bmatrix}
+                  1 & 8.00\times 10^{2} & 6.40\times 10^{5} & 5.12\times 10^{8} \\
+                  1 & 8.64\times 10^{2} & 7.46\times 10^{5} & 6.45\times 10^{8} \\
+                  1 & 9.27\times 10^{2} & 8.59\times 10^{5} & 7.97\times 10^{8} \\
+                  1 & 9.91\times 10^{2} & 9.82\times 10^{5} & 9.73\times 10^{8} \\
+                  1 & 1.05\times 10^{3} & 1.11\times 10^{6} & 1.17\times 10^{9} \\
+                  1 & 1.12\times 10^{3} & 1.25\times 10^{6} & 1.40\times 10^{9} \\
+                  1 & 1.18\times 10^{3} & 1.40\times 10^{6} & 1.66\times 10^{9} \\
+                  1 & 1.25\times 10^{3} & 1.56\times 10^{6} & 1.94\times 10^{9} \\
+                  1 & 1.31\times 10^{3} & 1.72\times 10^{6} & 2.25\times 10^{9} \\
+                  1 & 1.38\times 10^{3} & 1.89\times 10^{6} & 2.60\times 10^{9} \\
+                  1 & 1.44\times 10^{3} & 2.07\times 10^{6} & 2.98\times 10^{9} \\
+                  1 & 1.50\times 10^{3} & 2.26\times 10^{6} & 3.39\times 10^{9} \\
+                  1 & 1.57\times 10^{3} & 2.45\times 10^{6} & 3.84\times 10^{9} \\
+              \end{bmatrix},
+              \qquad
+              \mathbf{F}=
+              \begin{bmatrix}
+                  0.87 \\ 1.1 \\ 1.5 \\ 1.8 \\ 2.2 \\ 2.8 \\ 3.7 \\ 5 \\ 6.8 \\ 8.6 \\ 10 \\ 12.5 \\ 15.5
+              \end{bmatrix}
+          \end{equation*}
+          Goddamn stupid {\LaTeX}  can't compile $14 \times 14$ matrix! \verb|\cr| alignment what you dumbass!? Spent hours to debug yields nothing! Fuck I hate \LaTeX.
+
+          \begin{figure}[t]
+              \centering
+              \fullpgf{../../../Rss/ComputationalApproach/Regr/Figure_1.pgf}
+              \caption*{Figure: Simply the plot}
+          \end{figure}
+
+
+    \item \textbf{Solve.} Now we solve the normal equation, written in matrix form as
+          \begin{align*}
+              \mathbf{X}^T \mathbf{X} & =
+              \begin{bmatrix}
+                  1.30\times 10^{1}  & 1.54\times 10^{4}  & 1.89\times 10^{7}  & 2.42\times 10^{10} \\
+                  1.54\times 10^{4}  & 1.89\times 10^{7}  & 2.42\times 10^{10} & 3.18\times 10^{13} \\
+                  1.89\times 10^{7}  & 2.42\times 10^{10} & 3.18\times 10^{13} & 4.29\times 10^{16} \\
+                  2.42\times 10^{10} & 3.18\times 10^{13} & 4.29\times 10^{16} & 5.90\times 10^{19} \\
+              \end{bmatrix},
+              \\
+              \mathbf{X}^T\mathbf{F}  & =
+              \begin{bmatrix}
+                  7.24\times 10^{1}  \\
+                  9.91\times 10^{4}  \\
+                  1.38\times 10^{8}  \\
+                  1.96\times 10^{11} \\
+              \end{bmatrix}
+          \end{align*}
+          I use the \verb|GaussElim| defined previously to solve this
+          \begin{equation*}
+              \boldsymbol{\beta}=
+              \begin{bmatrix}
+                  -2.40               \\
+                  1.76\times 10^{-2}  \\
+                  -3.02\times 10^{-5} \\
+                  1.67\times 10^{-8}  \\
+              \end{bmatrix}
+          \end{equation*}
+
+
+    \item \textbf{Plot.} The polynomial function looks like
+          \begin{equation*}
+              \mathbf{F}=
+              -2.40
+              1.76\times 10^{-2}  x+
+              -3.02\times 10^{-5} x^2+
+              1.67\times 10^{-8}  x^3
+          \end{equation*}
+
+\end{enumerate}
+\end{document}

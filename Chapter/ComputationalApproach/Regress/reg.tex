@@ -30,14 +30,11 @@ From a mathematical and statistical standpoint, increasing the number of data po
 
 The algorithm is simply as follows.
 \begin{enumerate}
-    \item Give data points \((x_i, F_i)\) for \(i = 1, \dots, N\) and a polynomial model of degree \(m\),
-    \item Constructs the design matrix
+    \item \textbf{Input.} Give data points \((x_i, F_i)\) for \(i = 1, \dots, N\) and a polynomial model of degree \(m\), where $x_i$ is the independent variable and $F_i$ the measured dependent variable.
+
+
+    \item \textbf{Design matrix.} Constructs the design matrix
           \begin{equation*}
-              \mathbf{F} =
-              \begin{bmatrix}
-                  F_1 \\ F_2 \\ \vdots \\ F_N
-              \end{bmatrix},
-              \qquad
               \mathbf{X} =
               \begin{bmatrix}
                   1      & x_1    & x_1^2  & \cdots & x_1^m  \\
@@ -46,16 +43,21 @@ The algorithm is simply as follows.
                   1      & x_N    & x_N^2  & \cdots & x_N^m
               \end{bmatrix},
               \qquad
-              \boldsymbol{\beta} =\begin{bmatrix}
-                  \beta_0 \\ \beta_1 \\ \beta_2\\ \ldots \\ \beta_m
+              \mathbf{F} =
+              \begin{bmatrix}
+                  F_1 \\ F_2 \\ \vdots \\ F_N
               \end{bmatrix}
           \end{equation*}
-    \item Solve the normal equation
+
+
+    \item \textbf{Solve.} Solve the normal equation
           \begin{equation*}
               \mathbf{X}^{T}\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^{T}\mathbf{F}
           \end{equation*}
           using whatever system of linear equation solver.
-    \item Use the solution to constructs
+
+
+    \item \textbf{Plot.} Use the solution to constructs
           \begin{equation*}
               \mathbf{F} = \sum_{i=0}^{m} \beta_i x^i
           \end{equation*}

@@ -303,3 +303,5 @@ TSWLatexianTemp*
 .vscode/ltex.hiddenFalsePositives.en-US.txt
 .vscode/ltex.disabledRules.en-US.txt
 Main.pdf
+*.minted
+*.pdf

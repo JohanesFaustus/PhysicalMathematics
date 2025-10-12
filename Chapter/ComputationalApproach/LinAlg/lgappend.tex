@@ -37,15 +37,15 @@ Following the algorithm.
               R_2=
               \begin{bmatrix}
                   -3 \\-1\\2\\-1\\
-              \end{bmatrix}
+              \end{bmatrix}^{T}
               - \frac{3 }{2}
               \begin{bmatrix}
                   2 \\1\\-1\\8
-              \end{bmatrix}
+              \end{bmatrix}^{T}
               =
               \begin{bmatrix}
                   0 \\ 0.5 \\ 0.5 \\ 1
-              \end{bmatrix}
+              \end{bmatrix}^{T}
           \end{equation*}
           For row 3:
           \begin{equation*}
@@ -53,15 +53,15 @@ Following the algorithm.
               R_3=
               \begin{bmatrix}
                   -2 \\1\\2\\-3\\
-              \end{bmatrix}
+              \end{bmatrix}^{T}
               +
               \begin{bmatrix}
                   2 \\1\\-1\\8
-              \end{bmatrix}
+              \end{bmatrix}^{T}
               =
               \begin{bmatrix}
                   0 \\ 2 \\ 1 \\ 5
-              \end{bmatrix}
+              \end{bmatrix}^{T}
           \end{equation*}
           So the matrix becomes:
           \begin{equation*}
@@ -79,15 +79,15 @@ Following the algorithm.
               R_3=
               \begin{bmatrix}
                   0 \\2\\1\\5\\
-              \end{bmatrix}
+              \end{bmatrix}^{T}
               -4
               \begin{bmatrix}
                   - \\0.5\\0.5\\1
-              \end{bmatrix}
+              \end{bmatrix}^{T}
               =
               \begin{bmatrix}
                   0 \\0\\-1\\1
-              \end{bmatrix}
+              \end{bmatrix}^{T}
           \end{equation*}
           Thus:
           \begin{equation*}
@@ -142,21 +142,21 @@ we follow the order.
               R_1 \leftarrow \frac{1 }{2 }R_1\qquad\Rightarrow\qquad R_1=
               \begin{bmatrix}
                   1 \\1/2\\-1/2\\4
-              \end{bmatrix}
+              \end{bmatrix}^{T}
           \end{equation*}
           For the second row,
           \begin{equation*}
               R_2 \leftarrow 2R_2 \qquad\Rightarrow\qquad R_2=
               \begin{bmatrix}
                   0 \\1\\1\\2
-              \end{bmatrix}
+              \end{bmatrix}^{T}
           \end{equation*}
           For the third row,
           \begin{equation*}
               R_3 \leftarrow -R_3 \qquad\Rightarrow\qquad R_3=
               \begin{bmatrix}
                   0 \\0\\1\\-1
-              \end{bmatrix}
+              \end{bmatrix}^{T}
           \end{equation*}
           So the matrix becomes:
           \begin{equation*}
@@ -332,5 +332,4 @@ Following the procedure.
               x = \begin{bmatrix}2 \\ 3 \\ -1\end{bmatrix}.
           \end{equation*}
 \end{enumerate}
-
 \end{document}
