@@ -26,7 +26,7 @@ def NR(f, df, a):
     eps = 10 ** (-17)
     loop = 0
     xr = 0
-    while np.abs(f(a)) > eps:
+    while np.abs(f(a)) > eps and loop < 100:
         xr = a - f(a) / df(f, a)
         # print(f"{a}-\\frac{{{f(a)}}}{{{df(f,a)}}}")
         a = xr
@@ -36,10 +36,11 @@ def NR(f, df, a):
 
 
 # Combination of bisec and NR
-def BNR(f, dfdx, xi, xf, dx, eps=10 ** (-6)):
+def BNR(f, dfdx, xi, xf, dx):
     roots = []
     loops = []
     a = xi
+    eps = 10 ** (-17)
     while a < xf:
         b = a + dx
         if b > xf:
@@ -53,10 +54,9 @@ def BNR(f, dfdx, xi, xf, dx, eps=10 ** (-6)):
             roots.append(float(xr))
             loops.append(loop)
         a = b
-    if not roots:
+    if roots == []:
         raise ValueError("No root found in interval")
-    print("Akar fungsi adalah ", roots)
-    Print("dengan jumlah looping ", loops)
+    return roots, loops
 
 
 # Various function
@@ -103,4 +103,6 @@ def dfdx(f, x):
 # (bisec(f, 2.5, 4))
 
 # print(NR(f, dfdx, 2.5))
-(NR(f, dfdx, 2.5))
+# (NR(f, dfdx, 2.5))
+
+print(BNR(f, dfdx, -2, 4, 0.01))

@@ -112,12 +112,12 @@ We define function to accept the polynomials \verb|f|, the derivative \verb|df| 
 \end{minted}
 Sets the convergence tolerance \verb|eps|, initializes iteration counter \verb|loop| and result variable \verb|xr|.
 \begin{minted}[breaklines]{python}
-    while np.abs(f(a)) > eps:
+    while np.abs(f(a)) > eps and loop < 100:
         xr = a - f(a) / df(f, a)
         a = xr
         loop += 1
 \end{minted}
-The loop continues until the function value is sufficiently close to zero.
+The loop continues until the function value is sufficiently close to zero or the than 100 loop.
 Then it /implements the Newton–Raphson update rule and  increase the \verb|loop| count.
 \begin{minted}[breaklines]{python}
     return xr, loop
@@ -138,29 +138,60 @@ Once such an interval is established, the Newton–Raphson method is applied to 
 
 \subsubsection*{Implementation.} As always, in python
 \begin{minted}{python}
-def BNR(f,dfdx,xi,xf,dx,eps=10**(-6)):
-    roots=[]
-    loops=[]
-    a=xi
-    while a<xf:
-        b=a+dx 
-        if b>xf:
+def BNR(f, dfdx, xi, xf, dx):
+\end{minted}
+We define function to accept the polynomials \verb|f|, the derivative \verb|df|, search interval \verb|xi| and \verb|xf|, and the step size \verb|dx|.
+\begin{minted}[breaklines]{python}
+    roots = []
+    loops = []
+    a = xi
+    eps=10 ** (-17)
+\end{minted}
+Initializes storage for found roots and iteration counts, and also the convergence tolerance.
+The variable a marks the left endpoint of the current subinterval.
+\begin{minted}[breaklines]{python}
+    while a < xf:
+        b = a + dx
+        if b > xf:
             break
-        if f(a)*f(b)<=0:
-            xr=(a+b)/2
-            loop=0 
-            while np.abs(f(xr))>eps and loop<100:
-                xr=xr-f(xr)/dfdx(f,xr)
-                loop+=1
+        ... 
+        a=b
+\end{minted}
+Iterates through the range in increments of \verb|dx|.
+The loop will break if \verb|b|, the right endpoint is bigger that the search interval.
+\begin{minted}[breaklines]{python}
+        if f(a) * f(b) <= 0:
+\end{minted}
+Detects a potential root by checking for a sign change between \verb|f(a)| and \verb|f(b)|.
+\begin{minted}[breaklines]{python}
+            xr = (a + b) / 2
+            loop = 0
+            while np.abs(f(xr)) > eps and loop < 100:
+                xr = xr - f(xr) / dfdx(f, xr)
+                loop += 1
+\end{minted}
+Uses the midpoint \verb|xt| as an initial guess for Newton–Raphson iteration.
+The loop continues until the function value is sufficiently close to zero or the than 100 loop.
+\begin{minted}[breaklines]{python}
             roots.append(float(xr))
             loops.append(loop)
-        a=b
-    if not roots:
-        raise ValueError("No root found in interval")
-    print( roots,loops)
 \end{minted}
+Stores the computed root and the number of iterations needed.
+\begin{minted}[breaklines]{python}
+        a = b
+\end{minted}
+Moves to the next subinterval.
+\begin{minted}[breaklines]{python}
+    if roots == []:
+        raise ValueError("No root found in interval")
+    return roots, loops
+\end{minted}
+If no sign change was found in any subinterval, an exception is raised.
+\verb|raise ValueError("message")| stops execution immediately and signals an exception to the caller.
+Otherwise, the function returns a list of roots and iteration counts.
 
-As a bonus, this function can be used to find the root of the Bessel function, which can be written as
+
+As a bonus, this function can be used to find the roots of the Bessel function, which can be written as
 \begin{minted}[breaklines]{python}
     def Jn(x, n, eps=10**(-6)):
     xo2 = x / 2.0
