@@ -33,5 +33,21 @@ We follow the procedure.
           \end{enumerate}
 \end{enumerate}
 
-
+\subsubsection{Newton-Raphson.} We follow the procedure (not that it exists).
+We just keep iterating the Newton-Raphson, 3 times to make it equal with bisection.
+\begin{enumerate}
+    \item \textbf{First loop.} Simply
+          \begin{equation*}
+              x_r=2.5-\frac{-1.75}{3.000000000019653}=3.083333333329512
+          \end{equation*}
+    \item \textbf{Second loop.} Like
+          \begin{multline*}
+              x_r=3.083333333329512-\frac{0.34027777776185597}{4.166666666691188}\\= 3.0016666666671474
+          \end{multline*}
+    \item \textbf{Third loop.} This
+          \begin{multline*}
+              x_r=3.0016666666671474-\frac{0.0066694444463691075}{4.003333333360602}\\=3.000000693866234
+          \end{multline*}
+          Practically the same as the actual root $x_r=3$
+\end{enumerate}
 \end{document}

@@ -102,14 +102,33 @@ We obtain the Newton–Raphson iteration
 \subsubsection{Implementation.}
 As shrimple as this
 \begin{minted}{python}
-def NR(f,df,a,eps=10**(-17)):
-    loop=0 
-    xr=0
-    while np.abs(f(a))>eps:
-        xr=a-f(a)/df(a)
-        a=xr 
-        loop+=1
-    return xr,loop
+def NR(f, df, a):
+\end{minted}
+We define function to accept the polynomials \verb|f|, the derivative \verb|df| and the initial guess \verb|a|.
+\begin{minted}[breaklines]{python}
+    eps = 10 ** (-17)
+    loop = 0
+    xr = 0
+\end{minted}
+Sets the convergence tolerance \verb|eps|, initializes iteration counter \verb|loop| and result variable \verb|xr|.
+\begin{minted}[breaklines]{python}
+    while np.abs(f(a)) > eps:
+        xr = a - f(a) / df(f, a)
+        a = xr
+        loop += 1
+\end{minted}
+The loop continues until the function value is sufficiently close to zero.
+Then it /implements the Newton–Raphson update rule and  increase the \verb|loop| count.
+\begin{minted}[breaklines]{python}
+    return xr, loop
+\end{minted}
+Finally, it returns the root \verb|xr| and the iteration count \verb|loop|.
+
+The derivative can be computed using the central finite difference
+\begin{minted}[breaklines]{python}
+def dfdx(f, x):
+    h = 10 ** (-5)
+    return (f(x + h) - f(x - h)) / (2 * h)
 \end{minted}
 
 \subsection{Hybrid Newton-Raphson Bisection Method}

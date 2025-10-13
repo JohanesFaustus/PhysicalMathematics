@@ -22,13 +22,16 @@ def bisec(f, x1, x2):
 
 
 # Newton-Rhapson
-def NR(f, df, a, eps=10 ** (-6)):
+def NR(f, df, a):
+    eps = 10 ** (-17)
     loop = 0
     xr = 0
     while np.abs(f(a)) > eps:
-        xr = a - f(a) / df(a)
+        xr = a - f(a) / df(f, a)
+        # print(f"{a}-\\frac{{{f(a)}}}{{{df(f,a)}}}")
         a = xr
         loop += 1
+        # print(f"Result xr = {xr} at loop {loop}")
     return xr, loop
 
 
@@ -90,10 +93,14 @@ def f(x):
 
 
 # Derivative with cetral difference
-def dfdx(f, x, h=10 ** (-5)):
+def dfdx(f, x):
+    h = 10 ** (-5)
     return (f(x + h) - f(x - h)) / (2 * h)
 
 
 # Misc. usage
 # print(bisec(f, 2.5, 4))
 # (bisec(f, 2.5, 4))
+
+# print(NR(f, dfdx, 2.5))
+(NR(f, dfdx, 2.5))
