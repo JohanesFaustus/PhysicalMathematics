@@ -43,24 +43,42 @@ Algorithm are as following.
 
 \subsubsection{Implementation.}
 In python
-
 \begin{minted}{python}
 def bisec(f,x1,x2):
+\end{minted}
+We define function to accept the polynomials \verb|f| and the interval \verb|x1,x2|.
+\begin{minted}[breaklines]{python}
     loop=0
     xt=(x1+x2)/2
     eps=10**(-17)
+\end{minted}
+Initializing the nessecarry variable.
+\begin{minted}[breaklines]{python}
     if f(x1)*f(x2)>=0:
         raise ValueError("no root within this range")
-    else:
-        while np.abs(f(xt))>eps and np.abs(x1-x2)>eps:
-            if f(x1)*f(xt)<0:
-                x2=xt 
-            else:
-                x1=xt 
-            xt=(x1+x2)/2
-            loop+=1
-        print( xt,loop)
 \end{minted}
+Initial check to determine that there exists a root within interval \verb|x1,x2|.
+\begin{minted}[breaklines]{python}
+    else:
+        while np.abs(f(xt)) > eps and np.abs(x1 - x2) > eps:
+\end{minted}
+Begins an iterative process that continues until $|f(x_t)|$ is smaller than the $\epsilon$, or the distance between x1 and x2 becomes smaller than the tolerance.
+\begin{minted}[breaklines]{python}
+            if f(x1) * f(xt) < 0:
+                x2 = xt
+            else:
+                x1 = xt
+\end{minted}
+If $f(x_1) f(x_t) < 0$, then set $x_2 \leftarrow x_t$, otherwise set $x_1 \leftarrow x_t$.
+\begin{minted}[breaklines]{python}
+            xt = (x1 + x2) / 2
+            loop += 1
+\end{minted}
+Updates the midpoint after the interval has been reduced and increments the iteration count.
+\begin{minted}[breaklines]{python}
+        return xt, loop
+\end{minted}
+Returns the last midpoint and total number of iterations.
 
 \subsection{Newton–Raphson Method}
 Recall the Taylor series for continuous function
