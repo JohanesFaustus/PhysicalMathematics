@@ -1,0 +1,36 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Appendix: Algorithm Application}
+Let us try to find the root of the following polinomial
+\begin{equation*}
+    x^2- 2 x + -3  =
+    \left(x-3\right)\left(x+1\right)
+\end{equation*}
+
+\subsubsection{Bisection method.}
+We follow the procedure.
+\begin{enumerate}
+    \item \textbf{Input.} We define the function as $f(x)=x^2- 2 x + -3$ with the two point [2.5;4]
+    \item \textbf{Midpoint.} Compute the midpoint:
+          \begin{equation*}
+              x_t= \frac{2.5+4}{2}=3.25
+          \end{equation*}
+    \item \textbf{Evaluation and loop.} We evaluate $f(3.25)=1.0625$. Also, we only use 3 loops because the actual root can only be found with 51 loops.
+          \begin{enumerate}
+              \item \textbf{First loop}. Since $f(x_1)f(x_t)=-1.85<0$, set $x_2=3.25$. Then the midpoint
+                    \begin{equation*}
+                        x_t=\frac{2.5+3.25}{2}=2.875
+                    \end{equation*}
+              \item \textbf{Second loop}. Since $f(x_1)f(x_t)=0.84>0$, set $x_1=2.875$. Then the midpoint
+                    \begin{equation*}
+                        x_t=\frac{2.875+3.25 }{2}=3.0625
+                    \end{equation*}
+              \item \textbf{Second loop}. Since $f(x_1)f(x_t)=-0.12<0$, set $x_2=3.0625$. Then the midpoint
+                    \begin{equation*}
+                        x_t=\frac{2.875+3.0625}{2}=2.96875
+                    \end{equation*}
+                    For this third loop, we return this $x_t=x_r=2.96875$ as the root. Very close with the actual root of $x_r=3$.
+          \end{enumerate}
+\end{enumerate}
+
+\end{document}

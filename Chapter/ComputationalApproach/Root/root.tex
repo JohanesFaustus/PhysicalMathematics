@@ -18,19 +18,18 @@ If
 \]
 then by the Intermediate Value Theorem, there exists at least one root $\xi \in (a,b)$ such that $f(\xi) = 0$.
 
-\subsubsection{Algorithm.}
-As the following.
+Algorithm are as following.
 \begin{enumerate}
-    \item Define function $f$ and two point $[x_1$, $x_2]$ as out initial guess. Also define $\varepsilon$, where $\varepsilon > 0$ is the prescribed tolerance.
-    \item Compute the midpoint:
+    \item \textbf{Input.} Define function $f$ and two point $[x_1$, $x_2]$ as out initial guess. Also define $\varepsilon$, where $\varepsilon > 0$ is the prescribed tolerance.
+    \item \textbf{Midpoint.} Compute the midpoint:
           \begin{equation*}
               x_t= \frac{x_1+x_2}{2}.
           \end{equation*}
-    \item Evaluate $f(x_t)$, then
+    \item \textbf{Evaluation and loop.} Evaluate $f(x_t)$, then
           \begin{enumerate}
               \item If $f(x_t) = 0$, then $x_t$ is the root.
-              \item If $f(x_1) f(x_t) < 0$, then set $x_2 = x_t$. This condition implies that the root lies between $[x_1,x_t]$
-              \item Otherwise, set $x_1 = x_t$, since $f(x_1)f(x_t)>0$ imply that the root lies on $[x_t,x_2]$.
+              \item If $f(x_1) f(x_t) < 0$, then set $x_2 \leftarrow x_t$. This condition implies that the root lies between $[x_1,x_t]$.
+              \item Otherwise, set $x_1 \leftarrow x_t$, since $f(x_1)f(x_t)>0$ imply that the root lies on $[x_t,x_2]$.
           \end{enumerate}
           Repeat until the interval length is sufficiently small:
           \begin{equation*}
@@ -41,28 +40,6 @@ As the following.
               |f(x_t)| < \varepsilon,
           \end{equation*}
 \end{enumerate}
-
-\begin{algorithm}
-\caption{Bisection Method}
-\begin{algorithmic}
-\REQUIRE Function $f$, interval $[a,b]$ with $f(a)f(b)<0$, tolerance $\varepsilon$
-\IF{$f(a)\cdot f(b) \geq 0$}
-    \STATE \textbf{raise error} ``Root not bracketed''
-\ENDIF
-\REPEAT
-    \STATE $c \gets \dfrac{a+b}{2}$
-    \IF{$f(c) = 0$}
-        \RETURN $c$
-    \ENDIF
-    \IF{$f(a)\cdot f(c) < 0$}
-        \STATE $b \gets c$
-    \ELSE
-        \STATE $a \gets c$
-    \ENDIF
-\UNTIL{$|b-a| < \varepsilon$ \OR $|f(c)| < \varepsilon$}
-\RETURN $c$
-\end{algorithmic}
-\end{algorithm}
 
 \subsubsection{Implementation.}
 In python
@@ -119,8 +96,8 @@ def NR(f,df,a,eps=10**(-17)):
 
 \subsection{Hybrid Newton-Raphson Bisection Method}
 This method combine the Newton-Raphson with Bisection method, it is designed to exploit the rapid convergence of Newton–Raphson while preserving the guaranteed convergence of bisection.
-The bisection method serves as a safeguard to guarantee the existence of a root within the chosen interval. 
-Once such an interval is established, the Newton–Raphson method is applied to accelerate convergence toward the root. 
+The bisection method serves as a safeguard to guarantee the existence of a root within the chosen interval.
+Once such an interval is established, the Newton–Raphson method is applied to accelerate convergence toward the root.
 
 \subsubsection*{Implementation.} As always, in python
 \begin{minted}{python}
@@ -146,7 +123,7 @@ def BNR(f,dfdx,xi,xf,dx,eps=10**(-6)):
     print( roots,loops)
 \end{minted}
 
-As a bonus, this function can be used to find the root of the Bessel function, which can be written as 
+As a bonus, this function can be used to find the root of the Bessel function, which can be written as
 \begin{minted}[breaklines]{python}
     def Jn(x, n, eps=10**(-6)):
     xo2 = x / 2.0
@@ -170,19 +147,19 @@ As a bonus, this function can be used to find the root of the Bessel function, w
 \end{minted}
 To explain the code, first recall the Bessel function
 \begin{equation*}
-J_n(x) = \sum_{k=0}^{\infty} \frac{(-1)^k}{k! \, (n+k)!} \left( \frac{x}{2} \right)^{2k+n}
+    J_n(x) = \sum_{k=0}^{\infty} \frac{(-1)^k}{k! \, (n+k)!} \left( \frac{x}{2} \right)^{2k+n}
 \end{equation*}
-The $k$-th term then may be written 
+The $k$-th term then may be written
 \begin{equation*}
     a_k = \frac{(-1)^k}{k! \, (n+k)!} \left( \frac{x}{2} \right)^{2k+n}
 \end{equation*}
 To avoid using factorial, we write the $k+1$-term in terms of $k$-th term
 \begin{align*}
-    a_{k+1} &= \frac{(-1)^{k+1}(x/2)^{2k+n+2}}{(k+1)!(n+k+1)!}\\
-    &= -\frac{(-1)^k(x/2)^2(x/2)^{2k+n }}{(k+1)k!(n+k+1)(n+k)!}\\
-    a_{k+1}&= -a_k\frac{(x/2)^2}{(k+1)(n+k+1)}
+    a_{k+1} & = \frac{(-1)^{k+1}(x/2)^{2k+n+2}}{(k+1)!(n+k+1)!}          \\
+            & = -\frac{(-1)^k(x/2)^2(x/2)^{2k+n }}{(k+1)k!(n+k+1)(n+k)!} \\
+    a_{k+1} & = -a_k\frac{(x/2)^2}{(k+1)(n+k+1)}
 \end{align*}
-Using this, we initialize the first term as 
+Using this, we initialize the first term as
 \begin{equation*}
     a_0=\frac{1 }{n!}\left( \frac{x }{2 } \right) ^n
 \end{equation*}
