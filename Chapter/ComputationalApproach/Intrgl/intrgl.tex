@@ -1,0 +1,35 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+
+\subsection{Trapezoid Method}
+The trapezoidal integration method based on approximating the area under the curve by dividing the interval into subintervals and replacing the curve over each subinterval with a straight line (a trapezoid).
+Let the points be $x_0=a$, $x_1=a+h$,\dots, $x_n=b$
+The method is expressed as
+\begin{equation*}
+    \int_a^b f(x)\,dx \approx \frac{h}{2} \Big[f_0 + 2\sum_{i=1 }^{n-1 }f(x_i)+ f(x_n) \Big].
+\end{equation*}
+with
+\begin{equation*}
+    h = \frac{b-a}{n}
+\end{equation*}
+
+\subsubsection{Derivation.}
+Consider a function $f(x)$ defined on $[a,b]$. Divide the interval into $n$ subintervals of equal width
+\[
+    h = \frac{b-a}{n},
+\]
+with points $x_0 = a, x_1 = a+h, \dots, x_n = b$ and function values $f_i = f(x_i)$.
+The area over a single subinterval $[x_i, x_{i+1}]$ can be approximated by a trapezoid:
+\[
+    \int_{x_i}^{x_{i+1}} f(x)\,dx \approx \frac{h}{2} (f_i + f_{i+1}).
+\]
+Summing over all subintervals:
+\begin{align*}
+    \int_a^b f(x)\,dx & \approx \sum_{i=0}^{n-1} \frac{h}{2} (f_i + f_{i+1})                                     \\
+                      & =  \frac{h}{2} \Big[f_0 + (f_1+f_1) + (f_2+f_2) + \dots + (f_{n-1}+f_{n-1}) + f_n \Big].
+\end{align*}
+Simplifying the repeated terms for interior points:
+\[
+    \int_a^b f(x)\,dx \approx \frac{h}{2} \Big[f_0 + 2 f_1 + 2 f_2 + \dots + 2 f_{n-1} + f_n \Big].
+\]
+\end{document}
