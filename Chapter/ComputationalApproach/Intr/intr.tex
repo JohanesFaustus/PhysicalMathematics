@@ -15,4 +15,36 @@ where \( L_i(x) \) are the Lagrange basis polynomials defined by
     L_i(x) = \prod_{\substack{j=0 \\ j \ne i}}^{n} \frac{x - x_j}{x_i - x_j}
 \]
 
+\subsubsection{Implementation.}
+In python
+\begin{minted}[breaklines]{python}
+def LagInt(x_points, F_points):
+\end{minted}
+We define a function named LagInt that takes two arguments.
+\begin{minted}[breaklines]{python}
+    x = sp.Symbol("x")
+    n = len(x_points)
+    P = 0
+\end{minted}
+We Create a symbolic variable \verb|x| using SymPy, compute the number of data points, and initialize the polynomial accumulator \verb|P|.
+\begin{minted}[breaklines]{python}
+    for i in range(n):
+        L = 1
+        for j in range(n):
+            if i != j:
+                L *= (x - x_points[j]) / (x_points[i] - x_points[j])
+        P += F_points[i] * L
+    
+    return sp.expand(P)
+\end{minted}
+The outer loop constructs each term, the inner loop builds the product for $L_i(x)$ and \verb|P| accumulates all terms into the complete interpolating polynomial.
+Then returns the final Lagrange interpolating polynomial in expanded form.
+The usage is as follows.
+\begin{minted}[breaklines]{python}
+x=sp.Symbol("x")
+x_graph = np.linspace(min(x_i), max(x_i), 100)
+inter= sp.lambdify(x,LagInt(x_i,F_i),"numpy")
+\end{minted}
+
+
 \end{document}
