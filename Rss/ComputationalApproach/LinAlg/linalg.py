@@ -208,6 +208,23 @@ W1 = np.array(
     dtype=float,
 )
 
+# Another simple sistem
+Omega1_1 = np.array(
+    [
+        [0, 2, -1],
+        [2, 3, 4],
+        [-1, 5, 2],
+    ]
+)
+
+W1_1=np.array(
+    [
+        [1],
+        [7],
+        [-3],
+    ]
+)
+
 # Overdetermined system (more equations than unknowns)
 Omega2 = np.array(
     [
@@ -246,12 +263,12 @@ W3 = np.array(
     dtype=float,
 )
 
-L, U = LUDecomWOPivot(Omega4)
+L, U = LUDecomWOPivot(Omega1_1)
 # sol = LUSolve(L, U, W4)
 
-sol, A = GaussElim(Omega4, W4)
+sol, A = GaussElim(Omega1_1, W1_1)
 
-sol_analitic = np.linalg.solve(Omega3, W3)
+sol_analitic = np.linalg.solve(Omega1_1, W1_1)
 
 print(sol)
 # print(Omega2.T @ Omega2)

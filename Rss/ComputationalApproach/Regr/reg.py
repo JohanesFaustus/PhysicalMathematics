@@ -1,6 +1,7 @@
 import numpy as np
+import matplotlib
+matplotlib.use("Qt5Agg")  
 import matplotlib.pyplot as plt
-
 
 def XTX_Construct(x_points, F_points, degree):
     x = np.array(x_points, dtype=float)

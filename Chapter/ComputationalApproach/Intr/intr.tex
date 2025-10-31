@@ -1,0 +1,18 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+Interpolation is a method used to construct a function that exactly passes through a given set of data points. It assumes that the data are precise and free from measurement noise.
+The primary goal is to reconstruct or estimate the values of the underlying function at intermediate points within the range of the observed data.
+Unlike regression, which tolerates deviations between the model and the data due to noise, interpolation enforces an exact fit at each known point.
+
+\subsection{Lagrange Interpolation}
+Lagrange interpolation is a polynomial interpolation method that constructs a unique polynomial of degree at most $n$ passing exactly through $n+1$ given data points \((x_i, F_i)\) for \(i = 1, \dots, N\).
+The interpolating polynomial is written as
+\[
+    P_n(x) = \sum_{i=0}^{n} y_i L_i(x)
+\]
+where \( L_i(x) \) are the Lagrange basis polynomials defined by
+\[
+    L_i(x) = \prod_{\substack{j=0 \\ j \ne i}}^{n} \frac{x - x_j}{x_i - x_j}
+\]
+
+\end{document}
