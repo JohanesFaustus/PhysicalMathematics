@@ -1,7 +1,7 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection{Introduction}
-\subsubsection{Elementary row operation.} 
+\subsubsection{Elementary row operation.}
 Rule as follows.
 \begin{enumerate}
 	\item Interchange two rows
@@ -9,7 +9,7 @@ Rule as follows.
 	\item Add a multiple of one row to another
 \end{enumerate}
 
-\subsubsection{Rank.} 
+\subsubsection{Rank.}
 Definition as follows.
 \begin{quote}
 	The number of nonzero rows remaining when a matrix has been row reduced is called the rank of the matrix.
@@ -61,7 +61,7 @@ The following applies if vector parallel:
 	\frac{A_x}{B_x}=\frac{A_y}{B_y}=\frac{A_z}{B_z}
 \end{align*}
 
-\subsubsection{Orthogonality.} 
+\subsubsection{Orthogonality.}
 Matrix, in context of linear transformation, that preserve the length of vector is said to be orthogonal.
 Matrix M is orthogonal if
 \begin{align*}
@@ -87,7 +87,7 @@ The following applies if vector parallel or antiparallel:
 	\A\cdot\B & =0
 \end{align*}
 
-\subsubsection{Homogeneous equations.} 
+\subsubsection{Homogeneous equations.}
 The definition is as follows.
 
 \begin{quote}
@@ -192,12 +192,25 @@ For $2\times2$ matrix
 \subsubsection{Commutator.}
 In general, matrix do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
-	[A, B] = AB - BA
+	[\Omega, \Lambda] = \Omega\Lambda -\Lambda\Omega
 \end{align*}
 Two identity involving commutators are
 \begin{align*}
 	[\Omega,\Lambda\theta] & =\Lambda[\Omega,\theta]+[\Omega,\Lambda]\theta \\
 	[\Lambda\Omega,\Theta] & =\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega
+\end{align*}
+From this, one could also obtain
+\begin{align*}
+	[\Omega\Lambda,\Theta\Phi]
+	 & =  \Theta[\Omega\Lambda,\Phi]+[\Omega\Lambda,\Theta]\Phi     \\
+	 & = \Theta\big(\Omega[\Lambda,\Phi]+[\Omega,\Phi]\Lambda\big)+
+	\big(\Omega[\Lambda,\Theta]+[\Omega,\Theta]\Lambda\big)\Phi
+	\\
+	[\Omega\Lambda,\Theta\Phi]
+	 & = \Omega[\Lambda,\Theta]\Phi
+	+ \Omega\Theta[\Lambda,\Phi]
+	+ [\Omega,\Theta]\Lambda\Phi
+	+ \Theta[\Omega,\Phi]\Lambda.
 \end{align*}
 
 \subsubsection{Inverse.}
@@ -220,21 +233,21 @@ Consider $3 \times  3$ matrix
 \begin{equation*}
 	M=
 	\begin{bmatrix}
-		a_1&a_2&a_3\\
-		b_1&b_2&b_3\\
-		c_1&c_2&c_3\\
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3 \\
+		c_1 & c_2 & c_3 \\
 	\end{bmatrix}
 \end{equation*}
 The row of $M$ is thought the element of $\mathbf{A},\mathbf{B },\mathbf{C}$ vector instead of its column
 \begin{align*}
-	\mathbf{A}=a_1 \mathbf{\hat{i}}+a_2 \mathbf{\hat{j }}+a_3 \mathbf{\hat{k}}\\
+	\mathbf{A}=a_1 \mathbf{\hat{i}}+a_2 \mathbf{\hat{j }}+a_3 \mathbf{\hat{k}} \\
 \end{align*}
-and so on. 
+and so on.
 We define next the reciprocal triplet vector
 \begin{align*}
-	\mathbf{A}_R&=\mathbf{B }\times \mathbf{C }\\
-	\mathbf{B}_R&=\mathbf{C }\times \mathbf{A }\\
-	\mathbf{C}_R&=\mathbf{A }\times \mathbf{B }\\
+	\mathbf{A}_R & =\mathbf{B }\times \mathbf{C } \\
+	\mathbf{B}_R & =\mathbf{C }\times \mathbf{A } \\
+	\mathbf{C}_R & =\mathbf{A }\times \mathbf{B } \\
 \end{align*}
 which have the relation with the original vector
 \begin{equation*}
@@ -245,60 +258,60 @@ From the triplet vector, we construct the cofactor transpose matrix of $M$
 \begin{equation*}
 	\bar{M }=
 	\begin{bmatrix}
-		a_{R1}&b_{R1}&c_{R1}\\
-		a_{R2}&b_{R2}&c_{R2}\\
-		a_{R3}&b_{R3}&c_{R3}\\
+		a_{R1} & b_{R1} & c_{R1} \\
+		a_{R2} & b_{R2} & c_{R2} \\
+		a_{R3} & b_{R3} & c_{R3} \\
 	\end{bmatrix}
-\end{equation*} 
-Then 
+\end{equation*}
+Then
 \begin{align*}
-	M \cdot \bar{M }&=
+	M \cdot \bar{M } & =
 	\begin{bmatrix}
-		a_1&a_2&a_3\\
-		b_1&b_2&b_3\\
-		c_1&c_2&c_3\\
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3 \\
+		c_1 & c_2 & c_3 \\
 	\end{bmatrix}
 	\begin{bmatrix}
-		a_{R1}&b_{R1}&c_{R1}\\
-		a_{R2}&b_{R2}&c_{R2}\\
-		a_{R3}&b_{R3}&c_{R3}\\
-	\end{bmatrix}
-	\\
-	&=
-	\begin{bmatrix}
-		\mathbf{A }\cdot \mathbf{A }_R&\mathbf{A }\cdot \mathbf{B}_R&\mathbf{A }\cdot \mathbf{C }_R\\
-		\mathbf{B }\cdot \mathbf{A }_R&\mathbf{B }\cdot \mathbf{B}_R&\mathbf{B }\cdot \mathbf{C }_R\\
-		\mathbf{C }\cdot \mathbf{A }_R&\mathbf{C }\cdot \mathbf{B}_R&\mathbf{C }\cdot \mathbf{C }_R\\
+		a_{R1} & b_{R1} & c_{R1} \\
+		a_{R2} & b_{R2} & c_{R2} \\
+		a_{R3} & b_{R3} & c_{R3} \\
 	\end{bmatrix}
 	\\
-	M \cdot \bar{M}&=
+	                 & =
 	\begin{bmatrix}
-		\mathbf{A }\cdot \mathbf{A }_R&&\\
-		&\mathbf{B }\cdot \mathbf{B}_R&\\
-		&&\mathbf{C }\cdot \mathbf{C }_R\\
+		\mathbf{A }\cdot \mathbf{A }_R & \mathbf{A }\cdot \mathbf{B}_R & \mathbf{A }\cdot \mathbf{C }_R \\
+		\mathbf{B }\cdot \mathbf{A }_R & \mathbf{B }\cdot \mathbf{B}_R & \mathbf{B }\cdot \mathbf{C }_R \\
+		\mathbf{C }\cdot \mathbf{A }_R & \mathbf{C }\cdot \mathbf{B}_R & \mathbf{C }\cdot \mathbf{C }_R \\
+	\end{bmatrix}
+	\\
+	M \cdot \bar{M}  & =
+	\begin{bmatrix}
+		\mathbf{A }\cdot \mathbf{A }_R &                               &                                \\
+		                               & \mathbf{B }\cdot \mathbf{B}_R &                                \\
+		                               &                               & \mathbf{C }\cdot \mathbf{C }_R \\
 	\end{bmatrix}
 \end{align*}
 All three diagonal elements are equal
 \begin{equation*}
 	\begin{array}{rll}
-		\mathbf{A } \cdot \mathbf{A }_R\;\;=\;\;\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) & =\;\;\mathbf{B }\cdot \left( \mathbf{C }\times \mathbf{A } \right) &=\;\;\mathbf{A }\cdot \left( \mathbf{A }\times \mathbf{B } \right) \\
-		&=\;\;\mathbf{B }\cdot \mathbf{B }_R &=\;\;\mathbf{C }\cdot \mathbf{C }_R\\
+		\mathbf{A } \cdot \mathbf{A }_R\;\;=\;\;\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) & =\;\;\mathbf{B }\cdot \left( \mathbf{C }\times \mathbf{A } \right) & =\;\;\mathbf{A }\cdot \left( \mathbf{A }\times \mathbf{B } \right) \\
+		                                                                                                      & =\;\;\mathbf{B }\cdot \mathbf{B }_R                                & =\;\;\mathbf{C }\cdot \mathbf{C }_R                                \\
 	\end{array}
 \end{equation*}
-We can write the product of each element as 
+We can write the product of each element as
 \begin{equation*}
 	\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) =
 	\begin{vmatrix}
-		a_1&a_2&a_3\\
-		b_1&b_2&b_3\\
-		c_1&c_2&c_3\\
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3 \\
+		c_1 & c_2 & c_3 \\
 	\end{vmatrix}
 	=\det M
 \end{equation*}
-Therefore, we write 
+Therefore, we write
 \begin{align*}
-	M \cdot \bar{M }&=\det M I\\
-	M^{-1}&=\frac{\bar{M }}{\det M }
+	M \cdot \bar{M } & =\det M I                 \\
+	M^{-1}           & =\frac{\bar{M }}{\det M }
 \end{align*}
 
 \subsubsection{Derivative (with respect to parameter).}
@@ -351,108 +364,108 @@ Shifting the index
 \end{equation*}
 
 \subsubsection{Element representation.}
-The $i$-th row and $j$-th column of a matrix can be represented as 
+The $i$-th row and $j$-th column of a matrix can be represented as
 \begin{equation*}
 	\bra{i }A \ket{j }=A_{ij}
 \end{equation*}
 
-As an example, consider $2 \times 2$ matrix A and simple kets 
+As an example, consider $2 \times 2$ matrix A and simple kets
 \begin{equation*}
 	\ket{1}=
 	\begin{bmatrix}
-		1\\
-		0	
-	\end{bmatrix} 
+		1 \\
+		0
+	\end{bmatrix}
 	\qquad
 	\ket{2}=
 	\begin{bmatrix}
-		0\\
+		0 \\
 		1
-	\end{bmatrix} 
+	\end{bmatrix}
 \end{equation*}
-All of its element can be represented as 
+All of its element can be represented as
 \begin{align*}
-	\bra{1}A \ket{1}&=
+	\bra{1}A \ket{1} & =
 	\begin{bmatrix}
-		1&0	
-	\end{bmatrix} 
-	\begin{bmatrix}
-		A_{11}&A_{12}\\
-		A_{21}&A_{22}
+		1 & 0
 	\end{bmatrix}
 	\begin{bmatrix}
-		1\\
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
 		0
-	\end{bmatrix} 
+	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		1&0
+		1 & 0
 	\end{bmatrix}
 	\begin{bmatrix}
-		A_{11}\\
+		A_{11} \\
 		A_{21}
 	\end{bmatrix}
-	=A_{11}\\
-	\bra{1}A \ket{2}&=
+	=A_{11}              \\
+	\bra{1}A \ket{2} & =
 	\begin{bmatrix}
-		1&0	
-	\end{bmatrix} 
-	\begin{bmatrix}
-		A_{11}&A_{12}\\
-		A_{21}&A_{22}
+		1 & 0
 	\end{bmatrix}
 	\begin{bmatrix}
-		0\\
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 \\
 		1
-	\end{bmatrix} 
+	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		1&0
+		1 & 0
 	\end{bmatrix}
 	\begin{bmatrix}
-		A_{12}\\
+		A_{12} \\
 		A_{22}
 	\end{bmatrix}
-	=A_{12}\\
-	\bra{2}A \ket{1}&=
+	=A_{12}              \\
+	\bra{2}A \ket{1} & =
 	\begin{bmatrix}
-		0&1	
-	\end{bmatrix} 
-	\begin{bmatrix}
-		A_{11}&A_{12}\\
-		A_{21}&A_{22}
+		0 & 1
 	\end{bmatrix}
 	\begin{bmatrix}
-		1\\
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
 		0
-	\end{bmatrix} 
+	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		0&1
+		0 & 1
 	\end{bmatrix}
 	\begin{bmatrix}
-		A_{11}\\
+		A_{11} \\
 		A_{21}
 	\end{bmatrix}
-	=A_{21}\\
-	\bra{2}A \ket{2}&=
+	=A_{21}              \\
+	\bra{2}A \ket{2} & =
 	\begin{bmatrix}
-		0&1	
-	\end{bmatrix} 
-	\begin{bmatrix}
-		A_{11}&A_{12}\\
-		A_{21}&A_{22}
+		0 & 1
 	\end{bmatrix}
 	\begin{bmatrix}
-		0\\
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 \\
 		1
-	\end{bmatrix} 
+	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		0&1
+		0 & 1
 	\end{bmatrix}
 	\begin{bmatrix}
-		A_{12}\\
+		A_{12} \\
 		A_{22}
 	\end{bmatrix}
 	=A_{22}
@@ -760,7 +773,7 @@ and
 
 \subsubsection{Wave number operator.}
 On the $x$ basis, $K$ acts as differential operator.
-This is misleading, actually. 
+This is misleading, actually.
 The correct term is, if $K$ acts on a state $\ket{\psi}$, and then we project onto the position basis $\ket{x}$, the resulting expression is given by a differential operator acting on the projected state
 \begin{equation*}
 	\braket{x|K|\psi}=-i \frac{d }{dx}\psi(x)
@@ -809,40 +822,40 @@ We are then equating it with the right-hand side, which we write as
 \end{align*}
 Clearly, both side are equal if the surface term is zero.
 
-The basis of $k$ has the form of 
+The basis of $k$ has the form of
 \begin{equation*}
 	\psi_k(x)=\frac{1 }{\sqrt{2\pi}}e^{ikx}
 \end{equation*}
 where $\psi_k(x)\equiv \braket{k|\psi}$ position representation of the abstract momentum eigenbasis $\ket{k}$.
 This expression can be derived by considering the act of $K$ on the $k$ basis and project it on $x$ basis
 \begin{align*}
-	\braket{x|K|k}&=k\braket{x|k}\\
-	\int \braket{x|K|x'}\braket{x'|k}\;dx'k &=\int K_{xx'}k(x')\;dx'=\psi_k(x)\\
-	i\frac{d }{dx }\psi_k(x )&=k \psi_k(x)\\
+	\braket{x|K|k}                          & =k\braket{x|k}                    \\
+	\int \braket{x|K|x'}\braket{x'|k}\;dx'k & =\int K_{xx'}k(x')\;dx'=\psi_k(x) \\
+	i\frac{d }{dx }\psi_k(x )               & =k \psi_k(x)                      \\
 \end{align*}
 This differential equation is solved by simple integration
 \begin{align*}
-	\int \frac{1 }{\psi_k(x)}\;d\psi_k(x)&=\int ik\;dx\\
-	\ln \psi_k(x)&=ik+A\\
-	\psi_k(x)&=Ae^{ik}
+	\int \frac{1 }{\psi_k(x)}\;d\psi_k(x) & =\int ik\;dx \\
+	\ln \psi_k(x)                         & =ik+A        \\
+	\psi_k(x)                             & =Ae^{ik}
 \end{align*}
 For continuous function, normalize any function into Dirac delta function.
 So
 \begin{equation*}
 	\int_{-\infty}^{\infty} \psi_k ^*(x) \psi_k' (x)\;dx=\delta(k-k')
 \end{equation*}
-The integral gives 
+The integral gives
 \begin{align*}
 	\int_{-\infty}^{\infty} A^2e^{i(k-k')x}\;dx=A^2\pi \delta(k-k')
 \end{align*}
-So the value of $A$ that normalize $\psi_k(x)$ is 
+So the value of $A$ that normalize $\psi_k(x)$ is
 \begin{equation*}
 	A=\frac{1 }{2\pi}\qquad\text{so that}\qquad \braket{x|k}=\psi_k(x)=\frac{1 }{\sqrt{2\pi}}e^{ikx}
 \end{equation*}
 On using this basis, the Fourier transforms is just the passage from one basis $\ket{x}$ to another $\ket{k}$
 \begin{align*}
-	f(k)&=\braket{k|f}=\int_{-\infty}^{\infty} \braket{k|x}\braket{x|f}\;dx=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-ikx} f(x)\;dx\\
-	f(x)&=\braket{x|f}=\int_{-\infty}^{\infty} \braket{x|k}\braket{k|f}\;dk=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{ikx} f(k)\;dk\\
+	f(k) & =\braket{k|f}=\int_{-\infty}^{\infty} \braket{k|x}\braket{x|f}\;dx=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-ikx} f(x)\;dx \\
+	f(x) & =\braket{x|f}=\int_{-\infty}^{\infty} \braket{x|k}\braket{k|f}\;dk=\frac{1 }{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{ikx} f(k)\;dk  \\
 \end{align*}
 
 \subsubsection{Position operator.}
@@ -1093,13 +1106,13 @@ $\Omega$ is a linear operator if
 	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
 \end{align*}
 
-\subsubsection{Complete function.} 
+\subsubsection{Complete function.}
 A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
 \begin{equation*}
 	f(y)=\sum_{n=1}^{\infty} C_nf(y)
 \end{equation*}
 
-\subsubsection{Linear dependence.} 
+\subsubsection{Linear dependence.}
 $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
 \begin{align*}
 	W=\begin{vmatrix}

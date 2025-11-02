@@ -5,16 +5,65 @@ Regression, is employed when the data contain measurement noise or intrinsic var
 It is ubiquitous in statistics, experimental physics, and data analysis.
 Unlike interpolation which used for exact reconstruction of a presumed error-free function, regression is used for approximate modeling of noisy or empirical relationships
 
-\subsection{Linear Regression (unfinished)}
+\subsection{Linear Regression}
+Linear regression is a statistical method for modeling the relationship between two variables by fitting a straight line to data.
+It assumes that the dependent variable $y$ depends linearly on an independent variable $x$ according to
+\begin{equation*}
+    y=mx+c
+\end{equation*}
+Each parameters can be determined with
+\begin{equation*}
+    m = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2},\qquad
+    b = \bar{y} - m\bar{x}
+\end{equation*}
+Another important parameters is the Pearson coefficient
+\begin{equation*}
+    r = \frac{n\sum xy - \sum x \sum y}{\sqrt{(n\sum x^2 - (\sum x)^2)(n\sum y^2 - (\sum y)^2)}}, \\
+\end{equation*}
+which measures linear association between observed and predicted values, and RMSE
+\begin{equation*}
+    \text{RMSE} = \sqrt{\frac{1}{n}\sum_i (y_i - y_{p,i})^2}
+\end{equation*}
+which measures the typical magnitude of prediction error.
+
+\subsubsection{Implementation.}
+In python.
+\begin{minted}[breaklines]{python}
+def linear(x,y):
+    n=len(x)
+\end{minted}
+It first takes the set of data $(x,y)$ the takes the sample size.
+\begin{minted}[breaklines]{python}
+    sum_x=sum(x)
+    x_bar=sum_x/n
+    sum_y=sum(y)
+    y_bar=sum_y/n
+    sum_x2=sum(xi**2 for xi in x)
+    sum_y2=sum(yi**2 for yi in y)
+    sum_xy=sum(x[i]*y[i] for i in range(n) )
+\end{minted}
+Then it calculate the required summation $\sum x_i$, $ \sum y_i$, $ \sum x_i^2$,$sum y_i^2$ and $\sum x_i y_i$.
+\begin{minted}[breaklines]{python}
+    m=(n*sum_xy-sum_x*sum_y)/(n*sum_x2-sum_x**2)
+    b=y_bar-m*x_bar
+    y_p=[m*xi+b for xi in x]
+    r= (n * sum_xy - sum_x * sum_y)/ ((n * sum_x2 - sum_x**2) * (n * sum_y2 - sum_y**2)) ** 0.5
+    rmse=(sum((y[i]-y_p[i])**2 for i in range (n))/n)**0.5
+\end{minted}
+Calculate the slope $m$, $y$-intercept, approximate value $y_p$, Pearson coefficient $r$, and root mean square error.
+\begin{minted}[breaklines]{python}
+    return [y_p,r,rmse,b]
+\end{minted}
+Then  we returns $y_p$, $r$, RMSE, and $b$. 
+
+
+\subsection{Multiple Linear Regression (unfinished)}
 The simplest form models the dependent variable \( y \) as a linear combination of independent variables \( x_j \):
 \begin{equation*}
     y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \varepsilon,
 \end{equation*}
 where the coefficients \( \beta_j \) are estimated by minimizing the sum of squared residuals.
 
-\subsection{Multiple Linear Regression (unfinished)}
-A generalization of linear regression with several independent variables.
-The same formulation holds but with \( p > 1 \) predictors.
 
 \subsection{Polynomial Regression}
 For $N$ distinct data points, the highest possible polynomial degree $m$ that can be exactly fitted is $N-1$.
