@@ -37,14 +37,14 @@ Evaluation
 Evaluation
 \begin{align*}
     \lim_{x \to 1} \frac{16(x^{2} - 1)}{x - 1}
-&= \lim_{x \to 1} \frac{16(x - 1)(x + 1)}{x - 1} \\
-&= \lim_{x \to 1} 16(x + 1) \\
-&= 16(2) 
-&= 32
+     & = \lim_{x \to 1} \frac{16(x - 1)(x + 1)}{x - 1} \\
+     & = \lim_{x \to 1} 16(x + 1)                      \\
+     & = 16(2)
+     & = 32
 \end{align*}
 \subsubsection{4. Consider}
 \begin{equation*}
-    \lim_{x \to \infty} x \sin\!\left(\frac{1}{x}\right)    
+    \lim_{x \to \infty} x \sin\!\left(\frac{1}{x}\right)
 \end{equation*}
 Evaluation
 \begin{align*}
@@ -61,9 +61,9 @@ where we have substituted $t=1/x$.
 Evaluation
 \begin{align*}
     \lim_{x \to 5} \frac{x^{2} - 25}{x - 5}
-&= \lim_{x \to 5} \frac{(x - 5)(x + 5)}{x - 5} \\
-&= \lim_{x \to 5} (x + 5) \\
-&= 10
+     & = \lim_{x \to 5} \frac{(x - 5)(x + 5)}{x - 5} \\
+     & = \lim_{x \to 5} (x + 5)                      \\
+     & = 10
 \end{align*}
 
 \subsubsection{6. Consider}
@@ -72,10 +72,10 @@ Evaluation
 \end{equation*}
 Evaluation
 \begin{align*}
-    \lim_{x\to4}\frac{\sqrt{x}-2 }{x-4}&= \lim_{x\to4}\frac{\sqrt{x} - 2}{x - 4} \cdot \frac{\sqrt{x} + 2}{\sqrt{x} + 2} \\
-&=\lim_{x\to4} \frac{x - 4}{(x - 4)(\sqrt{x} + 2)} \\
-&=\lim_{x\to4}\frac{1}{\sqrt{x} + 2}. \\
-&= \frac{1 }{4}
+    \lim_{x\to4}\frac{\sqrt{x}-2 }{x-4} & = \lim_{x\to4}\frac{\sqrt{x} - 2}{x - 4} \cdot \frac{\sqrt{x} + 2}{\sqrt{x} + 2} \\
+                                        & =\lim_{x\to4} \frac{x - 4}{(x - 4)(\sqrt{x} + 2)}                                \\
+                                        & =\lim_{x\to4}\frac{1}{\sqrt{x} + 2}.                                             \\
+                                        & = \frac{1 }{4}
 \end{align*}
 
 \subsubsection{7. Consider}
@@ -84,12 +84,12 @@ Evaluation
 \end{equation*}
 Evaluation
 \begin{align*}
-\lim_{x \to 0} \frac{\tfrac{1}{x - 4} - \tfrac{1}{4}}{x}
-&=\lim_{x \to 0}\frac{\frac{1 }{x-4 }-\frac{1 }{4}  }{x} \frac{4(x+4 )}{4(x+4)}\\
-&= \lim_{x \to 0}\frac{4-(x+4 )}{4x(x+4)}\\
-&= \lim_{x \to 0} \frac{-x }{4x(x+4)}\\
-&= \lim_{x \to 0} \frac{-1 }{4(x+4)}\\
-&= \frac{-1 }{4(0+4)}=-\frac{1 }{16}
+    \lim_{x \to 0} \frac{\tfrac{1}{x - 4} - \tfrac{1}{4}}{x}
+     & =\lim_{x \to 0}\frac{\frac{1 }{x-4 }-\frac{1 }{4}  }{x} \frac{4(x+4 )}{4(x+4)} \\
+     & = \lim_{x \to 0}\frac{4-(x+4 )}{4x(x+4)}                                       \\
+     & = \lim_{x \to 0} \frac{-x }{4x(x+4)}                                           \\
+     & = \lim_{x \to 0} \frac{-1 }{4(x+4)}                                            \\
+     & = \frac{-1 }{4(0+4)}=-\frac{1 }{16}
 \end{align*}
 
 \subsubsection{8. Consider}
@@ -98,12 +98,103 @@ Evaluation
 \end{equation*}
 Evaluation
 \begin{align*}
-\lim_{x \to \infty} (\sqrt{x^{2} + x} - x)
-&= \lim_{x \to \infty} \frac{(\sqrt{x^{2} + x} - x)(\sqrt{x^{2} + x} + x)}{\sqrt{x^{2} + x} + x} \\
-&= \lim_{x \to \infty} \frac{x}{\sqrt{x^{2} + x} + x} \\
-&= \lim_{x \to \infty} \frac{1}{\sqrt{1 + \tfrac{1}{x}} + 1} \\
-&= \frac{1}{2}
+    \lim_{x \to \infty} (\sqrt{x^{2} + x} - x)
+     & = \lim_{x \to \infty} \frac{(\sqrt{x^{2} + x} - x)(\sqrt{x^{2} + x} + x)}{\sqrt{x^{2} + x} + x} \\
+     & = \lim_{x \to \infty} \frac{x}{\sqrt{x^{2} + x} + x}                                            \\
+     & = \lim_{x \to \infty} \frac{1}{\sqrt{1 + \tfrac{1}{x}} + 1}                                     \\
+     & = \frac{1}{2}
 \end{align*}
+
+\subsection{Appendix: Derivative Evaluation}
+\subsubsection{1. Limit definition.}
+Let \( f(x) = x^3 + 2x^2 - 5x + 7 \).
+The derivative is defined as
+\[
+    f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}.
+\]
+Substitute the function:
+\[
+    f'(x) = \lim_{h \to 0} \frac{(x + h)^3 + 2(x + h)^2 - 5(x + h) + 7 - (x^3 + 2x^2 - 5x + 7)}{h}.
+\]
+Expand each term:
+\[
+    (x + h)^3 = x^3 + 3x^2h + 3xh^2 + h^3,
+\]
+\[
+    2(x + h)^2 = 2(x^2 + 2xh + h^2) = 2x^2 + 4xh + 2h^2,
+\]
+\[
+    -5(x + h) = -5x - 5h.
+\]
+Substitute back:
+\begin{multline*}
+    f'(x) = \lim_{h \to 0} \bigg[]\frac{(x^3 + 3x^2h + 3xh^2 + h^3 + 2x^2 + 4xh + 2h^2 - 5x - 5h + 7) }{h} - \\ \frac{- (x^3 + 2x^2 - 5x + 7) }{h}\bigg]
+\end{multline*}
+Cancel identical terms \( x^3, 2x^2, -5x, 7 \):
+\[
+    f'(x) = \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3 + 4xh + 2h^2 - 5h}{h}.
+\]
+Factor \( h \):
+\[
+    f'(x) = \lim_{h \to 0} \frac{h(3x^2 + 3xh + h^2 + 4x + 2h - 5)}{h}.
+\]
+Simplify:
+\[
+    f'(x) = \lim_{h \to 0} (3x^2 + 3xh + h^2 + 4x + 2h - 5).
+\]
+Take the limit \( h \to 0 \):
+\[
+    f'(x) = 3x^2 + 4x - 5.
+\]
+
+With the power method
+\begin{align*}
+    D(x^3)  & = 3x^{2},              \\
+    D(2x^2) & = 2 \cdot 2x^{1} = 4x, \\
+    D(-5x)  & = -5,                  \\
+    D(7)    & = 0.
+\end{align*}
+Combine all terms:
+\[
+    f'(x) = 3x^2 + 4x - 5.
+\]
+
+\subsubsection{2. Power rule.}
+Given the function
+\[
+    f(x) = x^{\frac{5}{2}} + 3x^{\frac{3}{2}} - 4x^{\frac{1}{2}} + 2,
+\]
+apply the power rule
+\begin{align*}
+    D\left(x^{\frac{5}{2}}\right)   & = \frac{5}{2}x^{\frac{3}{2}},                                      \\
+    D\left(3x^{\frac{3}{2}}\right)  & = 3 \cdot \frac{3}{2}x^{\frac{1}{2}} = \frac{9}{2}x^{\frac{1}{2}}, \\
+    D\left(-4x^{\frac{1}{2}}\right) & = -4 \cdot \frac{1}{2}x^{-\frac{1}{2}} = -2x^{-\frac{1}{2}},       \\
+    D(2)                            & = 0.
+\end{align*}
+Combine all terms:
+\[
+    f'(x) = \frac{5}{2}x^{\frac{3}{2}} + \frac{9}{2}x^{\frac{1}{2}} - 2x^{-\frac{1}{2}}.
+\]
+
+\subsubsection{3. Product rule.}
+Let
+\[
+    f(x) = x^2 \sin(x).
+\]
+The product rule states
+\[
+    D(uv) = u'v + uv',
+\]
+where \( u = x^2 \) and \( v = \sin(x) \).
+Compute each derivative:
+\[
+    u' = 2x, \qquad v' = \cos(x).
+\]
+Substitute into the product rule:
+\begin{equation*}
+    f'(x) = (2x)\sin(x) + (x^2)\cos(x)=2x\sin(x) + x^2\cos(x).
+\end{equation*}
+
 
 \subsection{Appendix: Example of Optimization Problem}
 \subsubsection{One variable problem.} Consider this simple problem.
@@ -439,28 +530,28 @@ substituting the $\theta$ function
 \subsubsection{Integrals of Hyperbolic Functions.}
 \begin{flalign*}
      & \begin{aligned}
-            & \int \cosh ax dx =\frac{1}{a} \sinh ax                                                                                                                          \\
+            & \int \cosh ax dx =\frac{1}{a} \sinh ax                                                                                                                             \\
             & \int e^{ax}  \cosh bx dx = \begin{cases}
                                           \dfrac{e^{ax}}{a^2-b^2} \left[ a \cosh bx - b \sinh bx \right],\quad    a\neq b \\\\
                                           \dfrac{e^{2ax}}{4a} + \dfrac{x}{2},\quad a = b
-                                      \end{cases}                            \\
-            & \int \sinh ax dx = \frac{1}{a} \cosh ax                                                                                                                         \\
+                                      \end{cases}                               \\
+            & \int \sinh ax dx = \frac{1}{a} \cosh ax                                                                                                                            \\
             & \int e^{ax} \sinh bx dx =  \begin{cases}
                                           {\dfrac{e^{ax}}{a^2-b^2} }\left[ -b \cosh bx + a \sinh bx \right]  ,\quad a\neq b \\\\
                                           {\dfrac{e^{2ax}}{4a} - \dfrac{x}{2}}   a = b
-                                      \end{cases}                                                  \\
+                                      \end{cases}                                                     \\
             & \int  e^{ax} \tanh bx dx =   \begin{cases}
                                             \displaystyle{ \frac{ e^{(a+2b)x}}{(a+2b)} {_2F_1}\left[ 1+\frac{a}{2b},1,2+\frac{a}{2b}, -e^{2bx}\right] } & \\\\
                                             \displaystyle{ -\frac{1}{a}e^{ax}{_2F_1}\left[ \frac{a}{2b},1,1E, -e^{2bx}\right]},\quad a\neq b              \\\\
                                             \displaystyle{\frac{e^{ax}-2\tan^{-1}[e^{ax}]}{a} },\quad a = b
                                         \end{cases} \\
-            & \int  \tanh ax\;dx =\frac{1}{a} \ln \cosh ax                                                                                                                    \\
-            & \int \cos ax \cosh bx dx = \frac{1}{a^2 + b^2} \left[  a \sin ax \cosh bx + b \cos ax \sinh bx \right]                                                          \\
-            & \int \cos ax \sinh bx dx = \frac{1}{a^2 + b^2} \left[    b \cos ax \cosh bx + a \sin ax \sinh bx  \right]                                                       \\
-            & \int \sin ax \cosh bx dx = \frac{1}{a^2 + b^2} \left[ -a \cos ax \cosh bx +b \sin ax \sinh bx \right]                                                           \\
-            & \int \sin ax \sinh bx dx =  \frac{1}{a^2 + b^2} \left[ b \cosh bx \sin ax - a \cos ax \sinh bx \right]                                                          \\
-            & \int \sinh ax \cosh ax dx= \frac{1}{4a}\left[  -2ax + \sinh 2ax \right]                                                                                         \\
-            & \int \sinh ax \cosh bx dx= \frac{1}{b^2-a^2}\left[  b \cosh bx \sinh ax  - a \cosh ax \sinh bx \right]                                                          \\
+            & \int  \tanh ax\;dx =\frac{1}{a} \ln \cosh ax                                                                                                                       \\
+            & \int \cos ax \cosh bx dx = \frac{1}{a^2 + b^2} \left[  a \sin ax \cosh bx + b \cos ax \sinh bx \right]                                                             \\
+            & \int \cos ax \sinh bx dx = \frac{1}{a^2 + b^2} \left[    b \cos ax \cosh bx + a \sin ax \sinh bx  \right]                                                          \\
+            & \int \sin ax \cosh bx dx = \frac{1}{a^2 + b^2} \left[ -a \cos ax \cosh bx +b \sin ax \sinh bx \right]                                                              \\
+            & \int \sin ax \sinh bx dx =  \frac{1}{a^2 + b^2} \left[ b \cosh bx \sin ax - a \cos ax \sinh bx \right]                                                             \\
+            & \int \sinh ax \cosh ax dx= \frac{1}{4a}\left[  -2ax + \sinh 2ax \right]                                                                                            \\
+            & \int \sinh ax \cosh bx dx= \frac{1}{b^2-a^2}\left[  b \cosh bx \sinh ax  - a \cosh ax \sinh bx \right]                                                             \\
        \end{aligned} &
 \end{flalign*}
 \end{document}

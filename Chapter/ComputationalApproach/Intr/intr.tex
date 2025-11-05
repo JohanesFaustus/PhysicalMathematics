@@ -5,7 +5,7 @@ The primary goal is to reconstruct or estimate the values of the underlying func
 Unlike regression, which tolerates deviations between the model and the data due to noise, interpolation enforces an exact fit at each known point.
 
 \subsection{Lagrange Interpolation}
-Lagrange interpolation is a polynomial interpolation method that constructs a unique polynomial of degree at most $n$ passing exactly through $n+1$ given data points \((x_i, F_i)\) for \(i = 1, \dots, N\).
+Lagrange's interpolation is a polynomial interpolation method that constructs a unique polynomial of degree at most $n$ passing exactly through $n+1$ given data points \((x_i, F_i)\) for \(i = 1, \dots, N\).
 The interpolating polynomial is written as
 \[
     P_n(x) = \sum_{i=0}^{n} y_i L_i(x)
@@ -45,4 +45,26 @@ x=sp.Symbol("x")
 x_graph = np.linspace(min(x_i), max(x_i), 100)
 inter= sp.lambdify(x,LagInt(x_i,F_i),"numpy")
 \end{minted}
+
+\subsection{Linear Interpolation}
+Linear interpolation is a method for estimating the value of a function $f(x)$  at a point $ x$  between two known data points  $(x_0, y_0)$  and $ (x_1, y_1)$.
+It assumes that the function varies linearly between these points.
+The formula is derived from the equation of a straight line passing through the two points
+\begin{equation*}
+    y = y_0 + \frac{y_1 - y_0}{x_1 - x_0} (x - x_0)
+\end{equation*}
+
+The algorithm is as follows.
+\begin{enumerate}
+    \item \textbf{Input.} Two consecutive points $(x_0, y_0)$ and $(x_1, y_1)$ such that $x_i < x_{i+1}$. If $x$ lies outside the known points, interpolation is not possible without extrapolation.
+    \item \textbf{Compute the gradient.} Use the following expression
+          \begin{equation*}
+              m= \frac{y_{i+1 }-x_i}{x_{i+1}-x_i}
+          \end{equation*}
+    \item \textbf{Return the value.} Return the value of $y$ with
+          \begin{equation*}
+              y(x)=y_i+m(x-x_i)
+          \end{equation*}
+\end{enumerate}
+
 \end{document}
