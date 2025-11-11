@@ -193,7 +193,7 @@ Otherwise, the function returns a list of roots and iteration counts.
 
 As a bonus, this function can be used to find the roots of the Bessel function, which can be written as
 \begin{minted}[breaklines]{python}
-    def Jn(x, n, eps=10**(-6)):
+def Jn(x, n, eps=10**(-6)):
     xo2 = x / 2.0
     x2 = xo2 * xo2
     a0 = 1.0

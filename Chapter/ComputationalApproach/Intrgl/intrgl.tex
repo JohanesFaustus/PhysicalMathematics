@@ -18,6 +18,19 @@ Rectangular integration is derived by approximating the integral as the sum of t
     \int_a^b f(x)\,dx \approx \sum_{i=0}^{n-1} f(x_i)h
 \]
 
+\subsubsection{Implementation.} As following
+\begin{minted}[breaklines]{python}
+def rect(x, y):
+    luas = 0
+    for i in range(len(x) - 1):
+        dx = x[i + 1] - x[i]
+        luas += y[i] * dx
+    return luas
+\end{minted}
+The loop iterates over all intervals between consecutive points in \verb|x| using \verb|len(x)-1| since \verb|n| point define \verb|n-1| interval, so the loop must run \verb|n-1| times.
+For each subinterval, the width is computed \verb|dx|.
+The product \verb|y[i] * dx| gives the area of one rectangle, which is added to the total area \verb|luas|.
+After summing over all rectangles, the total \verb|luas| approximates the definite integral of $f(x)$ over the domain.
 
 \subsection{Trapezoid Method}
 The trapezoidal integration method based on replacing the curve over each subinterval with a straight line (a trapezoid).
