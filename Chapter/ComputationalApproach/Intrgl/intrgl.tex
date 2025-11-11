@@ -1,8 +1,26 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
 
+\subsection{Rectangular Method}
+Rectangular integration approximates the area under a curve by summing the areas of rectangles.
+The interval $[a,b]$ is divided into $s$ subintervals of equal width $h$, then the method is expressed as
+\begin{equation*}
+    \int_{a}^{b} f(x) \; dx \approx h \sum_{k=0}^{n-1} f(a + hk)
+\end{equation*}
+where
+\begin{equation*}
+    h=\frac{b-a}{n}
+\end{equation*}
+
+\subsubsection{Derivation.}
+Rectangular integration is derived by approximating the integral as the sum of the areas of rectangles with height \( f(x_i) \) and width \( h \), yielding
+\[
+    \int_a^b f(x)\,dx \approx \sum_{i=0}^{n-1} f(x_i)h
+\]
+
+
 \subsection{Trapezoid Method}
-The trapezoidal integration method based on approximating the area under the curve by dividing the interval into subintervals and replacing the curve over each subinterval with a straight line (a trapezoid).
+The trapezoidal integration method based on replacing the curve over each subinterval with a straight line (a trapezoid).
 Let the points be $x_0=a$, $x_1=a+h$,\dots, $x_n=b$
 The method is expressed as
 \begin{equation*}

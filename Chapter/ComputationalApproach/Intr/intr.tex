@@ -11,9 +11,9 @@ The interpolating polynomial is written as
     P_n(x) = \sum_{i=0}^{n} y_i L_i(x)
 \]
 where \( L_i(x) \) are the Lagrange basis polynomials defined by
-\[
+\begin{equation*}
     L_i(x) = \prod_{\substack{j=0 \\ j \ne i}}^{n} \frac{x - x_j}{x_i - x_j}
-\]
+\end{equation*}
 
 \subsubsection{Implementation.}
 In python
@@ -44,6 +44,21 @@ The usage is as follows.
 x=sp.Symbol("x")
 x_graph = np.linspace(min(x_i), max(x_i), 100)
 inter= sp.lambdify(x,LagInt(x_i,F_i),"numpy")
+\end{minted}
+
+Another implementation that does not use the  SymPy are as follows. This actually simpler and does not require an explanation.
+\begin{minted}[breaklines]{python}
+def lagint(x_data,y_data,x):
+    n = len(x_data)
+    P = 0
+    for i in range(n):
+        L = 1
+        for j in range(n):
+            if i != j:
+                L *= (x - x_data[j]) / (x_data[i] - x_data[j])
+        P += y_data[i] * L
+    
+    return P 
 \end{minted}
 
 \subsection{Linear Interpolation}
