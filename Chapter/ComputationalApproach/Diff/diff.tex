@@ -116,6 +116,20 @@ The Euler method approximates $y$ at a discrete set of points $t_n$ with step si
     y_{n+1} = y_{n} + h f(t_{n}, y_{n})
 \end{equation*}
 
+\subsection{RK2: Heun Method}
+The Heun method is a predictor-corrector method that improves upon the Euler method by using an average of slopes.
+The algorithm is as follows.
+\begin{enumerate}
+    \item \textbf{Predictor (Euler step).} Estimate the next value using the Euler method
+          \begin{equation*}
+              y_{n+1}^{\text{pred}} = y_{n} + h f(t_{n}, y_{n})
+          \end{equation*}
+    \item \textbf{Corrector (average slope).} Refine the estimate using the average of the slope at the current point and the predicted point
+          \begin{equation*}
+              y_{n+1} = y_{n} + \frac{h}{2} [f(t_{n}, y_{n}) + f(t_{n+1}, y_{n+1}^{\text{pred}})]
+          \end{equation*}
+\end{enumerate}
+
 \subsection{1D Linear Convection}
 The equation is written as
 \begin{equation*}
