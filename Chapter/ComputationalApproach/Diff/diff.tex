@@ -14,7 +14,7 @@ For example, consider some loop at which time iteration is required.
 In each iteration of our time loop, we use the existing data about our wave to estimate the speed of the wave in the subsequent time step.
 What has happened is that over the time period $\Delta t$, the wave is travelling a distance which is greater than \verb|dx|.  The length \verb|dx| of each grid box is related to the number of total points \verb|nx|, so stability can be enforced if the $\Delta t$ step size is calculated with respect to the size of \verb|dx|.
 
-\subsection{Finite Method}
+\subsection{Finite Difference Method}
 \subsubsection{Forward difference.}
 The forward difference of a function $f(x)$ with step size $h$ is defined as
 \begin{equation*}
@@ -99,6 +99,21 @@ then divide by $2h$
 Thus
 \begin{equation*}
     f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}, \quad \text{error } = O(h^2)
+\end{equation*}
+
+\subsection{Euler Method}
+The core idea of Euler method is to approximate derivatives by finite differences over small increments.
+Consider a function $y(t)$ satisfying the differential equation
+\begin{equation*}
+    \frac{dy }{dt }=f(y,t),\qquad y(t_0)=y_0
+\end{equation*}
+Here, the derivative is effectively approximated as:
+\begin{equation*}
+    \frac{dy}{dt}\Big|_{t=t_n} \approx \frac{y_{n+1} - y_n}{h}
+\end{equation*}
+The Euler method approximates $y$ at a discrete set of points $t_n$ with step size $h$ using the forward difference:
+\begin{equation*}
+    y_{n+1} = y_{n} + h f(t_{n}, y_{n})
 \end{equation*}
 
 \subsection{1D Linear Convection}
@@ -199,11 +214,11 @@ The one-dimensional diffusion equation is
 \begin{equation*}
     \frac{\partial u}{\partial t}= \nu \frac{\partial^2 u}{\partial x^2}
 \end{equation*}
-The discrete version is 
+The discrete version is
 \begin{equation*}
     \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
 \end{equation*}
-or 
+or
 \begin{equation*}
     u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
 \end{equation*}
@@ -211,14 +226,14 @@ or
 \subsubsection*{Derivation.}
 Consider the Taylor expansion of $u_{i+1}$ and $u_{i-1}$ around $u_i$
 \begin{align*}
-    u_{i+1} &=  u_i + \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i + \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4)\\
-    u_{i-1} &=  u_i - \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i - \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4)
+    u_{i+1} & =  u_i + \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i + \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4) \\
+    u_{i-1} & =  u_i - \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i - \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4)
 \end{align*}
-Add both 
+Add both
 \begin{equation*}
     u_{i+1} + u_{i-1} = 2u_i+\Delta x^2 \frac{\partial ^2 u}{\partial x^2}\bigg|_i + O(\Delta x^4)
 \end{equation*}
-And rearrange thing 
+And rearrange thing
 \begin{equation*}
     \frac{\partial ^2 u}{\partial x^2}=\frac{u_{i+1}-2u_{i}+u_{i-1}}{\Delta x^2} + O(\Delta x^2)
 \end{equation*}
@@ -226,7 +241,7 @@ Now we can write the discretized diffusion equation
 \begin{equation*}
     \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
 \end{equation*}
-or 
+or
 \begin{equation*}
     u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
 \end{equation*}
@@ -251,24 +266,24 @@ def diffus(u,nt,CFL):
 \subsection{2D Diffusion Equation}
 In two-dimensional, we have
 \begin{equation*}
-\frac{\partial u}{\partial t} = \nu \left( 
-\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} 
-\right)
+    \frac{\partial u}{\partial t} = \nu \left(
+    \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}
+    \right)
 \end{equation*}
 Similar like the 1D counterpart, we only need to add the second spatial direction
 \begin{equation*}
-\frac{u_{i,j}^{\,n+1} - u_{i,j}^{\,n}}{\Delta t} 
-= \nu \left(
-\frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2} 
-+ \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2} 
-\right)
+    \frac{u_{i,j}^{\,n+1} - u_{i,j}^{\,n}}{\Delta t}
+    = \nu \left(
+    \frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2}
+    + \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
+    \right)
 \end{equation*}
-or 
+or
 \begin{equation*}
-u_{i,j}^{\,n+1} = u_{i,j}^{\,n} + \nu \Delta t \left[
-\frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2} 
-+ \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
-\right]
+    u_{i,j}^{\,n+1} = u_{i,j}^{\,n} + \nu \Delta t \left[
+        \frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2}
+        + \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
+        \right]
 \end{equation*}
 To make the computation easier, the diffusion constant is often used
 \begin{equation*}
@@ -297,24 +312,26 @@ Burgers' equation is a combination of non-linear convection and diffusion, which
 \begin{equation*}
     \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = \nu \frac{\partial ^2u}{\partial x^2}
 \end{equation*}
-The analytic solution is given by 
+The analytic solution is given by
 \begin{gather*}
     u= -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
     \phi = \exp \bigg(\frac{-(x-4t)^2}{4 \nu (t+1)} \bigg) + \exp \bigg(\frac{-(x-4t -2 \pi)^2}{4 \nu(t+1)} \bigg)
 \end{gather*}
-with initial conditions of 
+with initial conditions of
 \begin{gather*}
     u = -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
     \phi = \exp \bigg(\frac{-x^2}{4 \nu} \bigg) + \exp \bigg(\frac{-(x-2 \pi)^2}{4 \nu} \bigg)
 \end{gather*}
 and periodic boundary conditions of $u(0)=u(2\pi)$.
 
-The discretized version is 
+The discretized version is
 \begin{equation*}
     \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n - u_{i-1}^n}{\Delta x} = \nu \frac{u_{i+1}^n - 2u_i^n + u_{i-1}^n}{\Delta x^2}
 \end{equation*}
-or 
+or
 \begin{equation*}
     u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n) + \nu \frac{\Delta t}{\Delta x^2}(u_{i+1}^n - 2u_i^n + u_{i-1}^n)
 \end{equation*}
+
+
 \end{document}
