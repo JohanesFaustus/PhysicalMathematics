@@ -105,7 +105,7 @@ Thus
 The core idea of Euler method is to approximate derivatives by finite differences over small increments.
 Consider a function $y(t)$ satisfying the differential equation
 \begin{equation*}
-    \frac{dy }{dt }=f(y,t),\qquad y(t_0)=y_0
+    \frac{dy }{dt }=f(t,y),\qquad y(t_0)=y_0
 \end{equation*}
 Here, the derivative is effectively approximated as:
 \begin{equation*}
@@ -127,6 +127,32 @@ The algorithm is as follows.
     \item \textbf{Corrector (average slope).} Refine the estimate using the average of the slope at the current point and the predicted point
           \begin{equation*}
               y_{n+1} = y_{n} + \frac{h}{2} [f(t_{n}, y_{n}) + f(t_{n+1}, y_{n+1}^{\text{pred}})]
+          \end{equation*}
+\end{enumerate}
+
+\subsection{RK4}
+The Runge–Kutta fourth-order method (RK4) is a widely used numerical integration technique for solving ordinary differential equations (ODEs) because it provides a good balance between accuracy and computational effort.
+The algorithm is as follows.
+\begin{enumerate}
+    \item \textbf{First slope.} Compute the first slope at the beginning of the interval
+          \begin{equation*}
+              k_1 = f(t_n, y_n)
+          \end{equation*}
+    \item \textbf{Second slope.} Compute the slope at the midpoint using $k_1$
+          \begin{equation*}
+              k_2 = f\Big(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_1\Big)
+          \end{equation*}
+    \item \textbf{Third slope.} Compute another slope at the midpoint using $k_2$
+          \begin{equation*}
+              k_3 = f\Big(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_2\Big)
+          \end{equation*}
+    \item \textbf{Fourth slope.} Compute the slope at the end of the interval using $k_3$
+          \begin{equation*}
+              k_4 = f(t_n + h, y_n + h k_3)
+          \end{equation*}
+    \item \textbf{Update.} Compute the next value of $y$ using a weighted average of the slopes:
+          \begin{equation*}
+              y_{n+1} = y_n + \frac{h}{6} \Big(k_1 + 2k_2 + 2k_3 + k_4 \Big)
           \end{equation*}
 \end{enumerate}
 
