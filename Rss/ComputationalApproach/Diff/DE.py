@@ -20,6 +20,28 @@ def linearconv(nx):
             u[i] = un[i] - c * dt / dx * (un[i] - un[i - 1])
 
 
+def linearconv2d(nx, nt, u):
+    dx = 2 / (nx - 1)
+    dy = dx
+    c = 1
+    sigma = 0.5
+    dt = sigma * dx
+
+    for n in range(nt + 1):  ##loop across number of time steps
+        un = u.copy()
+        u[1:, 1:] = (
+            un[1:, 1:]
+            - (c * dt / dx * (un[1:, 1:] - un[1:, :-1]))
+            - (c * dt / dy * (un[1:, 1:] - un[:-1, 1:]))
+        )
+        u[0, :] = 1
+        u[-1, :] = 1
+        u[:, 0] = 1
+        u[:, -1] = 1
+
+    return u
+
+
 def diffus(u, nt, CFL):
     nx = len(u)
     dx = 2 / (nx - 1)
@@ -72,3 +94,4 @@ def gaussian(nx, x0=0.5, sigma=0.1):
     x = np.linspace(0, 2, nx)
     u = np.exp(-((x - x0) ** 2) / (2 * sigma**2))
     return u
+

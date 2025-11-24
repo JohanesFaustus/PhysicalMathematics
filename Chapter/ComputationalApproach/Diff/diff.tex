@@ -222,45 +222,33 @@ or more practically written as
 \subsubsection*{Implementation.}
 Given the initial conditions, the solution can be written in python numerically, using the Courant number, as
 \begin{minted}[breaklines]{python}
-def linearconv(nx):
+def linearconv(nx,nt,u):
     dx = 2 / (nx - 1)
-    nt = 20    #nt is the number of timesteps we want to calculate
     c = 1
     sigma = .5
-    
     dt = sigma * dx
-
-    u = numpy.ones(nx) 
-    u[int(.5/dx):int(1 / dx + 1)] = 2
-
-    un = numpy.ones(nx)
 
     for n in range(nt):  #iterate through time
         un = u.copy() ##copy the existing values of u into un
         for i in range(1, nx):
             u[i] = un[i] - c * dt / dx * (un[i] - un[i-1])
+
+    return u
 \end{minted}
 and for the non-linear equation
 \begin{minted}[breaklines]{python}
-def nonlinear(nx):
+def nonlinear(nx,nt,u):
     dx = 2 / (nx - 1)
-    nt = 20    #nt is the number of timesteps we want to calculate
     c = 1
     sigma = .5
-    
     dt = sigma * dx
-
-    u = numpy.ones(nx) 
-    u[int(.5/dx):int(1 / dx + 1)] = 2
-
-    un = numpy.ones(nx)
 
     for n in range(nt):  #iterate through time
         un = u.copy() ##copy the existing values of u into un
         for i in range(1, nx):
            u[i] = un[i] - un[i] * dt / dx * (un[i] - un[i-1]) 
         
-    pyplot.plot(numpy.linspace(0, 2, nx), u)
+    return u
 \end{minted}
 
 As a bonus we can define the function where it begins with sinusoidal and after one period, it disappears
@@ -274,9 +262,9 @@ def y(nx):
         u[i] = numpy.sin(i / alpha)
     return u
 \end{minted}
-Other is a simple step function
+Other is a hat function
 \begin{minted}[breaklines]{python}
-def z(nx):
+def uHat(nx):
     u = numpy.zeros(nx) 
     quarter=int(len(nx)/4)
     half=int(len(nx)/2)
@@ -298,6 +286,63 @@ As before, solve for the only unknown:
 \begin{equation*}
     u_{i,j}^{n+1} = u_{i,j}^n-c \frac{\Delta t}{\Delta x}(u_{i,j}^n-u_{i-1,j}^n)-c \frac{\Delta t}{\Delta y}(u_{i,j}^n-u_{i,j-1}^n)
 \end{equation*}
+
+\subsubsection{Implementation.}
+\begin{minted}[breaklines]{python}
+def linearconv2d(nx,nt,u):
+    dx = 2 / (nx - 1)
+    dy = dx
+    c = 1
+    sigma = .5
+    dt = sigma * dx
+
+    for n in range(nt + 1): ##loop across number of time steps
+        un = u.copy()
+        u[1:, 1:] = (un[1:, 1:] - (c * dt / dx * (un[1:, 1:] - un[1:, :-1])) -
+                                (c * dt / dy * (un[1:, 1:] - un[:-1, 1:])))
+        u[0, :] = 1
+        u[-1, :] = 1
+        u[:, 0] = 1
+        u[:, -1] = 1
+        
+    return u
+\end{minted}
+Also consider the 2D hat function
+\begin{minted}[breaklines]{python}
+def uHat2d(nx):
+    ny = nx
+    dx = 2 / (nx - 1)
+    dy = dx
+    x = numpy.linspace(0, 2, nx)
+    y = numpy.linspace(0, 2, ny)
+
+    u = numpy.ones((ny, nx)) 
+    u[int(.5 / dy):int(1 / dy + 1),int(.5 / dx):int(1 / dx + 1)] = 2 
+    
+    return u
+\end{minted}
+
+
+\subsubsection{Note on displaying surface plot.}
+A two–dimensional scalar field \(u(x,y)\) is represented numerically by sampling the field on a discrete Cartesian grid.
+The coordinate arrays \(x\) and \(y\) contain the one–dimensional locations along each axis but do not enumerate the full set of grid points in two dimensions.
+The function \verb|X, Y = numpy.meshgrid(x, y)| constructs matrices \(X\) and \(Y\) such that
+\begin{equation*}
+    X_{ij}=x_i and Y_{ij}=y_j
+\end{equation*}
+thereby generating the complete Cartesian product of the grid.
+The scalar field is stored in a matrix \(u_{ij}\) of identical shape, where \(u_{ij}\approx u(x_i,y_j)\).
+A surface plot requires the triplet \((X,Y,u)\). Each index pair $(i,j)$ defines a point in three-dimensional space
+\begin{equation*}
+    (X_{ij}, Y_{ij},u_{ij})
+\end{equation*}
+Hence, the construction for a three–dimensional surface plot is performed by
+\begin{minted}[breaklines]{python}
+X, Y = numpy.meshgrid(x, y)
+fig = pyplot.figure(figsize=(11, 7), dpi=100)
+ax = fig.add_subplot(projection='3d')
+surf2 = ax.plot_surface(X, Y, u[:], cmap=cm.viridis)
+\end{minted}
 
 \subsection{1D Diffusion Equation}
 The one-dimensional diffusion equation is
