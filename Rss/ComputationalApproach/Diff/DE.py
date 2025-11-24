@@ -1,7 +1,7 @@
 # Example of numerical differential equation solution
 
 
-def linearconv(u,nt,CFL):
+def linearconv(u, nt, CFL):
     nx = len(u)
     dx = 2 / (nx - 1)
     nt = 20  # nt is the number of timesteps we want to calculate
@@ -20,7 +20,7 @@ def linearconv(u,nt,CFL):
             u[i] = un[i] - c * dt / dx * (un[i] - un[i - 1])
 
 
-def linearconv2D(u,nt,CFL):
+def linearconv2D(u, nt, CFL):
     nx = len(u)
     dx = 2 / (nx - 1)
     dy = dx
@@ -43,13 +43,48 @@ def linearconv2D(u,nt,CFL):
     return u
 
 
+def couplednonlinearconv2d(u, v, nt, CFL):
+    nx = len(u)
+    dx = 2 / (nx - 1)
+    dy = dx
+    c = 1
+    sigma = CFL
+    dt = sigma * dx
+
+    for n in range(nt + 1):  ##loop across number of time steps
+        un = u.copy()
+        vn = v.copy()
+        u[1:, 1:] = (
+            un[1:, 1:]
+            - (un[1:, 1:] * c * dt / dx * (un[1:, 1:] - un[1:, :-1]))
+            - vn[1:, 1:] * c * dt / dy * (un[1:, 1:] - un[:-1, 1:])
+        )
+        v[1:, 1:] = (
+            vn[1:, 1:]
+            - (un[1:, 1:] * c * dt / dx * (vn[1:, 1:] - vn[1:, :-1]))
+            - vn[1:, 1:] * c * dt / dy * (vn[1:, 1:] - vn[:-1, 1:])
+        )
+
+        u[0, :] = 1
+        u[-1, :] = 1
+        u[:, 0] = 1
+        u[:, -1] = 1
+
+        v[0, :] = 1
+        v[-1, :] = 1
+        v[:, 0] = 1
+        v[:, -1] = 1
+
+    return u, v
+
+
 def diffus(u, nt, CFL):
     nx = len(u)
     dx = 2 / (nx - 1)
     nu = 0.3
     sigma = CFL
     dt = sigma * dx**2 / nu
-    
+
     for i in range(1, nt):
         un = u.copy()
         for j in range(1, nx - 1):
@@ -95,4 +130,3 @@ def gaussian(nx, x0=0.5, sigma=0.1):
     x = np.linspace(0, 2, nx)
     u = np.exp(-((x - x0) ** 2) / (2 * sigma**2))
     return u
-

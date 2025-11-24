@@ -330,6 +330,38 @@ def linearconv2D(u,nt,CFL):
 
     return u
 \end{minted}
+and for the coupled nonlinear
+\begin{minted}[breaklines]{python}
+def couplednonlinearconv2d(u,v,nt,CFL):
+    nx = len(u)
+    dx = 2 / (nx - 1)
+    dy = dx
+    c = 1
+    sigma = CFL
+    dt = sigma * dx
+
+    for n in range(nt + 1): ##loop across number of time steps
+        un = u.copy()
+        vn = v.copy()
+        u[1:, 1:] = (un[1:, 1:] - 
+                    (un[1:, 1:] * c * dt / dx * (un[1:, 1:] - un[1:, :-1])) -
+                    vn[1:, 1:] * c * dt / dy * (un[1:, 1:] - un[:-1, 1:]))
+        v[1:, 1:] = (vn[1:, 1:] -
+                    (un[1:, 1:] * c * dt / dx * (vn[1:, 1:] - vn[1:, :-1])) -
+                    vn[1:, 1:] * c * dt / dy * (vn[1:, 1:] - vn[:-1, 1:]))
+        
+        u[0, :] = 1
+        u[-1, :] = 1
+        u[:, 0] = 1
+        u[:, -1] = 1
+        
+        v[0, :] = 1
+        v[-1, :] = 1
+        v[:, 0] = 1
+        v[:, -1] = 1
+
+    return u,v
+\end{minted}
 Also consider the 2D hat function
 \begin{minted}[breaklines]{python}
 def uHat2D(nx):
