@@ -107,7 +107,7 @@ Consider a function $y(t)$ satisfying the differential equation
 \begin{equation*}
     \frac{dy }{dt }=f(t,y),\qquad y(t_0)=y_0
 \end{equation*}
-Here, the derivative is effectively approximated as:
+Here, the derivative is effectively approximated as
 \begin{equation*}
     \frac{dy}{dt}\Big|_{t=t_n} \approx \frac{y_{n+1} - y_n}{h}
 \end{equation*}
@@ -129,6 +129,39 @@ The algorithm is as follows.
               y_{n+1} = y_{n} + \frac{h}{2} [f(t_{n}, y_{n}) + f(t_{n+1}, y_{n+1}^{\text{pred}})]
           \end{equation*}
 \end{enumerate}
+
+\subsubsection{Implementation.} In python.
+\begin{minted}[breaklines]{python}
+def RK2(f, t0, y0, h, t_akh):
+\end{minted}
+The function \verb|f| is the derivative function \(f(t,y)\), \verb|t0| is the initial value of the independent variable \(t\), \verb|y0| is the initial value of the dependent variable \(y\), \verb|h| is the step size for the integration, and \verb|t_akh| is the final value of \(t\) at which the solution is desired.
+\begin{minted}[breaklines]{python}
+    t_rk2 = np.arange(t0, t_akh + h, h)
+    y_rk2 = np.zeros(len(t_rk2))
+    y_rk2[0] = y0
+\end{minted}
+Inside the function, \verb|t_rk2| generates an array of discrete time points from \verb|t0| to \verb|t_akh| spaced by \verb|h|, and \verb|y_rk2| initializes an array to store the numerical solution, with \verb|y_rk2[0]| set to the initial condition \verb|y0|.
+\begin{minted}[breaklines]{python}
+    for i in range(len(t_rk2) - 1):
+        t_i = t_rk2[i]
+        y_i = y_rk2[i]
+        t_ip = t_rk2[i+1]
+\end{minted}
+The \verb|for| loop iterates over each time step. At each iteration, \verb|t_i| and \verb|y_i| are the current time and solution, and \verb|t_ip| is the next time point.
+\begin{minted}[breaklines]{python}
+        k1 = f(t_i, y_i)
+        y_pred = y_i + h * k1
+        k2 = f(t_ip, y_pred)
+\end{minted}
+\verb|k1 = f(t_i, y_i)| computes the slope at the beginning of the interval. The predictor step \verb|y_pred = y_i + h * k1| estimates the next value using a simple Euler step. Then, \verb|k2 = f(t_ip, y_pred)| evaluates the slope at the predicted point.
+\begin{minted}[breaklines]{python}
+        y_rk2[i+1] = y_i + 0.5 * h * (k1 + k2)
+\end{minted}
+The corrector step \verb|y_rk2[i+1] = y_i + 0.5 * h * (k1 + k2)| updates the solution by averaging the initial slope \verb|k1| and the predicted slope \verb|k2|, multiplied by the step size, giving the RK2 method its second-order accuracy.
+\begin{minted}[breaklines]{python}
+    return t_rk2, y_rk2
+\end{minted}
+Finally, \verb|return t_rk2, y_rk2| outputs the arrays of time points and the corresponding numerical solution.
 
 \subsection{RK4}
 The Runge–Kutta fourth-order method (RK4) is a widely used numerical integration technique for solving ordinary differential equations (ODEs) because it provides a good balance between accuracy and computational effort.
@@ -229,6 +262,7 @@ def nonlinear(nx):
         
     pyplot.plot(numpy.linspace(0, 2, nx), u)
 \end{minted}
+
 As a bonus we can define the function where it begins with sinusoidal and after one period, it disappears
 \begin{minted}[breaklines]{python}
 def y(nx):
@@ -248,6 +282,22 @@ def z(nx):
     half=int(len(nx)/2)
     u[quarter:half] = 1
 \end{minted}
+
+\subsection{2D Linear Convection}
+The PDE governing 2-D Linear Convection is written as
+\begin{equation*}
+    \frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x} + c\frac{\partial u}{\partial y} = 0
+\end{equation*}
+This is the exact same form as with 1-D Linear Convection, except that we now have two spatial dimensions to account for as we step forward in time.
+Again, the timestep will be discretized as a forward difference and both spatial steps will be discretized as backward differences
+\begin{equation*}
+    \frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + c\frac{u_{i, j}^n-u_{i-1,j}^n}{\Delta x} + c\frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y}=0
+\end{equation*}
+
+As before, solve for the only unknown:
+\begin{equation*}
+    u_{i,j}^{n+1} = u_{i,j}^n-c \frac{\Delta t}{\Delta x}(u_{i,j}^n-u_{i-1,j}^n)-c \frac{\Delta t}{\Delta y}(u_{i,j}^n-u_{i,j-1}^n)
+\end{equation*}
 
 \subsection{1D Diffusion Equation}
 The one-dimensional diffusion equation is
