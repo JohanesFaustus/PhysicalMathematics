@@ -1,12 +1,12 @@
 # Example of numerical differential equation solution
 
 
-def linearconv(nx):
+def linearconv(u,nt,CFL):
+    nx = len(u)
     dx = 2 / (nx - 1)
     nt = 20  # nt is the number of timesteps we want to calculate
     c = 1
     sigma = 0.5
-
     dt = sigma * dx
 
     u = numpy.ones(nx)
@@ -20,11 +20,12 @@ def linearconv(nx):
             u[i] = un[i] - c * dt / dx * (un[i] - un[i - 1])
 
 
-def linearconv2d(nx, nt, u):
+def linearconv2D(u,nt,CFL):
+    nx = len(u)
     dx = 2 / (nx - 1)
     dy = dx
     c = 1
-    sigma = 0.5
+    sigma = CFL
     dt = sigma * dx
 
     for n in range(nt + 1):  ##loop across number of time steps
@@ -48,7 +49,7 @@ def diffus(u, nt, CFL):
     nu = 0.3
     sigma = CFL
     dt = sigma * dx**2 / nu
-    un = numpy.zeros(nx)
+    
     for i in range(1, nt):
         un = u.copy()
         for j in range(1, nx - 1):
@@ -56,7 +57,7 @@ def diffus(u, nt, CFL):
     return u
 
 
-def diffus_2D(u, nt, alpha):
+def diffus2D(u, nt, alpha):
     nx = len(u)
     ny = len(u[0])
     dx = 2 / (nx - 1)

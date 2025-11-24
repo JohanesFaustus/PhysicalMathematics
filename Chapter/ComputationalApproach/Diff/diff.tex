@@ -287,29 +287,52 @@ As before, solve for the only unknown:
     u_{i,j}^{n+1} = u_{i,j}^n-c \frac{\Delta t}{\Delta x}(u_{i,j}^n-u_{i-1,j}^n)-c \frac{\Delta t}{\Delta y}(u_{i,j}^n-u_{i,j-1}^n)
 \end{equation*}
 
-\subsubsection{Implementation.}
+\subsubsection{Nonlinear convection.}
+2D Convection is represented by the pair of coupled partial differential equations
+\begin{equation*}
+    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = 0,\qquad
+    \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} = 0
+\end{equation*}
+Here $u(x,y,t)$ and $u(x,y,t)$ are the components of the velocity field $\mathbf{v}=(u,v)$ itself, where $u$ is the component in the $x$-direction and $v$ is the component in the $y$-direction.
+If, instead, a scalar quantity $q(x,y,t)$ is advected by a given 2D velocity field $(u,v)$, then the 2D convection equation is not coupled
+\begin{equation*}
+    \frac{\partial q}{\partial t} + u \frac{\partial q}{\partial x} + v \frac{\partial q}{\partial y} = 0
+\end{equation*}
+Here $u$ and $v$ are prescribed, meaning they could be constant, vary linearly, or even follow some known function, but it is independent of $q$.
+
+In any case, the discrete version reads
+\begin{align*}
+    \frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{u_{i,j}^n-u_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y} = 0 \\
+    \frac{v_{i,j}^{n+1}-v_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{v_{i,j}^n-v_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{v_{i,j}^n-v_{i,j-1}^n}{\Delta y} = 0
+\end{align*}
+
+\subsubsection{Implementation.} For the linear
 \begin{minted}[breaklines]{python}
-def linearconv2d(nx,nt,u):
+def linearconv2D(u,nt,CFL):
+    nx = len(u)
     dx = 2 / (nx - 1)
     dy = dx
     c = 1
-    sigma = .5
+    sigma = CFL
     dt = sigma * dx
 
-    for n in range(nt + 1): ##loop across number of time steps
+    for n in range(nt + 1):  ##loop across number of time steps
         un = u.copy()
-        u[1:, 1:] = (un[1:, 1:] - (c * dt / dx * (un[1:, 1:] - un[1:, :-1])) -
-                                (c * dt / dy * (un[1:, 1:] - un[:-1, 1:])))
+        u[1:, 1:] = (
+            un[1:, 1:]
+            - (c * dt / dx * (un[1:, 1:] - un[1:, :-1]))
+            - (c * dt / dy * (un[1:, 1:] - un[:-1, 1:]))
+        )
         u[0, :] = 1
         u[-1, :] = 1
         u[:, 0] = 1
         u[:, -1] = 1
-        
+
     return u
 \end{minted}
 Also consider the 2D hat function
 \begin{minted}[breaklines]{python}
-def uHat2d(nx):
+def uHat2D(nx):
     ny = nx
     dx = 2 / (nx - 1)
     dy = dx
@@ -328,7 +351,7 @@ A two–dimensional scalar field \(u(x,y)\) is represented numerically by sampli
 The coordinate arrays \(x\) and \(y\) contain the one–dimensional locations along each axis but do not enumerate the full set of grid points in two dimensions.
 The function \verb|X, Y = numpy.meshgrid(x, y)| constructs matrices \(X\) and \(Y\) such that
 \begin{equation*}
-    X_{ij}=x_i and Y_{ij}=y_j
+    X_{ij}=x_i \text{ and } Y_{ij}=y_j
 \end{equation*}
 thereby generating the complete Cartesian product of the grid.
 The scalar field is stored in a matrix \(u_{ij}\) of identical shape, where \(u_{ij}\approx u(x_i,y_j)\).
