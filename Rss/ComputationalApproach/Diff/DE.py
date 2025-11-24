@@ -9,11 +9,6 @@ def linearconv(u, nt, CFL):
     sigma = 0.5
     dt = sigma * dx
 
-    u = numpy.ones(nx)
-    u[int(0.5 / dx) : int(1 / dx + 1)] = 2
-
-    un = numpy.ones(nx)
-
     for n in range(nt):  # iterate through time
         un = u.copy()  ##copy the existing values of u into un
         for i in range(1, nx):
@@ -92,27 +87,44 @@ def diffus(u, nt, CFL):
     return u
 
 
-def diffuse2d(u,nt,CFL):
+def diffuse2d(u, nt, CFL):
     nx = len(u)
     ny = len(u[0])
     dx = 2 / (nx - 1)
     dy = 2 / (ny - 1)
+    dt = sigma * dx
+    nu = 0.05
 
-    nu = .05
-
-    for n in range(nt + 1): 
+    for n in range(nt + 1):
         un = u.copy()
-        u[1:-1, 1:-1] = (un[1:-1,1:-1] + 
-                        nu * dt / dx**2 * 
-                        (un[1:-1, 2:] - 2 * un[1:-1, 1:-1] + un[1:-1, 0:-2]) +
-                        nu * dt / dy**2 * 
-                        (un[2:,1: -1] - 2 * un[1:-1, 1:-1] + un[0:-2, 1:-1]))
+        u[1:-1, 1:-1] = (
+            un[1:-1, 1:-1]
+            + nu * dt / dx**2 * (un[1:-1, 2:] - 2 * un[1:-1, 1:-1] + un[1:-1, 0:-2])
+            + nu * dt / dy**2 * (un[2:, 1:-1] - 2 * un[1:-1, 1:-1] + un[0:-2, 1:-1])
+        )
         u[0, :] = 1
         u[-1, :] = 1
         u[:, 0] = 1
         u[:, -1] = 1
     return u
 
+
+def burger(u, nt, CFL):
+    nx = len(u)
+    dx = 2 * numpy.pi / (nx - 1)
+    nu = 0.05
+    dt = CFL * dx
+    for n in range(nt):
+        un = u.copy()
+        for i in range(1, nx - 1):
+            u[i] = (
+                un[i]
+                - un[i] * dt / dx * (un[i] - un[i - 1])
+                + nu * dt / dx**2 * (un[i + 1] - 2 * un[i] + un[i - 1])
+            )
+        u[-1] = u[0]
+
+    return u
 
 
 # Surface plotting function
