@@ -482,19 +482,27 @@ To make the computation easier, the diffusion constant is often used
 
 \subsubsection{Implementiation.} As before.
 \begin{minted}[breaklines]{python}
-def diffus_2D(u,nt,alpha):
-    nx = len(u)       
-    ny = len(u[0])    
+def diffuse2d(u,nt,CFL):
+    nx = len(u)
+    ny = len(u[0])
     dx = 2 / (nx - 1)
     dy = 2 / (ny - 1)
 
-    un=numpy.zeros_like(u)
-    for i in range(nt):
-        un=u.copy()
-        for j in range(1,nx-1):
-            for k in range(1,ny-1):
-                u[j,k]=un[j,k]+alpha*(un[j+1,k]-2*un[j,k]+un[j-1,k]+un[j,k+1]-2*un[j,k]+un[j,k-1])
+    nu = .05
+
+    for n in range(nt + 1): 
+        un = u.copy()
+        u[1:-1, 1:-1] = (un[1:-1,1:-1] + 
+                        nu * dt / dx**2 * 
+                        (un[1:-1, 2:] - 2 * un[1:-1, 1:-1] + un[1:-1, 0:-2]) +
+                        nu * dt / dy**2 * 
+                        (un[2:,1: -1] - 2 * un[1:-1, 1:-1] + un[0:-2, 1:-1]))
+        u[0, :] = 1
+        u[-1, :] = 1
+        u[:, 0] = 1
+        u[:, -1] = 1
     return u
+
 \end{minted}
 
 \subsection{1D Burgers's Equation}

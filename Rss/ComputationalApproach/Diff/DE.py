@@ -92,26 +92,39 @@ def diffus(u, nt, CFL):
     return u
 
 
-def diffus2D(u, nt, alpha):
+def diffuse2d(u,nt,CFL):
     nx = len(u)
     ny = len(u[0])
     dx = 2 / (nx - 1)
     dy = 2 / (ny - 1)
 
-    un = numpy.zeros_like(u)
-    for i in range(nt):
+    nu = .05
+
+    for n in range(nt + 1): 
         un = u.copy()
-        for j in range(1, nx - 1):
-            for k in range(1, ny - 1):
-                u[j, k] = un[j, k] + alpha * (
-                    un[j + 1, k]
-                    - 2 * un[j, k]
-                    + un[j - 1, k]
-                    + un[j, k + 1]
-                    - 2 * un[j, k]
-                    + un[j, k - 1]
-                )
+        u[1:-1, 1:-1] = (un[1:-1,1:-1] + 
+                        nu * dt / dx**2 * 
+                        (un[1:-1, 2:] - 2 * un[1:-1, 1:-1] + un[1:-1, 0:-2]) +
+                        nu * dt / dy**2 * 
+                        (un[2:,1: -1] - 2 * un[1:-1, 1:-1] + un[0:-2, 1:-1]))
+        u[0, :] = 1
+        u[-1, :] = 1
+        u[:, 0] = 1
+        u[:, -1] = 1
     return u
+
+
+
+# Surface plotting function
+def surfaceplot(u, nx):
+    x = numpy.linspace(0, 2, nx)
+    y = numpy.linspace(0, 2, nx)
+    X, Y = numpy.meshgrid(x, y)
+    fig = pyplot.figure(figsize=(11, 7), dpi=100)
+    ax = fig.add_subplot(projection="3d")
+    surf = ax.plot_surface(
+        X, Y, u, rstride=1, cstride=1, cmap=cm.viridis, linewidth=0, antialiased=True
+    )
 
 
 # Bonus Initial condition
