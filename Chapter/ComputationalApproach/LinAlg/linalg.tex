@@ -254,16 +254,17 @@ We take \verb|Omega|, a square matrix size $(n \times n)$.
 We determine the size of the square matrix \verb|Omega|.
 Then we prepare two $(n \times  b)$ zero matrices \verb|L| and \verb|U| that will be filled progressively.
 \begin{minted}[breaklines]{python}
-    for j in range(i, n):
-        U[i, j] = Omega[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
+    for i in range(n):
+        for j in range(i, n):
+            U[i, j] = Omega[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
 \end{minted}
 This computes row \verb|i| of \verb|U|.
 \begin{minted}[breaklines]{python}
-    for j in range(i, n):
-        if i == j:
-            L[i, i] = 1.0
-        else:
-            L[j, i] = (Omega[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[i, i]
+        for j in range(i, n):
+            if i == j:
+                L[i, i] = 1.0
+            else:
+                L[j, i] = (Omega[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[i, i]
 \end{minted}
 This computes column \verb|i| of \verb|L|.
 If \verb|i==j|, $l_{ij}=1$ since it is the diagonal.

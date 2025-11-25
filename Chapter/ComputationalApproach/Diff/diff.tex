@@ -3,11 +3,11 @@
 \subsection{Courant Number}
 The Courant number measures how far information (e.g., a fluid particle or wave front) travels across the grid during one time step relative to the grid spacing.
 \begin{equation*}
-    \sigma=\frac{u \Delta t}{\Delta x}
+  \sigma=\frac{u \Delta t}{\Delta x}
 \end{equation*}
 Numerical stability typically requires $\sigma<1$, and as such we can write the time steps $\Delta x$ as
 \begin{equation*}
-    \Delta t=\frac{\sigma \Delta x }{u}
+  \Delta t=\frac{\sigma \Delta x }{u}
 \end{equation*}
 
 For example, consider some loop at which time iteration is required.
@@ -18,116 +18,116 @@ What has happened is that over the time period $\Delta t$, the wave is travellin
 \subsubsection{Forward difference.}
 The forward difference of a function $f(x)$ with step size $h$ is defined as
 \begin{equation*}
-    \Delta f(x)=f(x+h)-f(x)
+  \Delta f(x)=f(x+h)-f(x)
 \end{equation*}
 The corresponding approximation of the first derivative is
 \begin{equation*}
-    f'(x)\approx \frac{f(x+h )-f(x )}{h}
+  f'(x)\approx \frac{f(x+h )-f(x )}{h}
 \end{equation*}
 Forward difference uses data at the current and next point.
 
 \subsubsection{Backward difference.}
 The backward difference of a function $f(x)$ with step size $h$ is defined as
 \begin{equation*}
-    \nabla f(x)=f(x)-f(x-h)
+  \nabla f(x)=f(x)-f(x-h)
 \end{equation*}
 The corresponding approximation of the first derivative is
 \begin{equation*}
-    f'(x)\approx \frac{f(x )-f(x-h )}{h}
+  f'(x)\approx \frac{f(x )-f(x-h )}{h}
 \end{equation*}
 Backward difference uses data at the current and previous point.
 
 \subsubsection{Central difference.}
 Denoted by
 \begin{equation*}
-    \delta f(x)=f(x+h/2)-f(x-h/2)
+  \delta f(x)=f(x+h/2)-f(x-h/2)
 \end{equation*}
 with the first derivative as
 \begin{equation*}
-    f'(x)\approx \frac{f(x+h/2)-f(x-h/2)}{h}
+  f'(x)\approx \frac{f(x+h/2)-f(x-h/2)}{h}
 \end{equation*}
 or equivalently
 \begin{equation*}
-    f'(x)\approx \frac{f(x+h)-f(x-h)}{2h}
+  f'(x)\approx \frac{f(x+h)-f(x-h)}{2h}
 \end{equation*}
 
 \subsubsection{Taylor series relation.}
 Recall the Taylor expansion of $f(x)$
 \begin{equation*}
-    f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
+  f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
 \end{equation*}
 Now expand $f(x+h)$ with Taylor expansion by substituting $x=a$ with $a$ as the expansion point
 \begin{equation*}
-    f(x+h) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x+h-a)^n= \sum_{n=0}^{\infty} \frac{f^{(n)}(x)}{n!}h^n
+  f(x+h) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x+h-a)^n= \sum_{n=0}^{\infty} \frac{f^{(n)}(x)}{n!}h^n
 \end{equation*}
 Now do the same thing for $f(x-h)$ instead
 \begin{equation*}
-    f(x+h) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-h-a)^n= \sum_{n=0}^{\infty} (-1)^n\frac{f^{(n)}(x)}{n!}h^n
+  f(x+h) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-h-a)^n= \sum_{n=0}^{\infty} (-1)^n\frac{f^{(n)}(x)}{n!}h^n
 \end{equation*}
 Explicitly, both equation can be written
 \begin{align*}
-    f(x+h) & =  f(x) + h f'(x) + \frac{h^2}{2} f''(x) + \frac{h^3}{6} f^{(3)}(x) + \cdots \\
-    f(x-h) & =  f(x) - h f'(x) + \frac{h^2}{2} f''(x) - \frac{h^3}{6} f^{(3)}(x) + \cdots
+  f(x+h) & =  f(x) + h f'(x) + \frac{h^2}{2} f''(x) + \frac{h^3}{6} f^{(3)}(x) + \cdots \\
+  f(x-h) & =  f(x) - h f'(x) + \frac{h^2}{2} f''(x) - \frac{h^3}{6} f^{(3)}(x) + \cdots
 \end{align*}
 
 To obtain forward difference, subtract $f(x+h)$ by $f(x)$ and divide by $h$
 \begin{equation*}
-    \frac{f(x+h) - f(x)}{h} = f'(x) + \frac{h}{2} f''(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
+  \frac{f(x+h) - f(x)}{h} = f'(x) + \frac{h}{2} f''(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
 \end{equation*}
 Thus
 \begin{equation*}
-    f'(x) \approx \frac{f(x+h) - f(x)}{h}, \quad \text{error } = O(h)
+  f'(x) \approx \frac{f(x+h) - f(x)}{h}, \quad \text{error } = O(h)
 \end{equation*}
 
 In order to obtain backward difference, subtract $f(x-h)$ by $f(x)$ and divide by $h$
 \begin{equation*}
-    \frac{f(x+h) - f(x)}{h} = f'(x) + \frac{h}{2} f''(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
+  \frac{f(x+h) - f(x)}{h} = f'(x) + \frac{h}{2} f''(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
 \end{equation*}
 Thus
 \begin{equation*}
-    f'(x) \approx \frac{f(x) - f(x-h)}{h}, \quad \text{error } = O(h).
+  f'(x) \approx \frac{f(x) - f(x-h)}{h}, \quad \text{error } = O(h).
 \end{equation*}
 
 To obtain central difference, subtract $f(x+h)$ by $f(x-h)$ and divide by $h$
 \begin{equation*}
-    f(x+h) - f(x-h) = 2h f'(x) + \frac{h^3}{3} f^{(3)}(x) +\cdots
+  f(x+h) - f(x-h) = 2h f'(x) + \frac{h^3}{3} f^{(3)}(x) +\cdots
 \end{equation*}
 then divide by $2h$
 \begin{equation*}
-    \frac{f(x+h) - f(x-h)}{2h} = f'(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
+  \frac{f(x+h) - f(x-h)}{2h} = f'(x) + \frac{h^2}{6} f^{(3)}(x) +\cdots
 \end{equation*}
 Thus
 \begin{equation*}
-    f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}, \quad \text{error } = O(h^2)
+  f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}, \quad \text{error } = O(h^2)
 \end{equation*}
 
 \subsection{Euler Method}
 The core idea of Euler method is to approximate derivatives by finite differences over small increments.
 Consider a function $y(t)$ satisfying the differential equation
 \begin{equation*}
-    \frac{dy }{dt }=f(t,y),\qquad y(t_0)=y_0
+  \frac{dy }{dt }=f(t,y),\qquad y(t_0)=y_0
 \end{equation*}
 Here, the derivative is effectively approximated as
 \begin{equation*}
-    \frac{dy}{dt}\Big|_{t=t_n} \approx \frac{y_{n+1} - y_n}{h}
+  \frac{dy}{dt}\Big|_{t=t_n} \approx \frac{y_{n+1} - y_n}{h}
 \end{equation*}
 The Euler method approximates $y$ at a discrete set of points $t_n$ with step size $h$ using the forward difference:
 \begin{equation*}
-    y_{n+1} = y_{n} + h f(t_{n}, y_{n})
+  y_{n+1} = y_{n} + h f(t_{n}, y_{n})
 \end{equation*}
 
 \subsection{RK2: Heun Method}
 The Heun method is a predictor-corrector method that improves upon the Euler method by using an average of slopes.
 The algorithm is as follows.
 \begin{enumerate}
-    \item \textbf{Predictor (Euler step).} Estimate the next value using the Euler method
-          \begin{equation*}
-              y_{n+1}^{\text{pred}} = y_{n} + h f(t_{n}, y_{n})
-          \end{equation*}
-    \item \textbf{Corrector (average slope).} Refine the estimate using the average of the slope at the current point and the predicted point
-          \begin{equation*}
-              y_{n+1} = y_{n} + \frac{h}{2} [f(t_{n}, y_{n}) + f(t_{n+1}, y_{n+1}^{\text{pred}})]
-          \end{equation*}
+  \item \textbf{Predictor (Euler step).} Estimate the next value using the Euler method
+        \begin{equation*}
+          y_{n+1}^{\text{pred}} = y_{n} + h f(t_{n}, y_{n})
+        \end{equation*}
+  \item \textbf{Corrector (average slope).} Refine the estimate using the average of the slope at the current point and the predicted point
+        \begin{equation*}
+          y_{n+1} = y_{n} + \frac{h}{2} [f(t_{n}, y_{n}) + f(t_{n+1}, y_{n+1}^{\text{pred}})]
+        \end{equation*}
 \end{enumerate}
 
 \subsubsection{Implementation.} In python.
@@ -167,56 +167,56 @@ Finally, \verb|return t_rk2, y_rk2| outputs the arrays of time points and the co
 The Runge–Kutta fourth-order method (RK4) is a widely used numerical integration technique for solving ordinary differential equations (ODEs) because it provides a good balance between accuracy and computational effort.
 The algorithm is as follows.
 \begin{enumerate}
-    \item \textbf{First slope.} Compute the first slope at the beginning of the interval
-          \begin{equation*}
-              k_1 = f(t_n, y_n)
-          \end{equation*}
-    \item \textbf{Second slope.} Compute the slope at the midpoint using $k_1$
-          \begin{equation*}
-              k_2 = f\Big(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_1\Big)
-          \end{equation*}
-    \item \textbf{Third slope.} Compute another slope at the midpoint using $k_2$
-          \begin{equation*}
-              k_3 = f\Big(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_2\Big)
-          \end{equation*}
-    \item \textbf{Fourth slope.} Compute the slope at the end of the interval using $k_3$
-          \begin{equation*}
-              k_4 = f(t_n + h, y_n + h k_3)
-          \end{equation*}
-    \item \textbf{Update.} Compute the next value of $y$ using a weighted average of the slopes:
-          \begin{equation*}
-              y_{n+1} = y_n + \frac{h}{6} \Big(k_1 + 2k_2 + 2k_3 + k_4 \Big)
-          \end{equation*}
+  \item \textbf{First slope.} Compute the first slope at the beginning of the interval
+        \begin{equation*}
+          k_1 = f(t_n, y_n)
+        \end{equation*}
+  \item \textbf{Second slope.} Compute the slope at the midpoint using $k_1$
+        \begin{equation*}
+          k_2 = f\Big(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_1\Big)
+        \end{equation*}
+  \item \textbf{Third slope.} Compute another slope at the midpoint using $k_2$
+        \begin{equation*}
+          k_3 = f\Big(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_2\Big)
+        \end{equation*}
+  \item \textbf{Fourth slope.} Compute the slope at the end of the interval using $k_3$
+        \begin{equation*}
+          k_4 = f(t_n + h, y_n + h k_3)
+        \end{equation*}
+  \item \textbf{Update.} Compute the next value of $y$ using a weighted average of the slopes:
+        \begin{equation*}
+          y_{n+1} = y_n + \frac{h}{6} \Big(k_1 + 2k_2 + 2k_3 + k_4 \Big)
+        \end{equation*}
 \end{enumerate}
 
 \subsection{1D Linear Convection}
 The equation is written as
 \begin{equation*}
-    \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0
+  \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0
 \end{equation*}
 Using forward difference for time and backward difference for spatial, our discrete equation is
 \begin{equation*}
-    \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
+  \frac{u_i^{n+1}-u_i^n}{\Delta t} + c \frac{u_i^n - u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
 Where $n$ and $n+1$ are two consecutive steps in time, while $i-1$ and $i$ are two neighboring points of the discretized $x$ coordinate.
 If there are given initial conditions, then the only unknown in this discretization is $u_i^{n+1}$, which can be solved as
 \begin{equation*}
-    u_i^{n+1} = u_i^n - c \frac{\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)
+  u_i^{n+1} = u_i^n - c \frac{\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)
 \end{equation*}
 
 \subsubsection{Non-linear convection.}
 The equation takes the form
 \begin{equation*}
-    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = 0
+  \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = 0
 \end{equation*}
 Instead of a constant factor $c$ multiplying the second term, now we have the solution $u$ multiplying it, causing the equation to be non-linear.
 As before, the discrete form is
 \begin{equation*}
-    \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n-u_{i-1}^n}{\Delta x} = 0
+  \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n-u_{i-1}^n}{\Delta x} = 0
 \end{equation*}
 or more practically written as
 \begin{equation*}
-    u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n)
+  u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n)
 \end{equation*}
 
 \subsubsection*{Implementation.}
@@ -274,36 +274,36 @@ def uHat(nx):
 \subsection{2D Linear Convection}
 The PDE governing 2-D Linear Convection is written as
 \begin{equation*}
-    \frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x} + c\frac{\partial u}{\partial y} = 0
+  \frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x} + c\frac{\partial u}{\partial y} = 0
 \end{equation*}
 This is the exact same form as with 1-D Linear Convection, except that we now have two spatial dimensions to account for as we step forward in time.
 Again, the timestep will be discretized as a forward difference and both spatial steps will be discretized as backward differences
 \begin{equation*}
-    \frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + c\frac{u_{i, j}^n-u_{i-1,j}^n}{\Delta x} + c\frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y}=0
+  \frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + c\frac{u_{i, j}^n-u_{i-1,j}^n}{\Delta x} + c\frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y}=0
 \end{equation*}
 
 As before, solve for the only unknown:
 \begin{equation*}
-    u_{i,j}^{n+1} = u_{i,j}^n-c \frac{\Delta t}{\Delta x}(u_{i,j}^n-u_{i-1,j}^n)-c \frac{\Delta t}{\Delta y}(u_{i,j}^n-u_{i,j-1}^n)
+  u_{i,j}^{n+1} = u_{i,j}^n-c \frac{\Delta t}{\Delta x}(u_{i,j}^n-u_{i-1,j}^n)-c \frac{\Delta t}{\Delta y}(u_{i,j}^n-u_{i,j-1}^n)
 \end{equation*}
 
 \subsubsection{Nonlinear convection.}
 2D Convection is represented by the pair of coupled partial differential equations
 \begin{equation*}
-    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = 0,\qquad
-    \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} = 0
+  \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = 0,\qquad
+  \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} = 0
 \end{equation*}
 Here $u(x,y,t)$ and $u(x,y,t)$ are the components of the velocity field $\mathbf{v}=(u,v)$ itself, where $u$ is the component in the $x$-direction and $v$ is the component in the $y$-direction.
 If, instead, a scalar quantity $q(x,y,t)$ is advected by a given 2D velocity field $(u,v)$, then the 2D convection equation is not coupled
 \begin{equation*}
-    \frac{\partial q}{\partial t} + u \frac{\partial q}{\partial x} + v \frac{\partial q}{\partial y} = 0
+  \frac{\partial q}{\partial t} + u \frac{\partial q}{\partial x} + v \frac{\partial q}{\partial y} = 0
 \end{equation*}
 Here $u$ and $v$ are prescribed, meaning they could be constant, vary linearly, or even follow some known function, but it is independent of $q$.
 
 In any case, the discrete version reads
 \begin{align*}
-    \frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{u_{i,j}^n-u_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y} = 0 \\
-    \frac{v_{i,j}^{n+1}-v_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{v_{i,j}^n-v_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{v_{i,j}^n-v_{i,j-1}^n}{\Delta y} = 0
+  \frac{u_{i,j}^{n+1}-u_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{u_{i,j}^n-u_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{u_{i,j}^n-u_{i,j-1}^n}{\Delta y} = 0 \\
+  \frac{v_{i,j}^{n+1}-v_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{v_{i,j}^n-v_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{v_{i,j}^n-v_{i,j-1}^n}{\Delta y} = 0
 \end{align*}
 
 \subsubsection{Implementation.} For the linear
@@ -383,13 +383,13 @@ A two–dimensional scalar field \(u(x,y)\) is represented numerically by sampli
 The coordinate arrays \(x\) and \(y\) contain the one–dimensional locations along each axis but do not enumerate the full set of grid points in two dimensions.
 The function \verb|X, Y = numpy.meshgrid(x, y)| constructs matrices \(X\) and \(Y\) such that
 \begin{equation*}
-    X_{ij}=x_i \text{ and } Y_{ij}=y_j
+  X_{ij}=x_i \text{ and } Y_{ij}=y_j
 \end{equation*}
 thereby generating the complete Cartesian product of the grid.
 The scalar field is stored in a matrix \(u_{ij}\) of identical shape, where \(u_{ij}\approx u(x_i,y_j)\).
 A surface plot requires the triplet \((X,Y,u)\). Each index pair $(i,j)$ defines a point in three-dimensional space
 \begin{equation*}
-    (X_{ij}, Y_{ij},u_{ij})
+  (X_{ij}, Y_{ij},u_{ij})
 \end{equation*}
 Hence, the construction for a three–dimensional surface plot is performed by
 \begin{minted}[breaklines]{python}
@@ -402,38 +402,38 @@ surf2 = ax.plot_surface(X, Y, u[:], cmap=cm.viridis)
 \subsection{1D Diffusion Equation}
 The one-dimensional diffusion equation is
 \begin{equation*}
-    \frac{\partial u}{\partial t}= \nu \frac{\partial^2 u}{\partial x^2}
+  \frac{\partial u}{\partial t}= \nu \frac{\partial^2 u}{\partial x^2}
 \end{equation*}
 The discrete version is
 \begin{equation*}
-    \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
+  \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
 \end{equation*}
 or
 \begin{equation*}
-    u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
+  u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
 \end{equation*}
 
 \subsubsection*{Derivation.}
 Consider the Taylor expansion of $u_{i+1}$ and $u_{i-1}$ around $u_i$
 \begin{align*}
-    u_{i+1} & =  u_i + \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i + \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4) \\
-    u_{i-1} & =  u_i - \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i - \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4)
+  u_{i+1} & =  u_i + \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i + \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4) \\
+  u_{i-1} & =  u_i - \Delta x \frac{\partial u}{\partial x}\bigg|_i + \frac{\Delta x^2}{2} \frac{\partial ^2 u}{\partial x^2}\bigg|_i - \frac{\Delta x^3}{3!} \frac{\partial ^3 u}{\partial x^3}\bigg|_i + O(\Delta x^4)
 \end{align*}
 Add both
 \begin{equation*}
-    u_{i+1} + u_{i-1} = 2u_i+\Delta x^2 \frac{\partial ^2 u}{\partial x^2}\bigg|_i + O(\Delta x^4)
+  u_{i+1} + u_{i-1} = 2u_i+\Delta x^2 \frac{\partial ^2 u}{\partial x^2}\bigg|_i + O(\Delta x^4)
 \end{equation*}
 And rearrange thing
 \begin{equation*}
-    \frac{\partial ^2 u}{\partial x^2}=\frac{u_{i+1}-2u_{i}+u_{i-1}}{\Delta x^2} + O(\Delta x^2)
+  \frac{\partial ^2 u}{\partial x^2}=\frac{u_{i+1}-2u_{i}+u_{i-1}}{\Delta x^2} + O(\Delta x^2)
 \end{equation*}
 Now we can write the discretized diffusion equation
 \begin{equation*}
-    \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
+  \frac{u_{i}^{n+1}-u_{i}^{n}}{\Delta t}=\nu\frac{u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}}{\Delta x^2}
 \end{equation*}
 or
 \begin{equation*}
-    u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
+  u_{i}^{n+1}=u_{i}^{n}+\frac{\nu\Delta t}{\Delta x^2}(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n})
 \end{equation*}
 
 \subsubsection*{Implementiation.}
@@ -456,28 +456,28 @@ def diffus(u,nt,CFL):
 \subsection{2D Diffusion Equation}
 In two-dimensional, we have
 \begin{equation*}
-    \frac{\partial u}{\partial t} = \nu \left(
-    \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}
-    \right)
+  \frac{\partial u}{\partial t} = \nu \left(
+  \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}
+  \right)
 \end{equation*}
 Similar like the 1D counterpart, we only need to add the second spatial direction
 \begin{equation*}
-    \frac{u_{i,j}^{\,n+1} - u_{i,j}^{\,n}}{\Delta t}
-    = \nu \left(
-    \frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2}
-    + \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
-    \right)
+  \frac{u_{i,j}^{\,n+1} - u_{i,j}^{\,n}}{\Delta t}
+  = \nu \left(
+  \frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2}
+  + \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
+  \right)
 \end{equation*}
 or
 \begin{equation*}
-    u_{i,j}^{\,n+1} = u_{i,j}^{\,n} + \nu \Delta t \left[
-        \frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2}
-        + \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
-        \right]
+  u_{i,j}^{\,n+1} = u_{i,j}^{\,n} + \nu \Delta t \left[
+    \frac{u_{i+1,j}^{\,n} - 2 u_{i,j}^{\,n} + u_{i-1,j}^{\,n}}{\Delta x^2}
+    + \frac{u_{i,j+1}^{\,n} - 2 u_{i,j}^{\,n} + u_{i,j-1}^{\,n}}{\Delta y^2}
+    \right]
 \end{equation*}
 To make the computation easier, the diffusion constant is often used
 \begin{equation*}
-    \alpha_i =\nu \frac{\Delta t }{\Delta i^2}
+  \alpha_i =\nu \frac{\Delta t }{\Delta i^2}
 \end{equation*}
 
 \subsubsection{Implementiation.} As before.
@@ -508,27 +508,27 @@ def diffuse2d(u,nt,CFL):
 \subsection{1D Burgers's Equation}
 Burgers' equation is a combination of non-linear convection and diffusion, which in one spatial dimension looks like this
 \begin{equation*}
-    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = \nu \frac{\partial ^2u}{\partial x^2}
+  \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = \nu \frac{\partial ^2u}{\partial x^2}
 \end{equation*}
 The analytic solution is given by
 \begin{gather*}
-    u= -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
-    \phi = \exp \bigg(\frac{-(x-4t)^2}{4 \nu (t+1)} \bigg) + \exp \bigg(\frac{-(x-4t -2 \pi)^2}{4 \nu(t+1)} \bigg)
+  u= -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
+  \phi = \exp \bigg(\frac{-(x-4t)^2}{4 \nu (t+1)} \bigg) + \exp \bigg(\frac{-(x-4t -2 \pi)^2}{4 \nu(t+1)} \bigg)
 \end{gather*}
 with initial conditions of
 \begin{gather*}
-    u = -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
-    \phi = \exp \bigg(\frac{-x^2}{4 \nu} \bigg) + \exp \bigg(\frac{-(x-2 \pi)^2}{4 \nu} \bigg)
+  u = -\frac{2 \nu}{\phi} \frac{\partial \phi}{\partial x} + 4 \\
+  \phi = \exp \bigg(\frac{-x^2}{4 \nu} \bigg) + \exp \bigg(\frac{-(x-2 \pi)^2}{4 \nu} \bigg)
 \end{gather*}
 and periodic boundary conditions of $u(0)=u(2\pi)$.
 
 The discretized version is
 \begin{equation*}
-    \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n - u_{i-1}^n}{\Delta x} = \nu \frac{u_{i+1}^n - 2u_i^n + u_{i-1}^n}{\Delta x^2}
+  \frac{u_i^{n+1}-u_i^n}{\Delta t} + u_i^n \frac{u_i^n - u_{i-1}^n}{\Delta x} = \nu \frac{u_{i+1}^n - 2u_i^n + u_{i-1}^n}{\Delta x^2}
 \end{equation*}
 or
 \begin{equation*}
-    u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n) + \nu \frac{\Delta t}{\Delta x^2}(u_{i+1}^n - 2u_i^n + u_{i-1}^n)
+  u_i^{n+1} = u_i^n - u_i^n \frac{\Delta t}{\Delta x} (u_i^n - u_{i-1}^n) + \nu \frac{\Delta t}{\Delta x^2}(u_{i+1}^n - 2u_i^n + u_{i-1}^n)
 \end{equation*}
 
 \subsubsection{Implementation.}
@@ -550,4 +550,30 @@ def burger(u, nt, CFL):
 
     return u
 \end{minted}
+
+\subsection{2D Burger's Equation}
+The coupled equations are as follows
+$$
+  \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = \nu \; \left(\frac{\partial ^2 u}{\partial x^2} + \frac{\partial ^2 u}{\partial y^2}\right)$$
+
+$$
+  \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} = \nu \; \left(\frac{\partial ^2 v}{\partial x^2} + \frac{\partial ^2 v}{\partial y^2}\right)$$
+The discrete version is
+\begin{multline*}
+  \frac{u_{i,j}^{n+1} - u_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{u_{i,j}^n-u_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{u_{i,j}^n - u_{i,j-1}^n}{\Delta y}\\
+  = \nu \left( \frac{u_{i+1,j}^n - 2u_{i,j}^n+u_{i-1,j}^n}{\Delta x^2} + \frac{u_{i,j+1}^n - 2u_{i,j}^n + u_{i,j-1}^n}{\Delta y^2} \right)
+\end{multline*}
+\begin{multline*}
+  \frac{v_{i,j}^{n+1} - v_{i,j}^n}{\Delta t} + u_{i,j}^n \frac{v_{i,j}^n-v_{i-1,j}^n}{\Delta x} + v_{i,j}^n \frac{v_{i,j}^n - v_{i,j-1}^n}{\Delta y} = \\
+  \nu \left( \frac{v_{i+1,j}^n - 2v_{i,j}^n+v_{i-1,j}^n}{\Delta x^2} + \frac{v_{i,j+1}^n - 2v_{i,j}^n + v_{i,j-1}^n}{\Delta y^2} \right)
+\end{multline*}
+And now, we will rearrange each of these equations for the only unknown: the two components $u,v$ of the solution at the next time step:
+\begin{multline*}
+  u_{i,j}^{n+1} = u_{i,j}^n - \frac{\Delta t}{\Delta x} u_{i,j}^n (u_{i,j}^n - u_{i-1,j}^n)  - \frac{\Delta t}{\Delta y} v_{i,j}^n (u_{i,j}^n - u_{i,j-1}^n) \\
+  + \frac{\nu \Delta t}{\Delta x^2}(u_{i+1,j}^n-2u_{i,j}^n+u_{i-1,j}^n) + \frac{\nu \Delta t}{\Delta y^2} (u_{i,j+1}^n - 2u_{i,j}^n + u_{i,j-1}^n)
+\end{multline*}
+\begin{multline*}
+  v_{i,j}^{n+1} =  v_{i,j}^n - \frac{\Delta t}{\Delta x} u_{i,j}^n (v_{i,j}^n - v_{i-1,j}^n) - \frac{\Delta t}{\Delta y} v_{i,j}^n (v_{i,j}^n - v_{i,j-1}^n) \\
+  + \frac{\nu \Delta t}{\Delta x^2}(v_{i+1,j}^n-2v_{i,j}^n+v_{i-1,j}^n) + \frac{\nu \Delta t}{\Delta y^2} (v_{i,j+1}^n - 2v_{i,j}^n + v_{i,j-1}^n)
+\end{multline*}
 \end{document}
