@@ -171,4 +171,24 @@ for arbitrary range
     \int_{a}^{b }f(x)\;dx \approx \frac{b-a}{2}\sum_{i=0 }^{N }f \left[\frac{b-a}{2} x_i + \frac{a+b}{2}\right]
 \end{equation*}
 
+Gauss-Laguerre quadrature is defined as
+\begin{equation*}
+    \int_{0}^{\infty} e^{-x} f(x)\; dx \approx \sum_{i=1}^{n} w_i f(x_i)
+\end{equation*}
+For arbitrary function $g(x)$, write $f(x)=e^xg(x)$
+\begin{equation*}
+    \int_{0}^{\infty} g(x) \;dx \approx \sum_{i=1}^{n} w_{i} e^{x_{i}} g(x_{i})
+\end{equation*}
+The Gauss–Laguerre weights $w_i$ are determined uniquely by the roots of $L_n(x)$, and the explicit formula
+\begin{equation*}
+    w_{i} = \frac{x_{i}}{[(n+1)L_{n+1}(x_{i})]^{2}}
+\end{equation*}
+where $x_i$ is root and $L_n(x)$ is the degree-$n$ (physicists’) Laguerre polynomial
+\begin{equation*}
+    L_n(x)=\sum_{m=0}^{n}(-1)^m\binom{n}{m}\frac{x^m}{m!}
+\end{equation*}
+Evaluate the next order of Laguerre polynomial by the recurrence relation
+\begin{equation*}
+    L'_{n}(x_{i}) = -\frac{L_{n+1}(x_{i})}{x_{i}}
+\end{equation*}
 \end{document}

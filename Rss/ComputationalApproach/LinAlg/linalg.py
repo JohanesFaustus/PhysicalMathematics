@@ -145,36 +145,26 @@ def LUDecomPivot(Omega):
     n = Omega.shape[0]
     L = np.zeros((n, n))
     U = np.zeros((n, n))
-    P = np.eye(n)  # Permutation matrix
-    A = Omega.copy()  # Working copy for pivoting
+    P = np.eye(n)
+    A = Omega.copy()
 
     for i in range(n):
-        # Partial pivoting: find row with max absolute value in column i
         pivot_row = i + np.argmax(np.abs(A[i:, i]))
         if A[pivot_row, i] == 0:
             raise ValueError("Matrix is singular.")
 
-        # Swap rows in A and permutation matrix P
         if pivot_row != i:
             A[[i, pivot_row], :] = A[[pivot_row, i], :]
             P[[i, pivot_row], :] = P[[pivot_row, i], :]
-
-            # Swap previously computed L entries in columns < i
             if i > 0:
                 L[[i, pivot_row], :i] = L[[pivot_row, i], :i]
 
-        # Compute U[i, j] for j >= i
-        for j in range(i, n):
-            U[i, j] = A[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
-
-        # Compute L[j, i] for j > i
-        for j in range(i + 1, n):
-            L[j, i] = (A[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[i, i]
-
-        # Set diagonal of L
+        U[i, i:] = A[i, i:] - np.dot(L[i, :i], U[:i, i:])
+        L[i+1:, i] = (A[i+1:, i] - np.dot(L[i+1:, :i], U[:i, i])) / U[i, i]
         L[i, i] = 1.0
 
-    return L, U
+    return P, L, U
+
 
 
 def LUSolve(L, U, W):

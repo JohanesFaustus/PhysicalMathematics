@@ -126,7 +126,8 @@ def burger(u, nt, CFL):
 
     return u
 
-def burger2d(u,v,nt,CFL):
+
+def burger2d(u, v, nt, CFL):
     nx = len(u)
     ny = nx
     c = 1
@@ -135,41 +136,38 @@ def burger2d(u,v,nt,CFL):
     nu = 0.01
     dt = CFL * dx * dy / nu
 
-    for n in range(nt + 1): ##loop across number of time steps
+    for n in range(nt + 1):  ##loop across number of time steps
         un = u.copy()
         vn = v.copy()
 
-        u[1:-1, 1:-1] = (un[1:-1, 1:-1] -
-                        dt / dx * un[1:-1, 1:-1] * 
-                        (un[1:-1, 1:-1] - un[1:-1, 0:-2]) - 
-                        dt / dy * vn[1:-1, 1:-1] * 
-                        (un[1:-1, 1:-1] - un[0:-2, 1:-1]) + 
-                        nu * dt / dx**2 * 
-                        (un[1:-1,2:] - 2 * un[1:-1, 1:-1] + un[1:-1, 0:-2]) + 
-                        nu * dt / dy**2 * 
-                        (un[2:, 1:-1] - 2 * un[1:-1, 1:-1] + un[0:-2, 1:-1]))
-        
-        v[1:-1, 1:-1] = (vn[1:-1, 1:-1] - 
-                        dt / dx * un[1:-1, 1:-1] *
-                        (vn[1:-1, 1:-1] - vn[1:-1, 0:-2]) -
-                        dt / dy * vn[1:-1, 1:-1] * 
-                        (vn[1:-1, 1:-1] - vn[0:-2, 1:-1]) + 
-                        nu * dt / dx**2 * 
-                        (vn[1:-1, 2:] - 2 * vn[1:-1, 1:-1] + vn[1:-1, 0:-2]) +
-                        nu * dt / dy**2 *
-                        (vn[2:, 1:-1] - 2 * vn[1:-1, 1:-1] + vn[0:-2, 1:-1]))
-        
+        u[1:-1, 1:-1] = (
+            un[1:-1, 1:-1]
+            - dt / dx * un[1:-1, 1:-1] * (un[1:-1, 1:-1] - un[1:-1, 0:-2])
+            - dt / dy * vn[1:-1, 1:-1] * (un[1:-1, 1:-1] - un[0:-2, 1:-1])
+            + nu * dt / dx**2 * (un[1:-1, 2:] - 2 * un[1:-1, 1:-1] + un[1:-1, 0:-2])
+            + nu * dt / dy**2 * (un[2:, 1:-1] - 2 * un[1:-1, 1:-1] + un[0:-2, 1:-1])
+        )
+
+        v[1:-1, 1:-1] = (
+            vn[1:-1, 1:-1]
+            - dt / dx * un[1:-1, 1:-1] * (vn[1:-1, 1:-1] - vn[1:-1, 0:-2])
+            - dt / dy * vn[1:-1, 1:-1] * (vn[1:-1, 1:-1] - vn[0:-2, 1:-1])
+            + nu * dt / dx**2 * (vn[1:-1, 2:] - 2 * vn[1:-1, 1:-1] + vn[1:-1, 0:-2])
+            + nu * dt / dy**2 * (vn[2:, 1:-1] - 2 * vn[1:-1, 1:-1] + vn[0:-2, 1:-1])
+        )
+
         u[0, :] = 1
         u[-1, :] = 1
         u[:, 0] = 1
         u[:, -1] = 1
-        
+
         v[0, :] = 1
         v[-1, :] = 1
         v[:, 0] = 1
         v[:, -1] = 1
-    
-    return u,v
+
+    return u, v
+
 
 # Surface plotting function
 def surfaceplot(u, nx):
@@ -199,3 +197,25 @@ def gaussian(nx, x0=0.5, sigma=0.1):
     x = np.linspace(0, 2, nx)
     u = np.exp(-((x - x0) ** 2) / (2 * sigma**2))
     return u
+
+
+# Differentiation method
+
+
+def RK2(f, t0, y0, h, t_akh):
+    t_rk2 = np.arange(t0, t_akh + h, h)
+    y_rk2 = np.zeros(len(t_rk2))
+    y_rk2[0] = y0
+
+    for i in range(len(t_rk2) - 1):
+        t_i = t_rk2[i]
+        y_i = y_rk2[i]
+        t_ip = t_rk2[i + 1]
+
+        k1 = f(t_i, y_i)
+        y_pred = y_i + h * k1
+        k2 = f(t_ip, y_pred)
+
+        y_rk2[i + 1] = y_i + 0.5 * h * (k1 + k2)
+
+    return t_rk2, y_rk2
