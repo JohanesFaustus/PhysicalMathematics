@@ -1,7 +1,7 @@
-\documentclass[../../main.tex]{subfiles}
+\documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection{Permutation and Combination}
-\subsubsection{Permutation.} Consider finite set $A$ with $n$ elements. An $r$-permu-tation is an ordered selection of $r$ elements from $A$, with $1\leq r\leq n$. In permutation, order does matter, unlike combination, and that all arrangements are distinct. $r$-permutation of an $n$ elements set is defined as 
+\subsubsection{Permutation.} Consider finite set $A$ with $n$ elements. An $r$-permu-tation is an ordered selection of $r$ elements from $A$, with $1\leq r\leq n$. In permutation, order does matter, unlike combination, and that all arrangements are distinct. $r$-permutation of an $n$ elements set is defined as
 \begin{equation*}
     P(n,r)=n(n-1)\dots(n-r+1)
 \end{equation*}
@@ -10,27 +10,27 @@ or simply
     P(n,r)=\frac{n!}{(n-r)!}
 \end{equation*}
 
-\subsubsection{Combination.} Combination counts the number of ways to chose $r$ object form finite set $A$ with $n$ elements where order of selection does not matter. For all integer $n$ and $1\leq r\leq n$, the number of combination when $r$ elements are chosen out of finite set with $n$ elements $C(n,r)$ is 
+\subsubsection{Combination.} Combination counts the number of ways to chose $r$ object form finite set $A$ with $n$ elements where order of selection does not matter. For all integer $n$ and $1\leq r\leq n$, the number of combination when $r$ elements are chosen out of finite set with $n$ elements $C(n,r)$ is
 \begin{equation*}
     C(n,r)=\frac{P(n,r)}{r!}={n \choose r }
 \end{equation*}
-or 
+or
 \begin{equation*}
     C(n,r)=\frac{n!}{r!(n-r)!}
 \end{equation*}
 
-\subsubsection{Difference.} Suppose we are choosing 2 people out of 4 to be president and vice-president. Here order matter, thus we say that there are 
+\subsubsection{Difference.} Suppose we are choosing 2 people out of 4 to be president and vice-president. Here order matter, thus we say that there are
 \begin{equation*}
     P(4,2)=\frac{4!}{(4-2)!}=12
 \end{equation*}
-ways to choose 2 people out of 4 to be president and vice-president. Now, we change the situation into choosing 2 out of 4 people to be given a gift. Here, order does not matter, hence we say that there are 
+ways to choose 2 people out of 4 to be president and vice-president. Now, we change the situation into choosing 2 out of 4 people to be given a gift. Here, order does not matter, hence we say that there are
 \begin{equation*}
     C(4,2)=\frac{4!}{2!(4-2)!}=6
 \end{equation*}
 ways to choose 2 people out of 4 to be given gift.
 
 \subsection{Restricted Partition Generating Functions}
-\subsubsection{Definition.} To find the number of ways distributing, called configuration, $L$ identical object in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use 
+\subsubsection{Definition.} To find the number of ways distributing, called configuration, $L$ identical object in $N$ distinct boxes subject to condition that not more that $P$ object are in one box, we use
 \begin{equation*}
     D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}f(x)\bigg|_{x=0}
 \end{equation*}
@@ -39,22 +39,22 @@ where
     f(x)=\left(1+x+x^2+\cdots+ x^P\right)^N=\left(\sum^{P }_{i=0}x^i\right)^N
 \end{equation*}
 
-In other hands, the number of configuration of certain set $n_{k|P}$ is given by 
+In other hands, the number of configuration of certain set $n_{k|P}$ is given by
 \begin{equation*}
     D(N,P,n_{k|P})=\frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
 \end{equation*}
-while the total number of configuration form all possible set is 
+while the total number of configuration form all possible set is
 \begin{equation*}
     D_T(N,P)=(P+1)^N
 \end{equation*}
 
-For a special case when $L\leq N$, the expression for $D(N,P,L)$ simplify into 
+For a special case when $L\leq N$, the expression for $D(N,P,L)$ simplify into
 \begin{equation*}
     D(N,P,L)=\frac{1}{L!}\frac{(N+L-1)!}{(N-1)!}
 \end{equation*}
 This equation gives the number of ways to distribute $L$ indistinguishable objects in $P$ distinguishable box.
 
-\subsubsection{Derivation.} Let the boxes be numbered $1,\dots, N$ and $p_i$ as number of objects in $i$-th box, then 
+\subsubsection{Derivation.} Let the boxes be numbered $1,\dots, N$ and $p_i$ as number of objects in $i$-th box, then
 \begin{equation*}
     \sum_{i=1}^{N}p_i=L
 \end{equation*}
@@ -66,24 +66,24 @@ which we will denote as restriction $R_\Romannum{1}$ and $R_\Romannum{2}$ respec
 
 Now consider the number of configuration $D(N,P,n_{k|P})$ obtained by counting different ways to choose the set of $n_{k|P}\equiv(n_1,\dots,n_P)$, which is evaluated by choosing $n_0$ from $N$ boxes, followed by choosing $n_1$ from $N-n_0$ boxes, and so on. Hence,
 \begin{align*}
-    D(N,P,n_{k|P})&={N\choose n_0}\cdots{N-\cdots-n_{p-1} \choose n_p}\\
-    &=\frac{N!}{n_0!(N-n_0)!}\cdots \frac{(N-\cdots-n_{p-1}!)}{n_p!(N-\cdots-n_p)!}\\
-    D(N,P,n_{k|P})&=\frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
-\end{align*} 
-The number of configuration satisfies the first condition, however it does not satisfy the second condition since the number of objects in the set $n_{k|P}$ is 
+    D(N,P,n_{k|P}) & ={N\choose n_0}\cdots{N-\cdots-n_{p-1} \choose n_p}                            \\
+                   & =\frac{N!}{n_0!(N-n_0)!}\cdots \frac{(N-\cdots-n_{p-1}!)}{n_p!(N-\cdots-n_p)!} \\
+    D(N,P,n_{k|P}) & =\frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
+\end{align*}
+The number of configuration satisfies the first condition, however it does not satisfy the second condition since the number of objects in the set $n_{k|P}$ is
 \begin{equation*}
     \sum_{k=0}^{P }kn_k\equiv M(n_{k|P})
 \end{equation*}
-is not necessarily $L$. Our task is then to find the configuration $D$ which satisfies our restriction, formally 
+is not necessarily $L$. Our task is then to find the configuration $D$ which satisfies our restriction, formally
 \begin{equation*}
     D(N,P,L)=\sum_{R_\Romannum{1}\text{ and }R_\Romannum{2}}D(N,P,n_{k|P})
 \end{equation*}
 
-To find the number of configuration that satisfy those two restriction, we first consider the value of summing $D(N,P,n_{k|P})$ over all possible value of $n_k$; this makes it so that $D$ satisfies the first condition, but not the second. Formally 
+To find the number of configuration that satisfy those two restriction, we first consider the value of summing $D(N,P,n_{k|P})$ over all possible value of $n_k$; this makes it so that $D$ satisfies the first condition, but not the second. Formally
 \begin{equation*}
     D_T(N,P)\equiv \sum_{R_\Romannum{1}}D(N,P,n_{k|P})
 \end{equation*}
-Using the result that we derived previously 
+Using the result that we derived previously
 \begin{equation*}
     D_T(N,P)= \frac{N!}{\displaystyle\prod_{i=0}^{P}n_i!}
 \end{equation*}
@@ -91,25 +91,25 @@ Recall the multinomial theorem
 \begin{equation*}
     \left(\sum_{i=0 }^{P}x_i\right)^N=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; \prod_{i=0}^{P}x_{i}^{n_{i}}
 \end{equation*}
-Let $x_i=1$ for all $i$, and we get 
+Let $x_i=1$ for all $i$, and we get
 \begin{equation*}
-    (P+1)^N=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} 
+    (P+1)^N=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!}
 \end{equation*}
-Therefore 
+Therefore
 \begin{equation*}
     D_T(N,P)=(P+1)^N
 \end{equation*}
 This is the number of ways to distribute $M=0,\dots, NP$ objects in $N$ boxes, with each box only having maximum $P$ objects. What we want however is $M=L$. To do that, we put $x_i=x^i$ in to multinomial theorem
 \begin{align*}
-    \left(\sum_{i=0 }^{P}x^i\right)^N&=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; \prod_{i=0}^{P}x^{i\cdot n_{i}}
-    =\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; x^{\displaystyle\sum_{i=0}^{P}i\cdot n_{i}}\\
-    \left(\sum_{i=0 }^{P}x^i\right)^N&=\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; x^{M(n_{i|P})}
+    \left(\sum_{i=0 }^{P}x^i\right)^N & =\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; \prod_{i=0}^{P}x^{i\cdot n_{i}}
+    =\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; x^{\displaystyle\sum_{i=0}^{P}i\cdot n_{i}}                         \\
+    \left(\sum_{i=0 }^{P}x^i\right)^N & =\sum_{R_\Romannum{1}}^{}\frac{N}{\displaystyle\prod_{i=0}^{P}n_i!} \; x^{M(n_{i|P})}
 \end{align*}
 Clearly,
 \begin{equation*}
     D_T(N,P,L)=\text{Coefficient of $x^L$ in } \left(\sum_{i=0 }^{P}x^i\right)^N
 \end{equation*}
-which is obtained by 
+which is obtained by
 \begin{equation*}
     D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}\left(\sum_{i=0 }^{P}x^i\right)^N \bigg|_{x=0}\quad\blacksquare
 \end{equation*}
@@ -122,7 +122,7 @@ Evaluating it
 \begin{equation*}
     f(x)=(1-x)^{-N}
 \end{equation*}
-Substituting it into the expression for $D(N,P,L)$, we see that 
+Substituting it into the expression for $D(N,P,L)$, we see that
 \begin{multline*}
     D(N,P,L)=\frac{1}{L!}\frac{d^L}{dx^L}(1-x)^N =\frac{1}{L!}N\frac{d^{L-1}}{dx^{L-1}}(1-x)^{N-1}\\ =\frac{1}{L!} N(N+1) \frac{d^{L-2}}{dx^{L-2}}(1-x)^{N-2}
 \end{multline*}

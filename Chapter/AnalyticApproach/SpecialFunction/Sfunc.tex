@@ -1,39 +1,39 @@
-\documentclass[../../main.tex]{subfiles}
+\documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection{Gamma Function}
 \subsubsection{Factorial.} The factorial is defined by integral
 \begin{equation*}
     \int_{0}^{\infty} x^ne^{-\alpha x}\;dx=\frac{n!}{\alpha^{n+1}}
 \end{equation*}
-Putting $\alpha=1$ we get 
+Putting $\alpha=1$ we get
 \begin{equation*}
     \int_{0}^{\infty} x^ne^{-x}\;dx=n!
 \end{equation*}
-Thus we have a definite integral whose value is $n!$ for positive integral $n$. We can also give a meaning to $0!$; by putting $n=0$, we get $0!=1$. By the way, the integral can be evaluated using differentiation under integral sign. 
+Thus we have a definite integral whose value is $n!$ for positive integral $n$. We can also give a meaning to $0!$; by putting $n=0$, we get $0!=1$. By the way, the integral can be evaluated using differentiation under integral sign.
 
 \subsubsection{Gamma function definition.} Gamma function is used to define the factorial function for noninterger $n$. We define, for any $p > 0$
 \begin{equation*}
     \Gamma(p)=\int_{0}^{\infty} x^{p-1}e^{-  x}\;dx
 \end{equation*}
-From this we have 
+From this we have
 \begin{align*}
-    \Gamma(p)&=\int_{0}^{\infty} x^{p-1}e^{-  x}\;dx=(p-1)!\\
-    \Gamma(p+1)&=\int_{0}^{\infty} x^{p}e^{-  x}\;dx=p!
+    \Gamma(p)   & =\int_{0}^{\infty} x^{p-1}e^{-  x}\;dx=(p-1)! \\
+    \Gamma(p+1) & =\int_{0}^{\infty} x^{p}e^{-  x}\;dx=p!
 \end{align*}
 
-\subsubsection{Recursion relation.} The recursion for gamma function is 
+\subsubsection{Recursion relation.} The recursion for gamma function is
 \begin{equation*}
     \Gamma(p+1)=p\Gamma(p)
 \end{equation*}
 
-\paragraph{Proof.} Let us integrate $\Gamma(p+1)$ by parts. Calling $u=x^p$, and $ dv=e^{-x}\;dx$; then we get $du=px^{p-1}$, and $v=-e^{-x}$. Thus 
+\paragraph{Proof.} Let us integrate $\Gamma(p+1)$ by parts. Calling $u=x^p$, and $ dv=e^{-x}\;dx$; then we get $du=px^{p-1}$, and $v=-e^{-x}$. Thus
 \begin{align*}
-    \Gamma(p+1)&=-x^pe^{-x}\bigg|_0^{\infty}+\int_{0}^{\infty}e^{-x}px^{p-1}\;dx\\
-    &=p\int_{0}^{\infty}x^{p-1}e^{-x}\;dx\\
-    \Gamma(p-1)&=p\Gamma(p)\quad\blacksquare
+    \Gamma(p+1) & =-x^pe^{-x}\bigg|_0^{\infty}+\int_{0}^{\infty}e^{-x}px^{p-1}\;dx \\
+                & =p\int_{0}^{\infty}x^{p-1}e^{-x}\;dx                             \\
+    \Gamma(p-1) & =p\Gamma(p)\quad\blacksquare
 \end{align*}
 
-\subsubsection{Incomplete gamma function.} Supose the limit of the integral of gamma function is not ($0,\infty$). We define the result function as incomplete gamma function. The first kind is the lower gamma function 
+\subsubsection{Incomplete gamma function.} Supose the limit of the integral of gamma function is not ($0,\infty$). We define the result function as incomplete gamma function. The first kind is the lower gamma function
 \begin{equation*}
     \gamma (p,t)=\int_{0}^{t}x^{p-1}e^{-x}\;dx
 \end{equation*}
@@ -42,8 +42,8 @@ while the second is the upper gamma function
     \Gamma (p,t)=\int_{t }^{\infty}x^{p-1}e^{-x}\;dx
 \end{equation*}
 
-\subsubsection{Negative numbers.} We shall now deifne gamma function for $p\leq 0$ by the recursion 
-relation 
+\subsubsection{Negative numbers.} We shall now deifne gamma function for $p\leq 0$ by the recursion
+relation
 \begin{equation*}
     \Gamma(p)=\frac{\Gamma(p+1)}{p}
 \end{equation*}
@@ -62,7 +62,7 @@ then we substitute $t=x^2$ and $dt=2x\;dx$
 \begin{equation*}
     \Gamma(1/2)=2\int_{0}^{\infty}e^{-x^2}\;dx=\int_{-\infty}^{\infty}e^{-x^2}\;dx
 \end{equation*}
-This is the famous Gaussian integral. Refer to figure \ref{fig} on how to solve it by polar coordinate. 
+This is the famous Gaussian integral. Refer to figure \ref{fig} on how to solve it by polar coordinate.
 
 \begin{figure}
     \centering
@@ -81,8 +81,8 @@ where $I$ is a function of parameter fish $\alpha$. Then, to evaluate the actual
 \end{equation*}
 Before that, I need to evaluate the function $I(\alpha)$ first. To do that, first I differentiate $I$ with respect parameter fish $\alpha$
 \begin{align*}
-    \frac{dI}{d\alpha}&=2\int_{0}^{\alpha}e^{-t^2}\;dt\biggl(\int_{0}^{\alpha}\frac{\partial e^{-t^2}}{d\alpha}\;dt+e^{-\alpha^2}\frac{d\alpha}{d\alpha}-e^{-0^2}\frac{d(0)}{d\alpha}\biggr)\\
-    \frac{dI}{d\alpha}&=\int_{0}^{\alpha}2e^{-(t^2+\alpha^2)}\;dt
+    \frac{dI}{d\alpha} & =2\int_{0}^{\alpha}e^{-t^2}\;dt\biggl(\int_{0}^{\alpha}\frac{\partial e^{-t^2}}{d\alpha}\;dt+e^{-\alpha^2}\frac{d\alpha}{d\alpha}-e^{-0^2}\frac{d(0)}{d\alpha}\biggr) \\
+    \frac{dI}{d\alpha} & =\int_{0}^{\alpha}2e^{-(t^2+\alpha^2)}\;dt
 \end{align*}
 where I have used Leibniz' rule for differentiating under integral sign. Then, I introduce the variable $u=t/\alpha$ and $du=dt/\alpha$
 \begin{equation*}
@@ -92,7 +92,7 @@ Using the fact that
 \begin{equation*}
     \frac{\partial}{\partial \alpha}\frac{e^{-\alpha^2(u^2+1)}}{u^2+1}=-2\alpha e^{-\alpha^2(u^2+1)}
 \end{equation*}
-I can rewrite the integrand as 
+I can rewrite the integrand as
 \begin{equation*}
     \frac{dI}{d\alpha}=-\int_{0}^{1}\frac{\partial}{\partial \alpha}\frac{e^{-\alpha^2(u^2+1)}}{u^2+1}\;du
 \end{equation*}
@@ -104,14 +104,14 @@ Hence
 \begin{equation*}
     I(\alpha)=-\int_{0}^{1}\frac{e^{-\alpha^2(u^2+1)}}{u^2+1}\;du+C
 \end{equation*}
-All that remains is to find the value of $C$. Considering the initial definition of $I(\alpha)$ and evaluating at $\alpha=0$, I get 
+All that remains is to find the value of $C$. Considering the initial definition of $I(\alpha)$ and evaluating at $\alpha=0$, I get
 \begin{equation*}
     I(0)=\biggl(\int_{0}^{0}e^{-t^2}\;dt\biggr)^2=0
 \end{equation*}
 Therefore
 \begin{align*}
-    I(0)&=-\int_{0}^{1}\frac{1}{u^2+1}\;du+C=0\\
-    C&=\arctan u\bigg|_{0}^{1}=\frac{\pi}{4}
+    I(0) & =-\int_{0}^{1}\frac{1}{u^2+1}\;du+C=0  \\
+    C    & =\arctan u\bigg|_{0}^{1}=\frac{\pi}{4}
 \end{align*}
 And I obtain the complete expression for the fish function
 \begin{equation*}
@@ -121,7 +121,7 @@ Now I can evaluate the Gaussian integral
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}\;dx=2\lim_{\alpha\rightarrow\infty}\biggl(-\int_{0}^{1}\frac{e^{-\alpha^2(u^2+1)}}{u^2+1}\;du+\frac{\pi}{4}\biggr)^{1/2}=2\frac{\sqrt{\pi}}{2}
 \end{equation*}
-and I find 
+and I find
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}\;dx=\sqrt{\pi}
 \end{equation*}
@@ -132,14 +132,14 @@ Much to my chagrin, it is actually more trouble some than the polar method. Let'
 \end{equation*}
 Doing the change of coordinate thing
 \begin{align*}
-    \int_{-\infty}^{\infty}e^{-x^2}\;dx&=\biggl(\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2}r\;dr\;d\theta \biggr)^{1/2}\\
-    \int_{-\infty}^{\infty}e^{-x^2}\;dx& = \biggl(2\pi\int_{0}^{\infty}e^{-r^2}r\;dr \biggr)^{1/2}
+    \int_{-\infty}^{\infty}e^{-x^2}\;dx & =\biggl(\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2}r\;dr\;d\theta \biggr)^{1/2} \\
+    \int_{-\infty}^{\infty}e^{-x^2}\;dx & = \biggl(2\pi\int_{0}^{\infty}e^{-r^2}r\;dr \biggr)^{1/2}
 \end{align*}
 That integral can be easily evaluated using $u$ substitution; making the substitution $u=-r^2$
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}\;dx = \biggl(2\pi\int_{-\infty}^{0}\frac{e^u}{2}\;du \biggr)^{1/2} =  \biggl(2\pi\frac{e^u}{2}\bigg|_{-\infty}^{0} \biggr)^{1/2}
 \end{equation*}
-And I get the same result 
+And I get the same result
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}\;dx = \sqrt{\pi}
 \end{equation*}
@@ -147,15 +147,15 @@ Damn, it is really more shrimple.
 
 \subsubsection{Another form of Gaussian integral.} Here have few.
 \begin{align*}
-    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx &= \frac{\Gamma (m+1)}{\alpha^{m+1}}\\
-    \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\\
-    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx&= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)\\
-    \int_{-\infty}^{\infty}\exp \left(\frac{1}{2}ix^2\right)\;dx& = \sqrt{2\pi}\exp \left(\frac{\pi}{4}i\right) 
+    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx                                & = \frac{\Gamma (m+1)}{\alpha^{m+1}}                                          \\
+    \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx                   & =\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)                \\
+    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx & = \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right) \\
+    \int_{-\infty}^{\infty}\exp \left(\frac{1}{2}ix^2\right)\;dx             & = \sqrt{2\pi}\exp \left(\frac{\pi}{4}i\right)
 \end{align*}
 And also for incomplete gamma integral
 \begin{align*}
-    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx &= \frac{\Gamma (m+1,s\alpha)}{\alpha^{m+1}}\\
-    \int_{s}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx&=\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2},s\alpha\right)\\
+    \int_{0}^{\infty} x^m\exp (-\alpha x)\;dx              & = \frac{\Gamma (m+1,s\alpha)}{\alpha^{m+1}}                           \\
+    \int_{s}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx & =\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2},s\alpha\right) \\
 \end{align*}
 
 Here's another one, not really a Gaussian integral, but since it involves natural number it counts
@@ -173,15 +173,15 @@ Substitute $\alpha x=t$ and $dx=dt/\alpha$
 \end{equation*}
 Now suppose the limit is not ($0,\infty$), say  ($s,\infty$). Those limits transform
 \begin{align*}
-    x&=s\implies t=\alpha s\\
-    x&=\infty\implies t=\infty
+    x & =s\implies t=\alpha s    \\
+    x & =\infty\implies t=\infty
 \end{align*}
 Thus
 \begin{equation*}
     \int_{s\alpha }^{\infty} \left(\frac{t}{\alpha}\right)^m \frac{\exp(-t)}{\alpha}\;dt=\frac{1}{\alpha^{m+1}}\int_{\alpha s}^{\infty} x^{m}e^{-  x}\;dx=\frac{\Gamma (m+1, s\alpha )}{\alpha^{m+1}}\quad\blacksquare
 \end{equation*}
 
-\paragraph{Proof of the second integral.} Consider 
+\paragraph{Proof of the second integral.} Consider
 \begin{equation*}
     \int_{0}^{\infty}x^m \exp\left(-\alpha x^2\right)\; dx
 \end{equation*}
@@ -189,7 +189,7 @@ By substituting $t=\alpha x^2$, we have the following variable
 \begin{equation*}
     x=\sqrt{\frac{t}{\alpha}}\quad\text{and}\quad dx=\frac{1}{2\sqrt{\alpha t}}\;dt
 \end{equation*}
-Thus our integral transforms into 
+Thus our integral transforms into
 \begin{multline*}
     \int_{0}^{\infty}\left(\frac{t}{\alpha}\right)^{m/2} \frac{\exp (-t)}{2\sqrt{\alpha t}}\; dt=\frac{1}{2\alpha^{(m+1)/2}} \int_{0}^{\infty} t^{(m+1)/2}\exp(-t)\;dt \\
     =\frac{1}{2\alpha^{(m+1)/2} }\Gamma\left(\frac{m+1}{2}\right)\quad \blacksquare
@@ -197,8 +197,8 @@ Thus our integral transforms into
 
 Now suppose the limit is not ($0,\infty$), say  ($s,\infty$). Those limits transform
 \begin{align*}
-    x&=s\implies t=\alpha s^2\\
-    x&=\infty\implies t=\infty
+    x & =s\implies t=\alpha s^2  \\
+    x & =\infty\implies t=\infty
 \end{align*}
 Thus
 \begin{multline*}
@@ -207,15 +207,15 @@ Thus
 \end{multline*}
 
 \paragraph{Proof of the third integral.} 404.
-\paragraph{Proof of the fourth integral.} 404. 
+\paragraph{Proof of the fourth integral.} 404.
 
 
 \subsection{Beta Function}
 \subsubsection{Definition.} The beta function is also defined by a definite integral
 \begin{equation*}
-    B(p,q)=\int_{0}^{1}x^{p-1} (1-x)^{q-1}\;dx 
+    B(p,q)=\int_{0}^{1}x^{p-1} (1-x)^{q-1}\;dx
 \end{equation*}
-for $p > 0$, and $q > 0$. 
+for $p > 0$, and $q > 0$.
 
 \subsubsection{Change of order.} It is easy to show that
 \begin{equation*}
@@ -224,13 +224,13 @@ for $p > 0$, and $q > 0$.
 
 \paragraph{Proof.} Putting $x=1-y$ and $dx=-dy$
 \begin{align*}
-    B(p,q)&=-\int_{1}^{0}(1-y)^{p-1}y^{q-1}\;dy= \int_{0 }^{1}y^{q-1}(1-y)^{p-1}\;dy\\
-    B(p,q)&=B(q,p)\quad\blacksquare
+    B(p,q) & =-\int_{1}^{0}(1-y)^{p-1}y^{q-1}\;dy= \int_{0 }^{1}y^{q-1}(1-y)^{p-1}\;dy \\
+    B(p,q) & =B(q,p)\quad\blacksquare
 \end{align*}
 
-\subsubsection{Integration Range.} The range of integration can be changed with 
+\subsubsection{Integration Range.} The range of integration can be changed with
 \begin{equation*}
-    B(p,q)=\frac{1}{a^{p+q-1}}  \int_{0}^{a} y^{p-1}(a-y)^{q-1}\;dy 
+    B(p,q)=\frac{1}{a^{p+q-1}}  \int_{0}^{a} y^{p-1}(a-y)^{q-1}\;dy
 \end{equation*}
 Another form is
 \begin{equation*}
@@ -244,19 +244,19 @@ Another form is
 
 \paragraph{Proof of the second relation.} For the second form, we put $x = y/(1 + y)$ and $dx=dy/(1+y)^2$
 \begin{align*}
-    B(p,q)&=\int_{0}^{\infty}\bigg(\frac{y}{1+y} \bigg)^{p-1} \bigg(\frac{(1+y)-y}{1+y}\bigg)^{q-1}\frac{1}{(1+y)^2}\;dy\\
-    B(p,q)&=\int_{0}^{\infty}\frac{y^{p-1}}{(1+y)^{p+q}}\;dy\quad\blacksquare
+    B(p,q) & =\int_{0}^{\infty}\bigg(\frac{y}{1+y} \bigg)^{p-1} \bigg(\frac{(1+y)-y}{1+y}\bigg)^{q-1}\frac{1}{(1+y)^2}\;dy \\
+    B(p,q) & =\int_{0}^{\infty}\frac{y^{p-1}}{(1+y)^{p+q}}\;dy\quad\blacksquare
 \end{align*}
 
-\subsubsection{Trigonometric form.} In terms of sine and cosine, the beta function reads 
+\subsubsection{Trigonometric form.} In terms of sine and cosine, the beta function reads
 \begin{equation*}
     B(p,q)=2\int_{0}^{\pi/2}(\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta
 \end{equation*}
 
 \paragraph{Proof.} Putting $x=\sin^2\theta$ and $dx=2\cos\theta\sin\theta\;d\theta$
 \begin{align*}
-    B(p,q)&=\int_{0}^{\pi/2} (\sin^2\theta)^{p-1}(\cos\theta)^{q-1} \cos\theta\sin\theta\;d\theta\\
-    B(p,q)&=2\int_{0}^{\pi/2} (\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta\quad\blacksquare
+    B(p,q) & =\int_{0}^{\pi/2} (\sin^2\theta)^{p-1}(\cos\theta)^{q-1} \cos\theta\sin\theta\;d\theta \\
+    B(p,q) & =2\int_{0}^{\pi/2} (\sin \theta)^{2p-1}(\cos\theta)^{2q-1}\;d\theta\quad\blacksquare
 \end{align*}
 
 \subsubsection{Gamma Function.}  Beta functions are easily expressed in terms of gamma functions
@@ -278,9 +278,9 @@ Next we calculate the product of two gamma function $p$ and $q$
 \end{equation*}
 Like Gaussian integral, this is easier to evaluate in polar coordinate
 \begin{align*}
-    \Gamma(p)\Gamma(q)&=4\int_{0}^{\pi/2}\int_{0}^{\infty} (r\cos\theta)^{2p-1} (r\sin\theta)^{2q-21}e^{-r^2}r\;dx\;dy\\
-    &=2\int_{0}^{\infty}r^{2(p+q)-1}e^{-r^2}\;dr\cdot 2\int_{0}^{\pi/2} (\cos\theta)^{2p-1}(\sin\theta)^{2q-1}\;d\theta\\
-    \Gamma(p)\Gamma(q)&=\Gamma(p+q)B(p,q)\quad\blacksquare
+    \Gamma(p)\Gamma(q) & =4\int_{0}^{\pi/2}\int_{0}^{\infty} (r\cos\theta)^{2p-1} (r\sin\theta)^{2q-21}e^{-r^2}r\;dx\;dy                    \\
+                       & =2\int_{0}^{\infty}r^{2(p+q)-1}e^{-r^2}\;dr\cdot 2\int_{0}^{\pi/2} (\cos\theta)^{2p-1}(\sin\theta)^{2q-1}\;d\theta \\
+    \Gamma(p)\Gamma(q) & =\Gamma(p+q)B(p,q)\quad\blacksquare
 \end{align*}
 
 \subsubsection{Incomplete beta function.} Defined as follows.
@@ -292,7 +292,7 @@ This definition is using the first definition of beta function, so for any other
     I_t=\frac{B_t(p,q)}{B(p,q)}
 \end{equation*}
 
-\subsection{Error Function} We define error function as 
+\subsection{Error Function} We define error function as
 \begin{equation*}
     \erf(x)=\frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-t^2}\;dt
 \end{equation*}
@@ -302,15 +302,15 @@ There is also closely related integrals which are used and sometimes referred to
 \end{equation*}
 Here are some of their relations.
 \begin{align*}
-    \Phi(x)&=\frac{1}{2}+\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr)\\
-    \erf(x)&=2\Phi\bigl(x\sqrt{2}\bigr)-1
+    \Phi(x) & =\frac{1}{2}+\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr) \\
+    \erf(x) & =2\Phi\bigl(x\sqrt{2}\bigr)-1
 \end{align*}
 
 \paragraph{Proof.} Consider the definition of $\Phi(x)$. Making the substitution of $u=t/\sqrt{2}$
 \begin{align*}
-    \Phi(x)&=\frac{1}{\sqrt{2\pi}}\int_{u=-\infty}^{u=x/\sqrt{2}}e^{-u^2}\sqrt{2}\;du\\
-    &=\frac{1}{\sqrt{\pi}} \biggl(\int_{-\infty}^{0}e^{-u^2}\;du+ \int_{0}^{\infty}e^{-u^2}\;du\biggr)\\
-    \Phi(x)&=\frac{1}{2}+\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr)\quad\blacksquare
+    \Phi(x) & =\frac{1}{\sqrt{2\pi}}\int_{u=-\infty}^{u=x/\sqrt{2}}e^{-u^2}\sqrt{2}\;du                         \\
+            & =\frac{1}{\sqrt{\pi}} \biggl(\int_{-\infty}^{0}e^{-u^2}\;du+ \int_{0}^{\infty}e^{-u^2}\;du\biggr) \\
+    \Phi(x) & =\frac{1}{2}+\frac{1}{2}\erf\bigl(x/\sqrt{2}\bigr)\quad\blacksquare
 \end{align*}
 
 \paragraph{Proof of the second relation.} To prove the third relation, we first rewrite the equation as
@@ -322,14 +322,14 @@ then we make the substitution $u=x/\sqrt{2}$
     \erf(u)= 2\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u\sqrt{2}} e^{-t^2/2}\;dt-1=2\Phi\bigl(x\sqrt{2}\bigr)-1\quad\blacksquare
 \end{align*}
 
-\subsubsection{Complementary error function.} Defined as 
+\subsubsection{Complementary error function.} Defined as
 \begin{equation*}
     \erfc(x)=\frac{2}{\sqrt{\pi}}\int_{x}^{\infty}e^{-t^2}\;dt
 \end{equation*}
 Its relations with the actual error function are as follows.
 \begin{align*}
-    \erfc(x)&=1-\erfc(x)\\
-    \erfc\big(x/\sqrt{2}\big)&=\sqrt{\frac{2}{\pi}}\int_{x}^{\infty}e^{-t^2/2}\;dt
+    \erfc(x)                  & =1-\erfc(x)                                          \\
+    \erfc\big(x/\sqrt{2}\big) & =\sqrt{\frac{2}{\pi}}\int_{x}^{\infty}e^{-t^2/2}\;dt
 \end{align*}
 
 \paragraph{Proof of the first relation.} The first relation is quite easy to prove. Consider
@@ -338,7 +338,7 @@ Its relations with the actual error function are as follows.
 \end{equation*}
 then
 \begin{align*}
-    \frac{2}{\sqrt{\pi}}\biggl(\int_{-\infty}^{x}e^{-t^2}+\int_{x}^{\infty}e^{-t^2}\biggr)&=1\\
+    \frac{2}{\sqrt{\pi}}\biggl(\int_{-\infty}^{x}e^{-t^2}+\int_{x}^{\infty}e^{-t^2}\biggr) & =1 \\
     \erf(x)+\erfc(x)=1\quad\blacksquare
 \end{align*}
 
@@ -353,8 +353,8 @@ then
 \end{equation*}
 Here are some relation to the actual error function.
 \begin{align*}
-    \erf(ix)&=i\erfi(x)\\
-    \erf\biggl(\frac{1-i }{\sqrt{2}}x\biggr)&=(1-i   )\sqrt{\frac{2}{\pi}}\int_{0}^{x}(\cos^2u+i\sin^2u)\;du
+    \erf(ix)                                 & =i\erfi(x)                                                      \\
+    \erf\biggl(\frac{1-i }{\sqrt{2}}x\biggr) & =(1-i   )\sqrt{\frac{2}{\pi}}\int_{0}^{x}(\cos^2u+i\sin^2u)\;du
 \end{align*}
 
 \subsection{Riemann Zeta Function}
@@ -365,16 +365,16 @@ The Riemann zeta function \(\zeta(p)\) is defined by
 for real $p>1$. Here are some value of the Riemann zeta function
 \begin{center}
     $\begin{array}{c c c c c c c c c}
-        \zeta(2)&=&\dfrac{\pi^2}{6};& \zeta(4)&=&\dfrac{\pi^4}{90}; & \zeta(6)&= &\dfrac{\pi^6}{945}\\\\
-        \zeta(3)&=&1.202;&  \zeta(5)&=&1.036;& \zeta(7)&=&1.008 \\
-    \end{array}$
+            \zeta(2) & = & \dfrac{\pi^2}{6}; & \zeta(4) & = & \dfrac{\pi^4}{90}; & \zeta(6) & = & \dfrac{\pi^6}{945} \\\\
+            \zeta(3) & = & 1.202;            & \zeta(5) & = & 1.036;             & \zeta(7) & = & 1.008              \\
+        \end{array}$
 \end{center}
 
 \subsubsection{Integrals.} Here are some integral in terms of gamma function and Riemann zeta function.
 \begin{align*}
-    \int_{0}^{\infty}\frac{x^p}{e^x-1}dx&=\Gamma(p+1)\zeta(p+1)\\
-    \int_{0}^{\infty}\frac{x^pe^x}{\left(e^x-1\right)^2}dx&= \Gamma(p+1)\zeta(p)\\
-    \int_{0}^{\infty}\frac{x^{p-1}}{e^x+1}dx& = \left(1-2^{1-p}\right)\Gamma(p) \zeta(p)
+    \int_{0}^{\infty}\frac{x^p}{e^x-1}dx                   & =\Gamma(p+1)\zeta(p+1)                     \\
+    \int_{0}^{\infty}\frac{x^pe^x}{\left(e^x-1\right)^2}dx & = \Gamma(p+1)\zeta(p)                      \\
+    \int_{0}^{\infty}\frac{x^{p-1}}{e^x+1}dx               & = \left(1-2^{1-p}\right)\Gamma(p) \zeta(p)
 \end{align*}
 
 \subsection{Striling's Formula}
@@ -390,40 +390,40 @@ And for its logaritm
 \paragraph*{Proof.} By the definition
 \begin{equation*}
     p!=\int_{0}^{\infty}x^pe^{-x}\;dx
-\end{equation*} 
-We then rewrite it as 
+\end{equation*}
+We then rewrite it as
 \begin{equation*}
-    p!=\int_{0}^{\infty}\exp\left(p\ln x-x\right)\;dx 
+    p!=\int_{0}^{\infty}\exp\left(p\ln x-x\right)\;dx
 \end{equation*}
 Substitute $x=p+y\sqrt{p}$ and $dx=\sqrt{p}\;dy$
 \begin{equation*}
-    p!=\int_{-\sqrt{p}}^{\infty}\exp\left[p\ln \left(p+y\sqrt{p} \right)-p-y\sqrt{p}\right]\sqrt{p}\;dy 
+    p!=\int_{-\sqrt{p}}^{\infty}\exp\left[p\ln \left(p+y\sqrt{p} \right)-p-y\sqrt{p}\right]\sqrt{p}\;dy
 \end{equation*}
-The logaritm above may be expressed as 
+The logaritm above may be expressed as
 \begin{equation*}
     \ln \left(p+y\sqrt{p} \right)=\ln p+\ln \left(1+\frac{y}{\sqrt{p}}\right)
 \end{equation*}
-Recall the infinite series representation of 
+Recall the infinite series representation of
 \begin{equation*}
     \ln (1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\dots
 \end{equation*}
-Hence 
+Hence
 \begin{equation*}
     \ln \left(p+y\sqrt{p} \right)=\ln p+\frac{y}{\sqrt{p}}-\frac{y^2}{2p}+\frac{y^3}{3p^{3/2}}-\dots
 \end{equation*}
-Then substituting back 
+Then substituting back
 \begin{equation*}
-    p!=\int_{-\sqrt{p}}^{\infty}\exp\left[p\ln p + \left(\frac{py}{\sqrt{p}}-\frac{py^2}{2p}+\frac{py^3}{3p^{3/2}}-\dots\right)-p-y\sqrt{p}\right]\sqrt{p}\;dy 
+    p!=\int_{-\sqrt{p}}^{\infty}\exp\left[p\ln p + \left(\frac{py}{\sqrt{p}}-\frac{py^2}{2p}+\frac{py^3}{3p^{3/2}}-\dots\right)-p-y\sqrt{p}\right]\sqrt{p}\;dy
 \end{equation*}
-Pulling the constant out of the integral 
+Pulling the constant out of the integral
 \begin{equation*}
-    p!=p^pe^{-p}\sqrt{p}\int_{-\sqrt{p}}^{\infty}\exp\left[-\frac{y^2}{2}+\frac{y^3}{3p^{1/2}}-\dots\right]\;dy 
+    p!=p^pe^{-p}\sqrt{p}\int_{-\sqrt{p}}^{\infty}\exp\left[-\frac{y^2}{2}+\frac{y^3}{3p^{1/2}}-\dots\right]\;dy
 \end{equation*}
 For larger $p$, the integral approach the gaussian integral. Therefore,
 \begin{equation*}
     p!\sim p^pe^{-p}\sqrt{2\pi p}\quad \blacksquare
 \end{equation*}
-If we take its logaritm, the square root term will be negligible and ae are able to write 
+If we take its logaritm, the square root term will be negligible and ae are able to write
 \begin{equation*}
     \ln p!\sim p\ln p- p\quad \blacksquare
 \end{equation*}

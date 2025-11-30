@@ -1,4 +1,4 @@
-\documentclass[../../main.tex]{subfiles}
+\documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection{Appendix: Using Gamma Function to Evaluate Integral}
 \subsubsection{Ex. 1.} Consider
@@ -11,7 +11,7 @@
     \int_{1}^{2}x^3e^{-x}\;dx=\gamma(4,2)-\gamma(4,1)
 \end{equation*}
 
-\subsubsection{Ex. 3.} The distribution function for classical partial with respect to its energy is given by 
+\subsubsection{Ex. 3.} The distribution function for classical partial with respect to its energy is given by
 \begin{equation*}
     n(\epsilon)=\frac{2\pi N}{(\pi kT)^{3/2}}\epsilon^{1/2}\exp \left(-\frac{\epsilon}{kT}\right)
 \end{equation*}
@@ -29,25 +29,25 @@ Then the fraction
     F=\frac{n(\epsilon \geq 3kT)}{N}=\frac{2}{\sqrt{\pi}}\gamma\left(\frac{3}{2},3\right)
 \end{equation*}
 
-\subsubsection{Ex. 4.} Now suppose we want to find the fraction of particle whose speed lies within $(\sqrt{2kT/m}, \sqrt{8kT/m})$ where its distribution function is given by 
+\subsubsection{Ex. 4.} Now suppose we want to find the fraction of particle whose speed lies within $(\sqrt{2kT/m}, \sqrt{8kT/m})$ where its distribution function is given by
 \begin{equation*}
     n(v)=4\pi N\left(\frac{m}{2\pi kT}\right)^{3/2}v^2\exp\left(-\frac{mv^2}{2kT}\right)
 \end{equation*}
-The number of particle within said range is 
+The number of particle within said range is
 \begin{multline*}
     n\left(\sqrt{\frac{2kT}{m}}\leq v\leq \sqrt{\frac{8kT}{m}}\right)=4\pi N\left(\frac{m}{2\pi kT}\right)^{3/2}\\
     \int_{\sqrt{2kT/m}}^{\sqrt{8kT/m}}v^2\exp\left(-\frac{mv^2}{2kT}\right)\;dv
 \end{multline*}
-By substituting $mv^2/2kT=x^2$, we have 
+By substituting $mv^2/2kT=x^2$, we have
 \begin{equation*}
     v^2=\frac{2kT}{m}x^2\quad\text{and}\quad dv=\sqrt{\frac{2kT}{m}}\;dx
 \end{equation*}
-and limit of 
+and limit of
 \begin{align*}
-    v=\sqrt{\frac{2kT}{m}}&\implies x=1\\
-    v=\sqrt{\frac{8kT}{m}}&\implies x=2
+    v=\sqrt{\frac{2kT}{m}} & \implies x=1 \\
+    v=\sqrt{\frac{8kT}{m}} & \implies x=2
 \end{align*}
-Then 
+Then
 \begin{align*}
     n=\frac{4N}{\sqrt{\pi}}\frac{m}{2kT}\int_{1}^{2}\frac{2kT}{m}x^2 e^{-x^2} \sqrt{\frac{ 2kT}{m }}\;dx=\frac{4N}{\sqrt{\pi}}\left[\gamma(1.5,1)-\gamma(1.5,2)\right]
 \end{align*}
@@ -62,28 +62,28 @@ In terms of beta function
     I=\frac{1}{2}B\left(\frac{n+1}{2},\frac{1}{2}\right)=\frac{1}{2}\frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma\left(\frac{n}{2}+1\right)}
 \end{equation*}
 
-For the case of odd $n$, we write 
+For the case of odd $n$, we write
 \begin{equation*}
     \Gamma\left(\frac{n+1}{2}\right)=\frac{n-1}{2}\frac{n-3}{2}\dots1=\frac{(n-1)!!}{2^{(n-1)/2}}
 \end{equation*}
-where its argument is an even number. We also write 
+where its argument is an even number. We also write
 \begin{equation*}
     \Gamma\left(\frac{n}{2}+1\right)= \frac{n}{2}\left(\frac{n-2}{2}\right)\dots\sqrt{\pi}=\frac{n!!\sqrt{\pi}}{2^{(n+1)/2}}
 \end{equation*}
-where its argument is an odd number. Hence, 
+where its argument is an odd number. Hence,
 \begin{equation*}
     I=\frac{(n-1)!!}{n!!}
 \end{equation*}
 
-For the case of even $n$, we then write 
+For the case of even $n$, we then write
 \begin{equation*}
     \Gamma\left(\frac{n+1}{2}\right)=\frac{n-1}{2}\frac{n-3}{2}\dots\sqrt{\pi}=\frac{\sqrt{\pi}(n-1)!!}{2^{(n+1)/2}}
 \end{equation*}
-where its argument is an odd number. We also write 
+where its argument is an odd number. We also write
 \begin{equation*}
     \Gamma\left(\frac{n}{2}+1\right)= \frac{n}{2}\left(\frac{n-2}{2}\right)\dots1=\frac{n!!}{2^{(n-1)/2}}
 \end{equation*}
-where its argument is an even number. Hence, 
+where its argument is an even number. Hence,
 \begin{equation*}
     I=\frac{\pi}{2}\frac{(n-1)!!}{n!!}
 \end{equation*}
@@ -91,16 +91,16 @@ where its argument is an even number. Hence,
 Putting it all together
 \begin{equation*}
     \int_{0}^{\pi/2}\cos^n\theta\;d\theta=\begin{cases}
-        \dfrac{(n-1)!!}{n!!},&\text{for odd $n$}\\\\
-        \dfrac{\pi}{2}\dfrac{(n-1)!!}{n!!},&\text{for even $n$}
+        \dfrac{(n-1)!!}{n!!},               & \text{for odd $n$}  \\\\
+        \dfrac{\pi}{2}\dfrac{(n-1)!!}{n!!}, & \text{for even $n$}
     \end{cases}
 \end{equation*}
 
-\subsubsection{Ex. 2} Consider 
+\subsubsection{Ex. 2} Consider
 \begin{equation*}
     I=\int_{-1}^{1}x^{2n}(1-x^2)^{1/2}\;dx
 \end{equation*}
-Since the integrand is an even function, we write 
+Since the integrand is an even function, we write
 \begin{equation*}
     I=2\int_{0}^{1}x^{2n}(1-x^2)^{1/2}\;dx
 \end{equation*}
@@ -112,11 +112,11 @@ In terms of gamma function
 \begin{equation*}
     I=\frac{\Gamma\left(\frac{3}{2}\right)\Gamma\left(n+\frac{1}{2}\right)}{\Gamma(n+2)}
 \end{equation*}
-For any even and odd $n$, we write 
+For any even and odd $n$, we write
 \begin{equation*}
     \Gamma\left(n+\frac{1}{2}\right)=\left(\frac{2n-1}{2}\right)\left(\frac{2n-3}{2}\right) \dots \sqrt{\pi}=\frac{(2n-1)!!}{2^n}\sqrt{\pi}
 \end{equation*}
-and 
+and
 \begin{equation*}
     \Gamma(n+2)=\frac{(2n+2)!!}{2^{n+1}}
 \end{equation*}
@@ -124,11 +124,11 @@ Therefore
 \begin{equation*}
     I= \frac{(2n-1)!!}{(2n+1)!!}\pi
 \end{equation*}
-Since the result differ for different $n$, we then evaluate for both case and write 
+Since the result differ for different $n$, we then evaluate for both case and write
 \begin{equation*}
     \int_{-1}^{1}x^{2n}(1-x^2)^{1/2}\;dx=\begin{cases}
-        \dfrac{\pi}{2},&\text{for $n=0$}\\\\
-        \dfrac{(2n-1)!!}{(2n+1)!!}\pi,&\text{for interger $n>0$}
+        \dfrac{\pi}{2},                & \text{for $n=0$}          \\\\
+        \dfrac{(2n-1)!!}{(2n+1)!!}\pi, & \text{for interger $n>0$}
     \end{cases}
 \end{equation*}
 \end{document}

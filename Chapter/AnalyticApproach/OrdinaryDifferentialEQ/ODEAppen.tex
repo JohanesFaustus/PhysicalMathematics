@@ -1,246 +1,249 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+\subsection{Appendix: Coupled System}
+
+
 \subsection{Appendix: Frobenius' Method}
 I will demonstrate this technique. Consider the following differential equation.
 \begin{equation*}
-  x^2 y''+ 4xy' + (x^2 + 2)y = 0
+    x^2 y''+ 4xy' + (x^2 + 2)y = 0
 \end{equation*}
 The solution will take the form
 \begin{equation*}
-  y=\sum_{n=0}^{\infty} a_nx^{n+s}
+    y=\sum_{n=0}^{\infty} a_nx^{n+s}
 \end{equation*}
 Substituting this into each term, we have
 \begin{align*}
-  x^2y'' & =\sum_{n=0}^{\infty} (n+s) (n+s-1)a_nx^{n+s} \\
-  4xy'   & =\sum_{n=0}^{\infty} 4(n+s) a_nx^{n+s}       \\
-  xy     & =\sum_{n=0}^{\infty} a_n x^{n+s+2}           \\
-  2y     & =\sum_{n=0}^{\infty} 2a_nx^{n+s}
+    x^2y'' & =\sum_{n=0}^{\infty} (n+s) (n+s-1)a_nx^{n+s} \\
+    4xy'   & =\sum_{n=0}^{\infty} 4(n+s) a_nx^{n+s}       \\
+    xy     & =\sum_{n=0}^{\infty} a_n x^{n+s+2}           \\
+    2y     & =\sum_{n=0}^{\infty} 2a_nx^{n+s}
 \end{align*}
 Then we put them into table.
 \begin{center}
-  $\begin{array}{c || c c c}
-      \hline\hline
-    \end{array}$
+    $\begin{array}{c || c c c}
+            \hline\hline
+        \end{array}$
 \end{center}
 \begin{table}[h]
-  \centering
-  \caption{Table}
-  \begin{tabular}{cccc }
-    \toprule
-             & $x^{n+s}$                & $x^s$         & $x^{s+1}$    \\
-    \midrule
-    $x^2y''$ & $(n + s)(n + s - 1)a_n $ & $s(s-1)a_0  $ & $s(s+1)a_1$  \\
-    $4xy'$   & $4(n+s)a_n $             & $4sa_0 $      & $4(s+1)a_1 $ \\
-    $x^2y$   & $a_{n-2}$                & $-$           & $-$          \\
-    $2y$     & $ 2a_n$                  & $2a_0$        & $ 2a_1$      \\
-    \bottomrule
-  \end{tabular}
+    \centering
+    \caption{Table}
+    \begin{tabular}{cccc }
+        \toprule
+                 & $x^{n+s}$                & $x^s$         & $x^{s+1}$    \\
+        \midrule
+        $x^2y''$ & $(n + s)(n + s - 1)a_n $ & $s(s-1)a_0  $ & $s(s+1)a_1$  \\
+        $4xy'$   & $4(n+s)a_n $             & $4sa_0 $      & $4(s+1)a_1 $ \\
+        $x^2y$   & $a_{n-2}$                & $-$           & $-$          \\
+        $2y$     & $ 2a_n$                  & $2a_0$        & $ 2a_1$      \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 Using the terms on $x^{s}$ column, we have the following indicial equation.
 \begin{align*}
-  s(s-1)a_0+4sa_0+2a_0       & =0 \\
-  a_0 \left[s(s+3)+2 \right] & =0
+    s(s-1)a_0+4sa_0+2a_0       & =0 \\
+    a_0 \left[s(s+3)+2 \right] & =0
 \end{align*}
 Since $a_0$ cannot be zero, we write
 \begin{equation*}
-  s^2+3s+2 =0
+    s^2+3s+2 =0
 \end{equation*}
 By solving the indicial equation we obtain $s=(-1,-2)$. From the $x^{n+s}$, we obtain the general formula for $a_n$ in terms of $a_{n-2}$
 \begin{align*}
-  a_n\left[(n+s)(n+s+3)+2\right] & =-a_{n-2}
+    a_n\left[(n+s)(n+s+3)+2\right] & =-a_{n-2}
 \end{align*}
 We also obtain the fact the value of $a_1$ is zero, proved by the terms in $x^{s+1}$ column
 \begin{equation*}
-  \begin{rcases*}
-    a_1\left[(s+1)(s+4)+2\right]=0 \\
-    s=(-1,-2)
-  \end{rcases*}\implies a_0=0
+    \begin{rcases*}
+        a_1\left[(s+1)(s+4)+2\right]=0 \\
+        s=(-1,-2)
+    \end{rcases*}\implies a_0=0
 \end{equation*}
 
 Since we have two value of $s$, we first consider the case for $s=-1$. The general $a_n$ formula evaluated into
 \begin{equation*}
-  a_n=-\frac{a_{n-2}}{(n-1)(n+2)+2}=-\frac{a_{n-2}}{n^2+n}=-\frac{a_{n-2}}{n(n+1)}
+    a_n=-\frac{a_{n-2}}{(n-1)(n+2)+2}=-\frac{a_{n-2}}{n^2+n}=-\frac{a_{n-2}}{n(n+1)}
 \end{equation*}
 The values of $a_n$ for few $n$ are as follows
 \begin{align*}
-  a_2 & =-\frac{a_0}{3!}                      \\
-  a_4 & =-\frac{a_2}{4\cdot 5}=\frac{a_0}{5!} \\
-  a_6 & =-\frac{a_4}{6\cdot7}=-\frac{a_0}{7!}
+    a_2 & =-\frac{a_0}{3!}                      \\
+    a_4 & =-\frac{a_2}{4\cdot 5}=\frac{a_0}{5!} \\
+    a_6 & =-\frac{a_4}{6\cdot7}=-\frac{a_0}{7!}
 \end{align*}
 Thus the solution for this case is
 \begin{multline*}
-  y_{-1}=\sum_{n=0}^{\infty} a_nx^{n-1}=\frac{a_0}{x}-\frac{a_0}{3!}x+\frac{a_0}{5!}x^3-\frac{a_0}{7!}x^5 +\dots\\
-  =\frac{a_0}{x^2}\left(x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots\right)=\frac{a_0}{x^2}\sin x
+    y_{-1}=\sum_{n=0}^{\infty} a_nx^{n-1}=\frac{a_0}{x}-\frac{a_0}{3!}x+\frac{a_0}{5!}x^3-\frac{a_0}{7!}x^5 +\dots\\
+    =\frac{a_0}{x^2}\left(x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots\right)=\frac{a_0}{x^2}\sin x
 \end{multline*}
 
 For the case of $s=-2$, the general $a_n$ formula evaluated into
 \begin{equation*}
-  a_n=-\frac{a_{n-2}}{(n-2)(n+1)+2}=-\frac{a_{n-2}}{n^2-n}=-\frac{a_{n-2}}{n(n-1)}
+    a_n=-\frac{a_{n-2}}{(n-2)(n+1)+2}=-\frac{a_{n-2}}{n^2-n}=-\frac{a_{n-2}}{n(n-1)}
 \end{equation*}
 The values of $a_n$ for few $n$ are as follows
 \begin{align*}
-  a_2 & =-\frac{a_0}{2!}                       \\
-  a_4 & =-\frac{a_2}{4\cdot 3}=\frac{a_0}{4!}  \\
-  a_6 & =-\frac{a_4}{6\cdot 5}=-\frac{a_0}{6!}
+    a_2 & =-\frac{a_0}{2!}                       \\
+    a_4 & =-\frac{a_2}{4\cdot 3}=\frac{a_0}{4!}  \\
+    a_6 & =-\frac{a_4}{6\cdot 5}=-\frac{a_0}{6!}
 \end{align*}
 Thus the solution for this case is
 \begin{multline*}
-  y_{-2}=\sum_{n=0}^{\infty} a_nx^{n-2}= \frac{a_0}{x^2}-\frac{a_0}{2!}+\frac{a_0}{4!}x^2-\frac{a_0}{6!}x^4 +\dots\\
-  =\frac{a_0}{x^2}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots\right)=\frac{a_0}{x^2}\cos x
+    y_{-2}=\sum_{n=0}^{\infty} a_nx^{n-2}= \frac{a_0}{x^2}-\frac{a_0}{2!}+\frac{a_0}{4!}x^2-\frac{a_0}{6!}x^4 +\dots\\
+    =\frac{a_0}{x^2}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots\right)=\frac{a_0}{x^2}\cos x
 \end{multline*}
 
 Hence, the complete form of the solution is
 \begin{equation*}
-  y=\frac{a_0}{x^2}\left(\cos x +\sin x\right)
+    y=\frac{a_0}{x^2}\left(\cos x +\sin x\right)
 \end{equation*}
 
 \subsection{Appendix: Bessel Equation}
 \subsubsection{Ex. 1.} Suppose we are going to solve
 \begin{equation*}
-  y'' +9xy=0
+    y'' +9xy=0
 \end{equation*}
 We know that the equation has no $y'$ factor, then
 \begin{equation*}
-  \frac{1-2a}{x}=0\implies a=\frac{1}{2}
+    \frac{1-2a}{x}=0\implies a=\frac{1}{2}
 \end{equation*}
 By assuming
 \begin{equation*}
-  2c-2=1\implies c=\frac{3}{2}
+    2c-2=1\implies c=\frac{3}{2}
 \end{equation*}
 We can equate the first $x$ coefficient
 \begin{equation*}
-  (bc)^2=9\implies b=2
+    (bc)^2=9\implies b=2
 \end{equation*}
 And
 \begin{equation*}
-  \frac{a^2-p^2c^2}{x^2}=0\implies p=\sqrt{\frac{a^2}{c^2}}=\frac{1}{3}
+    \frac{a^2-p^2c^2}{x^2}=0\implies p=\sqrt{\frac{a^2}{c^2}}=\frac{1}{3}
 \end{equation*}
 The solution takes the form of
 \begin{equation*}
-  y=x^{1/2}Z_{1/3}(2x^{3/2})=x^{1/2}\left[AJ_{1/3}(2x^{3/2})+BN_{1/3}(2x^{3/2})\right]
+    y=x^{1/2}Z_{1/3}(2x^{3/2})=x^{1/2}\left[AJ_{1/3}(2x^{3/2})+BN_{1/3}(2x^{3/2})\right]
 \end{equation*}
 
 \subsection{Appendix: Laplacian in Cylindrical Coordinates.}
 \subsubsection{Steady-state temperature in a cylinder.} Find the steady-state temperature distribution in a semi-infinite solid cylinder of radius $a$ if the base is held at $T$ and the curved sides at 0\textdegree. The boundary condition are
 \begin{enumerate}
-  \item $u(z=\infty)=0$,
-  \item $u$ does not depend on angular term,
-  \item $u$ converges at origin,
-  \item $u(r=a)=0$, and
-  \item $u(z=0)=100$
+    \item $u(z=\infty)=0$,
+    \item $u$ does not depend on angular term,
+    \item $u$ converges at origin,
+    \item $u(r=a)=0$, and
+    \item $u(z=0)=100$
 \end{enumerate}
 and the general solution is
 \begin{multline*}
-  u=\sum_{m=0}^{\infty}\left[A_me^{Kz}+B_me^{-KZ}\right]\left[C_m\sin n\theta +D_m\cos n\theta\right]\\
-  \left[E_mJ_m(Kr)+F_mN_m(Kr)\right]
+    u=\sum_{m=0}^{\infty}\left[A_me^{Kz}+B_me^{-KZ}\right]\left[C_m\sin n\theta +D_m\cos n\theta\right]\\
+    \left[E_mJ_m(Kr)+F_mN_m(Kr)\right]
 \end{multline*}
 We see that the first condition demands that $A_m=0$, the second demands that $n=0$, and the third demands that $F_m=0$. Using the fourth condition on our solution we obtained so far
 \begin{equation*}
-  u(r=a)=GJ_0(Ka)e^{-Kz}=0
+    u(r=a)=GJ_0(Ka)e^{-Kz}=0
 \end{equation*}
 with $G$ as our arbitrary constant. Since the exponential term cannot be zero for arbitrary $z$, the zero must be the Bessel function. We then define
 \begin{equation*}
-  Ka=k_m
+    Ka=k_m
 \end{equation*}
 where $k_m$ is the $m$-th zeros of the Bessel function. Since there are infinite value of them, we write
 \begin{equation*}
-  u=\sum_{m=1}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)\exp\left(\frac{k_mz}{a}\right)
+    u=\sum_{m=1}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)\exp\left(\frac{k_mz}{a}\right)
 \end{equation*}
 All that left is to determine the constant $G_n$, which is obtained from the fourth condition
 \begin{equation*}
-  u(z=0)=\sum_{m=1}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)=T
+    u(z=0)=\sum_{m=1}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)=T
 \end{equation*}
 Multiplying by $rJ_0(k_\mu r/a)$ and integrating them from $(0,a)$
 \begin{equation*}
-  \int_{0}^{a}\sum_{m=0}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)J_0\left(\frac{k_\mu r}{a}\right)r\;dr=\int_{0}^{a}TJ_0\left(\frac{k_\mu r}{a}\right)r\;dr
+    \int_{0}^{a}\sum_{m=0}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)J_0\left(\frac{k_\mu r}{a}\right)r\;dr=\int_{0}^{a}TJ_0\left(\frac{k_\mu r}{a}\right)r\;dr
 \end{equation*}
 Let us consider the first integral first. By the only orthoganality of Bessel function, only the term with $m=\mu$ will survive the integral. So we might as well write
 \begin{equation*}
-  \int_{0}^{a}\sum_{m=0}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)J_0\left(\frac{k_\mu r}{a}\right)r\;dr=\int_{0}^{a}G_mrJ_0^2\left(\frac{k_mr}{a}\right)\;dr
+    \int_{0}^{a}\sum_{m=0}^{\infty}G_mJ_0\left(\frac{k_mr}{a}\right)J_0\left(\frac{k_\mu r}{a}\right)r\;dr=\int_{0}^{a}G_mrJ_0^2\left(\frac{k_mr}{a}\right)\;dr
 \end{equation*}
 which evaluate into
 \begin{equation*}
-  \int_{0}^{a}G_mr\left[J_0\left(\frac{k_mr}{a}\right)\right]^2\;dr=\frac{a^2}{2}G_mJ_1^2
+    \int_{0}^{a}G_mr\left[J_0\left(\frac{k_mr}{a}\right)\right]^2\;dr=\frac{a^2}{2}G_mJ_1^2
 \end{equation*}
 To evaluate the right side, we need to consider the relation
 \begin{equation*}
-  \frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)
+    \frac{d}{dx}[x^pJ_p(x)]=x^pJ_{p-1}(x)
 \end{equation*}
 With $p=1$ and $x=k_mr/a$, the relation turns into
 \begin{equation*}
-  \frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]=rJ_0\left(\frac{k_m r}{a}\right)
+    \frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]=rJ_0\left(\frac{k_m r}{a}\right)
 \end{equation*}
 On using this relation, the right side integral now reads
 \begin{equation*}
-  \int_{0}^{a}TJ_0\left(\frac{k_\mu r}{a}\right)r\;dr= \int_{0}^{a}T\frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]\;dr
+    \int_{0}^{a}TJ_0\left(\frac{k_\mu r}{a}\right)r\;dr= \int_{0}^{a}T\frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]\;dr
 \end{equation*}
 By the fundamental theorem of calculus, we have
 \begin{equation*}
-  \int_{0}^{a}T\frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]\;dr=\frac{T_0a^2}{k_m}J_1(k_m)
+    \int_{0}^{a}T\frac{a}{k_m}\frac{d}{dr}\left[rJ_1\left(\frac{k_m r}{a}\right)\right]\;dr=\frac{T_0a^2}{k_m}J_1(k_m)
 \end{equation*}
 Now we equate both side
 \begin{equation*}
-  \frac{a^2}{2}G_mJ_1^2=\frac{T_0a^2}{k_m}J_1(k_m)
+    \frac{a^2}{2}G_mJ_1^2=\frac{T_0a^2}{k_m}J_1(k_m)
 \end{equation*}
 and solve fo the constant
 \begin{equation*}
-  G_m=\frac{2T_0}{k_mJ_1(k_m)}
+    G_m=\frac{2T_0}{k_mJ_1(k_m)}
 \end{equation*}
 Thus we have the complete solution
 \begin{equation*}
-  u=\sum_{m=1}^{\infty}\frac{2T_0}{k_mJ_1(k_m)}J_0\left(\frac{k_mr}{a}\right)\exp\left(\frac{k_mz}{a}\right)
+    u=\sum_{m=1}^{\infty}\frac{2T_0}{k_mJ_1(k_m)}J_0\left(\frac{k_mr}{a}\right)\exp\left(\frac{k_mz}{a}\right)
 \end{equation*}
 with $k_m$ as the zeros of $J_0$.
 
 \subsection{Appendix: Hermitian Function}
 The solution of Schrödinger equation in harmonic potential can be expressed as a Hermitian function. In one dimensional harmonics potential, the Schrödinger equation reads
 \begin{align*}
-  \left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}m\omega^2x^2\right)\psi & = E\psi \\
-  \psi''-\left(\frac{m\omega}{\hbar}x\right)^2\psi+\frac{2mE}{\hbar^2}\psi     & =0
+    \left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}m\omega^2x^2\right)\psi & = E\psi \\
+    \psi''-\left(\frac{m\omega}{\hbar}x\right)^2\psi+\frac{2mE}{\hbar^2}\psi     & =0
 \end{align*}
 We define
 \begin{equation*}
-  \Xi=\left(\frac{m\omega}{\hbar}x\right)^{1/2}x\quad\text{and}\quad\Psi=\left(\frac{m\omega}{\hbar}\right)^2\psi
+    \Xi=\left(\frac{m\omega}{\hbar}x\right)^{1/2}x\quad\text{and}\quad\Psi=\left(\frac{m\omega}{\hbar}\right)^2\psi
 \end{equation*}
 Then the derivatives reads
 \begin{align*}
-  \frac{d\psi}{dx}     & =\frac{d\psi}{d\Psi}\frac{d\Psi}{d\Xi}\frac{d\Xi}{dx}=\left(\frac{\hbar}{m\omega}\right)^{1/2}\frac{d\Psi}{d\Xi} \\
-  \frac{d^2\psi}{dx^2} & =\frac{d}{d\Xi}\left(\frac{d\psi}{dx}\right)\frac{d\Xi}{dx}=\frac{d^2\Psi}{dx^2}
+    \frac{d\psi}{dx}     & =\frac{d\psi}{d\Psi}\frac{d\Psi}{d\Xi}\frac{d\Xi}{dx}=\left(\frac{\hbar}{m\omega}\right)^{1/2}\frac{d\Psi}{d\Xi} \\
+    \frac{d^2\psi}{dx^2} & =\frac{d}{d\Xi}\left(\frac{d\psi}{dx}\right)\frac{d\Xi}{dx}=\frac{d^2\Psi}{dx^2}
 \end{align*}
 while the other terms
 \begin{gather*}
-  \left(\frac{m\omega}{\hbar}x\right)^2\psi=\left(\frac{m\omega}{\hbar}\right)^2\frac{\hbar}{m\omega}\Xi^2\left(\frac{\hbar}{m\omega}\right)^2\Psi=\Xi\Psi\\
-  \frac{2mE}{\hbar^2}\psi=\frac{2mE}{\hbar^2}\left(\frac{\hbar}{m\omega}\right)^2\Psi=\frac{2E}{\hbar\omega}\Psi
+    \left(\frac{m\omega}{\hbar}x\right)^2\psi=\left(\frac{m\omega}{\hbar}\right)^2\frac{\hbar}{m\omega}\Xi^2\left(\frac{\hbar}{m\omega}\right)^2\Psi=\Xi\Psi\\
+    \frac{2mE}{\hbar^2}\psi=\frac{2mE}{\hbar^2}\left(\frac{\hbar}{m\omega}\right)^2\Psi=\frac{2E}{\hbar\omega}\Psi
 \end{gather*}
 Thus
 \begin{align*}
-  \Psi''-\Xi\Psi+\frac{2E}{m\omega}\Psi=0
+    \Psi''-\Xi\Psi+\frac{2E}{m\omega}\Psi=0
 \end{align*}
 This is Hermitian function with
 \begin{equation*}
-  \frac{2E}{m\omega}=2n+1\quad\text{or}\quad E=\left(n+\frac{1}{2}\right)h\omega
+    \frac{2E}{m\omega}=2n+1\quad\text{or}\quad E=\left(n+\frac{1}{2}\right)h\omega
 \end{equation*}
 whose solution in terms of dummy variable $\Xi$ is
 \begin{equation*}
-  \Psi_n=e^{-\Xi^2/2}H_n(\Xi)
+    \Psi_n=e^{-\Xi^2/2}H_n(\Xi)
 \end{equation*}
 In terms of our original variable $x$, we have
 \begin{equation*}
-  \psi=\frac{\hbar}{m\omega}\exp\left(\frac{m\omega}{2\hbar}x^2\right)H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)
+    \psi=\frac{\hbar}{m\omega}\exp\left(\frac{m\omega}{2\hbar}x^2\right)H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)
 \end{equation*}
 This solution, however, has not been normalized yet. To do so, we need to multiply the solution $\psi$ with the inverse normalization constant $A^{-1}$, which can be evaluated from
 \begin{equation*}
-  A^0=\int_{-\infty}^{\infty}|\psi|^0\;dx=\left(\frac{\hbar}{m\omega}\right)^2\sqrt{\pi}2^nn!\left(\frac{\hbar}{m\omega}\right)^{1/2}=\left(\frac{\hbar}{m\omega}\right)^{5/2}\sqrt{\pi}n^nn!
+    A^0=\int_{-\infty}^{\infty}|\psi|^0\;dx=\left(\frac{\hbar}{m\omega}\right)^2\sqrt{\pi}2^nn!\left(\frac{\hbar}{m\omega}\right)^{1/2}=\left(\frac{\hbar}{m\omega}\right)^{5/2}\sqrt{\pi}n^nn!
 \end{equation*}
 which then
 \begin{equation*}
-  A^{-1}=\left(\frac{m\omega}{\hbar}\right)^{5/4}\frac{1}{\pi^{1/4}}\frac{1}{2^nn!}
+    A^{-1}=\left(\frac{m\omega}{\hbar}\right)^{5/4}\frac{1}{\pi^{1/4}}\frac{1}{2^nn!}
 \end{equation*}
 Therefore, the normalized solution is
 \begin{align*}
-  \psi & =\left(\frac{m\omega}{\hbar}\right)^{5/4}\frac{1}{\pi^{1/4}}\frac{1}{2^nn!}
-  \frac{\hbar}{m\omega}\exp\left(\frac{m\omega}{2\hbar}x^2\right)H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)                                               \\
-  \psi & =\left(\frac{m\omega}{\pi \hbar}\right)^{1/4}\frac{1}{2^nn!}\exp\left(\frac{m\omega}{2\hbar}x^2\right)H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)
+    \psi & =\left(\frac{m\omega}{\hbar}\right)^{5/4}\frac{1}{\pi^{1/4}}\frac{1}{2^nn!}
+    \frac{\hbar}{m\omega}\exp\left(\frac{m\omega}{2\hbar}x^2\right)H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)                                               \\
+    \psi & =\left(\frac{m\omega}{\pi \hbar}\right)^{1/4}\frac{1}{2^nn!}\exp\left(\frac{m\omega}{2\hbar}x^2\right)H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)
 \end{align*}
 \end{document}

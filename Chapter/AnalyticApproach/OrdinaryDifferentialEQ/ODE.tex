@@ -206,19 +206,19 @@ $g(t)$ may be a constant vector, a function of $t$, or any prescribed external i
 
 If \(\mathbf{g}(t)\equiv 0\), the solution is
 \[
-    \mathbf{u}(t)=\exp(A(t-t_0))\,\mathbf{u}_0,
+    \mathbf{u}(t)=\exp[A(t-t_0)]\,\mathbf{u}_0,
 \]
 where \(\exp(A\tau)\) is the matrix exponential. If \(\mathbf{g}\neq 0\), variation of constants yields
 \[
-    \mathbf{u}(t)=\exp(A(t-t_0))\,\mathbf{u}_0
+    \mathbf{u}(t)=\exp[A(t-t_0)]\,\mathbf{u}_0
     + \int_{t_0}^{t} \exp(A(t-s))\,\mathbf{g}(s)\,ds.
 \]
-
-If \(A\) is diagonalizable, write \(A=V\Lambda V^{-1}\) with \(\Lambda=\operatorname{diag}(\lambda_i)\). Then
+This formula is complete, but it is not usable until $\exp[A(t-t_0)]$ is expressed in closed form.
+If \(A\) is diagonalizable, write \(A=V\Lambda V^{-1}\) with \(\Lambda=\text{diag}(\lambda_i)\). Then
 \[
-    \exp(A\tau)=V\,\operatorname{diag}(e^{\lambda_i \tau})\,V^{-1}.
+    \exp(A\tau)=V\,\text{diag}(e^{\lambda_i \tau})\,V^{-1}.
 \]
-If \(A\) has a Jordan form, one uses the exponential of Jordan blocks.
+
 
 \subsubsection{Proof.}
 Let the linear system be

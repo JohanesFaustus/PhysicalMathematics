@@ -525,6 +525,40 @@ As a mnemonic, use the sign pattern to check the sign of the cofactor
 	\end{bmatrix}
 \end{equation*}
 
+\subsection{Diagonalization}
+Diagonalization refers to representing a linear operator by a diagonal matrix in a suitable basis.
+Let $ A$ be an $n \times  n$ matrix over $\mathbb{R}$ or $\mathbb{C}$, then diagonaliszation state
+\begin{equation*}
+	A= V \Lambda V^{-1}
+\end{equation*}
+where $\Lambda$ is diagonal matrix corresponding to eigenvalues of $A$ and $V$ form basis consisting of eigenvectors of $V$.
+When the decomposition exists, powers and analytic functions of $A$ are computed by conjugation of the diagonal matrix
+\begin{equation*}
+	e^{At} = Ve^{\Lambda t}V^{-1} = \mathrm{diag}(e^{\lambda_{1}t}, \dots, e^{\lambda_{n}t})
+\end{equation*}
+
+The procedure of finding the diagonalization are as follows
+\begin{enumerate}
+	\item \textbf{Eigenvalue.} Solve the characteristic equation to obtain eigenvalues
+	      \begin{equation*}
+		      \mathrm{det}(A - \lambda I) = 0
+	      \end{equation*}
+	\item \textbf{Eigenvector.} For each eigenvalue $\lambda$, solve the linear system
+	      \begin{equation*}
+		      (A-\lambda_{i} I)v=0
+	      \end{equation*}
+	      to obtain eigenvectors
+	\item \textbf{eigenbasis.} If the total number of linearly independent eigenvectors is $n$, assemble them as columns of the matrix
+	      \begin{equation*}
+		      V = [v_{1}\ \cdots\ v_{n}]
+	      \end{equation*}
+	\item \textbf{Diagonal.} Form the diagonal matrix
+	      \begin{equation*}
+		      \Lambda = \mathrm{diag}(\lambda_{1},\ldots,\lambda_{n}),
+	      \end{equation*}
+	      matching each $\lambda_i$ to the corresponding eigenvector in column $i$ of $V$.
+\end{enumerate}
+
 \subsection{Special Matrices and Operator}
 \subsubsection{Theorem.}
 \begin{enumerate}
