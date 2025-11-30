@@ -96,7 +96,7 @@ has the solution of the form
 \end{equation*}
 where the complementary function $y_c$ is the general solution of the homogeneous
 equation (when right-hand side is equal to zero) and $y_p$ is a particular solution, that is when the right-hand side is equal to $f(x)$ or $F(x)$.
- The simplest method solving them is by Inspection and Successive Integration of Two First-Order Equations.
+The simplest method solving them is by Inspection and Successive Integration of Two First-Order Equations.
 
 \subsubsection{Exponential Right-Hand Side.}
 Suppose we have $F (x) = ke^{cx}$, or
@@ -183,6 +183,98 @@ can be solved by solving
     a_2\seconddf y+a_1\df y+a_0y=c_ne_{inx}
 \end{equation*}
 then add the solutions for all $n$ (applying principle of superposition), and we have the solution of first the equation.
+
+\subsection{Coupled First Order Equation}
+Any system of order \(m\) can be converted to first order by introducing derivatives as additional variables. The general first-order form is
+A coupled ordinary differential equation (ODE) system is treated by rewriting it as a first-order vector ODE.
+Consider the linear autonomous system
+\begin{equation*}
+    \frac{d}{dt}
+    \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}
+    =
+    \begin{bmatrix} a_{11}(t) & a_{12}(t) & \cdots & a_{1n}(t) \\ a_{21}(t) & a_{22}(t) & \cdots & a_{2n}(t) \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1}(t) & a_{n2}(t) & \cdots & a_{nn}(t) \end{bmatrix}
+    \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}
+    +
+    \begin{bmatrix} g_1(t) \\ g_2(t) \\ \vdots \\ g_n(t) \end{bmatrix}
+\end{equation*}
+or
+\begin{equation*}
+    \frac{d\mathbf{u}}{dt}=A\mathbf{u}+\mathbf{g}(t)
+\end{equation*}
+with constant matrix \(A\in\mathbb{R}^{n\times n}\) and inhomogeneity \(\mathbf{g}(t)\).
+$g(t)$ may be a constant vector, a function of $t$, or any prescribed external input.
+
+If \(\mathbf{g}(t)\equiv 0\), the solution is
+\[
+    \mathbf{u}(t)=\exp(A(t-t_0))\,\mathbf{u}_0,
+\]
+where \(\exp(A\tau)\) is the matrix exponential. If \(\mathbf{g}\neq 0\), variation of constants yields
+\[
+    \mathbf{u}(t)=\exp(A(t-t_0))\,\mathbf{u}_0
+    + \int_{t_0}^{t} \exp(A(t-s))\,\mathbf{g}(s)\,ds.
+\]
+
+If \(A\) is diagonalizable, write \(A=V\Lambda V^{-1}\) with \(\Lambda=\operatorname{diag}(\lambda_i)\). Then
+\[
+    \exp(A\tau)=V\,\operatorname{diag}(e^{\lambda_i \tau})\,V^{-1}.
+\]
+If \(A\) has a Jordan form, one uses the exponential of Jordan blocks.
+
+\subsubsection{Proof.}
+Let the linear system be
+\[
+    \dot{x}(t)=A\,x(t)+g(t),
+\]
+where \(A\) is a constant \(n\times n\) matrix and \(g(t)\) is a given vector function.
+
+Define the fundamental matrix \(\Phi(t)\) as the unique solution of
+\[
+    \dot{\Phi}(t)=A\,\Phi(t), \qquad \Phi(0)=I.
+\]
+Then \(\Phi(t)=e^{At}\).
+
+Assume a solution of the inhomogeneous system of the form
+\[
+    x(t)=\Phi(t)\,c(t),
+\]
+where \(c(t)\) is an unknown vector function. Differentiating yields
+\[
+    \dot{x}(t)=\dot{\Phi}(t)c(t)+\Phi(t)\dot{c}(t).
+\]
+Using \(\dot{\Phi}(t)=A\Phi(t)\) gives
+\[
+    \dot{x}(t)=A\Phi(t)c(t)+\Phi(t)\dot{c}(t)
+    =A x(t)+\Phi(t)\dot{c}(t).
+\]
+Substitute this expression into the differential equation:
+\[
+    A x(t)+\Phi(t)\dot{c}(t)=A x(t)+g(t).
+\]
+Cancel \(A x(t)\) to obtain
+\[
+    \Phi(t)\dot{c}(t)=g(t).
+\]
+Since \(\Phi(t)\) is invertible, multiply by \(\Phi(t)^{-1}\):
+\[
+    \dot{c}(t)=\Phi(t)^{-1}g(t).
+\]
+Integrate from \(0\) to \(t\):
+\[
+    c(t)=c(0)+\int_{0}^{t}\Phi(s)^{-1}g(s)\,ds.
+\]
+Using the initial condition \(x(0)=\Phi(0)c(0)=I\,c(0)\), one obtains \(c(0)=x(0)\).
+
+Substitute into \(x(t)=\Phi(t)c(t)\):
+\[
+    x(t)=\Phi(t)x(0)+\Phi(t)\int_{0}^{t}\Phi(s)^{-1}g(s)\,ds.
+\]
+Use the identity \(\Phi(t)\Phi(s)^{-1}=e^{A(t-s)}\) to rewrite:
+\[
+    x(t)=e^{A t}x(0)
+    +\int_{0}^{t} e^{A(t-s)} g(s)\,ds.
+\]
+This expression is the general solution of the inhomogeneous linear system.
+
 
 \subsection{Laplace Transform}
 We define $\mathcal{L}(f )$, the Laplace transform of $f (t)$ [also written $F (p)$ since it is a function of $p$], by the equation
@@ -392,7 +484,7 @@ The generating function, expression that encodes an infinite sequence, for Besse
     \exp\left[\frac{x}{2}\left(t-\frac{1}{t}\right)\right] =\sum_{p=-\infty}^{\infty}J_n(x)t^p
 \end{equation*}
 
-\subsubsection{Series representation derivation.} 
+\subsubsection{Series representation derivation.}
 First we write the Bessel's equation as
 \begin{equation*}
     x(xy')'+ (x^2-p^2)y=0
@@ -885,8 +977,8 @@ Hence we have
 \begin{gather*}
     (1-x^2)^{\frac{m}{2}+1}u''-2(m+1)x(1-x^2)^{\frac{m}{2}}u' \\
     +\bigg[l(l+1)(1-x^2)^{\frac{m}{2}}-m^2(1-x^2)^{\frac{m}{2}-1}\\
-    +2mx^2(1-x^2)^{\frac{m}{2}-1} \\
-    -m(1-x^2)^{\frac{m}{2}} +2mx^2\left(\frac{m}{2}-1\right)(1-x^2)^{\frac{m}{2}-1}\bigg]u=0
+        +2mx^2(1-x^2)^{\frac{m}{2}-1} \\
+        -m(1-x^2)^{\frac{m}{2}} +2mx^2\left(\frac{m}{2}-1\right)(1-x^2)^{\frac{m}{2}-1}\bigg]u=0
 \end{gather*}
 Terms inside square bracket can be simplified into
 \begin{equation*}
@@ -1143,7 +1235,7 @@ which is solved by the Hermite polynomial
 Hermite polynomial can also be obtained by multiplying the Hermite function by $(-1)^ne^{x^2/2}$.
 This multiplication is performed such that the polynomial is raising from negative $-\infty$ and orthogonal on $(-\infty,\infty)$.
 
-The generating function $\phi(x,h)$ for Hermite polynomial is 
+The generating function $\phi(x,h)$ for Hermite polynomial is
 \begin{equation*}
     \exp(2xh-h^2)=\sum_{n=0}^{\infty}H_n(x)\frac{h^n}{n!}
 \end{equation*}
@@ -1188,38 +1280,38 @@ If $y_n=(D=x)y_m$ and $n+1=m$ for the second $n$ equations and the first $m$ equ
 Mathematically, these operators are called the raising operator $(D-x)$ and lowering operator $(D+x)$.
 Quantum mechanics definition of raising operator $a^\dagger$ and lowering operator $a$ is different to accommodate adjoint $[a,a^\dagger]=1$
 \begin{align*}
-    a^\dagger&=\frac{1}{\sqrt{2}}(x-D)\\
-    a&=\frac{1}{\sqrt{2}}(x+D)
+    a^\dagger & =\frac{1}{\sqrt{2}}(x-D) \\
+    a         & =\frac{1}{\sqrt{2}}(x+D)
 \end{align*}
 
 We can derive the solution for Hermite equations
 \begin{equation*}
     y''-2xy'+2ny=0
 \end{equation*}
-using the Rodrigues formula. First, the integral factor is evaluated as follows 
+using the Rodrigues formula. First, the integral factor is evaluated as follows
 \begin{equation*}
     \mu=\exp\left(\int_{0}^{x}-2x\;dx\right)=e^{-x^2}
 \end{equation*}
-The solution is the 
+The solution is the
 \begin{equation*}
     y=\frac{1}{e^{-x^2}}\left(\frac{d}{dx}\right)^ne^{-x^2}
 \end{equation*}
 The Hermite polynomial is obtained by multiplying the solution with factor of $(-1)^n$
 \begin{equation*}
     H_n=(-1)^ne^{x^2}\left(\frac{d}{dx}\right)^ne^{-x^2}
-\end{equation*} 
+\end{equation*}
 
 \subsubsection{Orthogonality.} We state the orthogonality of Hermite function or Hermite polynomial as follows.
 \begin{equation*}
     \int_{-\infty}^{\infty}e^{-x^2}H_n(x)H_m(x)\;dx=\sqrt{\pi}2^n n!\delta_{nm}
-\end{equation*} 
-The Hermite polynomial is orthogonal on $(-\infty,\infty)$ with respect to weight function $e^{-x^2}$. 
+\end{equation*}
+The Hermite polynomial is orthogonal on $(-\infty,\infty)$ with respect to weight function $e^{-x^2}$.
 This is why the Hermite function is defined in such way to allow the function to be orthogonal on $(-\infty,\infty)$ with respect to itself
 \begin{equation*}
     \int_{-\infty}^{\infty}y_ny_m\;dx=\sqrt{\pi}2^nn!\delta_{nm}
 \end{equation*}
 
-\subsubsection{Recursive relation derivation.} 
+\subsubsection{Recursive relation derivation.}
 Derivation the generating function
 \begin{equation*}
     \exp(2xh-h^2)=\sum_{n=0}^{\infty}H_n(x)\frac{h^n}{n!}
@@ -1227,23 +1319,23 @@ Derivation the generating function
 with respect either $x$ or $h$ will result in the recursive relation.
 The first relation is obtained by performing derivative to the $\phi(x,h)$ with respect to $x$
 \begin{align*}
-    2h\exp(2xh-h^2)&=\sum H_n'\frac{h^n}{n!}\\
-    2\sum\frac{H_{n-1}}{(n-1)!}h^n&=\sum \frac{H_n'}{n!}h^n
+    2h\exp(2xh-h^2)                & =\sum H_n'\frac{h^n}{n!} \\
+    2\sum\frac{H_{n-1}}{(n-1)!}h^n & =\sum \frac{H_n'}{n!}h^n
 \end{align*}
-and equating the $h^n$ term 
+and equating the $h^n$ term
 \begin{align*}
-    2\frac{H_{n-1}}{(n-1)!}&=\frac{H_n'}{n!}\\
-    2nH_{n-1}&=H_n'
+    2\frac{H_{n-1}}{(n-1)!} & =\frac{H_n'}{n!} \\
+    2nH_{n-1}               & =H_n'
 \end{align*}
 In other hand, the second relation is obtained by derivating with respect to $h$
 \begin{align*}
-    (2x-2h)\exp(2xh-h^2)&=\sum\frac{nH_n}{n!}h^{n-1}\\
-    2x\sum \frac{H_n}{n!}h^n-2 \sum \frac{H_{n-1}}{(n-1)!}h^n &=\sum \frac{H_(n+1)}{n!}
+    (2x-2h)\exp(2xh-h^2)                                      & =\sum\frac{nH_n}{n!}h^{n-1} \\
+    2x\sum \frac{H_n}{n!}h^n-2 \sum \frac{H_{n-1}}{(n-1)!}h^n & =\sum \frac{H_(n+1)}{n!}
 \end{align*}
-and, as before, equation the $h^n$ terms 
+and, as before, equation the $h^n$ terms
 \begin{align*}
-    2x\frac{H_n}{n!}-2\frac{H_{n-1}}{(n-1)!}&=\frac{H_{n+1}}{n!}\\
-    2xH_n-2nH_{n-1}&=H_{n+1}
+    2x\frac{H_n}{n!}-2\frac{H_{n-1}}{(n-1)!} & =\frac{H_{n+1}}{n!} \\
+    2xH_n-2nH_{n-1}                          & =H_{n+1}
 \end{align*}
 
 \subsection{Laguerre function}
@@ -1260,7 +1352,7 @@ or if we were to carry the differentiation using Leibniz's rule
     L_n(x)=\sum_{m=0}^{n}(-1)^m\binom{n}{m}\frac{x^m}{m!}
 \end{equation*}
 
-Another closely related equation is 
+Another closely related equation is
 \begin{equation*}
     xy''+(k+1-x)y'+ny=0
 \end{equation*}
@@ -1269,12 +1361,12 @@ which is solved by the associated Laguerre polynomials
     L_n^k(x)=(-1)^k\left(\frac{d}{dx}\right)^kL_{n+k}(x)
 \end{equation*}
 
-\subsubsection{Derivation.} 
+\subsubsection{Derivation.}
 The Laguerre equation
 \begin{equation*}
     xy''+(1-x)y'+ny=0
 \end{equation*}
-can be solved using Rodrigues formula, where the integral factor is 
+can be solved using Rodrigues formula, where the integral factor is
 \begin{equation*}
     \mu=\frac{1}{x}\exp\left(\int_{0}^{x}\frac{1-x}{x}\;dx\right)=\frac{\exp(\ln x-x )}{x}=e^{-x}
 \end{equation*}
@@ -1290,16 +1382,16 @@ On multiplying with $1/n!$ we obtain the Laguerre polynomials
 \subsubsection{Recursive relation.}
 The Laguerre polynomials satisfy the recurrence relation
 \begin{equation*}
-(n+1)L_{n+1}(x) = (2n+1 - x)L_n(x) - nL_{n-1}(x),
+    (n+1)L_{n+1}(x) = (2n+1 - x)L_n(x) - nL_{n-1}(x),
 \end{equation*}
 with initial conditions
 \begin{equation*}
-L_0(x) = 1, \qquad L_1(x) = 1 - x.
+    L_0(x) = 1, \qquad L_1(x) = 1 - x.
 \end{equation*}
 
 For the associated Laguerre polynomials $L_n^k(x)$, the recurrence relation generalizes to
 \begin{equation*}
-(n+1)L_{n+1}^k(x) = \big(2n+1+\alpha - x\big)L_n^k(x) - (n+\alpha)L_{n-1}^k(x).
+    (n+1)L_{n+1}^k(x) = \big(2n+1+\alpha - x\big)L_n^k(x) - (n+\alpha)L_{n-1}^k(x).
 \end{equation*}
 
 
@@ -1310,13 +1402,13 @@ Laplace's equation state that
     \nabla^2 u=0
 \end{equation*}
 
-\subsubsection{Cylindrical domain.} Suppose we evaluate Laplace equation in cylindrical domain. 
+\subsubsection{Cylindrical domain.} Suppose we evaluate Laplace equation in cylindrical domain.
 The Laplacian reads
 \begin{equation*}
     \nabla^2u= \frac{1}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial u}{\partial r}\Biggr)+\frac{1}{r^2} \frac{\partial^2u}{\partial \phi^2}+ \frac{\partial^2u}{\partial z^2}
 \end{equation*}
 
-By the separation of variables, we assume the solution of $u=R(r)\Phi(\phi)Z(z)$. 
+By the separation of variables, we assume the solution of $u=R(r)\Phi(\phi)Z(z)$.
 Thus, the Laplace's equation now reads
 \begin{equation*}
     \frac{\Phi R}{r}\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
@@ -1329,7 +1421,7 @@ Then we divide by $u=R(r)\Phi(\phi)Z(z)$,
     +\frac{1}{\Phi r^2} \frac{\partial^2\Phi}{\partial \phi^2}
     + \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=0
 \end{equation*}
-Since only last term is the function of $z$ alone, we can safely say that it is a constant. 
+Since only last term is the function of $z$ alone, we can safely say that it is a constant.
 Therefore, we define
 \begin{equation*}
     \frac{1}{Z}\frac{\partial^2Z}{\partial z^2}=K^2\implies Z=Ae^{Kz}+Be^{-KZ}
@@ -1340,15 +1432,15 @@ Substituting this value and multiplying by $r^2$, we have
     +\frac{1}{\Phi } \frac{\partial^2\Phi}{\partial \phi^2}
     +K^2r^2=0
 \end{equation*}
-Now we see that the second term is constant. 
+Now we see that the second term is constant.
 We define
 \begin{equation*}
     \frac{1}{\Phi}\frac{\partial^2 \Phi}{\partial \phi}=-n^2\implies \Phi=C\sin n\theta +D\cos n\theta
 \end{equation*}
-where $n$ is an integer. 
-The reason for said separation constant is due to periodicity. 
-For a position in polar coordinate, we denote them as $\theta+2n\pi$. 
-Hence, for a most physical reason, the position $\theta$ and $\theta+2n\pi$ must give the same result, which is possible if the solution is periodic with period of $2\pi$. 
+where $n$ is an integer.
+The reason for said separation constant is due to periodicity.
+For a position in polar coordinate, we denote them as $\theta+2n\pi$.
+Hence, for a most physical reason, the position $\theta$ and $\theta+2n\pi$ must give the same result, which is possible if the solution is periodic with period of $2\pi$.
 Finally, we substitute this and multiplying with $R$ to obtain the radial solution
 \begin{equation*}
     r\frac{\partial}{\partial r}\Biggl(r\frac{\partial R}{\partial r}\Biggr)
@@ -1376,12 +1468,12 @@ As before, we multiply it by $u = R(r)\Phi(\phi)Z(z)$
 \begin{equation*}
     \frac{1}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) +\frac{1}{\Theta\sin\theta}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}{d\theta}\right) +\frac{1}{\Phi\sin^2\phi}\frac{d^2\Phi}{d\phi^2}=0
 \end{equation*}
-If we multiply by $\sin^2\theta$, we see that the last terms is a function of $\phi$, while the other two are not. 
+If we multiply by $\sin^2\theta$, we see that the last terms is a function of $\phi$, while the other two are not.
 Hence, we can say
 \begin{equation*}
     \frac{1}{\Phi}\frac{d^2\Phi}{2\phi^2}=-m^2\implies\phi=Ae^{im\phi}+ Be^{-im\phi}
 \end{equation*}
-The constant is chosen to be negative due to periodicity, as before. 
+The constant is chosen to be negative due to periodicity, as before.
 With this, we can write
 \begin{equation*}
     \frac{1}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) +\frac{1}{\Theta\sin\theta}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}{d\theta}\right) -\frac{m^2}{\sin^2\theta}=0
@@ -1418,8 +1510,8 @@ Next we consider the $\theta$ equation
 \begin{equation*}
     \frac{d^2\Phi}{d\theta^2} +\frac{\cos \theta}{\sin\theta}\frac{d\Theta}{d\theta} +\left[l(l+1)-\frac{m^2}{\sin^2\theta} \right]\Theta =0
 \end{equation*}
-This is the associated Legendre equation if we substitute $x=\cos \theta$. 
- Thus, we have the solution
+This is the associated Legendre equation if we substitute $x=\cos \theta$.
+Thus, we have the solution
 \begin{equation*}
     \Theta=P_l^m(\cos\theta)
 \end{equation*}
@@ -1432,14 +1524,14 @@ where $Y_l^m(\theta,\phi)$ is the spherical harmonics.
 
 
 \subsection{Poisson’s Equation}
-Consider the same scalar function $u$ as the case of Laplace's equation, however we have a region containing mass, electric charge, or sources of heat or fluid denoted by $f(x,y,z)$. 
+Consider the same scalar function $u$ as the case of Laplace's equation, however we have a region containing mass, electric charge, or sources of heat or fluid denoted by $f(x,y,z)$.
 Poisson's equation is written as
 \begin{equation*}
     \nabla^2 u=f(x,y,z)
 \end{equation*}
 
 \subsection{Heat Flow or Diffusion Equation}
-Now suppose that the temperature is non-steady. 
+Now suppose that the temperature is non-steady.
 The flow of temperature is governed by the equation
 \begin{equation*}
     \nabla^2 u=\frac{1}{\alpha}\frac{\partial u}{\partial t}
