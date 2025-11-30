@@ -1,7 +1,68 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection{Appendix: Coupled System}
+\subsection{Appendix: Coupled First Order ODE}
+Consider
+\begin{equation*}
+    \frac{dx}{dt} = 2x + y\qquad
+    \frac{dy}{dt} = x + 2y
+\end{equation*}
+or equivalently
+\begin{equation*}
+    \frac{d}{dt}\begin{bmatrix} x \\ y \end{bmatrix} = A \begin{bmatrix} x \\ y \end{bmatrix}
+    A = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}
+\end{equation*}
 
+First we solve the characteristic equation
+\begin{equation*}
+    \mathrm{det}\begin{bmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda \end{bmatrix} = (2 - \lambda)^2 - 1 = \lambda^2 - 4\lambda + 3 = 0
+\end{equation*}
+Hence $\lambda=(3,1)$. Finding the eigenvector for $\lambda_1=3$, we have
+\begin{equation*}
+    (A - 3I)v = \begin{bmatrix} -1 & 1 \\ 1 & -1 \end{bmatrix}
+    \begin{bmatrix}
+        x \\y
+    \end{bmatrix}
+    \qquad
+    -x + y = 0 \implies y = x
+\end{equation*}
+so the eigenvector is $v_1=\begin{bmatrix}1&1\end{bmatrix}^T$. Next for $\lambda_2=1$
+\begin{equation*}
+    (A - 1I) = \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}
+    \begin{bmatrix}
+        x \\y
+    \end{bmatrix}
+    \qquad
+    x + y = 0 \implies y = -x
+\end{equation*}
+so the eigenvector is $v_1=\begin{bmatrix}1&-1\end{bmatrix}^T$.
+Then we assemble the eigenbasis
+\begin{equation*}
+    V = [v_{1}\ v_{2}]=\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
+\end{equation*}
+and its inverse
+\begin{equation*}
+    V^{-1} = \frac{1}{\mathrm{det} V} \begin{bmatrix} -1 & -1 \\ -1 & 1 \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
+\end{equation*}
+to construct the propagator
+\begin{align*}
+    \exp(A\tau) & =  V\,\text{diag}(e^{\lambda_1 \tau}e^{\lambda_2\tau})\,V^{-1}                                                                         \\
+                & =
+    \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
+    \begin{bmatrix} e^{3\tau} & 0 \\ 0 & e^{\tau} \end{bmatrix}
+    \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}                                                                                            \\
+                & =
+    \frac{1 }{2} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \begin{bmatrix} e^{3\tau} & e^{3\tau} \\ e^{\tau} & -e^{\tau} \end{bmatrix}               \\
+                & = \frac{1}{2} \begin{bmatrix} e^{3\tau} + e^{\tau} & e^{3\tau} - e^{\tau} \\ e^{3\tau} - e^{\tau} & e^{3\tau} + e^{\tau} \end{bmatrix}
+\end{align*}
+For initial state $\mathbf{u}_{0} = \begin{bmatrix} x_{0} & y_{0} \end{bmatrix}^T$, the solution reads
+\begin{equation*}
+    \begin{bmatrix} x(t) \\ y(t) \end{bmatrix} = \frac{1}{2} \begin{bmatrix} e^{3 \tau} + e^{\tau} & e^{3 \tau} - e^{\tau} \\ e^{3 \tau} - e^{\tau} & e^{3 \tau} + e^{\tau} \end{bmatrix} \begin{bmatrix} x_0 \\ y_0 \end{bmatrix}
+\end{equation*}
+or
+\begin{equation*}
+    x(t) = c_1 e^{3 \tau} + c_2 e^{\tau}\\qquad
+    y(t) = c_1 e^{3 \tau} - c_2 e^{\tau}
+\end{equation*}
 
 \subsection{Appendix: Frobenius' Method}
 I will demonstrate this technique. Consider the following differential equation.

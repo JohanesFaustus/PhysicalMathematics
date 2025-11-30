@@ -1,782 +1,783 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+
 \subsection{Application: Gram-Schmidt Theorem}
 Convert these linearly independent basis into orthonormal basis
 \begin{equation*}
-	\ket{I}=\begin{bmatrix}
-		3 \\0\\0
-	\end{bmatrix}\quad
-	\ket{II}=\begin{bmatrix}
-		0 \\1\\2
-	\end{bmatrix}\qquad
-	\ket{III}=\begin{bmatrix}
-		0 \\2\\5
-	\end{bmatrix}
+    \ket{I}=\begin{bmatrix}
+        3 \\0\\0
+    \end{bmatrix}\quad
+    \ket{II}=\begin{bmatrix}
+        0 \\1\\2
+    \end{bmatrix}\qquad
+    \ket{III}=\begin{bmatrix}
+        0 \\2\\5
+    \end{bmatrix}
 \end{equation*}
 
 First normalize
 \begin{equation*}
-	\ket{1}=\frac{\ket{I}}{\sqrt{\braket{I|I}}}=\frac{1}{3}\begin{bmatrix}
-		3 \\0\\0
-	\end{bmatrix}=\begin{bmatrix}
-		1 \\0\\0
-	\end{bmatrix}
+    \ket{1}=\frac{\ket{I}}{\sqrt{\braket{I|I}}}=\frac{1}{3}\begin{bmatrix}
+        3 \\0\\0
+    \end{bmatrix}=\begin{bmatrix}
+        1 \\0\\0
+    \end{bmatrix}
 \end{equation*}
 Then we construct
 \begin{equation*}
-	\ket{2'}=\ket{II}-\ket{1}\braket{1|II}=\begin{bmatrix}
-		0 \\1\\2
-	\end{bmatrix}
-	-
-	\begin{bmatrix}
-		1 \\0\\0
-	\end{bmatrix}
-	\begin{bmatrix}
-		1 & 0 & 0
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 \\2\\5
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		0 \\1\\2
-	\end{bmatrix}
+    \ket{2'}=\ket{II}-\ket{1}\braket{1|II}=\begin{bmatrix}
+        0 \\1\\2
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        1 \\0\\0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\2\\5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\1\\2
+    \end{bmatrix}
 \end{equation*}
 and normalize
 \begin{equation*}
-	\ket{2}=\frac{\ket{2'}}{|2'|}=\frac{1}{\sqrt{5}}\begin{bmatrix}
-		0 \\1\\2
-	\end{bmatrix}=
-	\begin{bmatrix}
-		0 \\1/\sqrt{5}\\2/\sqrt{5}
-	\end{bmatrix}
+    \ket{2}=\frac{\ket{2'}}{|2'|}=\frac{1}{\sqrt{5}}\begin{bmatrix}
+        0 \\1\\2
+    \end{bmatrix}=
+    \begin{bmatrix}
+        0 \\1/\sqrt{5}\\2/\sqrt{5}
+    \end{bmatrix}
 \end{equation*}
 Doing the something for the third base
 \begin{align*}
-	\ket{3'} & =\ket{III}-\ket{1}\braket{1|III}-\ket{2}\braket{2|III} \\
-	         & =\begin{bmatrix}
-		            0 \\2\\5
-	            \end{bmatrix}-\begin{bmatrix}
-		                          1 \\0\\0
-	                          \end{bmatrix}
-	\begin{bmatrix}
-		1 & 0 & 0
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 \\2\\5
-	\end{bmatrix}
-	-
-	\begin{bmatrix}
-		0 \\1/\sqrt{5}\\2/\sqrt{5}
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 & 1/\sqrt{5} & 2/\sqrt{5}
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 \\2\\5
-	\end{bmatrix}                                                    \\
-	         & =\begin{bmatrix}
-		            0 \\2\\5
-	            \end{bmatrix}
-	-
-	\begin{bmatrix}
-		0 \\12/5\\24/5
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		0 \\-2/5\\1/5
-	\end{bmatrix}
+    \ket{3'} & =\ket{III}-\ket{1}\braket{1|III}-\ket{2}\braket{2|III} \\
+             & =\begin{bmatrix}
+                    0 \\2\\5
+                \end{bmatrix}-\begin{bmatrix}
+                                  1 \\0\\0
+                              \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\2\\5
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        0 \\1/\sqrt{5}\\2/\sqrt{5}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 1/\sqrt{5} & 2/\sqrt{5}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\2\\5
+    \end{bmatrix}                                                    \\
+             & =\begin{bmatrix}
+                    0 \\2\\5
+                \end{bmatrix}
+    -
+    \begin{bmatrix}
+        0 \\12/5\\24/5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\-2/5\\1/5
+    \end{bmatrix}
 \end{align*}
 And normalize it
 \begin{equation*}
-	\ket{3}=\frac{\ket{3'}}{|3'|}=\sqrt{5}\begin{bmatrix}
-		0 \\-2/5\\1/5
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		0 \\-2/\sqrt{5}\\1/\sqrt{5}
-	\end{bmatrix}
+    \ket{3}=\frac{\ket{3'}}{|3'|}=\sqrt{5}\begin{bmatrix}
+        0 \\-2/5\\1/5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\-2/\sqrt{5}\\1/\sqrt{5}
+    \end{bmatrix}
 \end{equation*}
 
 \subsection{Application: Determining determinant}
 Consider the matrix
 \begin{equation*}
-	A=\begin{bmatrix}
-		2 & -5 & 2 \\
-		7 & 3  & 4 \\
-		2 & 1  & 5 \\
-	\end{bmatrix}
+    A=\begin{bmatrix}
+        2 & -5 & 2 \\
+        7 & 3  & 4 \\
+        2 & 1  & 5 \\
+    \end{bmatrix}
 \end{equation*}
 We use the elements of third column first
 \begin{align*}
-	\det A & =\begin{vmatrix}
-		          2 & -5 & 2 \\
-		          7 & 3  & 4 \\
-		          2 & 1  & 5 \\
-	          \end{vmatrix}
-	=
-	2\begin{vmatrix}
-		 7 & 3 \\
-		 2 & 1 \\
-	 \end{vmatrix}
-	-
-	4\begin{vmatrix}
-		 2 & -5 \\
-		 2 & 1  \\
-	 \end{vmatrix}
-	+
-	5\begin{vmatrix}
-		 2 & -5 \\
-		 7 & 3  \\
-	 \end{vmatrix}
-	\\
-	       & =2\cdot1-4\cdot11+5\cdot38=148
+    \det A & =\begin{vmatrix}
+                  2 & -5 & 2 \\
+                  7 & 3  & 4 \\
+                  2 & 1  & 5 \\
+              \end{vmatrix}
+    =
+    2\begin{vmatrix}
+         7 & 3 \\
+         2 & 1 \\
+     \end{vmatrix}
+    -
+    4\begin{vmatrix}
+         2 & -5 \\
+         2 & 1  \\
+     \end{vmatrix}
+    +
+    5\begin{vmatrix}
+         2 & -5 \\
+         7 & 3  \\
+     \end{vmatrix}
+    \\
+           & =2\cdot1-4\cdot11+5\cdot38=148
 \end{align*}
 Then, as a check we use the first row's
 \begin{align*}
-	\det A    =
-	1\begin{vmatrix}
-		 3 & 4 \\
-		 1 & 5 \\
-	 \end{vmatrix}
-	+
-	5\begin{vmatrix}
-		 7 & 4 \\
-		 2 & 5 \\
-	 \end{vmatrix}
-	+
-	2\begin{vmatrix}
-		 7 & 3 \\
-		 2 & 1 \\
-	 \end{vmatrix}
-	\\
-	 & =11+135+2=
+    \det A    =
+    1\begin{vmatrix}
+         3 & 4 \\
+         1 & 5 \\
+     \end{vmatrix}
+    +
+    5\begin{vmatrix}
+         7 & 4 \\
+         2 & 5 \\
+     \end{vmatrix}
+    +
+    2\begin{vmatrix}
+         7 & 3 \\
+         2 & 1 \\
+     \end{vmatrix}
+    \\
+     & =11+135+2=
 \end{align*}
 
 \subsection{Application: Inverse matrix}
 We use inverse matrix to solve the following equation
 \begin{equation*}
-	\begin{bmatrix}
-		1  & 0  & -1 \\
-		-2 & 3  & 0  \\
-		1  & -3 & 2  \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		x \\
-		y \\
-		z \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		5   \\
-		1   \\
-		-10 \\
-	\end{bmatrix}
+    \begin{bmatrix}
+        1  & 0  & -1 \\
+        -2 & 3  & 0  \\
+        1  & -3 & 2  \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        5   \\
+        1   \\
+        -10 \\
+    \end{bmatrix}
 \end{equation*}
 Notice the equation has the following form
 \begin{align*}
-	\Omega \ket{V} & =\omega \\
-	\ket{V}=\Omega^{-1}\omega
+    \Omega \ket{V} & =\omega \\
+    \ket{V}=\Omega^{-1}\omega
 \end{align*}
 To find vector $\ket{V}$ that satisfy the equation, we need to determine the inverse of $\Omega$.
 The minor of each element are
 \begin{align*}
-	M_{11} & =6 , \quad
-	M_{12} = -4, \quad
-	M_{13} = 3,          \\
-	M_{21} & -3= , \quad
-	M_{22} = 3, \quad
-	M_{23} = -3,         \\
-	M_{31} & = 3, \quad
-	M_{32} = -2, \quad
-	M_{33} =3            \\
+    M_{11} & =6 , \quad
+    M_{12} = -4, \quad
+    M_{13} = 3,          \\
+    M_{21} & -3= , \quad
+    M_{22} = 3, \quad
+    M_{23} = -3,         \\
+    M_{31} & = 3, \quad
+    M_{32} = -2, \quad
+    M_{33} =3            \\
 \end{align*}
 Thus, the cofactor is
 \begin{equation*}
-	\text{C}=\begin{bmatrix}
-		6 & 4 & 3 \\
-		3 & 3 & 3 \\
-		3 & 2 & 3 \\
-	\end{bmatrix}
+    \text{C}=\begin{bmatrix}
+        6 & 4 & 3 \\
+        3 & 3 & 3 \\
+        3 & 2 & 3 \\
+    \end{bmatrix}
 \end{equation*}
 Next, using the first row to find the determinant
 \begin{equation*}
-	\det\Omega=1\cdot6+1\cdot(6-3)=3
+    \det\Omega=1\cdot6+1\cdot(6-3)=3
 \end{equation*}
 Finally the inverse is
 \begin{equation*}
-	\Omega^{-1}=\frac{1}{\det\Omega}\text{C}^T=\frac{1}{3}
-	\begin{bmatrix}
-		6 & 3 & 3 \\
-		4 & 3 & 2 \\
-		3 & 3 & 3 \\
-	\end{bmatrix}
+    \Omega^{-1}=\frac{1}{\det\Omega}\text{C}^T=\frac{1}{3}
+    \begin{bmatrix}
+        6 & 3 & 3 \\
+        4 & 3 & 2 \\
+        3 & 3 & 3 \\
+    \end{bmatrix}
 \end{equation*}
 Now we can use the inverse to find the value of the vector
 \begin{equation*}
-	\ket{V}=\frac{1}{3}
-	\begin{bmatrix}
-		6 & 3 & 3 \\
-		4 & 3 & 2 \\
-		3 & 3 & 3 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		5 \\
-		1 \\
-		-10
-	\end{bmatrix}
-	=\begin{bmatrix}
-		10+1-10           \\
-		\frac{20+3-20}{3} \\
-		5+1-10            \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		1 \\
-		1 \\
-		-4
-	\end{bmatrix}
+    \ket{V}=\frac{1}{3}
+    \begin{bmatrix}
+        6 & 3 & 3 \\
+        4 & 3 & 2 \\
+        3 & 3 & 3 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        5 \\
+        1 \\
+        -10
+    \end{bmatrix}
+    =\begin{bmatrix}
+        10+1-10           \\
+        \frac{20+3-20}{3} \\
+        5+1-10            \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 \\
+        1 \\
+        -4
+    \end{bmatrix}
 \end{equation*}
 
 \subsection{Application: Eigenvalue Problem}
 We shall find the eigenvalue of the hermitian matrix
 \begin{equation*}
-	\Omega=\begin{bmatrix}
-		0 & 0 & 1 \\
-		0 & 0 & 0 \\
-		1 & 0 & 0 \\
-	\end{bmatrix}
+    \Omega=\begin{bmatrix}
+        0 & 0 & 1 \\
+        0 & 0 & 0 \\
+        1 & 0 & 0 \\
+    \end{bmatrix}
 \end{equation*}
 First write the eigenvalue equation
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega}=
-	\begin{bmatrix}
-		-\omega & 0       & 1       \\
-		0       & -\omega & 0       \\
-		1       & 0       & -\omega \\
-	\end{bmatrix}
-	\ket{\omega}=0
+    (\Omega-\omega I)\ket{\omega}=
+    \begin{bmatrix}
+        -\omega & 0       & 1       \\
+        0       & -\omega & 0       \\
+        1       & 0       & -\omega \\
+    \end{bmatrix}
+    \ket{\omega}=0
 \end{equation*}
 The characteristic equation is
 \begin{equation*}
-	-\omega^3+\omega=\omega(\omega^2+1)=0
+    -\omega^3+\omega=\omega(\omega^2+1)=0
 \end{equation*}
 This implies the eigenvalues are
 \begin{equation*}
-	\omega=0,\pm 1
+    \omega=0,\pm 1
 \end{equation*}
 Next, we substitute the eigenvalue into the eigenvalue equation.
 First consider the eigenvalue $\omega=0$
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega_0}=0\implies
-	\begin{bmatrix}
-		0 & 0 & 1 \\
-		0 & 0 & 0 \\
-		1 & 0 & 0 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		v_1 \\
-		v_2 \\
-		v_3 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		v_3=0 \\
-		0=0   \\
-		v_1=0
-	\end{bmatrix}
+    (\Omega-\omega I)\ket{\omega_0}=0\implies
+    \begin{bmatrix}
+        0 & 0 & 1 \\
+        0 & 0 & 0 \\
+        1 & 0 & 0 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_3=0 \\
+        0=0   \\
+        v_1=0
+    \end{bmatrix}
 \end{equation*}
 And we get arbitrary $v_2$, to normalize the eigenvector we choose
 \begin{equation*}
-	\bra{\omega_0}=
-	\begin{bmatrix}
-		0 & 1 & 0 \\
-	\end{bmatrix}
+    \bra{\omega_0}=
+    \begin{bmatrix}
+        0 & 1 & 0 \\
+    \end{bmatrix}
 \end{equation*}
 Next is the case of $\omega=1$
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega_1}=0\implies
-	\begin{bmatrix}
-		-1 & 0  & 1  \\
-		0  & -1 & 0  \\
-		1  & 0  & -1 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		v_1 \\
-		v_2 \\
-		v_3 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		-v_1+v_3=0 \\
-		-v_2=0     \\
-		v_1-v_3=0
-	\end{bmatrix}
+    (\Omega-\omega I)\ket{\omega_1}=0\implies
+    \begin{bmatrix}
+        -1 & 0  & 1  \\
+        0  & -1 & 0  \\
+        1  & 0  & -1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -v_1+v_3=0 \\
+        -v_2=0     \\
+        v_1-v_3=0
+    \end{bmatrix}
 \end{equation*}
 the eigenvector corresponds to the eigenvalue is
 \begin{equation*}
-	\ket{\omega_1}=\frac{1}{\sqrt{2}}
-	\begin{bmatrix}
-		1 & 0 & 1
-	\end{bmatrix}
+    \ket{\omega_1}=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 & 0 & 1
+    \end{bmatrix}
 \end{equation*}
 Finally the last eigenvalue $\omega=-1$
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega_{-1}}=0\implies
-	\begin{bmatrix}
-		1 & 0 & 1 \\
-		0 & 1 & 0 \\
-		1 & 0 & 1 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		v_1 \\
-		v_2 \\
-		v_3 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		v_1+v_3=0 \\
-		v_2=0     \\
-		v_1+v_3=0
-	\end{bmatrix}
+    (\Omega-\omega I)\ket{\omega_{-1}}=0\implies
+    \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_1+v_3=0 \\
+        v_2=0     \\
+        v_1+v_3=0
+    \end{bmatrix}
 \end{equation*}
 with the eigenvector of
 \begin{equation*}
-	\bra{\omega_{-1}}=\frac{1}{\sqrt{2}}
-	\begin{bmatrix}
-		1 & 0 & -1
-	\end{bmatrix}
+    \bra{\omega_{-1}}=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 & 0 & -1
+    \end{bmatrix}
 \end{equation*}
 
 We can also use these eigenvectors to diagonal the operator $\Omega$.
 From the eigenvector, we construct the unitary matrix
 \begin{equation*}
-	U=
-	\begin{bmatrix}
-		0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
-		1 & 0                  & 0                   \\
-		0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
-	\end{bmatrix}
+    U=
+    \begin{bmatrix}
+        0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+        1 & 0                  & 0                   \\
+        0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+    \end{bmatrix}
 \end{equation*}
 As a check, we can also confirm the unitary identity of unitary matrix
 \begin{equation*}
-	U ^\dagger U=
-	\begin{bmatrix}
-		0                  & 1 & 0                   \\
-		\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}  \\\
-		\frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}} \\
-	\end{bmatrix}    \begin{bmatrix}
-		0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
-		1 & 0                  & 0                   \\
-		0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		1 & 0 & 0 \\
-		0 & 1 & 0 \\
-		0 & 0 & 1 \\
-	\end{bmatrix}
+    U ^\dagger U=
+    \begin{bmatrix}
+        0                  & 1 & 0                   \\
+        \frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}  \\\
+        \frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}} \\
+    \end{bmatrix}    \begin{bmatrix}
+        0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+        1 & 0                  & 0                   \\
+        0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+    \end{bmatrix}
 \end{equation*}
 As expected.
 We can now jump to the diagonalization
 \begin{align*}
-	U ^\dagger \Omega U & =
-	\begin{bmatrix}
-		0                  & 1 & 0                   \\
-		\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}  \\\
-		\frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}} \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 & 0 & 1 \\
-		0 & 0 & 0 \\
-		1 & 0 & 0 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
-		1 & 0                  & 0                   \\
-		0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
-	\end{bmatrix} \\
-	                    & =
-	\begin{bmatrix}
-		0                  & 1 & 0                   \\
-		\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}  \\\
-		\frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}} \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
-		1 & 0                  & 0                   \\
-		0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
-	\end{bmatrix} \\
-	U ^\dagger \Omega U & =
-	\begin{bmatrix}
-		0 & 0 & 0  \\
-		0 & 1 & 0  \\
-		0 & 0 & -1 \\
-	\end{bmatrix}
+    U ^\dagger \Omega U & =
+    \begin{bmatrix}
+        0                  & 1 & 0                   \\
+        \frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}  \\\
+        \frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 0 & 1 \\
+        0 & 0 & 0 \\
+        1 & 0 & 0 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+        1 & 0                  & 0                   \\
+        0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+    \end{bmatrix} \\
+                        & =
+    \begin{bmatrix}
+        0                  & 1 & 0                   \\
+        \frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}  \\\
+        \frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+        1 & 0                  & 0                   \\
+        0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+    \end{bmatrix} \\
+    U ^\dagger \Omega U & =
+    \begin{bmatrix}
+        0 & 0 & 0  \\
+        0 & 1 & 0  \\
+        0 & 0 & -1 \\
+    \end{bmatrix}
 \end{align*}
 Which is just the eigenvalue as the diagonal element.
 
 \subsection{Application: Eigenvalue Problem With Degeneracy}
 Now consider operator with matrix element
 \begin{equation*}
-	\Omega=
-	\begin{bmatrix}
-		1 & 0 & 1 \\
-		0 & 2 & 0 \\
-		1 & 0 & 1 \\
-	\end{bmatrix}
+    \Omega=
+    \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 2 & 0 \\
+        1 & 0 & 1 \\
+    \end{bmatrix}
 \end{equation*}
 The eigenvalue equation is
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega}=0\implies
-	\begin{bmatrix}
-		1-\omega & 0        & 1        \\
-		0        & 2-\omega & 0        \\
-		1        & 0        & 1-\omega \\
-	\end{bmatrix}
-	\ket{\omega}=0
+    (\Omega-\omega I)\ket{\omega}=0\implies
+    \begin{bmatrix}
+        1-\omega & 0        & 1        \\
+        0        & 2-\omega & 0        \\
+        1        & 0        & 1-\omega \\
+    \end{bmatrix}
+    \ket{\omega}=0
 \end{equation*}
 while the characteristic equation
 \begin{equation*}
-	(2-\omega)[(1-\omega)^2-1]=(2-\omega)[\omega^2-2\omega]=(2-\omega)\omega(\omega-2)=0
+    (2-\omega)[(1-\omega)^2-1]=(2-\omega)[\omega^2-2\omega]=(2-\omega)\omega(\omega-2)=0
 \end{equation*}
 which result in eigenvalues of
 \begin{equation*}
-	\omega=0,2,2
+    \omega=0,2,2
 \end{equation*}
 with $\omega=2$ as degenerate.
 First we consider the eigenvalue $\omega=0$
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega_0}=0\implies
-	\begin{bmatrix}
-		1 & 0 & 1 \\
-		0 & 2 & 0 \\
-		1 & 0 & 1 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		v_1 \\
-		v_2 \\
-		v_3 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		v_1+v_2=0 \\
-		2v_2=0    \\
-		v_1+v_3=0 \\
-	\end{bmatrix}
+    (\Omega-\omega I)\ket{\omega_0}=0\implies
+    \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 2 & 0 \\
+        1 & 0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_1+v_2=0 \\
+        2v_2=0    \\
+        v_1+v_3=0 \\
+    \end{bmatrix}
 \end{equation*}
 with eigenvector of
 \begin{equation*}
-	\bra{\omega_0}=\frac{1}{\sqrt{2}}
-	\begin{bmatrix}
-		1 & 0 & -1
-	\end{bmatrix}
+    \bra{\omega_0}=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 & 0 & -1
+    \end{bmatrix}
 \end{equation*}
 Next is the degenerate eigenvalue of $\omega=2$
 \begin{equation*}
-	(\Omega-\omega I)\ket{\omega_2}=0\implies
-	\begin{bmatrix}
-		-1 & 0 & 1  \\
-		0  & 0 & 0  \\
-		1  & 0 & -1 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		v_1 \\
-		v_2 \\
-		v_3 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		-v_1+v_2=0 \\
-		0=0        \\
-		-v_1+v_3=0 \\
-	\end{bmatrix}
+    (\Omega-\omega I)\ket{\omega_2}=0\implies
+    \begin{bmatrix}
+        -1 & 0 & 1  \\
+        0  & 0 & 0  \\
+        1  & 0 & -1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -v_1+v_2=0 \\
+        0=0        \\
+        -v_1+v_3=0 \\
+    \end{bmatrix}
 \end{equation*}
 The eigenvector, which are also degenerate, has the arbitrary component $v_2$.
 This mean that the two degenerate eigenvector lies on the same plane.
 For the first degenerate eigenvector, let us just choose the simplest normalized vector that also satisfies the equation above
 \begin{equation*}
-	\ket{\omega_2,\alpha}=\frac{1}{\sqrt{3}}
-	\begin{bmatrix}
-		1 \\
-		1 \\
-		1 \\
-	\end{bmatrix}
+    \ket{\omega_2,\alpha}=\frac{1}{\sqrt{3}}
+    \begin{bmatrix}
+        1 \\
+        1 \\
+        1 \\
+    \end{bmatrix}
 \end{equation*}
 For the second degenerate eigenvector, we choose in a way such that it is orthonormal with the first.
 The orthogonal condition state that
 \begin{equation*}
-	\braket{\omega_2,\alpha|^\circ_2, \beta}=0
+    \braket{\omega_2,\alpha|^\circ_2, \beta}=0
 \end{equation*}
 Since the degenerate vectors lies in the same plane on arbitrary $v_2$, we shall determine the value of $v_2$ such that $\ket{\omega_2,\alpha}$ is orthogonal with $\ket{\omega_2,\beta}$
 \begin{equation*}
-	\braket{\omega_2,\alpha|\omega_2', \beta}=
-	\begin{bmatrix}
-		1 \\1\\1
-	\end{bmatrix}
-	\begin{bmatrix}
-		1     \\
-		\beta \\
-		1     \\
-	\end{bmatrix}
-	=\beta+2
+    \braket{\omega_2,\alpha|\omega_2', \beta}=
+    \begin{bmatrix}
+        1 \\1\\1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1     \\
+        \beta \\
+        1     \\
+    \end{bmatrix}
+    =\beta+2
 \end{equation*}
 or $\beta=-2$.
 All that left is normalizing it
 \begin{equation*}
-	\ket{\omega_2,\beta}=\frac{1}{\sqrt{6} }
-	\begin{bmatrix}
-		1  \\
-		-2 \\
-		1
-	\end{bmatrix}
+    \ket{\omega_2,\beta}=\frac{1}{\sqrt{6} }
+    \begin{bmatrix}
+        1  \\
+        -2 \\
+        1
+    \end{bmatrix}
 \end{equation*}
 
 \subsection{Application: Solving Second Order Coupled ODE Using Propagator}
 Consider the case of two masses $m$ that are coupled to each other and to the wall by spring force constant $k$.
 We denote $x_1$ and $x_2 $ as the masses' displacement from the equilibrium. Doing Newtonian analysis to the first mass, we have the equation of motion
 \begin{align*}
-	m \ddot{x}_1 & =-kx_1-k\xi_2                     \\
-	\ddot{x}_1   & =-\frac{2k}{m}x_1+\frac{k }{m}x_2
+    m \ddot{x}_1 & =-kx_1-k\xi_2                     \\
+    \ddot{x}_1   & =-\frac{2k}{m}x_1+\frac{k }{m}x_2
 \end{align*}
 where $\xi_2=x_1-x_2$ is the displacement of the second spring.
 For the second mass,
 \begin{align*}
-	m \ddot{x}_2 & =-kx_2-k\xi_1                     \\
-	\ddot{x}_2   & =-\frac{2k}{m}x_2+\frac{k }{m}x_1
+    m \ddot{x}_2 & =-kx_2-k\xi_1                     \\
+    \ddot{x}_2   & =-\frac{2k}{m}x_2+\frac{k }{m}x_1
 \end{align*}
 where $\xi_1=x_2-x_1$. Writing these equation in matrix form
 \begin{align*}
-	\begin{bmatrix}
-		\ddot{x}_1 \\
-		\ddot{x}_2 \\
-	\end{bmatrix}
-	 & =
-	\begin{bmatrix}
-		-2k/m & k/m   \\
-		k/m   & -2k/m \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		x_1 \\
-		x_2 \\
-	\end{bmatrix}
+    \begin{bmatrix}
+        \ddot{x}_1 \\
+        \ddot{x}_2 \\
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        -2k/m & k/m   \\
+        k/m   & -2k/m \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+    \end{bmatrix}
 \end{align*}
 Or
 \begin{equation*}
-	\ket{\ddot{x}(t)}=\Omega \ket{x(t)}
+    \ket{\ddot{x}(t)}=\Omega \ket{x(t)}
 \end{equation*}
 
 As per our usual steps, we first solve the eigenvalue problem of matrix $\Omega$.
 We write the eigenvalue equation as
 \begin{equation*}
-	(\Omega+\omega^2I)\ket{x(t)}=0
+    (\Omega+\omega^2I)\ket{x(t)}=0
 \end{equation*}
 The eigenvalue of $\Omega$ is written as $-\omega^2$ in anticipation of the fact that $\omega$ being real.
 Setting the determinant to zero
 \begin{align*}
-	\det (\Omega+\omega^2 I) & =\det
-	\begin{vmatrix}
-		-2k/m+\omega^2 & k/m            \\
-		k/m            & -2k/m+\omega^2 \\
-	\end{vmatrix}                                                                 \\
-	0                        & =\left(\omega^2-\frac{2k }{m }\right)^2=\left(\frac{k }{m }\right)^2 \\
-	\omega^2                 & =\frac{2k }{m }\pm \frac{k }{m}                                      \\
-	\omega                   & =\pm \sqrt{\frac{2k }{m }\pm \frac{k }{m }}
+    \det (\Omega+\omega^2 I) & =\det
+    \begin{vmatrix}
+        -2k/m+\omega^2 & k/m            \\
+        k/m            & -2k/m+\omega^2 \\
+    \end{vmatrix}                                                                 \\
+    0                        & =\left(\omega^2-\frac{2k }{m }\right)^2=\left(\frac{k }{m }\right)^2 \\
+    \omega^2                 & =\frac{2k }{m }\pm \frac{k }{m}                                      \\
+    \omega                   & =\pm \sqrt{\frac{2k }{m }\pm \frac{k }{m }}
 \end{align*}
 Since we are taking the square of $\omega$, both positive and negative value of $\omega$ produce the same eigenvalue.
 We're then taking the positive quantity only
 \begin{equation*}
-	\omega=\sqrt{\frac{3k}{m }},\sqrt{\frac{k }{m}}
+    \omega=\sqrt{\frac{3k}{m }},\sqrt{\frac{k }{m}}
 \end{equation*}
 
 The equation governing eigenvector corresponding to the eigenvalue of $\sqrt{3k/m}$ is
 \begin{equation*}
-	(\Omega- \omega^2 I)\ket{\omega_{\sqrt{3k/m}}}=
-	\begin{bmatrix}
-		k/m & k/m \\
-		k/m & k/m \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		x_1 \\
-		x_2 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		\frac{k }{ m }(x_1+x_2) \\
-		\frac{k }{ m }(x_1+x_2) \\
-	\end{bmatrix}
+    (\Omega- \omega^2 I)\ket{\omega_{\sqrt{3k/m}}}=
+    \begin{bmatrix}
+        k/m & k/m \\
+        k/m & k/m \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{k }{ m }(x_1+x_2) \\
+        \frac{k }{ m }(x_1+x_2) \\
+    \end{bmatrix}
 \end{equation*}
 The normalized eigenvector is
 \begin{equation*}
-	\ket{\omega_{\sqrt{3k/m}}}=
-	\frac{1 }{\sqrt{2}}
-	\begin{bmatrix}
-		1  \\
-		-1 \\
-	\end{bmatrix}
+    \ket{\omega_{\sqrt{3k/m}}}=
+    \frac{1 }{\sqrt{2}}
+    \begin{bmatrix}
+        1  \\
+        -1 \\
+    \end{bmatrix}
 \end{equation*}
 The equation for the second eigenvalue
 \begin{equation*}
-	(\Omega- \omega^2 I)\ket{\omega_{\sqrt{k/m}}}=
-	\begin{bmatrix}
-		-k/m & k/m  \\
-		k/m  & -k/m \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		x_1 \\
-		x_2 \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		\frac{k }{ m }(-x_1+x_2) \\
-		\frac{k }{ m }(x_1-x_2)  \\
-	\end{bmatrix}
+    (\Omega- \omega^2 I)\ket{\omega_{\sqrt{k/m}}}=
+    \begin{bmatrix}
+        -k/m & k/m  \\
+        k/m  & -k/m \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{k }{ m }(-x_1+x_2) \\
+        \frac{k }{ m }(x_1-x_2)  \\
+    \end{bmatrix}
 \end{equation*}
 With the eigenvector of
 \begin{equation*}
-	\ket{\omega_{\sqrt{3k/m}}}=
-	\frac{1 }{\sqrt{2}}
-	\begin{bmatrix}
-		1 \\
-		1 \\
-	\end{bmatrix}
+    \ket{\omega_{\sqrt{3k/m}}}=
+    \frac{1 }{\sqrt{2}}
+    \begin{bmatrix}
+        1 \\
+        1 \\
+    \end{bmatrix}
 \end{equation*}
 
 We now construct the propagator
 \begin{align*}
-	U(t) & =\sum_i \ket{\omega_i} \bra{\omega_i} \cos \omega_i t                                                                                                    \\
-	     & =\ket{\omega_{\sqrt{3k/m}}}\bra{\omega_{\sqrt{3k/m}}}\cos \sqrt{\frac{3k}{m}}+\ket{\omega_{\sqrt{k/m}}}\bra{\omega_{\sqrt{k/m}}}\cos \sqrt{\frac{k }{m}} \\
-	     & =\frac{1}{2}
-	\begin{bmatrix}
-		1 \\-1
-	\end{bmatrix}
-	\begin{bmatrix}
-		1 & -1
-	\end{bmatrix}
-	\cos \sqrt{\frac{3k }{m }}t\\
-    &=	\frac{1}{2}
-	\begin{bmatrix}
-		1 \\-1
-	\end{bmatrix}
-	\begin{bmatrix}
-		1 & -1
-	\end{bmatrix}
-	\cos \sqrt{\frac{k }{m }}t\\
-	     & =\frac{1}{2}
-	\begin{bmatrix}
-		1  & -1 \\
-		-1 & 1  \\
-	\end{bmatrix}
-	\cos \sqrt{\frac{3k }{m }}t
-	+
-	\begin{bmatrix}
-		1 & 1 \\
-		1 & 1 \\
-	\end{bmatrix}
-	\cos \sqrt{\frac{k }{m }}t\\
-	U(t) & =
-	\begin{bmatrix}
-		\cos \sqrt{\frac{3k }{m }}+\cos \sqrt{\frac{3k }{m }} & \cos \sqrt{\frac{3k }{m }}-\cos \sqrt{\frac{3k }{m }}\\
-		\cos \sqrt{\frac{3k }{m }}-\cos \sqrt{\frac{3k }{m }} & \cos \sqrt{\frac{3k }{m }}+\cos \sqrt{\frac{3k }{m }}
-	\end{bmatrix}
+    U(t) & =\sum_i \ket{\omega_i} \bra{\omega_i} \cos \omega_i t                                                                                                    \\
+         & =\ket{\omega_{\sqrt{3k/m}}}\bra{\omega_{\sqrt{3k/m}}}\cos \sqrt{\frac{3k}{m}}+\ket{\omega_{\sqrt{k/m}}}\bra{\omega_{\sqrt{k/m}}}\cos \sqrt{\frac{k }{m}} \\
+         & =\frac{1}{2}
+    \begin{bmatrix}
+        1 \\-1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & -1
+    \end{bmatrix}
+    \cos \sqrt{\frac{3k }{m }}t                                                                                                                                     \\
+         & =	\frac{1}{2}
+    \begin{bmatrix}
+        1 \\-1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & -1
+    \end{bmatrix}
+    \cos \sqrt{\frac{k }{m }}t                                                                                                                                      \\
+         & =\frac{1}{2}
+    \begin{bmatrix}
+        1  & -1 \\
+        -1 & 1  \\
+    \end{bmatrix}
+    \cos \sqrt{\frac{3k }{m }}t
+    +
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 1 \\
+    \end{bmatrix}
+    \cos \sqrt{\frac{k }{m }}t                                                                                                                                      \\
+    U(t) & =
+    \begin{bmatrix}
+        \cos \sqrt{\frac{3k }{m }}+\cos \sqrt{\frac{3k }{m }} & \cos \sqrt{\frac{3k }{m }}-\cos \sqrt{\frac{3k }{m }} \\
+        \cos \sqrt{\frac{3k }{m }}-\cos \sqrt{\frac{3k }{m }} & \cos \sqrt{\frac{3k }{m }}+\cos \sqrt{\frac{3k }{m }}
+    \end{bmatrix}
 \end{align*}
-For given $\ket{x(0)}$ the solution of said ODE is 
+For given $\ket{x(0)}$ the solution of said ODE is
 \begin{equation*}
     \ket{x(t)}=
     \begin{bmatrix}
-		\cos \sqrt{\frac{3k }{m }}t+\cos \sqrt{\frac{3k }{m }}t & \cos \sqrt{\frac{3k }{m }}t-\cos \sqrt{\frac{3k }{m }}t\\
-		\cos \sqrt{\frac{3k }{m }}t-\cos \sqrt{\frac{3k }{m }} t& \cos \sqrt{\frac{3k }{m }}t+\cos \sqrt{\frac{3k }{m }}t
-	\end{bmatrix}
+        \cos \sqrt{\frac{3k }{m }}t+\cos \sqrt{\frac{3k }{m }}t  & \cos \sqrt{\frac{3k }{m }}t-\cos \sqrt{\frac{3k }{m }}t \\
+        \cos \sqrt{\frac{3k }{m }}t-\cos \sqrt{\frac{3k }{m }} t & \cos \sqrt{\frac{3k }{m }}t+\cos \sqrt{\frac{3k }{m }}t
+    \end{bmatrix}
     \begin{bmatrix}
-        x_1(0)\\
-        x_2(0)\\
+        x_1(0) \\
+        x_2(0) \\
     \end{bmatrix}
 \end{equation*}
 
 \subsection{Application: Yet Another Propagator Problem}
 Consider a string of length $L$ clamped at its two ends $x = 0$ and $L$. The displacement $\psi(x,t)$ obeys the wave equation
 \begin{equation*}
-	\frac{\partial^2 \psi }{\partial t^2}=\frac{\partial^2 \psi }{\partial x^2}
+    \frac{\partial^2 \psi }{\partial t^2}=\frac{\partial^2 \psi }{\partial x^2}
 \end{equation*}
-We recognize the differential operator as $-K^2$ which is Hermitian since $\psi(0)=\psi(L)=0$. 
+We recognize the differential operator as $-K^2$ which is Hermitian since $\psi(0)=\psi(L)=0$.
 
 Our general strategy is still the same as previously, that is we find the solution as a function of time $\psi(t)$.
 There is one more step, however, to find the solution as a function of both space and time: we project the solution $\psi(t)$ to $x$ basis.
 
 We move to the first step of solving differential equation using propagator by solving the eigenvalue problem of
 \begin{equation*}
-	\ket{\psi}=K^2 \ket{\psi}
+    \ket{\psi}=K^2 \ket{\psi}
 \end{equation*}
-If we project this in the $x$ basis, the action reads 
+If we project this in the $x$ basis, the action reads
 \begin{equation*}
-	-\frac{\partial^2 \psi_k(x)}{\partial x^2}=k^2\psi_k(x)
+    -\frac{\partial^2 \psi_k(x)}{\partial x^2}=k^2\psi_k(x)
 \end{equation*}
 with $\psi_k(x)=\braket{x|\psi_k}$.
-The general solution to this differential equation is 
+The general solution to this differential equation is
 \begin{equation*}
-	\psi_k(x)=A \cos kx+ B \sin kx 
+    \psi_k(x)=A \cos kx+ B \sin kx
 \end{equation*}
 We have also the boundaries condition of
 \begin{equation*}
-	\psi_k(x)=
-	\begin{cases}
-		\psi_k(0)=0\\
-		\psi_k(L)=0
-	\end{cases}
+    \psi_k(x)=
+    \begin{cases}
+        \psi_k(0)=0 \\
+        \psi_k(L)=0
+    \end{cases}
 \end{equation*}
 Applying the first condition return
 \begin{equation*}
-	A=0
+    A=0
 \end{equation*}
-For the second condition, if we do not consider trivial solution of $B \neq0$, we obtain the eigenvalue of 
+For the second condition, if we do not consider trivial solution of $B \neq0$, we obtain the eigenvalue of
 \begin{equation*}
-	k=\frac{m\pi }{L}
+    k=\frac{m\pi }{L}
 \end{equation*}
 with $k=[1,-\infty]$.
 We do not consider the zero and the negative value since they do not
 
 Thus we obtain discrete set of  eigenvector, or rather eigenfunction, with label $m$
 \begin{equation*}
-	\psi_m(x)=B \sin \left( \frac{m\pi }{L }x \right)
+    \psi_m(x)=B \sin \left( \frac{m\pi }{L }x \right)
 \end{equation*}
 For discrete set of continuous, the normalization equation reads
 \begin{equation*}
-	\int_{0 }^{\lambda} \psi_m ^*(x)\psi_{m'}(x)\;dx=\delta_{mm'}
+    \int_{0 }^{\lambda} \psi_m ^*(x)\psi_{m'}(x)\;dx=\delta_{mm'}
 \end{equation*}
-Substituting the expression for the solution  
+Substituting the expression for the solution
 \begin{align*}
-	\int_{0}^{L}B^2 \sin \left( \frac{m\pi }{L }x  \right) \sin \left( \frac{m'\pi }{L }x  \right) \;dx&=\frac{B^2 L }{m\pi }\int_{0 }^{m\pi } \sin^2u\;du\\
-	&=\frac{B^2L }{m\pi}\int_{0 }^{m\pi }\frac{1-\cos u}{2}\;du\\
-	&=\frac{B^2L }{m\pi} \left[ \frac{u }{2}\bigg|_{0 }^{m\pi}-\frac{\cos 2u}{4}\bigg|_{0 }^{2m\pi} \right] \\
-	\int_{0}^{L}B^2 \sin \left( \frac{m\pi }{L }x  \right) \sin \left( \frac{m'\pi }{L }x  \right) \;dx&=\frac{B^2L}{2}
+    \int_{0}^{L}B^2 \sin \left( \frac{m\pi }{L }x  \right) \sin \left( \frac{m'\pi }{L }x  \right) \;dx & =\frac{B^2 L }{m\pi }\int_{0 }^{m\pi } \sin^2u\;du                                                     \\
+                                                                                                        & =\frac{B^2L }{m\pi}\int_{0 }^{m\pi }\frac{1-\cos u}{2}\;du                                             \\
+                                                                                                        & =\frac{B^2L }{m\pi} \left[ \frac{u }{2}\bigg|_{0 }^{m\pi}-\frac{\cos 2u}{4}\bigg|_{0 }^{2m\pi} \right] \\
+    \int_{0}^{L}B^2 \sin \left( \frac{m\pi }{L }x  \right) \sin \left( \frac{m'\pi }{L }x  \right) \;dx & =\frac{B^2L}{2}
 \end{align*}
-which give the normalization constant of 
+which give the normalization constant of
 \begin{equation*}
-	B=\sqrt{\frac{2 }{L }}
-\end{equation*} 
-The normalized eigenfunction now reads 
+    B=\sqrt{\frac{2 }{L }}
+\end{equation*}
+The normalized eigenfunction now reads
 \begin{equation*}
-	\psi_k(x)=\sqrt{\frac{ 2 }{L  }}\sin \left( \frac{m\pi }{L }x  \right) 
+    \psi_k(x)=\sqrt{\frac{ 2 }{L  }}\sin \left( \frac{m\pi }{L }x  \right)
 \end{equation*}
 Let us associate each solution by integer $m$ an abstract $\ket{m}$, which on $x$ basis reads as the said solution
 \begin{equation*}
-	\braket{x|m}=\sqrt{\frac{ 2 }{L  }}\sin \left( \frac{m\pi }{L }x  \right) 
+    \braket{x|m}=\sqrt{\frac{ 2 }{L  }}\sin \left( \frac{m\pi }{L }x  \right)
 \end{equation*}
 
 Instead of writing the propagator, we'll just skip to writing the solution for the differential equation since we do not know the expression for the $\ket{m}$.
-As stated previously, we project the solution $\psi(t)$ into $x$ basis to obtain 
+As stated previously, we project the solution $\psi(t)$ into $x$ basis to obtain
 \begin{align*}
-	\psi(x,t)&=\braket{x|\psi(t)}=\bra{x}U(t)\ket{\psi(0)}\\
-	&=\sum_{m=1 }^{\infty }\braket{x|m}\braket{m|\psi(0)}\cos \omega_m t
+    \psi(x,t) & =\braket{x|\psi(t)}=\bra{x}U(t)\ket{\psi(0)}                        \\
+              & =\sum_{m=1 }^{\infty }\braket{x|m}\braket{m|\psi(0)}\cos \omega_m t
 \end{align*}
 Using the relation $\omega=kv$, we may the express the angular frequency as the spatial frequency.
 Although feeding $\omega_m=m\pi/L$ directly to the argument of the cosine term does not give a dimensionless quantity, it gives one if one consider that $\omega_m$ is equal to $k_m$ times $v$ which happens to be one in this case.
 Next, we insert the completeness relation
 \begin{equation*}
-	\psi(x,t)=\int_{0 }^{\lambda }\sum_{m=1 }^{\infty }\braket{x|m}\braket{m|x'}\braket{x'|\psi(0)}\cos \omega_m t
+    \psi(x,t)=\int_{0 }^{\lambda }\sum_{m=1 }^{\infty }\braket{x|m}\braket{m|x'}\braket{x'|\psi(0)}\cos \omega_m t
 \end{equation*}
-Finally, we obtain the solution 
+Finally, we obtain the solution
 \begin{equation*}
-	\psi(x,t)=\sum_{m=1}^{\infty}\frac{2 }{L }\sin \left( \frac{m\pi }{L }x  \right) \cos \left( \frac{m\pi }{L }t \right) \int_{0 }^{L }\sin \left( \frac{m\pi }{L }x'  \right) \psi(x',0)\;dx
+    \psi(x,t)=\sum_{m=1}^{\infty}\frac{2 }{L }\sin \left( \frac{m\pi }{L }x  \right) \cos \left( \frac{m\pi }{L }t \right) \int_{0 }^{L }\sin \left( \frac{m\pi }{L }x'  \right) \psi(x',0)\;dx
 \end{equation*}
 \end{document}

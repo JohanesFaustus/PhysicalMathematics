@@ -213,107 +213,6 @@ From this, one could also obtain
 	+ \Theta[\Omega,\Phi]\Lambda.
 \end{align*}
 
-\subsubsection{Inverse.}
-If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular.
-\begin{equation*}
-	M^{-1}=\frac{1}{\det M}C^{T}
-\end{equation*}
-where $C_{ij}$ is cofactor of $m_{ij}$ or the checker thing you use on determining determinant.
-The inverse of a product follows
-\begin{equation*}
-	(\Lambda\Omega)^{-1}=\Lambda^{-1}\Omega^{-1}
-\end{equation*}
-By thin we can obtain the desired result
-\begin{equation*}
-	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
-\end{equation*}
-
-\paragraph*{Proof.}
-Consider $3 \times  3$ matrix
-\begin{equation*}
-	M=
-	\begin{bmatrix}
-		a_1 & a_2 & a_3 \\
-		b_1 & b_2 & b_3 \\
-		c_1 & c_2 & c_3 \\
-	\end{bmatrix}
-\end{equation*}
-The row of $M$ is thought the element of $\mathbf{A},\mathbf{B },\mathbf{C}$ vector instead of its column
-\begin{align*}
-	\mathbf{A}=a_1 \mathbf{\hat{i}}+a_2 \mathbf{\hat{j }}+a_3 \mathbf{\hat{k}} \\
-\end{align*}
-and so on.
-We define next the reciprocal triplet vector
-\begin{align*}
-	\mathbf{A}_R & =\mathbf{B }\times \mathbf{C } \\
-	\mathbf{B}_R & =\mathbf{C }\times \mathbf{A } \\
-	\mathbf{C}_R & =\mathbf{A }\times \mathbf{B } \\
-\end{align*}
-which have the relation with the original vector
-\begin{equation*}
-	\mathbf{A }\cdot  \mathbf{A}_R\neq0,\qquad \mathbf{A }\cdot  \mathbf{B }_R=\mathbf{A }\cdot  \mathbf{C}_R=0
-\end{equation*}
-and so on.
-From the triplet vector, we construct the cofactor transpose matrix of $M$
-\begin{equation*}
-	\bar{M }=
-	\begin{bmatrix}
-		a_{R1} & b_{R1} & c_{R1} \\
-		a_{R2} & b_{R2} & c_{R2} \\
-		a_{R3} & b_{R3} & c_{R3} \\
-	\end{bmatrix}
-\end{equation*}
-Then
-\begin{align*}
-	M \cdot \bar{M } & =
-	\begin{bmatrix}
-		a_1 & a_2 & a_3 \\
-		b_1 & b_2 & b_3 \\
-		c_1 & c_2 & c_3 \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		a_{R1} & b_{R1} & c_{R1} \\
-		a_{R2} & b_{R2} & c_{R2} \\
-		a_{R3} & b_{R3} & c_{R3} \\
-	\end{bmatrix}
-	\\
-	                 & =
-	\begin{bmatrix}
-		\mathbf{A }\cdot \mathbf{A }_R & \mathbf{A }\cdot \mathbf{B}_R & \mathbf{A }\cdot \mathbf{C }_R \\
-		\mathbf{B }\cdot \mathbf{A }_R & \mathbf{B }\cdot \mathbf{B}_R & \mathbf{B }\cdot \mathbf{C }_R \\
-		\mathbf{C }\cdot \mathbf{A }_R & \mathbf{C }\cdot \mathbf{B}_R & \mathbf{C }\cdot \mathbf{C }_R \\
-	\end{bmatrix}
-	\\
-	M \cdot \bar{M}  & =
-	\begin{bmatrix}
-		\mathbf{A }\cdot \mathbf{A }_R &                               &                                \\
-		                               & \mathbf{B }\cdot \mathbf{B}_R &                                \\
-		                               &                               & \mathbf{C }\cdot \mathbf{C }_R \\
-	\end{bmatrix}
-\end{align*}
-All three diagonal elements are equal
-\begin{equation*}
-	\begin{array}{rll}
-		\mathbf{A } \cdot \mathbf{A }_R\;\;=\;\;\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) & =\;\;\mathbf{B }\cdot \left( \mathbf{C }\times \mathbf{A } \right) & =\;\;\mathbf{A }\cdot \left( \mathbf{A }\times \mathbf{B } \right) \\
-		                                                                                                      & =\;\;\mathbf{B }\cdot \mathbf{B }_R                                & =\;\;\mathbf{C }\cdot \mathbf{C }_R                                \\
-	\end{array}
-\end{equation*}
-We can write the product of each element as
-\begin{equation*}
-	\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) =
-	\begin{vmatrix}
-		a_1 & a_2 & a_3 \\
-		b_1 & b_2 & b_3 \\
-		c_1 & c_2 & c_3 \\
-	\end{vmatrix}
-	=\det M
-\end{equation*}
-Therefore, we write
-\begin{align*}
-	M \cdot \bar{M } & =\det M I                 \\
-	M^{-1}           & =\frac{\bar{M }}{\det M }
-\end{align*}
-
 \subsubsection{Derivative (with respect to parameter).}
 Consider the function $\theta(\lambda)=e^{\lambda\Omega}$.
 Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense
@@ -525,6 +424,108 @@ As a mnemonic, use the sign pattern to check the sign of the cofactor
 	\end{bmatrix}
 \end{equation*}
 
+\subsection{Inverse}
+If a matrix has an inverse we say that it is invertible; if it doesn't have an inverse, it is called singular.
+\begin{equation*}
+	M^{-1}=\frac{1}{\det M}C^{T}
+\end{equation*}
+where $C_{ij}$ is cofactor of $m_{ij}$ or the checker thing you use on determining determinant.
+The inverse of a product follows
+\begin{equation*}
+	(\Lambda\Omega)^{-1}=\Lambda^{-1}\Omega^{-1}
+\end{equation*}
+By thin we can obtain the desired result
+\begin{equation*}
+	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
+\end{equation*}
+
+\subsubsection{Proof.}
+Consider $3 \times  3$ matrix
+\begin{equation*}
+	M=
+	\begin{bmatrix}
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3 \\
+		c_1 & c_2 & c_3 \\
+	\end{bmatrix}
+\end{equation*}
+The row of $M$ is thought the element of $\mathbf{A},\mathbf{B },\mathbf{C}$ vector instead of its column
+\begin{align*}
+	\mathbf{A}=a_1 \mathbf{\hat{i}}+a_2 \mathbf{\hat{j }}+a_3 \mathbf{\hat{k}} \\
+\end{align*}
+and so on.
+We define next the reciprocal triplet vector
+\begin{align*}
+	\mathbf{A}_R & =\mathbf{B }\times \mathbf{C } \\
+	\mathbf{B}_R & =\mathbf{C }\times \mathbf{A } \\
+	\mathbf{C}_R & =\mathbf{A }\times \mathbf{B } \\
+\end{align*}
+which have the relation with the original vector
+\begin{equation*}
+	\mathbf{A }\cdot  \mathbf{A}_R\neq0,\qquad \mathbf{A }\cdot  \mathbf{B }_R=\mathbf{A }\cdot  \mathbf{C}_R=0
+\end{equation*}
+and so on.
+From the triplet vector, we construct the cofactor transpose matrix of $M$
+\begin{equation*}
+	\bar{M }=
+	\begin{bmatrix}
+		a_{R1} & b_{R1} & c_{R1} \\
+		a_{R2} & b_{R2} & c_{R2} \\
+		a_{R3} & b_{R3} & c_{R3} \\
+	\end{bmatrix}
+\end{equation*}
+Then
+\begin{align*}
+	M \cdot \bar{M } & =
+	\begin{bmatrix}
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3 \\
+		c_1 & c_2 & c_3 \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		a_{R1} & b_{R1} & c_{R1} \\
+		a_{R2} & b_{R2} & c_{R2} \\
+		a_{R3} & b_{R3} & c_{R3} \\
+	\end{bmatrix}
+	\\
+	                 & =
+	\begin{bmatrix}
+		\mathbf{A }\cdot \mathbf{A }_R & \mathbf{A }\cdot \mathbf{B}_R & \mathbf{A }\cdot \mathbf{C }_R \\
+		\mathbf{B }\cdot \mathbf{A }_R & \mathbf{B }\cdot \mathbf{B}_R & \mathbf{B }\cdot \mathbf{C }_R \\
+		\mathbf{C }\cdot \mathbf{A }_R & \mathbf{C }\cdot \mathbf{B}_R & \mathbf{C }\cdot \mathbf{C }_R \\
+	\end{bmatrix}
+	\\
+	M \cdot \bar{M}  & =
+	\begin{bmatrix}
+		\mathbf{A }\cdot \mathbf{A }_R &                               &                                \\
+		                               & \mathbf{B }\cdot \mathbf{B}_R &                                \\
+		                               &                               & \mathbf{C }\cdot \mathbf{C }_R \\
+	\end{bmatrix}
+\end{align*}
+All three diagonal elements are equal
+\begin{equation*}
+	\begin{array}{rll}
+		\mathbf{A } \cdot \mathbf{A }_R\;\;=\;\;\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) & =\;\;\mathbf{B }\cdot \left( \mathbf{C }\times \mathbf{A } \right) & =\;\;\mathbf{A }\cdot \left( \mathbf{A }\times \mathbf{B } \right) \\
+		                                                                                                      & =\;\;\mathbf{B }\cdot \mathbf{B }_R                                & =\;\;\mathbf{C }\cdot \mathbf{C }_R                                \\
+	\end{array}
+\end{equation*}
+We can write the product of each element as
+\begin{equation*}
+	\mathbf{A }\cdot \left( \mathbf{B }\times \mathbf{C } \right) =
+	\begin{vmatrix}
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3 \\
+		c_1 & c_2 & c_3 \\
+	\end{vmatrix}
+	=\det M
+\end{equation*}
+Therefore, we write
+\begin{align*}
+	M \cdot \bar{M } & =\det M I                 \\
+	M^{-1}           & =\frac{\bar{M }}{\det M }
+\end{align*}
+
+
 \subsection{Diagonalization}
 Diagonalization refers to representing a linear operator by a diagonal matrix in a suitable basis.
 Let $ A$ be an $n \times  n$ matrix over $\mathbb{R}$ or $\mathbb{C}$, then diagonaliszation state
@@ -632,6 +633,7 @@ Projection operator obey
 	\mathbb{P}_i\mathbb{P}_j=\delta_{ij}\mathbb{P}_j
 \end{equation*}
 
+
 \subsubsection{Hermitian and anti Hermitian.}
 An operator is called Hermitian fit satisfies $\Omega=\Omega ^\dagger$, in other hand an operator is called anti-Hermitian if $\Omega=-\Omega ^\dagger$.
 In the world of linear algebra, Hermitian and anti-Hermitian play the role of pure real and pure imaginary number.
@@ -648,47 +650,47 @@ we can decompose every operator into its Hermitian and anti Hermitian
 
 \subsubsection{Transformation matrix.} Matrix that rotate vector $\vec{r}=(x,y)$ into $\vec{R}=(X,Y)$ (in 2D)is
 \begin{align*}
-	\begin{pmatrix}
+	\begin{bmatrix}
 		X \\Y
-	\end{pmatrix}=
-	\begin{pmatrix}
+	\end{bmatrix}=
+	\begin{bmatrix}
 		\cos \theta & -\sin \theta \\
 		\sin \theta & \cos \theta
-	\end{pmatrix}
-	\begin{pmatrix}
+	\end{bmatrix}
+	\begin{bmatrix}
 		x \\y
-	\end{pmatrix}
+	\end{bmatrix}
 \end{align*}
 and the one that rotate its axis instead
 \begin{align*}
-	\begin{pmatrix}
+	\begin{bmatrix}
 		x' \\y'
-	\end{pmatrix}=
-	\begin{pmatrix}
+	\end{bmatrix}=
+	\begin{bmatrix}
 		\cos \theta  & \sin \theta \\
 		-\sin \theta & \cos \theta
-	\end{pmatrix}
-	\begin{pmatrix}
+	\end{bmatrix}
+	\begin{bmatrix}
 		x \\y
-	\end{pmatrix}
+	\end{bmatrix}
 \end{align*}
 in 3D
 \begin{align*}
-	R_x & =\begin{pmatrix}
+	R_x & =\begin{bmatrix}
 		       1 & 0          & 0           \\
 		       0 & \cos\theta & -\sin\theta \\
 		       0 & \sin\theta & \cos\theta
-	       \end{pmatrix}   \\
-	R_y & =\begin{pmatrix}
+	       \end{bmatrix}   \\
+	R_y & =\begin{bmatrix}
 		       \cos\theta  & 0 & \sin\theta \\
 		       0           & 1 & 0          \\
 		       -\sin\theta & 0 & \cos\theta
-	       \end{pmatrix}   \\
-	R_z & =\begin{pmatrix}
+	       \end{bmatrix}   \\
+	R_z & =\begin{bmatrix}
 		       \cos \theta & -\sin \theta & 0 \\
 		       \sin \theta & \cos \theta  & 0 \\
 		       0           & 0            & 1
-	       \end{pmatrix}
+	       \end{bmatrix}
 \end{align*}
 
 \subsubsection{Unitary operator.}
