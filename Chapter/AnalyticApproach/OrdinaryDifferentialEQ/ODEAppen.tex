@@ -60,8 +60,16 @@ For initial state $\mathbf{u}_{0} = \begin{bmatrix} x_{0} & y_{0} \end{bmatrix}^
 \end{equation*}
 or
 \begin{equation*}
-    x(t) = c_1 e^{3 \tau} + c_2 e^{\tau}\\qquad
+    x(t) = c_1 e^{3 \tau} + c_2 e^{\tau}\qquad
     y(t) = c_1 e^{3 \tau} - c_2 e^{\tau}
+\end{equation*}
+
+\subsubsection{Appendix: Coupled Second Order ODE}
+Consider
+\begin{equation*}
+    \frac{d ^2}{dt^2} \begin{bmatrix} y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \end{bmatrix} =
+    \begin{bmatrix} -2 & 1 & 0 & 0 \\ 1 & -2 & 1 & 0 \\ 0 & 1 & -2 & 1 \\ 0 & 0 & 1 & -2 \end{bmatrix}
+    \begin{bmatrix} y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \end{bmatrix}
 \end{equation*}
 
 \subsection{Appendix: Frobenius' Method}

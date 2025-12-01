@@ -623,4 +623,23 @@ def burger2d(u,v,nt,CFL):
     
     return u,v
 \end{minted}
+
+\subsection{2D Laplace Equation}
+Here is Laplace's equation in 2D:
+\begin{equation*}
+  \frac{\partial ^2 p}{\partial x^2} + \frac{\partial ^2 p}{\partial y^2} = 0
+\end{equation*}
+Laplace's equation has the features typical of diffusion phenomena.
+For this reason, it has to be discretized with central differences, so that the discretization is consistent with the physics we want to simulate.
+Unlike convection equation, each iteration in a numerical solver does not correspond to any physical time evolution.
+The iteration simply relaxes the solution toward the steady-state potential that satisfies the boundary conditions
+
+The discretized equation is:
+\begin{equation*}
+  \frac{p_{i+1, j}^n - 2p_{i,j}^n + p_{i-1,j}^n}{\Delta x^2} + \frac{p_{i,j+1}^n - 2p_{i,j}^n + p_{i, j-1}^n}{\Delta y^2} = 0
+\end{equation*}
+Let's rearrange the discretized equation, solving for $p_{i,j}^n$:
+\begin{equation*}
+  p_{i,j}^n = \frac{\Delta y^2(p_{i+1,j}^n+p_{i-1,j}^n)+\Delta x^2(p_{i,j+1}^n + p_{i,j-1}^n)}{2(\Delta x^2 + \Delta y^2)}
+\end{equation*}
 \end{document}
