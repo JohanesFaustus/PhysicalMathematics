@@ -632,7 +632,12 @@ Here is Laplace's equation in 2D:
 Laplace's equation has the features typical of diffusion phenomena.
 For this reason, it has to be discretized with central differences, so that the discretization is consistent with the physics we want to simulate.
 Unlike convection equation, each iteration in a numerical solver does not correspond to any physical time evolution.
-The iteration simply relaxes the solution toward the steady-state potential that satisfies the boundary conditions
+The iteration simply relaxes the solution toward the steady-state potential that satisfies the boundary conditions.
+
+For the Laplace equation, the initial condition is entirely arbitrary.
+Its only role is to provide a starting guess for the iterative solver.
+The solver will converge to the unique steady-state solution dictated by the boundary conditions, regardless of the initial guess.
+For comparison, in time-dependent equations like convection, the initial condition is physically meaningful because the solution evolves from it over time.
 
 The discretized equation is:
 \begin{equation*}
