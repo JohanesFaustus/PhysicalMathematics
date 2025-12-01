@@ -170,7 +170,6 @@ def burger2d(u, v, nt, CFL):
 
 def laplace2d(p, y, dx, dy, l1norm_target):
     l1norm = 1
-    pn = numpy.empty_like(p)
 
     while l1norm > l1norm_target:
         pn = p.copy()
@@ -179,7 +178,7 @@ def laplace2d(p, y, dx, dy, l1norm_target):
                         (2 * (dx**2 + dy**2)))
             
         p[:, 0] = 0  # p = 0 @ x = 0
-        p[:, -1] = y # p = y @ x = 2
+        p[:, -1] = 2 # p = y @ x = 2
         p[0, :] = p[1, :]  # dp/dy = 0 @ y = 0
         p[-1, :] = p[-2, :]  # dp/dy = 0 @ y = 1
         l1norm = (numpy.sum(numpy.abs(p[:]) - numpy.abs(pn[:])) /
