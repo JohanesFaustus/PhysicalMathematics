@@ -694,4 +694,27 @@ As before, we rearrange this so that we obtain an equation for $p$ at point $i,j
   p_{i,j}^{n}=\frac{(p_{i+1,j}^{n}+p_{i-1,j}^{n})\Delta y^2+(p_{i,j+1}^{n}+p_{i,j-1}^{n})\Delta x^2-b_{i,j}^{n}\Delta x^2\Delta y^2}{2(\Delta x^2+\Delta y^2)}
 \end{equation*}
 
+\subsubsection{Implementation.} Same as Laplace's code, but we also use parameter \verb|b| as the source.
+\begin{minted}[breaklines]{python}
+def poisson(p,b,dx,dy,l1norm_target):
+    l1norm = 1
+    ny, nx = p.shape
+
+
+    while l1norm > l1norm_target:
+        pd = p.copy()
+        p[1:-1,1:-1] = (((pd[1:-1, 2:] + pd[1:-1, :-2]) * dy**2 +
+                        (pd[2:, 1:-1] + pd[:-2, 1:-1]) * dx**2 -
+                        b[1:-1, 1:-1] * dx**2 * dy**2) / 
+                        (2 * (dx**2 + dy**2)))
+
+        p[0, :] = 0
+        p[-1, :] = 0
+        p[:, 0] = 0
+        p[:, -1] = 0
+
+        l1norm = numpy.sum(numpy.abs(p - pd)) / numpy.sum(numpy.abs(pd))
+     
+    return p
+\end{minted}
 \end{document}
