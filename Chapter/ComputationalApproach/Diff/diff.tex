@@ -647,4 +647,35 @@ Let's rearrange the discretized equation, solving for $p_{i,j}^n$:
 \begin{equation*}
   p_{i,j}^n = \frac{\Delta y^2(p_{i+1,j}^n+p_{i-1,j}^n)+\Delta x^2(p_{i,j+1}^n + p_{i,j-1}^n)}{2(\Delta x^2 + \Delta y^2)}
 \end{equation*}
+
+\subsubsection{Implementation.}
+\begin{minted}[breaklines]{python}
+def laplace2d(p, y, dx, dy, l1norm_target):
+  l1norm = 1
+  pn = numpy.empty_like(p)
+\end{minted}
+\verb|laplace2d| takes five arguments, the \verb|p| matrix, the \verb|y|-vector, \verb|dx|, \verb|dy| and the value \verb|l1norm_target| which defines how close the \verb|p| matrix should be in two consecutive iterations before the loop breaks and returns the calculated \verb|p| value.
+\begin{minted}[breaklines]{python}
+  while l1norm > l1norm_target:
+      pn = p.copy()
+      p[1:-1, 1:-1] = ((dy**2 * (pn[1:-1, 2:] + pn[1:-1, 0:-2]) +
+                        dx**2 * (pn[2:, 1:-1] + pn[0:-2, 1:-1])) /
+                      (2 * (dx**2 + dy**2)))
+          
+\end{minted}
+This is the discrete 2D Laplace operator. It used data from previous iteration to relaxes the solution toward the steady state.
+\begin{minted}[breaklines]{python}
+      p[:, 0] = 0  # p = 0 @ x = 0
+      p[:, -1] = y # p = y @ x = 2
+      p[0, :] = p[1, :]  # dp/dy = 0 @ y = 0
+      p[-1, :] = p[-2, :]  # dp/dy = 0 @ y = 1
+\end{minted}
+These impose Dirichlet (fixes the function) and Neumann (fixes the derivative) boundary conditions.
+\begin{minted}[breaklines]{python}
+      l1norm = (numpy.sum(numpy.abs(p[:]) - numpy.abs(pn[:])) /
+              numpy.sum(numpy.abs(pn[:])))
+    
+  return p
+\end{minted}
+This computes the relative change, then return \verb|p| after the difference is  small enough.
 \end{document}
