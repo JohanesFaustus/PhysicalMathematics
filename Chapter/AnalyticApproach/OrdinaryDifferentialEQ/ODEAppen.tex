@@ -14,7 +14,7 @@ or equivalently
 
 First we solve the characteristic equation
 \begin{equation*}
-    \mathrm{det}\begin{bmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda \end{bmatrix} = (2 - \lambda)^2 - 1 = \lambda^2 - 4\lambda + 3 = 0
+    \det\begin{bmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda \end{bmatrix} = (2 - \lambda)^2 - 1 = \lambda^2 - 4\lambda + 3 = 0
 \end{equation*}
 Hence $\lambda=(3,1)$. Finding the eigenvector for $\lambda_1=3$, we have
 \begin{equation*}
@@ -41,11 +41,11 @@ Then we assemble the eigenbasis
 \end{equation*}
 and its inverse
 \begin{equation*}
-    V^{-1} = \frac{1}{\mathrm{det} V} \begin{bmatrix} -1 & -1 \\ -1 & 1 \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
+    V^{-1} = \frac{1}{\det V} \begin{bmatrix} -1 & -1 \\ -1 & 1 \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
 \end{equation*}
 to construct the propagator
 \begin{align*}
-    \exp(A\tau) & =  V\,\text{diag}(e^{\lambda_1 \tau}e^{\lambda_2\tau})\,V^{-1}                                                                         \\
+    \exp(A\tau) & =  V\,\text{diag }(e^{\lambda_1 \tau}, e^{\lambda_2\tau})\,V^{-1}                                                                      \\
                 & =
     \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
     \begin{bmatrix} e^{3\tau} & 0 \\ 0 & e^{\tau} \end{bmatrix}
@@ -56,14 +56,15 @@ to construct the propagator
 \end{align*}
 For initial state $\mathbf{u}_{0} = \begin{bmatrix} x_{0} & y_{0} \end{bmatrix}^T$, the solution reads
 \begin{equation*}
-    \begin{bmatrix} x(t) \\ y(t) \end{bmatrix} = \frac{1}{2} \begin{bmatrix} e^{3 \tau} + e^{\tau} & e^{3 \tau} - e^{\tau} \\ e^{3 \tau} - e^{\tau} & e^{3 \tau} + e^{\tau} \end{bmatrix} \begin{bmatrix} x_0 \\ y_0 \end{bmatrix}
+    \begin{bmatrix} x(t) \\ y(t) \end{bmatrix} = \frac{1}{2} \begin{bmatrix} e^{3 \tau} + e^{\tau} & e^{3 \tau} - e^{\tau} \\ e^{3 \tau} - e^{\tau} & e^{3 \tau} + e^{\tau} \end{bmatrix}
+    \begin{bmatrix} x_0 \\ y_0 \end{bmatrix}
 \end{equation*}
 or
 \begin{equation*}
     x(t) = c_1 e^{3 \tau} + c_2 e^{\tau}\qquad
     y(t) = c_1 e^{3 \tau} - c_2 e^{\tau}
 \end{equation*}
-
+\clearpage
 \subsection{Appendix: Coupled Second Order ODE}
 Consider
 \begin{equation*}
@@ -71,6 +72,163 @@ Consider
     \begin{bmatrix} -2 & 1 & 0 & 0 \\ 1 & -2 & 1 & 0 \\ 0 & 1 & -2 & 1 \\ 0 & 0 & 1 & -2 \end{bmatrix}
     \begin{bmatrix} y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \end{bmatrix}
 \end{equation*}
+
+First define
+\begin{equation*}
+    \boldsymbol{\psi} =
+    \begin{bmatrix}
+        \mathbf{y} \\
+        \mathbf{v}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \mathbf{y} \\
+        \mathbf{y}'
+    \end{bmatrix}
+    =
+    \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ v_1 \\ v_2 \\ v_3 \\ v_4 \end{bmatrix}
+\end{equation*}
+where $v_i = y'_i$. Now the decoupled equation reads
+\begin{equation*}
+    \boldsymbol{\psi}' =
+    \begin{bmatrix}
+        \mathbf{y}' \\
+        \mathbf{v}'
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \mathbf{y}' \\
+        \mathbf{y}''
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \mathbf{v} \\
+        A \mathbf{y}
+    \end{bmatrix}
+    =
+    M \mathbf{\psi}
+\end{equation*}
+Explicitly
+\begin{equation*}
+    \frac{d }{dt }
+    \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ v_1 \\ v_2 \\ v_3 \\ v_4 \end{bmatrix}
+    =
+    \begin{bmatrix} 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ -2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 1 & -2 & 1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1 & -2 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & -2 & 0 & 0 & 0 & 0 \end{bmatrix}
+    \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ v_1 \\ v_2 \\ v_3 \\ v_4 \end{bmatrix}
+\end{equation*}
+
+Finding the eigenvalue of $M$ can be done by writing the matrix as block matrix where each element is a $2 \times 2 $ matrix
+\begin{equation*}
+    M = \begin{bmatrix} 0_{4\times 4} & I_{4\times 4} \\ A & 0_{4\times 4} \end{bmatrix}
+\end{equation*}
+The characteristic equation for this matrix is
+\begin{equation*}
+    \det (M-\mu I) =\det
+    \begin{bmatrix}
+        \mu I & I      \\
+        A     & -\mu I
+    \end{bmatrix}
+    =
+    \mu^2 - A
+\end{equation*}
+Hence we obtain that the eigenvalue of $M$ is the square root of the eigenvalue of $A$
+\begin{equation*}
+    \mu_k = \pm \sqrt{\alpha}
+\end{equation*}
+The eigenvalue of Toeplitz matrix are
+\begin{equation*}
+    \alpha_k= a + 2b \cos\left(\frac{k\pi}{n+1}\right)
+\end{equation*}
+with diagonal $a$, off diagonal $b$, size $n$.
+In our case
+\begin{equation*}
+    \alpha_k = -2 + 2 \cos\left(\frac{k\pi}{5}\right)
+\end{equation*}
+and the eigenvalue of $M$ will have the value
+\begin{equation*}
+    \mu_k = \pm \sqrt{-2 + 2 \cos\left(\frac{k\pi}{5}\right)    }
+\end{equation*}
+with $k=(1,\dots,4)$.
+
+We can construct the eigenvector $\mathbf{w}_i^{\pm}$ by considering
+\begin{multline*}
+    M \mathbf{w}_{i}^{\pm} = \begin{bmatrix} 0 & I \\ A & 0 \end{bmatrix} \begin{bmatrix} v_{i} \\ \pm \sqrt{\alpha_{i}} v_{i} \end{bmatrix}
+    = \begin{bmatrix} \pm \sqrt{\alpha_{i}} v_{i} \\ A v_{i} \end{bmatrix}\\
+    = \begin{bmatrix} \pm \sqrt{\alpha_{i}} v_{i} \\ \alpha_{i} v_{i} \end{bmatrix}
+    =\pm \sqrt{\alpha_k} \begin{bmatrix}  v_{i} \\ \sqrt{\alpha_{i}} v_{i} \end{bmatrix}
+    = \pm \sqrt{\alpha_{i}} \mathbf{w}_{i}^{\pm}
+\end{multline*}
+or simply
+\begin{equation*}
+    \mathbf{w}_i^{\pm} =     \begin{bmatrix}  v_{i} \\ \pm \sqrt{\alpha_{i}} v_{i} \end{bmatrix}
+\end{equation*}
+The eigenbasis constructed from this has the following form
+\begin{equation*}
+    W  = \begin{bmatrix}
+        \mathbf{w}_1^{+} & \dots & \mathbf{w}_4^{-}
+    \end{bmatrix}
+    = \begin{bmatrix} v_{1}                 & \dots & v_{4}                  \\
+                \sqrt{\alpha_1} v_{1} & \dots & -\sqrt{\alpha_4} v_{4}\end{bmatrix}
+\end{equation*}
+In the block form
+\begin{equation*}
+    W = \begin{bmatrix} V & V \\ \Delta & -\Delta \end{bmatrix},\quad
+    V = [v_1, v_2, v_3, v_4]\quad
+    \Delta = \mathrm{diag}(\mu_1, ..., \mu_4)V
+\end{equation*}
+The inverse can be determined by
+\begin{equation*}
+    W^{-1} = \begin{bmatrix} (P - QS^{-1}R)^{-1} & -(P - QS^{-1}R)^{-1}QS^{-1} \\ -S^{-1}R(P - QS^{-1}R)^{-1} & S^{-1} + S^{-1}R(P - QS^{-1}R)^{-1}QS^{-1} \end{bmatrix}
+\end{equation*}
+This yield
+\begin{align*}
+    W^{-1} & =  \begin{bmatrix} (V - V \Delta^{-1}(-\Delta))^{-1} & -V^{-1}V(-\Delta - \Delta V^{-1}V)^{-1} \\ -(-\Delta)^{-1}\Delta(V - V \Delta^{-1}(-\Delta))^{-1} & ((-\Delta) - \Delta V^{-1}V)^{-1} \end{bmatrix} \\
+           & =  \frac{1}{2} \begin{bmatrix} V^{-1} & V^{-1}\Delta^{-1} \\ V^{-1} & -V^{-1}\Delta^{-1} \end{bmatrix}
+\end{align*}
+
+The propagator then
+\begin{align*}
+    \exp (M \tau) & = W \text{diag }(e^{\mu_1^+t},\dots,e^{\mu_{4}^-t}) W^{-1}                                                                                                                            \\
+                  & =\begin{bmatrix} V & V \\ \Delta & -\Delta \end{bmatrix}
+    \begin{bmatrix}
+        \mu^+ & 0     \\
+        0     & \mu^-
+    \end{bmatrix}
+    \frac{1}{2} \begin{bmatrix} V^{-1} & V^{-1}\Delta^{-1} \\ V^{-1} & -V^{-1}\Delta^{-1} \end{bmatrix}                                                                                                   \\
+                  & =  \frac{1 }{2}\begin{bmatrix} V \mu^{+} & V \mu^{-} \\ M \mu^{+} & -M \mu^{-} \end{bmatrix}  \begin{bmatrix} V^{-1} & V^{-1}\Delta^{-1} \\ V^{-1} & -V^{-1}\Delta^{-1} \end{bmatrix} \\
+                  & =\frac{1}{2} \begin{bmatrix} V(\mu^{+} + \mu^{-})V^{-1} & V(\mu^{+} - \mu^{-})V^{-1}M^{-1} \\ M(\mu^{+} - \mu^{-})V^{-1} & V(\mu^{+} + \mu^{-})V^{-1} \end{bmatrix}
+\end{align*}
+We can actually evaluate it as
+\begin{equation*}
+    e^{Mt} = \begin{bmatrix} C & S \\ L & C \end{bmatrix}
+\end{equation*}
+where
+\begin{align*}
+    C_{pq}(t) = \sum_{k=1}^{4} Q_{pk} Q_{qk} \cos(\omega_{k} t)                    \\
+    S_{pq}(t) = \sum_{k=1}^{4} Q_{pk} Q_{qk} \frac{\sin(\omega_{k} t)}{\omega_{k}} \\
+    L_{pq}(t) = -\sum_{k=1}^{4} Q_{pk} Q_{qk} \omega_{k} \sin(\omega_{k} t)
+\end{align*}
+and
+\begin{equation*}
+    Q_{pq} = \sqrt{\frac{2}{5}} \sin \left( \frac{pq\pi}{5} \right) \qquad
+    \omega_{k} = 2 \mathrm{sin}\left(\frac{k \pi}{10}\right)
+\end{equation*}
+for $p,q \in (1,\dots 4)$.
+
+We  then use it to propagate our initial condition
+\begin{equation*}
+    \begin{bmatrix} x(t) \\ v(t) \end{bmatrix} = \begin{bmatrix} C(t) & S(t) \\ L(t) & C(t) \end{bmatrix} \begin{bmatrix} x_0 \\ v_0 \end{bmatrix}
+\end{equation*}
+Equivalently, componentwise,
+\begin{equation*}
+    \mathbf{x}(t) = C(t)\mathbf{x}_0 + S(t)\mathbf{v}_0\qquad
+    \mathbf{v}(t) = L(t)\mathbf{x}_0 + C(t)\mathbf{v}_0
+\end{equation*}
+On expanding the function
+\begin{align*}
+    x_{i}(t) = \sum_{j=1}^{4} C_{ij}(t) x_{0,j} + \sum_{j=1}^{4} S_{ij}(t) v_{0,j},\qquad
+    v_{i}(t) = \sum_{j=1}^{4} L_{ij}(t) x_{0,j} + \sum_{j=1}^{4} C_{ij}(t) v_{0,j}
+\end{align*}
 
 \subsection{Appendix: Frobenius' Method}
 I will demonstrate this technique. Consider the following differential equation.
