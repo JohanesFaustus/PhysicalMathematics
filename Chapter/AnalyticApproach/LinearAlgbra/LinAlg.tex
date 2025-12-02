@@ -439,6 +439,16 @@ By thin we can obtain the desired result
 	(\Omega\Lambda)(\Omega\Lambda)^{-1}=\Omega\Lambda\Lambda^{-1}\Omega^{-1}=\Omega\Omega^{-1}=I
 \end{equation*}
 
+Other special formula exist for determining the inverse of a block matrix
+\begin{equation*}
+	W = \begin{bmatrix} P & Q \\ R & S \end{bmatrix}
+\end{equation*}
+where entry can be any rectangular matrices of compatible sizes.
+Its inverse is
+\begin{equation*}
+	W^{-1} = \begin{bmatrix} (P - QS^{-1}R)^{-1} & -(P - QS^{-1}R)^{-1}QS^{-1} \\ -S^{-1}R(P - QS^{-1}R)^{-1} & S^{-1} + S^{-1}R(P - QS^{-1}R)^{-1}QS^{-1} \end{bmatrix}
+\end{equation*}
+
 \subsubsection{Proof.}
 Consider $3 \times  3$ matrix
 \begin{equation*}
@@ -525,10 +535,76 @@ Therefore, we write
 	M^{-1}           & =\frac{\bar{M }}{\det M }
 \end{align*}
 
+\subsubsection{Proof (Schur complement).}
+Start by defining the matrix and its component
+\begin{equation*}
+	W = \begin{bmatrix} P & Q \\ R & S \end{bmatrix},\qquad
+	W^{-1} = \begin{bmatrix} X & Y \\ Z & T \end{bmatrix}
+\end{equation*}
+Now we want to resolve the identity  equation
+\begin{align*}
+	WW^{-1} & =  I \\
+	\begin{bmatrix} P & Q \\ R & S \end{bmatrix}
+	\begin{bmatrix} X & Y \\ Z & T \end{bmatrix}
+	        & =
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{bmatrix}
+\end{align*}
+From this we have
+\begin{align*}
+	PX + QZ & =  I \\
+	PY + QT & = 0  \\
+	RX + SZ & = 0  \\
+	RY + ST & =  I
+\end{align*}
+Using the third
+\begin{equation*}
+	RX + SZ = 0 \implies Z = -S^{-1}RX
+\end{equation*}
+into the first
+\begin{equation*}
+	PX + Q(-S^{-1}RX) = I
+	\implies
+	(P - QS^{-1}R)X = I.
+\end{equation*}
+or
+\begin{equation*}
+	X = (P - QS^{-1}R)^{-1}
+\end{equation*}
+Then substituting back into the third
+\begin{equation*}
+	Z = -S^{-1}RX = -S^{-1}R(P - QS^{-1}R)^{-1}
+\end{equation*}
+Next, using the fourth
+\begin{equation*}
+	RY + ST = I\implies
+	T = S^{-1}(I - RY)
+\end{equation*}
+into second
+\begin{equation*}
+	PY + Q(S^{-1}(I - RY)) = 0\implies
+	(P - QS^{-1}R)Y + QS^{-1} = 0
+\end{equation*}
+or
+\begin{equation*}
+	Y = -(P - Q S^{-1} R)^{-1} Q S^{-1}
+\end{equation*}
+Then  substituting back into the fourth
+\begin{align*}
+	T & =  S^{-1}(I - RY) = S^{-1}(I + R(P - QS^{-1}R)^{-1}QS^{-1}) \\
+	T & =  S^{-1} + S^{-1}R(P - QS^{-1}R)^{-1}QS^{-1}.
+\end{align*}
+Putting it all together
+\begin{align*}
+	W^{-1} & =  \begin{bmatrix} X & Y \\ Z & T \end{bmatrix}                                                                                                                \\
+	W^{-1} & =  \begin{bmatrix} (P - QS^{-1}R)^{-1} & -(P - QS^{-1}R)^{-1}QS^{-1} \\ -S^{-1}R(P - QS^{-1}R)^{-1} & S^{-1} + S^{-1}R(P - QS^{-1}R)^{-1}QS^{-1} \end{bmatrix}
+\end{align*}
 
 \subsection{Diagonalization}
 Diagonalization refers to representing a linear operator by a diagonal matrix in a suitable basis.
-Let $ A$ be an $n \times  n$ matrix over $\mathbb{R}$ or $\mathbb{C}$, then diagonaliszation state
+Let $ A$ be an $n \times  n$ matrix over $\mathbb{R}$ or $\mathbb{C}$, then diagonalization state
 \begin{equation*}
 	A= V \Lambda V^{-1}
 \end{equation*}
