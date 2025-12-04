@@ -267,6 +267,25 @@ def RK2Coup(f, t, y0):
     return y_rk2
 
 
+def RK4Coup(f, t, y0):
+    y_rk2 = np.zeros((len(t), len(y0)), dtype=float)
+    y_rk2[0] = y0
+    h = t[1] - t[0]
+
+    for i in range(len(t) - 1):
+        t_i = t[i]
+        y_i = y_rk2[i]
+
+        k1 = f(t_i, y_i)
+        k2 = f(t_i + h / 2, y_i + h / 2 * k1)
+        k3 = f(t_i + h / 2, y_i + h / 2 * k2)
+        k4 = f(t_i + h, y_i + h * k3)
+
+        y_rk2[i + 1] = y_i + h / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
+
+    return y_rk2
+
+
 # Appendix problem
 
 
@@ -338,7 +357,7 @@ v0 = np.array(
 
 print("Calculating start!!")
 psi0 = np.concatenate((x0.flatten(), v0.flatten()))
-psi = RK2Coup(f,t, psi0)
+psi = RK4Coup(f, t, psi0)
 print("Calculating done!!")
 # # # Numeric Solution
 
