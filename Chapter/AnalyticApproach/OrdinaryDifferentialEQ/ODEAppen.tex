@@ -64,11 +64,11 @@ or
     x(t) = c_1 e^{3 \tau} + c_2 e^{\tau}\qquad
     y(t) = c_1 e^{3 \tau} - c_2 e^{\tau}
 \end{equation*}
-\clearpage
 \subsection{Appendix: Coupled Second Order ODE}
 Consider
+% TODO: multipy by constat does chage the eigenvalue thus chagung the sol
 \begin{equation*}
-    \frac{d ^2}{dt^2} \begin{bmatrix} y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \end{bmatrix} =
+    \frac{d ^2}{dt^2} \begin{bmatrix} y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \end{bmatrix} = 10
     \begin{bmatrix} -2 & 1 & 0 & 0 \\ 1 & -2 & 1 & 0 \\ 0 & 1 & -2 & 1 \\ 0 & 0 & 1 & -2 \end{bmatrix}
     \begin{bmatrix} y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \end{bmatrix}
 \end{equation*}
@@ -103,7 +103,7 @@ where $v_i = y'_i$. Now the decoupled equation reads
     =
     \begin{bmatrix}
         \mathbf{v} \\
-        A \mathbf{y}
+        10A \mathbf{y}
     \end{bmatrix}
     =
     M \mathbf{\psi}
@@ -113,27 +113,30 @@ Explicitly
     \frac{d }{dt }
     \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ v_1 \\ v_2 \\ v_3 \\ v_4 \end{bmatrix}
     =
-    \begin{bmatrix} 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ -2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 1 & -2 & 1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1 & -2 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & -2 & 0 & 0 & 0 & 0 \end{bmatrix}
+    \begin{bmatrix}
+        0   & 0  & 0 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+        -20 & 10 & 0 & 0 & 0 & 0 & 0 & 0 \\ 10 & -20 & 10 & 0 & 0 & 0 & 0 & 0 \\ 0 & 10 & -20 & 10 & 0 & 0 & 0 & 0 \\ 0 & 0 & 10 & -20 & 0 & 0 & 0 & 0
+    \end{bmatrix}
     \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ v_1 \\ v_2 \\ v_3 \\ v_4 \end{bmatrix}
 \end{equation*}
 
 Finding the eigenvalue of $M$ can be done by writing the matrix as block matrix where each element is a $2 \times 2 $ matrix
 \begin{equation*}
-    M = \begin{bmatrix} 0_{4\times 4} & I_{4\times 4} \\ A & 0_{4\times 4} \end{bmatrix}
+    M = \begin{bmatrix} 0_{4\times 4} & I_{4\times 4} \\ 10A & 0_{4\times 4} \end{bmatrix}
 \end{equation*}
 The characteristic equation for this matrix is
 \begin{equation*}
     \det (M-\mu I) =\det
     \begin{bmatrix}
         \mu I & I      \\
-        A     & -\mu I
+        10A   & -\mu I
     \end{bmatrix}
     =
-    \mu^2 - A
+    \mu^2 - 10A
 \end{equation*}
 Hence we obtain that the eigenvalue of $M$ is the square root of the eigenvalue of $A$
 \begin{equation*}
-    \mu_k = \pm \sqrt{\alpha}
+    \mu_k = \pm \sqrt{10\alpha}
 \end{equation*}
 The eigenvalue of Toeplitz matrix are
 \begin{equation*}
@@ -146,7 +149,7 @@ In our case
 \end{equation*}
 and the eigenvalue of $M$ will have the value
 \begin{equation*}
-    \mu_k = \pm \sqrt{-2 + 2 \cos\left(\frac{k\pi}{5}\right)    }
+    \mu_k = \pm \sqrt{-20 + 20 \cos\left(\frac{k\pi}{5}\right)    }
 \end{equation*}
 with $k=(1,\dots,4)$.
 
@@ -211,7 +214,7 @@ where
 and
 \begin{equation*}
     Q_{pq} = \sqrt{\frac{2}{5}} \sin \left( \frac{pq\pi}{5} \right) \qquad
-    \omega_{k} = 2 \mathrm{sin}\left(\frac{k \pi}{10}\right)
+    \omega_{k} = 2 \sqrt{10} \mathrm{sin}\left(\frac{k \pi}{10}\right)
 \end{equation*}
 for $p,q \in (1,\dots 4)$.
 
@@ -229,6 +232,21 @@ On expanding the function
     x_{i}(t) = \sum_{j=1}^{4} C_{ij}(t) x_{0,j} + \sum_{j=1}^{4} S_{ij}(t) v_{0,j},\qquad
     v_{i}(t) = \sum_{j=1}^{4} L_{ij}(t) x_{0,j} + \sum_{j=1}^{4} C_{ij}(t) v_{0,j}
 \end{align*}
+
+Suppose we are given the following initial condition
+\begin{equation*}
+    \mathbf{y} =
+    \begin{pmatrix} 0.1 \\ 0.0 \\ 0.0 \\ 0.1 \end{pmatrix}\qquad
+    \mathbf{v} =
+    \begin{pmatrix} 0.0 \\ 0.0 \\ 0.0 \\ 0 \end{pmatrix}\qquad
+\end{equation*}
+The resulting solution can be plotted.
+
+\begin{figure}
+    \centering
+    \resizebox{0.8\textwidth}{!}{\input{../../../Rss/AnalyticsApproach/ODE/plot_analytic.pgf}}
+    \caption*{Figure: Analytic solution for initial condition $(\mathbf{x}_0, \mathbf{y}_0)$.}
+\end{figure}
 
 \subsection{Appendix: Frobenius' Method}
 I will demonstrate this technique. Consider the following differential equation.

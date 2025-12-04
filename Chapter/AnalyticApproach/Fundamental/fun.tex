@@ -510,8 +510,12 @@ Hence Gabriel's horn possesses a finite volume yet an infinite surface area.
 \subsubsection{Roots.} Integrals of roots.
 \begin{flalign*}
      & \begin{aligned}
-            & \int \sqrt{x-a}\; dx = \frac{2}{3}(x-a)^{3/2}                                                                                                                                                                                     \\
-            & \int \frac{1}{\sqrt{x\pm a}}\; dx = 2\sqrt{x\pm a}                                                                                                                                                                                \\
+            & \int \sqrt{x-a}\; dx = \frac{2}{3}(x-a)^{3/2}      \\
+            & \int \frac{1}{\sqrt{x\pm a}}\; dx = 2\sqrt{x\pm a} \\
+       \end{aligned} &
+\end{flalign*}
+\begin{flalign*}
+     & \begin{aligned}
             & \int \frac{1}{\sqrt{a-x}}\; dx = -2\sqrt{a-x}                                                                                                                                                                                     \\
             & \int x\sqrt{x-a}\; dx =  \begin{cases}\frac{2 a}{3} \left({x-a}\right)^{3/2} +\frac{2 }{5}\left( {x-a}\right)^{5/2},\text{ or} \\ \frac{2}{3} x(x-a)^{3/2} - \frac{4}{15} (x-a)^{5/2}, \text{ or}\\ \frac{2}{15}(2a+3x)(x-a)^{3/2}
                                     \end{cases} \\
@@ -519,23 +523,19 @@ Hence Gabriel's horn possesses a finite volume yet an infinite surface area.
             & \int (ax+b)^{3/2}\; dx =\frac{2}{5a}(ax+b)^{5/2}                                                                                                                                                                                  \\
             & \int \frac{x}{\sqrt{x\pm a} } \; dx = \frac{2}{3}(x\mp 2a)\sqrt{x\pm a}                                                                                                                                                           \\
             & \int \sqrt{\frac{x}{a-x}}\; dx =  -\sqrt{x(a-x)}-a\tan^{-1}\frac{\sqrt{x(a-x)}}{x-a}                                                                                                                                              \\
-       \end{aligned} &
-\end{flalign*}
-\begin{flalign*}
-     & \begin{aligned}
-            & \int \sqrt{\frac{x}{a+x}}\; dx =  \sqrt{x(a+x)} -a\ln  [ \sqrt{x} + \sqrt{x+a}]                                                      \\
-            & \int x \sqrt{ax + b}\; dx =\frac{2}{15 a^2}(-2b^2+abx + 3 a^2 x^2)\sqrt{ax+b}                                                        \\
-            & \int \sqrt{x^3(ax+b)} \; dx =\left[ \frac{b}{12a}-\frac{b^2}{8a^2x}+\frac{x}{3}\right] \sqrt{x^3(ax+b)}                              \\
-            & + \frac{b^3}{8a^{5/2}}\ln \left| a\sqrt{x} + \sqrt{a(ax+b)} \right|                                                                  \\
-            & \int  \sqrt{a^2 - x^2}\; dx = \frac{1}{2} x \sqrt{a^2-x^2} +\frac{1}{2}a^2\tan^{-1}\frac{x}{\sqrt{a^2-x^2}}                          \\
-            & \int  x \sqrt{x^2 \pm a^2}\; dx= \frac{1}{3}\left( x^2 \pm a^2 \right)^{3/2}                                                         \\
-            & \int \frac{1}{\sqrt{x^2 \pm a^2}}\; dx = \ln \left| x + \sqrt{x^2 \pm a^2} \right|                                                   \\
-            & \int \frac{1}{\sqrt{a^2 - x^2}}\; dx = \sin^{-1}\frac{x}{a}                                                                          \\
-            & \int \frac{x}{\sqrt{x^2\pm a^2}}\; dx = \sqrt{x^2 \pm a^2}                                                                           \\
-            & \int \frac{x}{\sqrt{a^2-x^2}}\; dx = -\sqrt{a^2-x^2}                                                                                 \\
-            & \int \frac{x^2}{\sqrt{x^2 \pm a^2}}\; dx = \frac{1}{2}x\sqrt{x^2 \pm a^2}\mp \frac{1}{2}a^2 \ln \left| x + \sqrt{x^2\pm a^2} \right| \\
-            & \int\frac{1}{\sqrt{ax^2+bx+c}}\;dx=\frac{1}{\sqrt{a}}\ln \left| 2ax+b + 2 \sqrt{a(ax^2+bx+c)} \right|                                \\
-            & \int\frac{dx}{(a^2+x^2)^{3/2}}=\frac{x}{a^2\sqrt{a^2+x^2}}                                                                           \\
+            & \int \sqrt{\frac{x}{a+x}}\; dx =  \sqrt{x(a+x)} -a\ln  [ \sqrt{x} + \sqrt{x+a}]                                                                                                                                                   \\
+            & \int x \sqrt{ax + b}\; dx =\frac{2}{15 a^2}(-2b^2+abx + 3 a^2 x^2)\sqrt{ax+b}                                                                                                                                                     \\
+            & \int \sqrt{x^3(ax+b)} \; dx =\left[ \frac{b}{12a}-\frac{b^2}{8a^2x}+\frac{x}{3}\right] \sqrt{x^3(ax+b)}                                                                                                                           \\
+            & + \frac{b^3}{8a^{5/2}}\ln \left| a\sqrt{x} + \sqrt{a(ax+b)} \right|                                                                                                                                                               \\
+            & \int  \sqrt{a^2 - x^2}\; dx = \frac{1}{2} x \sqrt{a^2-x^2} +\frac{1}{2}a^2\tan^{-1}\frac{x}{\sqrt{a^2-x^2}}                                                                                                                       \\
+            & \int  x \sqrt{x^2 \pm a^2}\; dx= \frac{1}{3}\left( x^2 \pm a^2 \right)^{3/2}                                                                                                                                                      \\
+            & \int \frac{1}{\sqrt{x^2 \pm a^2}}\; dx = \ln \left| x + \sqrt{x^2 \pm a^2} \right|                                                                                                                                                \\
+            & \int \frac{1}{\sqrt{a^2 - x^2}}\; dx = \sin^{-1}\frac{x}{a}                                                                                                                                                                       \\
+            & \int \frac{x}{\sqrt{x^2\pm a^2}}\; dx = \sqrt{x^2 \pm a^2}                                                                                                                                                                        \\
+            & \int \frac{x}{\sqrt{a^2-x^2}}\; dx = -\sqrt{a^2-x^2}                                                                                                                                                                              \\
+            & \int \frac{x^2}{\sqrt{x^2 \pm a^2}}\; dx = \frac{1}{2}x\sqrt{x^2 \pm a^2}\mp \frac{1}{2}a^2 \ln \left| x + \sqrt{x^2\pm a^2} \right|                                                                                              \\
+            & \int\frac{1}{\sqrt{ax^2+bx+c}}\;dx=\frac{1}{\sqrt{a}}\ln \left| 2ax+b + 2 \sqrt{a(ax^2+bx+c)} \right|                                                                                                                             \\
+            & \int\frac{dx}{(a^2+x^2)^{3/2}}=\frac{x}{a^2\sqrt{a^2+x^2}}                                                                                                                                                                        \\
        \end{aligned} &
 \end{flalign*}
 
