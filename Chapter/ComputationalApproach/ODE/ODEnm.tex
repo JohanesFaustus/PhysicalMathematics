@@ -124,13 +124,15 @@ The algorithm is as follows.
         \begin{equation*}
           y_{n+1}^{\text{pred}} = y_{n} + h f(t_{n}, y_{n})
         \end{equation*}
+        Others also define $k_1 = f(t_n,y_n)$.
   \item \textbf{Corrector (average slope).} Refine the estimate using the average of the slope at the current point and the predicted point
         \begin{equation*}
           y_{n+1} = y_{n} + \frac{h}{2} [f(t_{n}, y_{n}) + f(t_{n+1}, y_{n+1}^{\text{pred}})]
         \end{equation*}
+        Others also define $k_2 = f(t_{n+1},y_{n }+ h k1)= f(t_{n+1},y_{n+1}^{\text{pred}} )$.
 \end{enumerate}
 
-\subsubsection{Implementation.} In python.
+\subsubsection{Implementation (scalar).} In python.
 \begin{minted}[breaklines]{python}
 def RK2(f, t0, y0, h, t_akh):
 \end{minted}
@@ -162,6 +164,20 @@ The corrector step \verb|y_rk2[i+1] = y_i + 0.5 * h * (k1 + k2)| updates the sol
     return t_rk2, y_rk2
 \end{minted}
 Finally, \verb|return t_rk2, y_rk2| outputs the arrays of time points and the corresponding numerical solution.
+
+\subsubsection{Implementation (coupled).}
+Roughly the same as the scalar version.
+Difference existing  on the dimensionality of the state variable.
+In the scalar version, the dependent variable $y$ is a single real-valued function of time.
+The numerical solution is therefore a one-dimensional array of shape \verb|(n,)|.
+In the coupled system, the dependent variable is a vector of dimension \verb|n|.
+At each time point the solution must store an \verb|n|-component state, thus storage structure must be a matrix of shape \verb|(step,n)|.
+\begin{minted}[breaklines]{python}
+def RK2Coup(f, t, y0):
+    ...
+    y_rk2 = np.zeros((len(t), len(y0)), dtype=float)
+    ...
+\end{minted}
 
 \subsection{RK4}
 The Runge–Kutta fourth-order method (RK4) is a widely used numerical integration technique for solving ordinary differential equations (ODEs) because it provides a good balance between accuracy and computational effort.
