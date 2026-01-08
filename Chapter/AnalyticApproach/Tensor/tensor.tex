@@ -1,7 +1,7 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection{Introduction}
-\subsubsection{Some mathematical shorthand.} AS follows
+\subsubsection{Some mathematical shorthand.} As follows
 \begin{equation*}
     \begin{array}{ll}
         \mathbb{R}      & \text{The set of real numbers}
@@ -41,9 +41,33 @@
     \end{array}
 \end{equation*}
 
+\subsubsection{Einstein summation convention.}
+The Einstein summation convention states that whenever an index is repeated in an expression, once as a superscript $v^i$ and once as a subscript $e_i$, then summation over that index is implied.
+For example
+\begin{equation*}
+    v = \sum\limits_{i=1}^{n} v^{i} e_{i} \implies v = v^{i} e_{i}
+\end{equation*}
+
+
+Vector $v$ is defined as contravariant vector  due to the components obeying the opposite of the basis vector $e_i$.
+Same reason is why the dual vector $f$ is said to be covariant vector: its components transform the same as basis vector
+\begin{equation*}
+    v^{i'} = A^{i'}_{j} v^{j}\quad
+    e^{i} = A^{i}_{j'} e^{j'}    \qquad
+    f_{i'} = A^{j}_{i'} f_{j}\quad
+    e_{i'} = A_{i'}^{j} e_{j}
+\end{equation*}
+
+This is the reason why the indices is defined in such way
+\begin{enumerate}
+    \item We knew ahead of time that the components of dual vectors would transform like basis vectors, so we gave them both lower indices.
+    \item We also knew that the components of vectors would
+          transform like dual basis vectors, so we gave them both upper indices
+\end{enumerate}
+
 \subsection{Definition}
 Many older books define a tensor as a collection of objects which carry indices and which 'transform' in a particular way specified by those indices.
-This deﬁnition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
+Modern  deﬁnition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
 The distinguishing characteristic of a tensor is a special property called multilinearity, which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
 In older treatments, these are usually introduced as components of the tensor.
 
