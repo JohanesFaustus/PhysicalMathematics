@@ -12,11 +12,11 @@
         \\
         \in             & \text{an element of }
         \\
-        \notin          & \text{``is not an element of''}
+        \notin          & \text{is not an element of}
         \\
-        \forall         & \text{``for all''}
+        \forall         & \text{for all}
         \\
-        \subset         & \text{``is a subset of'', ``a subset of''}
+        \subset         & \text{is a subset of, a subset of}
         \\
         \equiv          & \text{Denotes a definition}
         \\
@@ -67,12 +67,28 @@ This is the reason why the indices is defined in such way
 
 \subsection{Definition}
 Many older books define a tensor as a collection of objects which carry indices and which 'transform' in a particular way specified by those indices.
-Modern  deﬁnition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
-The distinguishing characteristic of a tensor is a special property called multilinearity, which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
+Modern  definition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
+The distinguishing characteristic of a tensor is a special property called multilinearity
+\begin{align*}
+    T(v_1 + c v_2, w) & =  T(v_1, w) + c T(v_2, w) \\
+    T(v, w_1 + c w_2) & =  T(v, w_1) + c T(v, w_2)
+\end{align*}
+which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
 In older treatments, these are usually introduced as components of the tensor.
 
 In physics textbooks, tensors (usually of the second rank) are often represented as matrices
 It is crucial to keep in mind, though, that this association between a tensor and a matrix depends entirely on a choice of basis, and that matrix $[T]$ is useful mainly as a computational tool, not a conceptual handle.
 Tensor $T$ is best thought of abstractly as a multilinear function, and matrix $[T ]$ as its representation in a particular coordinate system.
 
+A tensor of type $(r, s)$ on a vector space V is a $\mathbb{C}$-valued function $T$ on
+\begin{equation*}
+    V^r \times  (V^{*}) ^s
+\end{equation*}
+In this definition, vector $v: V \to (V^*)$ and its dual $f:V\to \mathbb{C}$ can be defined as $(0,1)$ and $(1,0)$ tensor respectively.
+In other words
+\begin{equation*}
+    v(f)=f(v)
+\end{equation*}
+where $v \in V$ and $f \in V^*$.
+We also view linear operator as $(1,1)$ tensor $A(v,f)\equiv f(Av)$ and $(0,0)$ tensor as scalar.
 \end{document}
