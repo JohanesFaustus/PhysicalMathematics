@@ -2,44 +2,44 @@
 \begin{document}
 \subsection{Introduction}
 \subsubsection{Some mathematical shorthand.} As follows
-\begin{equation*}
-      \begin{array}{ll}
-            \mathbb{R}      & \text{The set of real numbers}
-            \\
-            \mathbb{C}      & \text{The set of complex numbers}
-            \\
-            \mathbb{Z}      & \text{The set of positive and negative integers}
-            \\
-            \in             & \text{an element of }
-            \\
-            \notin          & \text{is not an element of}
-            \\
-            \forall         & \text{for all}
-            \\
-            \subset         & \text{is a subset of, a subset of}
-            \\
-            \equiv          & \text{Denotes a definition}
-            \\
-            f : A \to B     & \text{Denotes a map } f \text{ the set } A \text{ into set } B.
-            \\
-                            & \text{ Describe the function}
-            \\
-            f : a \mapsto b & \text{Map } f \text{ sends the element } a \text{ to the element } b.
-            \\
-                            & \text{ Describe the action}
-            \\
-            \circ           & \text{Denotes a composition of maps}
-            \\
-            (g \circ f)(a)  & \equiv g(f(a))
-            \\
-            A \times B      & \text{The set } \{(a, b)\} \text{ of all ordered pairs where } a \in A, b \in B.
-            \\
-                            & \text{Referred to as the cartesian product of sets A and B.}
-            \\
-            \mathbb{R}^n    & \mathbb{R} \times \cdots \times \mathbb{R}
-            \\
-      \end{array}
-\end{equation*}
+\begin{flalign*}
+       & \begin{array}{ll}
+               \mathbb{R}      & \text{The set of real numbers}
+               \\
+               \mathbb{C}      & \text{The set of complex numbers}
+               \\
+               \mathbb{Z}      & \text{The set of positive and negative integers}
+               \\
+               \in             & \text{an element of }
+               \\
+               \notin          & \text{is not an element of}
+               \\
+               \forall         & \text{for all}
+               \\
+               \subset         & \text{is a subset of, a subset of}
+               \\
+               \equiv          & \text{Denotes a definition}
+               \\
+               f : A \to B     & \text{Denotes a map } f \text{ the set } A \text{ into set } B
+               \\
+                               & \text{ (describe the function).}
+               \\
+               f : a \mapsto b & \text{Map } f \text{ sends the element } a \text{ to the element } b.
+               \\
+                               & \text{ (describe the action).}
+               \\
+               \circ           & \text{Denotes a composition of maps}
+               \\
+               (g \circ f)(a)  & \equiv g(f(a))
+               \\
+               A \times B      & \text{The set } \{(a, b)\} \text{ of all ordered pairs where } a \in A, b \in B.
+               \\
+                               & \text{Referred to as the cartesian product of sets A and B.}
+               \\
+               \mathbb{R}^n    & \mathbb{R} \times \cdots \times \mathbb{R}
+               \\
+         \end{array} &
+\end{flalign*}
 
 \subsubsection{Einstein summation convention.}
 The Einstein summation convention states that whenever an index is repeated in an expression, once as a superscript $v^i$ and once as a subscript $e_i$, then summation over that index is implied.
@@ -47,7 +47,6 @@ For example
 \begin{equation*}
       v = \sum\limits_{i=1}^{n} v^{i} e_{i} \implies v = v^{i} e_{i}
 \end{equation*}
-
 
 Vector $v$ is defined as contravariant vector  due to the components obeying the opposite of the basis vector $e_i$.
 Same reason is why the dual vector $f$ is said to be covariant vector: its components transform the same as basis vector
@@ -65,6 +64,40 @@ This is the reason why the indices is defined in such way
             transform like dual basis vectors, so we gave them both upper indices
 \end{enumerate}
 
+\subsubsection{Dirac notation comparison.}
+Consider linear operator $H$, which is $(1,1)$ tensor, on a Hilbert space spanned by orthonormal vectors $\{e_i \}$.
+In Dirac notation we would write the basis as $\{\ket{i}\}$, $H(e_i)$ as $H \ket{i}$, $\tilde{e}_j(e_i)=(e_j|e_i)$ as $\braket{j|i}$, and $(e_j|He_i)$ as $\braket{j|H|i}$.
+The component of linear component $H$ is thus
+\begin{equation*}
+      H_i^j = H(e_i, e^j) = e^j (H e_i) = \langle j | H | i \rangle
+\end{equation*}
+In essence, we have
+\begin{flalign*}
+       & \begin{array}{ll}
+               \text{Standard Notation }                                           & \text{Dirac Notation}
+               \\
+               \text{Basis } \{e_i\}                                               & \{\ket{i}\}
+               \\
+               \text{Vector } \psi \in \mathcal{H}                                 & |\psi\rangle
+               \\
+               \text{Dual Vector } L(\psi)                                         & \langle\psi|
+               \\
+               \text{Inner Product } (\psi, \phi) = \tilde{\psi}(\phi)=(\psi|\phi) & \langle\psi|\phi\rangle
+               \\
+               A(\psi), A \in \mathcal{L}(\mathcal{H})                             & A|\psi\rangle
+               \\
+               (\psi, A\phi)                                                       & \langle\psi|A\phi\rangle
+               \\
+               (1,1) \text{ tensor component }                                     & \langle j | H | i \rangle
+               \\
+               H_i^j = H(e_i, e^j) = e^j (H e_i)                                   &
+               \\
+               T_{ij} e^i \otimes e_j                                              & \sum_{i,j} T_{ij} |j\rangle\langle i|
+               \\
+               e_i \otimes e_j                                                     & |i\rangle |j\rangle \text{ or } |i,j\rangle
+         \end{array} &
+\end{flalign*}
+
 \subsection{Definition}
 Many older books define a tensor as a collection of objects which carry indices and which 'transform' in a particular way specified by those indices.
 Modern  definition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
@@ -76,13 +109,12 @@ The distinguishing characteristic of a tensor is a special property called multi
 which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
 In older treatments, these are usually introduced as components of the tensor.
 
-In physics textbooks, tensors (usually of the second rank) are often represented as matrices
-It is crucial to keep in mind, though, that this association between a tensor and a matrix depends entirely on a choice of basis, and that matrix $[T]$ is useful mainly as a computational tool, not a conceptual handle.
-Tensor $T$ is best thought of abstractly as a multilinear function, and matrix $[T ]$ as its representation in a particular coordinate system.
-
-A tensor of type $(r, s)$ on a vector space V is a $\mathbb{C}$-valued function $T$ on
+A tensor of type $(r, s)$ on a vector space V is a $\mathbb{C}$-valued function $T$ on $V^r \times  (V^{*}) ^s$,
 \begin{equation*}
-      V^r \times  (V^{*}) ^s
+      T : \underbrace{V \times \cdots \times V}_{r}
+      \times
+      \underbrace{V^* \times \cdots \times V^*}_{s}
+      \to \mathbb{C}
 \end{equation*}
 In this definition, vector $v: V \to (V^*)$ and its dual $f:V\to \mathbb{C}$ can be defined as $(0,1)$ and $(1,0)$ tensor respectively.
 In other words
@@ -91,6 +123,10 @@ In other words
 \end{equation*}
 where $v \in V$ and $f \in V^*$.
 We also view linear operator as $(1,1)$ tensor $oA(v,f)\equiv f(Av)$ and $(0,0)$ tensor as scalar.
+
+In physics textbooks, tensors (usually of the second rank) are often represented as matrices
+It is crucial to keep in mind, though, that this association between a tensor and a matrix depends entirely on a choice of basis, and that matrix $[T]$ is useful mainly as a computational tool, not a conceptual handle.
+Tensor $T$ is best thought of abstractly as a multilinear function, and matrix $[T ]$ as its representation in a particular coordinate system.
 
 \subsubsection{Multilinearity and tensor component.}
 Linearity implies that dual vectors and linear operators are determined by their values on basis vectors
@@ -115,4 +151,5 @@ where, as before, the components of $T$ induced $\{e_i \}$ and its dual $\{e^i \
 \begin{equation*}
       T_{i_{1}...i_{r}}^{j_{1}...j_{s}} \equiv T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{r}})
 \end{equation*}
+
 \end{document}
