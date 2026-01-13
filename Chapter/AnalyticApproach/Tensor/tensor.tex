@@ -160,6 +160,13 @@ The transformation law that govern the change of basis from the primed basis $\m
       T_{i'_{1}, \dots, i'_{r}}{}^{j'_{1} \dots j'_{s}}
       = A^{k_{1}}_{i'_{1}} \dots A^{k_{r}}_{i'_{r}} A^{l_{1}}_{j'_{1}} \dots A^{l_{s}}_{j'_{s}} T_{k_{1} \dots k_{r}}{}^{l_{1} \dots l_{s}}
 \end{equation*}
+The matrix representation of the transformation coefficients $A=A_{i}^{k'}$ and $A^{-1}=A_{j'}^{l}$ can be written as
+\begin{equation*}
+      A = \begin{pmatrix} A_{1}^{1'} & A_{2}^{1'} & \dots & A_{n}^{1'} \\ A_{1}^{2'} & A_{2}^{2'} & \dots & A_{n}^{2'} \\ \vdots & \vdots & \ddots & \vdots \\ A_{1}^{n'} & A_{2}^{n'} & \dots & A_{n}^{n'} \end{pmatrix}
+      \qquad
+      A^{-1} = \begin{pmatrix} A_{1'}^{1} & A_{2'}^{1} & \dots & A_{n'}^{1} \\ A_{1'}^{2} & A_{2'}^{2} & \dots & A_{n'}^{2} \\ \vdots & \vdots & \ddots & \vdots \\ A_{1'}^{n} & A_{2'}^{n} & \dots & A_{n'}^{n} \end{pmatrix}
+\end{equation*}
+These matrices satisfy $AA^{-1}=A^{-1}A=I$.
 
 \subsubsection{Derivation.}
 We will derive the transformation law as a consequence of multilinearity, instead of take it as the deﬁnition of a tensor like in much of the physics literature.
