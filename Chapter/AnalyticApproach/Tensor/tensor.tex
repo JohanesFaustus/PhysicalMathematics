@@ -152,4 +152,59 @@ where, as before, the components of $T$ induced $\{e_i \}$ and its dual $\{e^i \
       T_{i_{1}...i_{r}}^{j_{1}...j_{s}} \equiv T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{r}})
 \end{equation*}
 
+\subsection{Tensor Transformation}
+Suppose we have basis $\mathcal{B}$ and primed basis $\mathcal{B}$.
+The transformation law that govern the change of basis from the primed basis $\mathcal{B}'$ into $\mathcal{B}$ is
+\begin{equation*}
+      T_{i'_{1}, \dots, i'_{r}}^{j'_{1} \dots j'_{s}}
+      = A^{k_{1}}_{i'_{1}} \dots A^{k_{r}}_{i'_{r}} A^{l_{1}}_{j'_{1}} \dots A^{l_{s}}_{j'_{s}} T_{k_{1} \dots k_{r}}^{l_{1} \dots l_{s}}
+\end{equation*}
+
+\subsubsection{Derivation.}
+We will derive the transformation law as a consequence of multilinearity, instead of take it as the deﬁnition of a tensor like in much of the physics literature.
+First let us define the basis in both basis as $\mathcal{B}=\{e_i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e_{i'}\}_{i=1,\dots,n}$.
+With linearity, each basis can be written as
+\begin{equation*}
+      e_{i} = A_{i}^{j'} e_{j'}\qquad
+      e_{i'} = A_{i'}^{j} e_{j}
+\end{equation*}
+Recall that the prime refer to the basis: unprimed subscript refer to unprimed basis and vice versa.
+We then have
+\begin{align*}
+      e_{i} = A_{i}^{j'} A_{j'}^{k} e_{k} = \delta_{i}^{k} e_{k}
+      \\
+      e_{i'} = A_{i'}^{j} A_{j}^{k'} e_{k'} = \delta_{i'}^{k'} e_{k'}
+\end{align*}
+In a way, $A_{i}^{j'}$ and $A_{i'}^{j}$ are inverse of each other
+Note that inverse here means inverse as linear maps under composition
+\begin{equation*}
+      A : V \rightarrow V\qquad
+      A^{-1} : V \rightarrow V
+\end{equation*}
+and
+\begin{equation*}
+      A \circ A^{-1} = I \qquad
+      A^{-1} \circ A = I
+\end{equation*}
+with $(A)^{j'}_{i} = A^{j'}_{i}$ and $(A^{-1})^{j'}_{i} = A^{j'}_{i}$.
+Of course in index notation the identity refer to Kronecker delta.
+
+Now define the dual basis $\mathcal{B}=\{e^i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e^{i'}\}_{i=1,\dots,n}$.
+The component of the basis are
+\begin{align*}
+      e^{i}(e_{j'}) & =  e^{i}\left( A^{k}_{j'}e_{k} \right)  = A^{k}_{j'} e^{i}\left( e_{k} \right) = A^{k}_{j'} \delta^{i}_{k} = A^{i}_{j'}       \\
+      e^{i'}(e_{j}) & =  e^{i'}\left( A^{k'}_{j}e_{k'} \right)  = A^{k'}_{j} e^{i'}\left( e_{k'} \right) = A^{k'}_{j} \delta^{i'}_{k'} = A^{i'}_{j}
+\end{align*}
+That means
+\begin{equation*}
+      e^{i'} = A^{i'}_{j} e^{j} \qquad
+      e^{i} = A^{i}_{j'} e^{j'}
+\end{equation*}
+Using repeated multilinearity once again
+\begin{align*}
+      T_{i'_{1},...,i'_{r}j'_{1}...j'_{s}} & =  T(e_{i'_{1}}, ..., e_{i'_{r}}, e^{j'_{1}}, ..., e^{j'_{s}})                                                                             \\
+                                           & =  T(A_{i'_{1}}^{k_{1}}e_{k_{1}}, ..., A_{i'_{r}}^{k_{r}}e_{k_{r}}, A_{l_{1}}^{j'_{1}}e^{l_{1}}, ..., A_{l_{s}}^{j'_{s}}e^{l_{s}})         \\
+                                           & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T(e_{k_{1}}, ..., e_{k_{r}}, e^{l_{1}}, ..., e^{l_{s}}) \\
+                                           & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T_{k_{1}...k_{r}}^{l_{1}...l_{s}}
+\end{align*}
 \end{document}
