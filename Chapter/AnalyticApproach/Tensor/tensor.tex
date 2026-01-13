@@ -34,9 +34,9 @@
                \\
                A \times B      & \text{The set } \{(a, b)\} \text{ of all ordered pairs where } a \in A, b \in B.
                \\
-                               & \text{Referred to as the cartesian product of sets A and B.}
+                               & \text{ Referred to as the cartesian product of sets A and B.}
                \\
-               \mathbb{R}^n    & \mathbb{R} \times \cdots \times \mathbb{R}
+               \mathbb{R}^n    & \underbrace{\mathbb{R} \times \cdots \times \mathbb{R} }_{n}
                \\
          \end{array} &
 \end{flalign*}
@@ -69,7 +69,7 @@ Consider linear operator $H$, which is $(1,1)$ tensor, on a Hilbert space spanne
 In Dirac notation we would write the basis as $\{\ket{i}\}$, $H(e_i)$ as $H \ket{i}$, $\tilde{e}_j(e_i)=(e_j|e_i)$ as $\braket{j|i}$, and $(e_j|He_i)$ as $\braket{j|H|i}$.
 The component of linear component $H$ is thus
 \begin{equation*}
-      H_i^j = H(e_i, e^j) = e^j (H e_i) = \langle j | H | i \rangle
+      H_i{}^j = H(e_i, e^j) = e^j (H e_i) = \langle j | H | i \rangle
 \end{equation*}
 In essence, we have
 \begin{flalign*}
@@ -90,7 +90,7 @@ In essence, we have
                \\
                (1,1) \text{ tensor component }                                     & \langle j | H | i \rangle
                \\
-               H_i^j = H(e_i, e^j) = e^j (H e_i)                                   &
+               \quad H_i{}^j = H(e_i, e^j) = e^j (H e_i)                           &
                \\
                T_{ij} e^i \otimes e_j                                              & \sum_{i,j} T_{ij} |j\rangle\langle i|
                \\
@@ -103,8 +103,8 @@ Many older books define a tensor as a collection of objects which carry indices 
 Modern  definition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
 The distinguishing characteristic of a tensor is a special property called multilinearity
 \begin{equation*}
-      T(v_{1}, ..., v_{r}, f_{1}, ..., f_{s})
-      = v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1}^{j_{1}}...f_{s}^{j_{s}} T_{i_{1},...,i_{r}}^{j_{1}...j_{s}}
+      T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r}, f_{1j_1} e^{j_1}, ..., f_{sj_s} e^{j_s})
+      =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T(e_{i_{1}}, ..., e_{i_{r}}, e^{j_{1}},..., e^{j_{s}}) \\
 \end{equation*}
 which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
 In older treatments, these are usually introduced as components of the tensor.
@@ -145,19 +145,20 @@ Then by repeated application of multilinearity, we have
 \begin{align*}
       T(v_{1}, ..., v_{r}, f_{1}, ..., f_{s}) & =  T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r}, f_{1j_1} e^{j_1}, ..., f_{sj_s} e^{j_s})                        \\
                                               & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T(e_{i_{1}}, ..., e_{i_{r}}, e^{j_{1}},..., e^{j_{s}}) \\
-                                              & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T_{i_{1},...,i_{r}}^{j_{1}...j_{s}}
+                                              & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T_{i_{1},...,i_{r}}{}^{j_{1}...j_{s}}
 \end{align*}
 where, as before, the components of $T$ induced $\{e_i \}$ and its dual $\{e^i \}$ is
 \begin{equation*}
-      T_{i_{1}...i_{r}}^{j_{1}...j_{s}} \equiv T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{r}})
+      T_{i_{1}...i_{r}}{}^{j_{1}...j_{s}} \equiv T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{r}})
 \end{equation*}
+Here components are defined as the values of the tensor when evaluated on a given set of basis vectors.
 
 \subsection{Tensor Transformation}
 Suppose we have basis $\mathcal{B}$ and primed basis $\mathcal{B}$.
 The transformation law that govern the change of basis from the primed basis $\mathcal{B}'$ into $\mathcal{B}$ is
 \begin{equation*}
-      T_{i'_{1}, \dots, i'_{r}}^{j'_{1} \dots j'_{s}}
-      = A^{k_{1}}_{i'_{1}} \dots A^{k_{r}}_{i'_{r}} A^{l_{1}}_{j'_{1}} \dots A^{l_{s}}_{j'_{s}} T_{k_{1} \dots k_{r}}^{l_{1} \dots l_{s}}
+      T_{i'_{1}, \dots, i'_{r}}{}^{j'_{1} \dots j'_{s}}
+      = A^{k_{1}}_{i'_{1}} \dots A^{k_{r}}_{i'_{r}} A^{l_{1}}_{j'_{1}} \dots A^{l_{s}}_{j'_{s}} T_{k_{1} \dots k_{r}}{}^{l_{1} \dots l_{s}}
 \end{equation*}
 
 \subsubsection{Derivation.}
@@ -175,7 +176,7 @@ We then have
       \\
       e_{i'} = A_{i'}^{j} A_{j}^{k'} e_{k'} = \delta_{i'}^{k'} e_{k'}
 \end{align*}
-In a way, $A_{i}^{j'}$ and $A_{i'}^{j}$ are inverse of each other
+In a way, $A_{i}^{j'}$ and $A_{i'}^{j}$ are inverse of each other.
 Note that inverse here means inverse as linear maps under composition
 \begin{equation*}
       A : V \rightarrow V\qquad
@@ -187,7 +188,7 @@ and
       A^{-1} \circ A = I
 \end{equation*}
 with $(A)^{j'}_{i} = A^{j'}_{i}$ and $(A^{-1})^{j'}_{i} = A^{j'}_{i}$.
-Of course in index notation the identity refer to Kronecker delta.
+Of course, in index notation the identity refer to Kronecker delta.
 
 Now define the dual basis $\mathcal{B}=\{e^i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e^{i'}\}_{i=1,\dots,n}$.
 The component of the basis are
@@ -202,9 +203,9 @@ That means
 \end{equation*}
 Using repeated multilinearity once again
 \begin{align*}
-      T_{i'_{1},...,i'_{r}j'_{1}...j'_{s}} & =  T(e_{i'_{1}}, ..., e_{i'_{r}}, e^{j'_{1}}, ..., e^{j'_{s}})                                                                             \\
-                                           & =  T(A_{i'_{1}}^{k_{1}}e_{k_{1}}, ..., A_{i'_{r}}^{k_{r}}e_{k_{r}}, A_{l_{1}}^{j'_{1}}e^{l_{1}}, ..., A_{l_{s}}^{j'_{s}}e^{l_{s}})         \\
-                                           & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T(e_{k_{1}}, ..., e_{k_{r}}, e^{l_{1}}, ..., e^{l_{s}}) \\
-                                           & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T_{k_{1}...k_{r}}^{l_{1}...l_{s}}
+      T_{i'_{1},...,i'_{r}}{}^{j'_{1}...j'_{s}} & =  T(e_{i'_{1}}, ..., e_{i'_{r}}, e^{j'_{1}}, ..., e^{j'_{s}})                                                                             \\
+                                                & =  T(A_{i'_{1}}^{k_{1}}e_{k_{1}}, ..., A_{i'_{r}}^{k_{r}}e_{k_{r}}, A_{l_{1}}^{j'_{1}}e^{l_{1}}, ..., A_{l_{s}}^{j'_{s}}e^{l_{s}})         \\
+                                                & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T(e_{k_{1}}, ..., e_{k_{r}}, e^{l_{1}}, ..., e^{l_{s}}) \\
+                                                & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T_{k_{1}...k_{r}}{}^{l_{1}...l_{s}}
 \end{align*}
 \end{document}
