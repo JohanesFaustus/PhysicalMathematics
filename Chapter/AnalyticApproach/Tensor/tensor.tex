@@ -126,6 +126,7 @@ which in matrix form reads
       [T]_{\mathcal{B}'} = A [T]_{\mathcal{B}} A^{-1}
 \end{equation*}
 with $[T]_\mathcal{B}=T_{k}^{l}$ and $[T]_{\mathbb{B'}'}T_{i'}^{j'}$.
+This is nothing more than familiar similarity transformation of matrices.
 From this, we can also define the trace of a tensor.
 Given $T \in \mathcal{L}(V)$ and basis $\mathcal{B}$ for $V$, we define the trace of $T$ as
 \begin{equation*}
@@ -250,4 +251,42 @@ Using repeated multilinearity once again
                                                 & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T(e_{k_{1}}, ..., e_{k_{r}}, e^{l_{1}}, ..., e^{l_{s}}) \\
                                                 & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T_{k_{1}...k_{r}}{}^{l_{1}...l_{s}}
 \end{align*}
+
+\subsection{Active and Passive Transformation}
+In active transformation, we use the matrix $A$ to change one vector $e_{i}$ into another $e_{i'}$
+\begin{equation*}
+      [v_{i'}]_{\mathcal{B}} = A[v_{i}]_{\mathcal{B}}
+\end{equation*}
+It is a change of vector $v \to v'$ in o other words.
+This can be seen by considering the components of transformed vector $v'=A(v)$
+\begin{equation*}
+      v^{j'} e_{j} = A(v^{i} e_{i}) = v^{i} A(e_{i}) = v^{i} A_{i}^{j} e_{j}
+\end{equation*}
+And we obtain
+\begin{equation*}
+      v^{j'} = A_{i}^{j} v^{i}
+\end{equation*}
+We see that the change of component in active transformation.
+
+In passive transformation, we use the matrix $A$ to change the basis $\mathcal{B}$ into another $\mathbb{B}'$, not the vector
+\begin{equation*}
+      \{e_i\}_{\mathcal{B}'} = A \left\{ e_i \right\} _{\mathcal{B}}
+\end{equation*}
+Here the basis and the components change, while the vector itself is fixed.
+When $A$ is interpreted passively it corresponds to the opposite transformation as in the active case.
+This can be understood by considering passive transformation definition of change in basis
+\begin{equation*}
+      v = v^{i} e_{i} = v^{i'} e_{i'}
+\end{equation*}
+The components must change in order for the definition remains true.
+Inserting the change of basis
+\begin{equation*}
+      v^{i} e_{i} = v^{i'} A_{i}^{i} e_{i}
+\end{equation*}
+Hence, we obtain
+\begin{equation*}
+      v^{i} = A_{i'}^{i} v^{i'}\qquad
+      v^{i'} = (A^{-1})_{i}^{i'} v^{i}
+\end{equation*}
+
 \end{document}
