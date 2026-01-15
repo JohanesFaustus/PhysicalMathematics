@@ -98,13 +98,48 @@ In essence, we have
          \end{array} &
 \end{flalign*}
 
+\subsubsection{Matrix notation comparison.}
+The transformation of vectors and dual vectors
+\begin{equation*}
+      v^{i'} = A^{i'}_{j} v^{j}\qquad
+      f_{i'} = A^{j}_{i'} f_{j}
+\end{equation*}
+can be written in terms of matrices as
+\begin{equation*}
+      [v]_{\mathcal{B}'} = A [v]_{\mathcal{B}}\qquad
+      [f]_{\mathcal{B}'} = A^{-1 T} [f]_{\mathcal{B}}
+\end{equation*}
+we know that $f (v)=[f]_\mathcal{B}^T [v]_\mathcal{B}$ should be basis-independent.
+This can be proven by
+\begin{equation*}
+      [f]_{\mathcal{B'}}^{T} [v]_{\mathcal{B'}} = (A^{-1T}[f]_{\mathcal{B}})^{T} A [v]_{\mathcal{B}}
+            = [f]_{\mathcal{B}}^{T} A^{-1} A [v]_{\mathcal{B}}
+            = [f]_{\mathcal{B}}^{T} [v]_{\mathcal{B}}
+\end{equation*}
+
+As a $(1,1)$ tensor, linear operator $T$ in $V$ can be written as
+\begin{equation*}
+      T_{i'}^{j'} = A_{i'}^{k} A_{l}^{j'} T_{k}^{l}
+\end{equation*}
+which in matrix form reads
+\begin{equation*}
+      [T]_{\mathcal{B}'} = A [T]_{\mathcal{B}} A^{-1}
+\end{equation*}
+with $[T]_\mathcal{B}=T_{k}^{l}$ and $[T]_{\mathbb{B'}'}T_{i'}^{j'}$.
+From this, we can also define the trace of a tensor.
+Given $T \in \mathcal{L}(V)$ and basis $\mathcal{B}$ for $V$, we define the trace of $T$ as
+\begin{equation*}
+      \mathrm{Tr}(T) \equiv \mathrm{Tr}([T]_{\mathcal{B}}).
+\end{equation*}
+which is basis independent.
+
 \subsection{Definition}
 Many older books define a tensor as a collection of objects which carry indices and which 'transform' in a particular way specified by those indices.
 Modern  definition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
 The distinguishing characteristic of a tensor is a special property called multilinearity
 \begin{equation*}
-      T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r}, f_{1j_1} e^{j_1}, ..., f_{sj_s} e^{j_s})
-      =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T(e_{i_{1}}, ..., e_{i_{r}}, e^{j_{1}},..., e^{j_{s}}) \\
+      T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r})
+      =  v_{1}^{i_{1}}...v_{r}^{i_{r}} T(e_{i_{1}}, ..., e_{i_{r}}) \\
 \end{equation*}
 which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
 In older treatments, these are usually introduced as components of the tensor.
@@ -122,7 +157,7 @@ In other words
       v(f)=f(v)
 \end{equation*}
 where $v \in V$ and $f \in V^*$.
-We also view linear operator as $(1,1)$ tensor $oA(v,f)\equiv f(Av)$ and $(0,0)$ tensor as scalar.
+We also view linear operator as $(1,1)$ tensor $A(v,f)\equiv f(Av)$ and $(0,0)$ tensor as scalar.
 
 In physics textbooks, tensors (usually of the second rank) are often represented as matrices
 It is crucial to keep in mind, though, that this association between a tensor and a matrix depends entirely on a choice of basis, and that matrix $[T]$ is useful mainly as a computational tool, not a conceptual handle.
@@ -174,7 +209,7 @@ First let us define the basis in both basis as $\mathcal{B}=\{e_i\}_{i=1,\dots,n
 With linearity, each basis can be written as
 \begin{equation*}
       e_{i} = A_{i}^{j'} e_{j'}\qquad
-      e_{i'} = A_{i'}^{j} e_{j}
+      e_{i'} = A_{i'}^{j} e_{}
 \end{equation*}
 Recall that the prime refer to the basis: unprimed subscript refer to unprimed basis and vice versa.
 We then have
