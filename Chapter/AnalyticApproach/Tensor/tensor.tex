@@ -289,4 +289,14 @@ Hence, we obtain
       v^{i'} = (A^{-1})_{i}^{i'} v^{i}
 \end{equation*}
 
+\subsubsection{Quantum mechanics.}
+In the Schrödinger picture, one considers observables like the momentum or position operator as acting on the state ket while the basis kets remain fixed.
+This is the active viewpoint.
+In the Heisenberg picture, however, one considers the state ket to be fixed and considers the observables to be time-dependent.
+Consider the time-evolution operator $U$, the evolution of quantum state is
+\begin{align*}
+      \langle \hat{x}(t) \rangle & =  \langle \psi | (U^{\dagger} \hat{x} U) | \psi \rangle                          \\
+                                 & =  \left(\langle \psi | U^{\dagger}\right) \hat{x} \left(U | \psi \rangle\right),
+\end{align*}
+$U$ can be interpreted in two ways: in the active sense of (first line), in which the $U$ act on the vectors and change them into new vectors, and in the passive sense of (second line), where the $U$ act on the operator $\hat{x}$ by a similarity transformation to turn it into a new operator, $\hat{x}(t)$.
 \end{document}
