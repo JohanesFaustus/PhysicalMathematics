@@ -64,6 +64,15 @@ This is the reason why the indices is defined in such way
             transform like dual basis vectors, so we gave them both upper indices
 \end{enumerate}
 
+Aside, $A^{i'}_{j}$ is the component of basis dependent tensor $U$ that takes the new basis $e_{i'}$ vectors into the old $e_i$
+\begin{equation*}
+      U(e_{i'})=e_i
+\end{equation*}
+The components of this tensor is
+\begin{equation*}
+      U^{j}_{i} = U(e_{i}, e^{j}) = e^{j}(U e_{i}) = e^{j}(U(A^{k}_{i} e_{k})) = A^{k}_{i} e^{j}(U(e_{k})) = A^{k}_{i} e^{j} e_{k'} = A^{j}_{i'}
+\end{equation*}
+
 \subsubsection{Dirac notation comparison.}
 Consider linear operator $H$, which is $(1,1)$ tensor, on a Hilbert space spanned by orthonormal vectors $\{e_i \}$.
 In Dirac notation we would write the basis as $\{\ket{i}\}$, $H(e_i)$ as $H \ket{i}$, $\tilde{e}_j(e_i)=(e_j|e_i)$ as $\braket{j|i}$, and $(e_j|He_i)$ as $\braket{j|H|i}$.
