@@ -334,4 +334,20 @@ and
 \end{equation*}
 It can be seen that $T$ and $T^{ij} e_i \otimes f_j$ agrees on basis vector and hence $T=T^{ij} e_i \otimes f_j$.
 
+\subsubsection{Tensor product property.}
+The first property is of course bilinearity, meaning linear in each argument separately
+\begin{align*}
+      (v_1 + v_2) \otimes w & = v_1 \otimes w + v_2 \otimes w \\
+      v \otimes (w_1 + w_2) & = v \otimes w_1 + v \otimes w_2
+\end{align*}
+Next is that it commutes with taking duals
+\begin{equation*}
+      (V \otimes W)^* = V^* \otimes W^*
+\end{equation*}
+Third, the tensor product it is associative
+\begin{equation*}
+      (V_1 \otimes V_2) \otimes V_3 = V_1 \otimes (V_2 \otimes V_3)
+\end{equation*}
+This property allows us to drop the parentheses and write expressions like $V_1 \otimes \dots \otimes V_n$ without ambiguity.
+One can think of $V_1 \otimes \dots \otimes V_n$ as the set of $C$-valued multilinear functions on $V_1 \times \dots \times V_n ^*$.
 \end{document}
