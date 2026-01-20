@@ -72,6 +72,7 @@ The components of this tensor is
 \begin{equation*}
       U^{j}_{i} = U(e_{i}, e^{j}) = e^{j}(U e_{i}) = e^{j}(U(A^{k}_{i} e_{k})) = A^{k}_{i} e^{j}(U(e_{k})) = A^{k}_{i} e^{j} e_{k'} = A^{j}_{i'}
 \end{equation*}
+For the last line, just note that the prime on an index does not change its numerical value, it is just a reminder that it refers to the primed basis.
 
 \subsubsection{Dirac notation comparison.}
 Consider linear operator $H$, which is $(1,1)$ tensor, on a Hilbert space spanned by orthonormal vectors $\{e_i \}$.
@@ -214,7 +215,7 @@ The matrix representation of the transformation coefficients $A=A_{i}^{k'}$ and 
 These matrices satisfy $AA^{-1}=A^{-1}A=I$.
 
 \subsubsection{Derivation.}
-We will derive the transformation law as a consequence of multilinearity, instead of take it as the deﬁnition of a tensor like in much of the physics literature.
+We will derive the transformation law as a consequence of multilinearity, instead of take it as the definition of a tensor like in much of the physics literature.
 First let us define the basis in both basis as $\mathcal{B}=\{e_i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e_{i'}\}_{i=1,\dots,n}$.
 With linearity, each basis can be written as
 \begin{equation*}
@@ -308,4 +309,29 @@ Consider the time-evolution operator $U$, the evolution of quantum state is
                                  & =  \left(\langle \psi | U^{\dagger}\right) \hat{x} \left(U | \psi \rangle\right),
 \end{align*}
 $U$ can be interpreted in two ways: in the active sense of (first line), in which the $U$ act on the vectors and change them into new vectors, and in the passive sense of (second line), where the $U$ act on the operator $\hat{x}$ by a similarity transformation to turn it into a new operator, $\hat{x}(t)$.
+
+\subsection{Tensor Product}
+Given two finite-dimensional vector spaces $V$ and $W$, we define their tensor product $V \otimes W$ to be the set of all $C$-valued bilinear functions on $V ^* \times W ^*$ with $\left\{ e_i \otimes f_j \right\}; i=1\dots,n,j=1,\dots ,m $ as basis such that
+\begin{equation*}
+      T=T^{ij} e_i \otimes f_j \quad \forall h \in V^*, g \in W^*
+\end{equation*}
+The product has dimension $mn$ or $\dim(V \otimes W) = (\dim V)(\dim W)$.
+Also, given two vectors $v \in V $, $w \in W$, we define their tensor product $V \otimes W$ to be the element of $V \otimes W$ defined as follows
+\begin{equation*}
+      (v \otimes w)(h, g) \equiv v(h)w(g) \quad \forall h \in V^*, g \in W^*
+\end{equation*}
+Remember that an element of $V \otimes W$ is a bilinear function on $V ^* \times  W ^*$, and so is defined by its action on a pair $(h, g) \in V ^* \otimes W ^*$.
+$\left\{ e_i \otimes f_j \right\}$ as the basis for $V \otimes W$ is proven by
+\begin{equation*}
+      T(h, g) =  T(h_i e^i,g_j f^j) = h_i g_j T(e^i, f^j) = h_i g_j T^{ij}
+\end{equation*}
+and
+\begin{equation*}
+      (T^{ij} e_i \otimes f_j)(h, g)
+      = h_kg_l(T^{ij} e_i \otimes f_j) (e^k, f^l)
+      = h_kg_lT^{ij} e_i (e^k) f_j (f^l)
+      = h_kg_lT^{kl}
+\end{equation*}
+It can be seen that $T$ and $T^{ij} e_i \otimes f_j$ agrees on basis vector and hence $T=T^{ij} e_i \otimes f_j$.
+
 \end{document}
