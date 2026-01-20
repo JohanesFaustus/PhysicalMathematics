@@ -350,4 +350,29 @@ Third, the tensor product it is associative
 \end{equation*}
 This property allows us to drop the parentheses and write expressions like $V_1 \otimes \dots \otimes V_n$ without ambiguity.
 One can think of $V_1 \otimes \dots \otimes V_n$ as the set of $C$-valued multilinear functions on $V_1 \times \dots \times V_n ^*$.
+
+\subsubsection{Vector space of tensor.}
+The vector space $\mathcal{T}_s^r$ of type $(r,s)$ over $V$ defined as
+\begin{equation*}
+      \mathcal{T}_s^r(V) \equiv \underbrace{V^* \otimes \cdots \otimes V^*}_{r } \quad \underbrace{V \otimes \cdots \otimes V}_{s }.
+\end{equation*}
+Since the space has basis $\mathcal{B}^r_s = \{ e^{i_1} \otimes \cdots \otimes e^{i_r} \otimes e_{j_1} \otimes \cdots \otimes e_{j_s} \}$, we can conclude that $\mathcal{B}^r_s$ is a basis for $\mathcal{T}^r_s$.
+In fact, we claim that if $T \in \mathcal{T}^r_s$ has components $T_{i_1 \ldots i_r}{}^{j_1 \ldots j_s}$, then
+\begin{equation*}
+      T = T_{i_1 \ldots i_r}{}^{j_1 \ldots j_s} e^{i_1} \otimes \cdots \otimes e^{i_r} \otimes e_{j_1} \otimes \cdots \otimes e_{j_s}
+\end{equation*}
+is the expansion of $T$ in the basis $\mathcal{B}^r_s$.
+
+To prove this, we just need to check that both sides agree when evaluated on an arbitrary set of basis vectors
+From the definition of tensor component
+\begin{equation*}
+      T_{i_{1}...i_{r}}{}^{j_{1}...j_{s}} = T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{s}})
+\end{equation*}
+Then for the right-hand side
+\begin{align*}
+             & (T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} e^{k_1} \otimes \cdots \otimes e^{k_r} \otimes e_{l_1} \otimes \cdots \otimes e_{l_s}) \left( e_{i_1}, \ldots, e_{i_r}, e^{j_1}, \ldots, e^{j_s} \right) \\
+      \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} e^{k_1}(e_{i_1}) \cdots e^{k_r}(e_{i_r}) e_{l_1}(e^{j_1}) \cdots e_{l_s}(e^{j_s})                                                                      \\
+      \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} \delta_{i_1}^{k_1} \cdots \delta_{i_r}^{k_r} \delta_{l_1}^{j_1} \cdots \delta_{l_s}^{j_s}                                                              \\
+      \qquad & =  T_{i_1, \ldots, i_r}{}^{j_1, \ldots, j_s}
+\end{align*}
 \end{document}
