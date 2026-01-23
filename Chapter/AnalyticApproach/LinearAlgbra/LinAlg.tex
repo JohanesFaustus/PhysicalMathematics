@@ -621,11 +621,11 @@ Let $ A$ be an $n \times  n$ matrix over $\mathbb{R}$ or $\mathbb{C}$, then diag
 \begin{equation*}
 	A= V \Lambda V^{-1}
 \end{equation*}
-where $\Lambda$ is diagonal matrix corresponding to eigenvalues of $A$ and $V$ form basis consisting of eigenvectors of $V$.
-When the decomposition exists, powers and analytic functions of $A$ are computed by conjugation of the diagonal matrix
+or equivalently
 \begin{equation*}
-	e^{At} = Ve^{\Lambda t}V^{-1} = \mathrm{diag}(e^{\lambda_{1}t}, \dots, e^{\lambda_{n}t})
+	V^{-1}AV= \Lambda
 \end{equation*}
+where $\Lambda$ is diagonal matrix corresponding to eigenvalues of $A$, while  $V$ form basis consisting of eigenvectors of $V$.
 
 The procedure of finding the diagonalization are as follows
 \begin{enumerate}
@@ -654,6 +654,23 @@ The spectral theorem state that for every normal operator $\Omega$ acting on a Ô
 Then, every Ô¨Ånite-dimensional normal matrix $\Omega$, there is a unitary matrix $U$ such that $\Omega=UA U ^\dagger$, where $A$ is a diagonal matrix with entrues of eigenvalues of $\Omega$ and the column of $U$ encode the eigenvector of $\Omega$.
 Writting $\Omega$ in its own eigenbasis is referred as spectral decomposition of $\Omega$ and set of eigenvalues of $\Omega$ is called the spectrum of $\Omega$.
 The Spectral Theorem tells us that we can always diagonalize normal operators.
+
+\subsubsection{What's the point?}
+The purpose of diagonalization is that many problems reduce to elementary scalar problems in the eigenbasis.
+For example, computing powers or functions of operators becomes straightforward.
+Say $\Omega=UA U ^\dagger$, then the power and  function of operator can be expressed as
+\begin{equation*}
+	\Omega^{n} = U A^{n} U^{\dagger}\qquad
+	f(\Omega) = U f(A) U^{\dagger}
+\end{equation*}
+When the decomposition exists, powers and analytic functions of $A$ are computed by conjugation of the diagonal matrix
+\begin{equation*}
+	e^{At} = Ve^{\Lambda t}V^{-1} = \mathrm{diag}(e^{\lambda_{1}t}, \dots, e^{\lambda_{n}t})
+\end{equation*}
+
+In quantum mechanics, observables are Hermitian operators.
+The spectral decomposition expresses an observable as $	\Omega = \sum_{i} \omega_{i}\mathcal{P}_{i}$ with $\mathcal{P}_i$ as the projection operator.
+This shows that a measurement of $\Omega$ yields one of the eigenvalues $\Omega_i$, and the system is projected onto the corresponding eigenspace by $\mathcal{P}_i$.
 
 \subsection{Special Matrices and Operator}
 \subsubsection{Theorem.}
