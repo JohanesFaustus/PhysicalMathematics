@@ -350,6 +350,43 @@ Now we can write
       \left( |i\rangle \otimes |j\rangle \right) \left( \langle k| \otimes \langle l| \right) \equiv |i\rangle \langle k| \otimes |j\rangle \langle l|=|ij\rangle \langle kl|
 \end{equation*}
 
+\subsubsection{Matrix notation.}
+Suppose $A$ is an $m \times n$ matrix and B a $p \times q$ matrix, then product of $A$ with $B$ is the $mp \times nq$ matrix
+\begin{equation*}
+      A\otimes B =
+      \begin{bmatrix}
+            A_{11}B_{11} & \cdots & A_{11}B_{1q} & \cdots & \cdots & A_{1n}B_{11} & \cdots & A_{1n}B_{1q} \\
+            \vdots       & \ddots & \vdots       & \vdots & \vdots & \vdots       & \ddots & \vdots       \\
+            A_{11}B_{p1} & \cdots & A_{11}B_{pq} & \cdots & \cdots & A_{1n}B_{p1} & \cdots & A_{1n}B_{pq} \\
+            \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \vdots & \vdots       \\
+            \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \vdots & \vdots       \\
+            A_{m1}B_{11} & \cdots & A_{m1}B_{1q} & \cdots & \cdots & A_{mn}B_{11} & \cdots & A_{mn}B_{1q} \\
+            \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \ddots & \vdots       \\
+            A_{m1}B_{p1} & \cdots & A_{m1}B_{pq} & \cdots & \cdots & A_{mn}B_{p1} & \cdots & A_{mn}B_{pq}
+      \end{bmatrix}
+\end{equation*}
+This matrix is sometimes written more compactly in block form as
+\begin{equation*}
+      A \otimes B =
+      \begin{bmatrix}
+            A_{11}[B] & A_{12}[B] & \cdots & A_{1n}[B] \\
+            A_{21}[B] & A_{22}[B] & \cdots & A_{2n}[B] \\
+            \vdots    & \vdots    & \ddots & \vdots    \\
+            A_{m1}[B] & A_{m2}[B] & \cdots & A_{mn}[B]
+      \end{bmatrix}
+\end{equation*}
+Here, $[B]$ represents the $p \times q$ submatrix $B$.
+Then each block entry $A_{ij}[B]$ above is the matrix $[B]$ multiplied by the single entry in row $i$, column $j$, of matrix $A$
+\begin{equation*}
+      A_{ij}[B] =
+      \begin{bmatrix}
+            A_{ij}B_{11} & A_{ij}B_{12} & \cdots & A_{ij}B_{1q} \\
+            A_{ij}B_{21} & A_{ij}B_{22} & \cdots & A_{ij}B_{2q} \\
+            \vdots       & \vdots       & \ddots & \vdots       \\
+            A_{ij}B_{p1} & A_{ij}B_{p2} & \cdots & A_{ij}B_{pq}
+      \end{bmatrix}
+\end{equation*}
+
 \subsubsection{Tensor product property.}
 The first property is of course bilinearity, meaning linear in each argument separately
 \begin{align*}
