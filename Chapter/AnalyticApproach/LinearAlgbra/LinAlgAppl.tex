@@ -240,6 +240,131 @@ Now we can use the inverse to find the value of the vector
 \end{equation*}
 
 \subsection{Application: Eigenvalue Problem}
+We shall find the eigenvalues of the Hermitian matrix
+\[
+    X=\begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}.
+\]
+The characteristic equation is obtained by taking the determinant,
+\[
+    \det(X-\lambda I)
+    =
+    \begin{vmatrix}
+        -\lambda & 1        \\
+        1        & -\lambda
+    \end{vmatrix}
+    =
+    \lambda^{2}-1=0 .
+\]
+This implies that the eigenvalues are
+\[
+    \lambda=\pm 1 .
+\]
+
+Next, we substitute each eigenvalue into the eigenvalue equation.
+First consider the eigenvalue \(\lambda=1\).
+Then
+\[
+    (X-I)\ket{\lambda_+}=0
+    \implies
+    \begin{bmatrix}
+        -1 & 1  \\
+        1  & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -v_1+v_2=0 \\
+        v_1-v_2=0
+    \end{bmatrix}.
+\]
+This yields \(v_1=v_2\). Choosing a normalized eigenvector, we obtain
+\[
+    \ket{\lambda_+}
+    =
+    \frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 \\
+        1
+    \end{bmatrix}.
+\]
+Next consider the eigenvalue \(\lambda=-1\). Then
+\[
+    (X+I)\ket{\lambda_-}=0
+    \implies
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_1 \\
+        v_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_1+v_2=0 \\
+        v_1+v_2=0
+    \end{bmatrix}.
+\]
+This yields \(v_1=-v_2\). Choosing a normalized eigenvector, we obtain
+\[
+    \ket{\lambda_-}
+    =
+    \frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 \\
+        -1
+    \end{bmatrix}
+\]
+
+We form the matrix \(V\) by taking these eigenvectors as columns,
+\[
+    V=\frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}.
+\]
+Since the eigenvectors are orthonormal, \(V\) is unitary, and therefore $    V^\dagger = V^{-1}$.
+The diagonal matrix of eigenvalues is $\Lambda=\mathrm{diag}(1,-1)$ or
+\begin{align*}
+    \Lambda=U ^{-1} XV & =
+    \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}         \\
+    \Lambda            & =
+    \frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 \\
+        -1
+    \end{bmatrix}
+    \frac{1}{\sqrt{2}} \begin{bmatrix}
+                           1 & 1  \\
+                           1 & -1
+                       \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+\end{align*}
+
+\subsection{Application: Another Eigenvalue Problem}
 We shall find the eigenvalue of the hermitian matrix
 \begin{equation*}
     \Omega=\begin{bmatrix}
