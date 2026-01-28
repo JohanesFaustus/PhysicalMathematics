@@ -660,6 +660,21 @@ Then, every ﬁnite-dimensional normal matrix $A$, there is a unitary matrix $U$
 Writting $A$ in its own eigenbasis is referred as spectral decomposition of $A$ and set of eigenvalues of $A$ is called the spectrum of $A$.
 The Spectral Theorem tells us that we can always diagonalize normal operators.
 
+\subsubsection{Schmidt decomposition theorem.}
+If $\ket{\psi}$ is a vector in a tensor product space $\mathcal{H}_A \otimes \mathcal{H}_B$, then there exists an orthonormal basis $\{ \ket{\varphi^A_i} \}$ for $\mathcal{H}_A$, and an orthonormal basis $\{ \ket{\varphi^B_i} \}$ for $\mathcal{H}_B$, and non-negative real numbers $\{ p_i \}$ so that
+\begin{equation*}
+	\ket{\psi} = \sum_i \sqrt{p_i} \ket{\varphi^A_i} \otimes \ket{\varphi^B_i}
+\end{equation*}
+Suppose $\{ \ket{\varphi^A_i} \}$ and $\{ \ket{\varphi^B_i} \}$ were chosen to be any arbitrary orthonormal bases for $\mathcal{H}_A$ and $\mathcal{H}_B$ respectively.
+\begin{equation*}
+	\ket{\psi} = \sum_{i,j} \alpha_{i,j} \ket{\varphi^A_i} \otimes \ket{\varphi^B_j}
+\end{equation*}
+We have had to use different indices on the two sets of basis vectors to account for all the cross-terms.
+The Schmidt decomposition tells us that we can always find some pair of bases $\{|\varphi^A_i\rangle\}$ and $\{|\varphi^B_i\rangle\}$ such that all the cross-terms vanish, and the general vector simplifies to a sum over one set of indices
+\begin{equation*}
+	|\psi\rangle = \sum_i \sqrt{p_i} |\varphi^A_i\rangle |\varphi^B_i\rangle
+\end{equation*}
+
 \subsubsection{What's the point?}
 The purpose of diagonalization is that many problems reduce to elementary scalar problems in the eigenbasis.
 For example, computing powers or functions of operators becomes straightforward.
