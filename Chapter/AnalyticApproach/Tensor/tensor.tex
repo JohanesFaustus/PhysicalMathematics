@@ -135,7 +135,7 @@ which in matrix form reads
 \begin{equation*}
       [T]_{\mathcal{B}'} = A [T]_{\mathcal{B}} A^{-1}
 \end{equation*}
-with $[T]_\mathcal{B}=T_{k}^{l}$ and $[T]_{\mathbb{B'}'}T_{i'}^{j'}$.
+with $[T]_\mathcal{B}=T_{k}^{l}$ and $[T]_{\mathcal{B'}'}T_{i'}^{j'}$.
 This is nothing more than familiar similarity transformation of matrices.
 From this, we can also define the trace of a tensor.
 Given $T \in \mathcal{L}(V)$ and basis $\mathcal{B}$ for $V$, we define the trace of $T$ as
@@ -162,12 +162,11 @@ A tensor of type $(r, s)$ on a vector space V is a $\mathbb{C}$-valued function 
       \underbrace{V^* \times \cdots \times V^*}_{s}
       \to \mathbb{C}
 \end{equation*}
-In this definition, vector $v: V \to (V^*)$ and its dual $f:V\to \mathbb{C}$ can be defined as $(0,1)$ and $(1,0)$ tensor respectively.
+In this definition, vector $v \in V$ and its dual $f \in V^*$ can be defined as $(0,1)$ and $(1,0)$ tensor respectively.
 In other words
 \begin{equation*}
       v(f)=f(v)
 \end{equation*}
-where $v \in V$ and $f \in V^*$.
 We also view linear operator as $(1,1)$ tensor $A(v,f)\equiv f(Av)$ and $(0,0)$ tensor as scalar.
 
 In physics textbooks, tensors (usually of the second rank) are often represented as matrices
@@ -278,7 +277,7 @@ And we obtain
 \end{equation*}
 We see that the change of component in active transformation.
 
-In passive transformation, we use the matrix $A$ to change the basis $\mathcal{B}$ into another $\mathbb{B}'$, not the vector
+In passive transformation, we use the matrix $A$ to change the basis $\mathcal{B}$ into another $\mathcal{B}'$, not the vector
 \begin{equation*}
       \{e_i\}_{\mathcal{B}'} = A \left\{ e_i \right\} _{\mathcal{B}}
 \end{equation*}
@@ -305,8 +304,9 @@ This is the active viewpoint.
 In the Heisenberg picture, however, one considers the state ket to be fixed and considers the observables to be time-dependent.
 Consider the time-evolution operator $U$, the evolution of quantum state is
 \begin{align*}
-      \langle \hat{x}(t) \rangle & =  \langle \psi | (U^{\dagger} \hat{x} U) | \psi \rangle                          \\
-                                 & =  \left(\langle \psi | U^{\dagger}\right) \hat{x} \left(U | \psi \rangle\right),
+      \langle \hat{x}(t) \rangle
+       & =  \left(\langle \psi | U^{\dagger}\right) \hat{x} \left(U | \psi \rangle\right) \\
+       & =  \langle \psi | (U^{\dagger} \hat{x} U) | \psi \rangle
 \end{align*}
 $U$ can be interpreted in two ways: in the active sense of (first line), in which the $U$ act on the vectors and change them into new vectors, and in the passive sense of (second line), where the $U$ act on the operator $\hat{x}$ by a similarity transformation to turn it into a new operator, $\hat{x}(t)$.
 
@@ -333,6 +333,22 @@ and
       = h_kg_lT^{kl}
 \end{equation*}
 It can be seen that $T$ and $T^{ij} e_i \otimes f_j$ agrees on basis vector and hence $T=T^{ij} e_i \otimes f_j$.
+
+\subsubsection{Dirac notation.}
+Suppose \( A \) and \( B \) are linear operators on \( \mathcal{H}_1 \) and \( \mathcal{H}_2 \) respectively.
+Then \( A \otimes B \) is the linear operator on \( \mathcal{H}_1 \otimes \mathcal{H}_2 \) defined by
+\begin{equation*}
+      (A \otimes B)(|\psi_1\rangle \otimes |\psi_2\rangle) \equiv A|\psi_1\rangle \otimes B|\psi_2\rangle
+\end{equation*}
+with $\ket{\psi_1}$ and $\ket{\psi_2}$ are vector from the space $\mathcal{H}_1$ and $\mathcal{H}_2$ respectively.
+Some convention involving the tensor product omiting the tensor product sign entirely
+\begin{equation*}
+      \ket{i}\otimes \ket{j}=\ket{i} \ket{j}= \ket{ij}
+\end{equation*}
+Now we can write
+\begin{equation*}
+      \left( |i\rangle \otimes |j\rangle \right) \left( \langle k| \otimes \langle l| \right) \equiv |i\rangle \langle k| \otimes |j\rangle \langle l|=|ij\rangle \langle kl|
+\end{equation*}
 
 \subsubsection{Tensor product property.}
 The first property is of course bilinearity, meaning linear in each argument separately
