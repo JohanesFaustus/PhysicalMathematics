@@ -305,3 +305,5 @@ TSWLatexianTemp*
 Main.pdf
 *.minted
 *.pdf
+/.vscode
+/Main.bbl-SAVE-ERROR

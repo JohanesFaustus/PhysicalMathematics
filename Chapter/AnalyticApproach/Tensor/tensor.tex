@@ -311,7 +311,7 @@ Consider the time-evolution operator $U$, the evolution of quantum state is
 $U$ can be interpreted in two ways: in the active sense of (first line), in which the $U$ act on the vectors and change them into new vectors, and in the passive sense of (second line), where the $U$ act on the operator $\hat{x}$ by a similarity transformation to turn it into a new operator, $\hat{x}(t)$.
 
 \subsection{Tensor Product}
-Given two finite-dimensional vector spaces $V$ and $W$, we define their tensor product $V \otimes W$ to be the set of all $C$-valued bilinear functions on $V ^* \times W ^*$ with $\left\{ e_i \otimes f_j \right\}; i=1\dots,n,j=1,\dots ,m $ as basis such that
+Given two finite-dimensional vector spaces $V$ and $W$ with basis $\left\{ e_i \right\} $ and $\left\{ f_j \right\} $, we define their tensor product $V \otimes W$ to be the set of all $C$-valued bilinear functions on $V ^* \times W ^*$ with $\left\{ e_i \otimes f_j \right\}; i=1\dots,n,j=1,\dots ,m $ as basis such that
 \begin{equation*}
       T=T^{ij} e_i \otimes f_j \quad \forall h \in V^*, g \in W^*
 \end{equation*}
@@ -428,4 +428,35 @@ Then for the right-hand side
       \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} \delta_{i_1}^{k_1} \cdots \delta_{i_r}^{k_r} \delta_{l_1}^{j_1} \cdots \delta_{l_s}^{j_s}                                                              \\
       \qquad & =  T_{i_1, \ldots, i_r}{}^{j_1, \ldots, j_s}
 \end{align*}
+
+\subsection{Direct Sum}
+Other than tensor product, another way to build new vector spaces from old ones is to use direct sums.
+First, we define the direct sums of any two vectors spaces $V$ and $W$ over the same field $F$ as the vector space $V \oplus W$ with its set of vectors defined by
+\[
+      V \oplus W = V \times W = \{(v, w) : v \in V, w \in W\}
+\]
+which consist of ordered pairs.
+Direct sum  keeps spaces separate, unlike tensor product that couples spaces multiplicative.
+
+For example, consider the same vector space $V$ and $W$ with basis $\left\{ e_i \right\} $ and $\left\{ f_j \right\} $.
+The basis for $V \oplus W$ is $\left\{ \left\{ e_i \right\},\left\{ f_j \right\}   \right\} = \left\{ e_{1},\cdots,j_{1},\cdots \right\} $, while the basis for $V \otimes W$ is $\left\{ e_i\otimes f_j \right\} $ for $i=1\dots,n,j=1,\dots ,m $.
+Hence, $\dim (V \oplus W) = n+m$ for direct sum, unlike the case of tensor product $\dim (V \otimes W)=mn$.
+
+In physics setting, direct sum can is used to produce space large enough to allow superposition of states with different particle numbers.
+Consider system whose particle number is not fixed, each particle number $n$ requiring a Hilbert space $\mathcal{H}_n$.
+To allow superpositions of different particle numbers, one constructs a space
+\begin{equation*}
+      \mathcal{F}=\mathcal{H}_0\oplus\mathcal{H}_1\oplus\cdots
+\end{equation*}
+A vector in this space describe a quantum state in which the system is in a superposition of different particle numbers
+\begin{equation*}
+      \ket{\Psi}=\alpha \ket{0}\oplus\beta \ket{\psi_1}\oplus\cdots
+\end{equation*}
+where $\ket{\psi_n} $ describe states with $n$ particles.
+This is in fact equivalent as
+\begin{equation*}
+      \ket{\Psi} = \alpha \ket{0}+\beta \ket{1}+\cdots
+\end{equation*}
+As long as $\ket{n}$ is  defined properly.
+Compare this to tensor product which often used to describe AA system with multiple particle simultaneously, thus encode coexisting degrees of freedom from each particle.
 \end{document}
