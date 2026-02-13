@@ -404,6 +404,60 @@ Third, the tensor product it is associative
 This property allows us to drop the parentheses and write expressions like $V_1 \otimes \dots \otimes V_n$ without ambiguity.
 One can think of $V_1 \otimes \dots \otimes V_n$ as the set of $C$-valued multilinear functions on $V_1 \times \dots \times V_n ^*$.
 
+The final most incomprehensible tensor product identity is as follows
+\begin{equation*}
+      \bigotimes_i \left(b_i \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
+      =
+      \left( \prod_i b_i \right) \sum_{\left\{ n_i  \right\} }\left( \prod_i  c_{c_i} ^{(i)}\right)  \bigotimes_i \ket{n_i}
+\end{equation*}
+Quite terrifying, but all you need is bilinearity to understand this.
+First consider the simple tensor product of two vectors
+\begin{align*}
+      \ket{\psi} & =
+      \sum_{\left\{ n_i \right\} } c_{n_i} \ket{n_i}
+      =
+      c_{n_1} \ket{n_1} + c_{n_2} \ket{n_2}+\dots \\
+      \ket{\phi} & =
+      \sum_{\left\{ m_j \right\} } d_{m_j} \ket{m_j}
+      =
+      d_{m_1} \ket{m_1} + d_{m_2} \ket{m_2}+\dots
+\end{align*}
+The tensor product of those two is
+\begin{align*}
+      \ket{\psi } \otimes \ket{\phi}
+       & =  \left[        c_{n_1} \ket{n_1} + c_{n_2} \ket{n_2}+\dots\right] \otimes \left[       d_{m_1} \ket{m_1} + d_{m_2} \ket{m_2}+\dots \right] \\
+       & =  \left[        c_{n_1} d_{m_1} \ket{n_1}\otimes \ket{m_1}+ c_{n_2} d_{m_1} \ket{n_2}\otimes \ket{m_1} +\dots\right]                        \\
+       & \qquad+  \left[        c_{n_1} d_{m_2} \ket{n_1}\otimes \ket{m_2}+ c_{n_2} d_{m_2} \ket{n_2}\otimes \ket{m_2} +\dots\right]                  \\
+       & \qquad\qquad+  \dots                                                                                                                         \\
+      \ket{\psi } \otimes \ket{\phi}
+       & = \sum_{\left\{ n_i  \right\} ,\left\{ m_j \right\}  } c_{n_i} d_{m_j} \ket{n_i}\otimes \ket{m_j}
+\end{align*}
+Another way to view this is to expand the first argument, then the second successively
+\begin{align*}
+      \ket{\psi}\otimes \ket{\phi}
+       & =
+      \left(        \sum_{i } c_i \ket{n_i} \right) \otimes
+      \left(        \sum_{j } d_j \ket{m_j}\right)
+      =
+      \sum_{i } c_i \left(\ket{n_i} \otimes\sum_{j } d_j \ket{m_j}\right) \\
+      \ket{\psi}\otimes \ket{\phi}
+       & =
+      \sum_{i,j } c_id_j \ket{n_i}\otimes \ket{m_j}
+\end{align*}
+Next step is to generalize to many factors
+\begin{align*}
+      \bigotimes_i \left( \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
+       & =
+      \left(b_1\sum_{n_1 } c_{n_2} \ket{n_1} \right) \otimes \left(b_2\sum_{n_2 } c_{n_2} \ket{n_2}\right) \otimes\dots
+      \\
+       & =b_1b_2\dots \sum_{\left\{ n_1  \right\} ,\left\{ n_2 \right\} ,\dots} c_{n_1} ^{(1)}c_{n_2} ^{(2)}\dots \ket{n_1}\otimes \ket{n_2}\otimes \dots
+      \\
+      \bigotimes_i \left( \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
+       & =
+      \left( \prod_i b_i \right) \sum_{\left\{ n_i  \right\} }\left( \prod_i  c_{c_i} ^{(i)}\right)  \bigotimes_i \ket{n_i}
+\end{align*}
+Incomprehensible, may god have mercy on your wretched soul \emoji{pray}
+
 \subsubsection{Vector space of tensor.}
 The vector space $\mathcal{T}_s^r$ of type $(r,s)$ over $V$ defined as
 \begin{equation*}
