@@ -3,74 +3,74 @@
 \subsection{Introduction}
 \subsubsection{Some mathematical shorthand.} As follows
 \begin{flalign*}
-       & \begin{array}{ll}
-               \mathbb{R}      & \text{The set of real numbers}
-               \\
-               \mathbb{C}      & \text{The set of complex numbers}
-               \\
-               \mathbb{Z}      & \text{The set of positive and negative integers}
-               \\
-               \in             & \text{an element of }
-               \\
-               \notin          & \text{is not an element of}
-               \\
-               \forall         & \text{for all}
-               \\
-               \subset         & \text{is a subset of, a subset of}
-               \\
-               \equiv          & \text{Denotes a definition}
-               \\
-               f : A \to B     & \text{Denotes a map } f \text{ the set } A \text{ into set } B
-               \\
-                               & \text{ (describe the function).}
-               \\
-               f : a \mapsto b & \text{Map } f \text{ sends the element } a \text{ to the element } b.
-               \\
-                               & \text{ (describe the action).}
-               \\
-               \circ           & \text{Denotes a composition of maps}
-               \\
-               (g \circ f)(a)  & \equiv g(f(a))
-               \\
-               A \times B      & \text{The set } \{(a, b)\} \text{ of all ordered pairs where } a \in A, b \in B.
-               \\
-                               & \text{ Referred to as the cartesian product of sets A and B.}
-               \\
-               \mathbb{R}^n    & \underbrace{\mathbb{R} \times \cdots \times \mathbb{R} }_{n}
-               \\
-         \end{array} &
+   & \begin{array}{ll}
+       \mathbb{R}      & \text{The set of real numbers}
+       \\
+       \mathbb{C}      & \text{The set of complex numbers}
+       \\
+       \mathbb{Z}      & \text{The set of positive and negative integers}
+       \\
+       \in             & \text{an element of }
+       \\
+       \notin          & \text{is not an element of}
+       \\
+       \forall         & \text{for all}
+       \\
+       \subset         & \text{is a subset of, a subset of}
+       \\
+       \equiv          & \text{Denotes a definition}
+       \\
+       f : A \to B     & \text{Denotes a map } f \text{ the set } A \text{ into set } B
+       \\
+                       & \text{ (describe the function).}
+       \\
+       f : a \mapsto b & \text{Map } f \text{ sends the element } a \text{ to the element } b.
+       \\
+                       & \text{ (describe the action).}
+       \\
+       \circ           & \text{Denotes a composition of maps}
+       \\
+       (g \circ f)(a)  & \equiv g(f(a))
+       \\
+       A \times B      & \text{The set } \{(a, b)\} \text{ of all ordered pairs where } a \in A, b \in B.
+       \\
+                       & \text{ Referred to as the cartesian product of sets A and B.}
+       \\
+       \mathbb{R}^n    & \underbrace{\mathbb{R} \times \cdots \times \mathbb{R} }_{n}
+       \\
+     \end{array} &
 \end{flalign*}
 
 \subsubsection{Einstein summation convention.}
 The Einstein summation convention states that whenever an index is repeated in an expression, once as a superscript $v^i$ and once as a subscript $e_i$, then summation over that index is implied.
 For example
 \begin{equation*}
-      v = \sum\limits_{i=1}^{n} v^{i} e_{i} \implies v = v^{i} e_{i}
+  v = \sum\limits_{i=1}^{n} v^{i} e_{i} \implies v = v^{i} e_{i}
 \end{equation*}
 
 Vector $v$ is defined as contravariant vector  due to the components obeying the opposite of the basis vector $e_i$.
 Same reason is why the dual vector $f$ is said to be covariant vector: its components transform the same as basis vector
 \begin{equation*}
-      v^{i'} = A^{i'}_{j} v^{j}\quad
-      e^{i} = A^{i}_{j'} e^{j'}    \qquad
-      f_{i'} = A^{j}_{i'} f_{j}\quad
-      e_{i'} = A_{i'}^{j} e_{j}
+  v^{i'} = A^{i'}_{j} v^{j}\quad
+  e^{i} = A^{i}_{j'} e^{j'}    \qquad
+  f_{i'} = A^{j}_{i'} f_{j}\quad
+  e_{i'} = A_{i'}^{j} e_{j}
 \end{equation*}
 
 This is the reason why the indices is defined in such way
 \begin{enumerate}
-      \item We knew ahead of time that the components of dual vectors would transform like basis vectors, so we gave them both lower indices.
-      \item We also knew that the components of vectors would
-            transform like dual basis vectors, so we gave them both upper indices
+  \item We knew ahead of time that the components of dual vectors would transform like basis vectors, so we gave them both lower indices.
+  \item We also knew that the components of vectors would
+        transform like dual basis vectors, so we gave them both upper indices
 \end{enumerate}
 
 Aside, $A^{i'}_{j}$ is the component of basis dependent tensor $U$ that takes the new basis $e_{i'}$ vectors into the old $e_i$
 \begin{equation*}
-      U(e_{i'})=e_i
+  U(e_{i'})=e_i
 \end{equation*}
 The components of this tensor is
 \begin{equation*}
-      U^{j}_{i} = U(e_{i}, e^{j}) = e^{j}(U e_{i}) = e^{j}(U(A^{k}_{i} e_{k})) = A^{k}_{i} e^{j}(U(e_{k})) = A^{k}_{i} e^{j} e_{k'} = A^{j}_{i'}
+  U^{j}_{i} = U(e_{i}, e^{j}) = e^{j}(U e_{i}) = e^{j}(U(A^{k}_{i} e_{k})) = A^{k}_{i} e^{j}(U(e_{k})) = A^{k}_{i} e^{j} e_{k'} = A^{j}_{i'}
 \end{equation*}
 For the last line, just note that the prime on an index does not change its numerical value, it is just a reminder that it refers to the primed basis.
 
@@ -79,68 +79,68 @@ Consider linear operator $H$, which is $(1,1)$ tensor, on a Hilbert space spanne
 In Dirac notation we would write the basis as $\{\ket{i}\}$, $H(e_i)$ as $H \ket{i}$, $\tilde{e}_j(e_i)=(e_j|e_i)$ as $\braket{j|i}$, and $(e_j|He_i)$ as $\braket{j|H|i}$.
 The component of linear component $H$ is thus
 \begin{equation*}
-      H_i{}^j = H(e_i, e^j) = e^j (H e_i) = \langle j | H | i \rangle
+  H_i{}^j = H(e_i, e^j) = e^j (H e_i) = \langle j | H | i \rangle
 \end{equation*}
 In essence, we have
 \begin{flalign*}
-       & \begin{array}{ll}
-               \text{Standard Notation }                                           & \text{Dirac Notation}
-               \\
-               \text{Basis } \{e_i\}                                               & \{\ket{i}\}
-               \\
-               \text{Vector } \psi \in \mathcal{H}                                 & |\psi\rangle
-               \\
-               \text{Dual Vector } L(\psi)                                         & \langle\psi|
-               \\
-               \text{Inner Product } (\psi, \phi) = \tilde{\psi}(\phi)=(\psi|\phi) & \langle\psi|\phi\rangle
-               \\
-               A(\psi), A \in \mathcal{L}(\mathcal{H})                             & A|\psi\rangle
-               \\
-               (\psi, A\phi)                                                       & \langle\psi|A\phi\rangle
-               \\
-               (1,1) \text{ tensor component }                                     & \langle j | H | i \rangle
-               \\
-               \quad H_i{}^j = H(e_i, e^j) = e^j (H e_i)                           &
-               \\
-               T_{ij} e^i \otimes e_j                                              & \sum_{i,j} T_{ij} |j\rangle\langle i|
-               \\
-               e_i \otimes e_j                                                     & |i\rangle |j\rangle \text{ or } |i,j\rangle
-         \end{array} &
+   & \begin{array}{ll}
+       \text{Standard Notation }                                           & \text{Dirac Notation}
+       \\
+       \text{Basis } \{e_i\}                                               & \{\ket{i}\}
+       \\
+       \text{Vector } \psi \in \mathcal{H}                                 & |\psi\rangle
+       \\
+       \text{Dual Vector } L(\psi)                                         & \langle\psi|
+       \\
+       \text{Inner Product } (\psi, \phi) = \tilde{\psi}(\phi)=(\psi|\phi) & \langle\psi|\phi\rangle
+       \\
+       A(\psi), A \in \mathcal{L}(\mathcal{H})                             & A|\psi\rangle
+       \\
+       (\psi, A\phi)                                                       & \langle\psi|A\phi\rangle
+       \\
+       (1,1) \text{ tensor component }                                     & \langle j | H | i \rangle
+       \\
+       \quad H_i{}^j = H(e_i, e^j) = e^j (H e_i)                           &
+       \\
+       T_{ij} e^i \otimes e_j                                              & \sum_{i,j} T_{ij} |j\rangle\langle i|
+       \\
+       e_i \otimes e_j                                                     & |i\rangle |j\rangle \text{ or } |i,j\rangle
+     \end{array} &
 \end{flalign*}
 
 \subsubsection{Matrix notation comparison.}
 The transformation of vectors and dual vectors
 \begin{equation*}
-      v^{i'} = A^{i'}_{j} v^{j}\qquad
-      f_{i'} = A^{j}_{i'} f_{j}
+  v^{i'} = A^{i'}_{j} v^{j}\qquad
+  f_{i'} = A^{j}_{i'} f_{j}
 \end{equation*}
 can be written in terms of matrices as
 \begin{equation*}
-      [v]_{\mathcal{B}'} = A [v]_{\mathcal{B}}\qquad
-      [f]_{\mathcal{B}'} = A^{-1 T} [f]_{\mathcal{B}}
+  [v]_{\mathcal{B}'} = A [v]_{\mathcal{B}}\qquad
+  [f]_{\mathcal{B}'} = A^{-1 T} [f]_{\mathcal{B}}
 \end{equation*}
 we know that $f (v)=[f]_\mathcal{B}^T [v]_\mathcal{B}$ should be basis-independent.
 This can be proven by
 \begin{equation*}
-      [f]_{\mathcal{B'}}^{T} [v]_{\mathcal{B'}} = (A^{-1T}[f]_{\mathcal{B}})^{T} A [v]_{\mathcal{B}}
-            = [f]_{\mathcal{B}}^{T} A^{-1} A [v]_{\mathcal{B}}
-            = [f]_{\mathcal{B}}^{T} [v]_{\mathcal{B}}
+  [f]_{\mathcal{B'}}^{T} [v]_{\mathcal{B'}} = (A^{-1T}[f]_{\mathcal{B}})^{T} A [v]_{\mathcal{B}}
+    = [f]_{\mathcal{B}}^{T} A^{-1} A [v]_{\mathcal{B}}
+    = [f]_{\mathcal{B}}^{T} [v]_{\mathcal{B}}
 \end{equation*}
 
 As a $(1,1)$ tensor, linear operator $T$ in $V$ can be written as
 \begin{equation*}
-      T_{i'}^{j'} = A_{i'}^{k} A_{l}^{j'} T_{k}^{l}
+  T_{i'}^{j'} = A_{i'}^{k} A_{l}^{j'} T_{k}^{l}
 \end{equation*}
 which in matrix form reads
 \begin{equation*}
-      [T]_{\mathcal{B}'} = A [T]_{\mathcal{B}} A^{-1}
+  [T]_{\mathcal{B}'} = A [T]_{\mathcal{B}} A^{-1}
 \end{equation*}
 with $[T]_\mathcal{B}=T_{k}^{l}$ and $[T]_{\mathcal{B'}'}T_{i'}^{j'}$.
 This is nothing more than familiar similarity transformation of matrices.
 From this, we can also define the trace of a tensor.
 Given $T \in \mathcal{L}(V)$ and basis $\mathcal{B}$ for $V$, we define the trace of $T$ as
 \begin{equation*}
-      \mathrm{Tr}(T) \equiv \mathrm{Tr}([T]_{\mathcal{B}}).
+  \mathrm{Tr}(T) \equiv \mathrm{Tr}([T]_{\mathcal{B}}).
 \end{equation*}
 which is basis independent.
 
@@ -149,23 +149,23 @@ Many older books define a tensor as a collection of objects which carry indices 
 Modern  definition takes a tensor to be a function which eats a certain number of vectors (known as the rank $r$ of the tensor) and produces a number.
 The distinguishing characteristic of a tensor is a special property called multilinearity
 \begin{equation*}
-      T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r})
-      =  v_{1}^{i_{1}}...v_{r}^{i_{r}} T(e_{i_{1}}, ..., e_{i_{r}}) \\
+  T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r})
+  =  v_{1}^{i_{1}}...v_{r}^{i_{r}} T(e_{i_{1}}, ..., e_{i_{r}}) \\
 \end{equation*}
 which enables us to express the value of the function on an arbitrary set of $r$ vectors in terms of the values of the function on $r$ basis vectors.
 In older treatments, these are usually introduced as components of the tensor.
 
 A tensor of type $(r, s)$ on a vector space V is a $\mathbb{C}$-valued function $T$ on $V^r \times  (V^{*}) ^s$,
 \begin{equation*}
-      T : \underbrace{V \times \cdots \times V}_{r}
-      \times
-      \underbrace{V^* \times \cdots \times V^*}_{s}
-      \to \mathbb{C}
+  T : \underbrace{V \times \cdots \times V}_{r}
+  \times
+  \underbrace{V^* \times \cdots \times V^*}_{s}
+  \to \mathbb{C}
 \end{equation*}
 In this definition, vector $v \in V$ and its dual $f \in V^*$ can be defined as $(0,1)$ and $(1,0)$ tensor respectively.
 In other words
 \begin{equation*}
-      v(f)=f(v)
+  v(f)=f(v)
 \end{equation*}
 We also view linear operator as $(1,1)$ tensor $A(v,f)\equiv f(Av)$ and $(0,0)$ tensor as scalar.
 
@@ -176,25 +176,25 @@ Tensor $T$ is best thought of abstractly as a multilinear function, and matrix $
 \subsubsection{Multilinearity and tensor component.}
 Linearity implies that dual vectors and linear operators are determined by their values on basis vectors
 \begin{equation*}
-      v \left(\sum_{i} a_{i} e_{i}\right) = \sum_{i} a_{i} v(e_{i}).
+  v \left(\sum_{i} a_{i} e_{i}\right) = \sum_{i} a_{i} v(e_{i}).
 \end{equation*}
 As such multilinearity implies the same thing for general tensors.
 
 To see this, let  $\{e_i \}_{i=1,...,n}$ be a basis for $V$ and $\{e^i \}_{i=1,...,n}$ the corresponding dual basis.
 We denote $i$-the of vector $v_p$ and $j$-th of the dual $f_q$ as
 \begin{equation*}
-      v_p  = v_p^i e_i\qquad
-      f_q  = f_{pj} e^j
+  v_p  = v_p^i e_i\qquad
+  f_q  = f_{pj} e^j
 \end{equation*}
 Then by repeated application of multilinearity, we have
 \begin{align*}
-      T(v_{1}, ..., v_{r}, f_{1}, ..., f_{s}) & =  T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r}, f_{1j_1} e^{j_1}, ..., f_{sj_s} e^{j_s})                        \\
-                                              & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T(e_{i_{1}}, ..., e_{i_{r}}, e^{j_{1}},..., e^{j_{s}}) \\
-                                              & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T_{i_{1},...,i_{r}}{}^{j_{1}...j_{s}}
+  T(v_{1}, ..., v_{r}, f_{1}, ..., f_{s}) & =  T(v_1^{i_1} e_{i_1}, ..., v_r^{i_r} e_{i_r}, f_{1j_1} e^{j_1}, ..., f_{sj_s} e^{j_s})                        \\
+                                          & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T(e_{i_{1}}, ..., e_{i_{r}}, e^{j_{1}},..., e^{j_{s}}) \\
+                                          & =  v_{1}^{i_{1}}...v_{r}^{i_{r}} f_{1j_{1}}...f_{sj_{s}} T_{i_{1},...,i_{r}}{}^{j_{1}...j_{s}}
 \end{align*}
 where, as before, the components of $T$ induced $\{e_i \}$ and its dual $\{e^i \}$ is
 \begin{equation*}
-      T_{i_{1}...i_{r}}{}^{j_{1}...j_{s}} \equiv T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{r}})
+  T_{i_{1}...i_{r}}{}^{j_{1}...j_{s}} \equiv T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{r}})
 \end{equation*}
 Here components are defined as the values of the tensor when evaluated on a given set of basis vectors.
 
@@ -202,14 +202,14 @@ Here components are defined as the values of the tensor when evaluated on a give
 Suppose we have basis $\mathcal{B}$ and primed basis $\mathcal{B}$.
 The transformation law that govern the change of basis from the primed basis $\mathcal{B}'$ into $\mathcal{B}$ is
 \begin{equation*}
-      T_{i'_{1}, \dots, i'_{r}}{}^{j'_{1} \dots j'_{s}}
-      = A^{k_{1}}_{i'_{1}} \dots A^{k_{r}}_{i'_{r}} A^{l_{1}}_{j'_{1}} \dots A^{l_{s}}_{j'_{s}} T_{k_{1} \dots k_{r}}{}^{l_{1} \dots l_{s}}
+  T_{i'_{1}, \dots, i'_{r}}{}^{j'_{1} \dots j'_{s}}
+  = A^{k_{1}}_{i'_{1}} \dots A^{k_{r}}_{i'_{r}} A^{l_{1}}_{j'_{1}} \dots A^{l_{s}}_{j'_{s}} T_{k_{1} \dots k_{r}}{}^{l_{1} \dots l_{s}}
 \end{equation*}
 The matrix representation of the transformation coefficients $A=A_{i}^{k'}$ and $A^{-1}=A_{j'}^{l}$ can be written as
 \begin{equation*}
-      A = \begin{pmatrix} A_{1}^{1'} & A_{2}^{1'} & \dots & A_{n}^{1'} \\ A_{1}^{2'} & A_{2}^{2'} & \dots & A_{n}^{2'} \\ \vdots & \vdots & \ddots & \vdots \\ A_{1}^{n'} & A_{2}^{n'} & \dots & A_{n}^{n'} \end{pmatrix}
-      \qquad
-      A^{-1} = \begin{pmatrix} A_{1'}^{1} & A_{2'}^{1} & \dots & A_{n'}^{1} \\ A_{1'}^{2} & A_{2'}^{2} & \dots & A_{n'}^{2} \\ \vdots & \vdots & \ddots & \vdots \\ A_{1'}^{n} & A_{2'}^{n} & \dots & A_{n'}^{n} \end{pmatrix}
+  A = \begin{pmatrix} A_{1}^{1'} & A_{2}^{1'} & \dots & A_{n}^{1'} \\ A_{1}^{2'} & A_{2}^{2'} & \dots & A_{n}^{2'} \\ \vdots & \vdots & \ddots & \vdots \\ A_{1}^{n'} & A_{2}^{n'} & \dots & A_{n}^{n'} \end{pmatrix}
+  \qquad
+  A^{-1} = \begin{pmatrix} A_{1'}^{1} & A_{2'}^{1} & \dots & A_{n'}^{1} \\ A_{1'}^{2} & A_{2'}^{2} & \dots & A_{n'}^{2} \\ \vdots & \vdots & \ddots & \vdots \\ A_{1'}^{n} & A_{2'}^{n} & \dots & A_{n'}^{n} \end{pmatrix}
 \end{equation*}
 These matrices satisfy $AA^{-1}=A^{-1}A=I$.
 
@@ -218,26 +218,26 @@ We will derive the transformation law as a consequence of multilinearity, instea
 First let us define the basis in both basis as $\mathcal{B}=\{e_i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e_{i'}\}_{i=1,\dots,n}$.
 With linearity, each basis can be written as
 \begin{equation*}
-      e_{i} = A_{i}^{j'} e_{j'}\qquad
-      e_{i'} = A_{i'}^{j} e_{}
+  e_{i} = A_{i}^{j'} e_{j'}\qquad
+  e_{i'} = A_{i'}^{j} e_{}
 \end{equation*}
 Recall that the prime refer to the basis: unprimed subscript refer to unprimed basis and vice versa.
 We then have
 \begin{align*}
-      e_{i} = A_{i}^{j'} A_{j'}^{k} e_{k} = \delta_{i}^{k} e_{k}
-      \\
-      e_{i'} = A_{i'}^{j} A_{j}^{k'} e_{k'} = \delta_{i'}^{k'} e_{k'}
+  e_{i} = A_{i}^{j'} A_{j'}^{k} e_{k} = \delta_{i}^{k} e_{k}
+  \\
+  e_{i'} = A_{i'}^{j} A_{j}^{k'} e_{k'} = \delta_{i'}^{k'} e_{k'}
 \end{align*}
 In a way, $A_{i}^{j'}$ and $A_{i'}^{j}$ are inverse of each other.
 Note that inverse here means inverse as linear maps under composition
 \begin{equation*}
-      A : V \rightarrow V\qquad
-      A^{-1} : V \rightarrow V
+  A : V \rightarrow V\qquad
+  A^{-1} : V \rightarrow V
 \end{equation*}
 and
 \begin{equation*}
-      A \circ A^{-1} = I \qquad
-      A^{-1} \circ A = I
+  A \circ A^{-1} = I \qquad
+  A^{-1} \circ A = I
 \end{equation*}
 with $(A)^{j'}_{i} = A^{j'}_{i}$ and $(A^{-1})^{j'}_{i} = A^{j'}_{i}$.
 Of course, in index notation the identity refer to Kronecker delta.
@@ -245,57 +245,57 @@ Of course, in index notation the identity refer to Kronecker delta.
 Now define the dual basis $\mathcal{B}=\{e^i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e^{i'}\}_{i=1,\dots,n}$.
 The component of the basis are
 \begin{align*}
-      e^{i}(e_{j'}) & =  e^{i}\left( A^{k}_{j'}e_{k} \right)  = A^{k}_{j'} e^{i}\left( e_{k} \right) = A^{k}_{j'} \delta^{i}_{k} = A^{i}_{j'}       \\
-      e^{i'}(e_{j}) & =  e^{i'}\left( A^{k'}_{j}e_{k'} \right)  = A^{k'}_{j} e^{i'}\left( e_{k'} \right) = A^{k'}_{j} \delta^{i'}_{k'} = A^{i'}_{j}
+  e^{i}(e_{j'}) & =  e^{i}\left( A^{k}_{j'}e_{k} \right)  = A^{k}_{j'} e^{i}\left( e_{k} \right) = A^{k}_{j'} \delta^{i}_{k} = A^{i}_{j'}       \\
+  e^{i'}(e_{j}) & =  e^{i'}\left( A^{k'}_{j}e_{k'} \right)  = A^{k'}_{j} e^{i'}\left( e_{k'} \right) = A^{k'}_{j} \delta^{i'}_{k'} = A^{i'}_{j}
 \end{align*}
 That means
 \begin{equation*}
-      e^{i'} = A^{i'}_{j} e^{j} \qquad
-      e^{i} = A^{i}_{j'} e^{j'}
+  e^{i'} = A^{i'}_{j} e^{j} \qquad
+  e^{i} = A^{i}_{j'} e^{j'}
 \end{equation*}
 Using repeated multilinearity once again
 \begin{align*}
-      T_{i'_{1},...,i'_{r}}{}^{j'_{1}...j'_{s}} & =  T(e_{i'_{1}}, ..., e_{i'_{r}}, e^{j'_{1}}, ..., e^{j'_{s}})                                                                             \\
-                                                & =  T(A_{i'_{1}}^{k_{1}}e_{k_{1}}, ..., A_{i'_{r}}^{k_{r}}e_{k_{r}}, A_{l_{1}}^{j'_{1}}e^{l_{1}}, ..., A_{l_{s}}^{j'_{s}}e^{l_{s}})         \\
-                                                & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T(e_{k_{1}}, ..., e_{k_{r}}, e^{l_{1}}, ..., e^{l_{s}}) \\
-                                                & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T_{k_{1}...k_{r}}{}^{l_{1}...l_{s}}
+  T_{i'_{1},...,i'_{r}}{}^{j'_{1}...j'_{s}} & =  T(e_{i'_{1}}, ..., e_{i'_{r}}, e^{j'_{1}}, ..., e^{j'_{s}})                                                                             \\
+                                            & =  T(A_{i'_{1}}^{k_{1}}e_{k_{1}}, ..., A_{i'_{r}}^{k_{r}}e_{k_{r}}, A_{l_{1}}^{j'_{1}}e^{l_{1}}, ..., A_{l_{s}}^{j'_{s}}e^{l_{s}})         \\
+                                            & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T(e_{k_{1}}, ..., e_{k_{r}}, e^{l_{1}}, ..., e^{l_{s}}) \\
+                                            & =  A_{i'_{1}}^{k_{1}}...A_{i'_{r}}^{k_{r}} A_{l_{1}}^{j'_{1}}...A_{l_{s}}^{j'_{s}} T_{k_{1}...k_{r}}{}^{l_{1}...l_{s}}
 \end{align*}
 
 \subsection{Active and Passive Transformation}
 In active transformation, we use the matrix $A$ to change one vector $e_{i}$ into another $e_{i'}$
 \begin{equation*}
-      [v_{i'}]_{\mathcal{B}} = A[v_{i}]_{\mathcal{B}}
+  [v_{i'}]_{\mathcal{B}} = A[v_{i}]_{\mathcal{B}}
 \end{equation*}
 It is a change of vector $v \to v'$ in o other words.
 This can be seen by considering the components of transformed vector $v'=A(v)$
 \begin{equation*}
-      v^{j'} e_{j} = A(v^{i} e_{i}) = v^{i} A(e_{i}) = v^{i} A_{i}^{j} e_{j}
+  v^{j'} e_{j} = A(v^{i} e_{i}) = v^{i} A(e_{i}) = v^{i} A_{i}^{j} e_{j}
 \end{equation*}
 And we obtain
 \begin{equation*}
-      v^{j'} = A_{i}^{j} v^{i}
+  v^{j'} = A_{i}^{j} v^{i}
 \end{equation*}
 We see that the change of component in active transformation.
 
 In passive transformation, we use the matrix $A$ to change the basis $\mathcal{B}$ into another $\mathcal{B}'$, not the vector
 \begin{equation*}
-      \{e_i\}_{\mathcal{B}'} = A \left\{ e_i \right\} _{\mathcal{B}}
+  \{e_i\}_{\mathcal{B}'} = A \left\{ e_i \right\} _{\mathcal{B}}
 \end{equation*}
 Here the basis and the components change, while the vector itself is fixed.
 When $A$ is interpreted passively it corresponds to the opposite transformation as in the active case.
 This can be understood by considering passive transformation definition of change in basis
 \begin{equation*}
-      v = v^{i} e_{i} = v^{i'} e_{i'}
+  v = v^{i} e_{i} = v^{i'} e_{i'}
 \end{equation*}
 The components must change in order for the definition remains true.
 Inserting the change of basis
 \begin{equation*}
-      v^{i} e_{i} = v^{i'} A_{i}^{i} e_{i}
+  v^{i} e_{i} = v^{i'} A_{i}^{i} e_{i}
 \end{equation*}
 Hence, we obtain
 \begin{equation*}
-      v^{i} = A_{i'}^{i} v^{i'}\qquad
-      v^{i'} = (A^{-1})_{i}^{i'} v^{i}
+  v^{i} = A_{i'}^{i} v^{i'}\qquad
+  v^{i'} = (A^{-1})_{i}^{i'} v^{i}
 \end{equation*}
 
 \subsubsection{Quantum mechanics.}
@@ -304,33 +304,33 @@ This is the active viewpoint.
 In the Heisenberg picture, however, one considers the state ket to be fixed and considers the observables to be time-dependent.
 Consider the time-evolution operator $U$, the evolution of quantum state is
 \begin{align*}
-      \langle \hat{x}(t) \rangle
-       & =  \left(\langle \psi | U^{\dagger}\right) \hat{x} \left(U | \psi \rangle\right) \\
-       & =  \langle \psi | (U^{\dagger} \hat{x} U) | \psi \rangle
+  \langle \hat{x}(t) \rangle
+   & =  \left(\langle \psi | U^{\dagger}\right) \hat{x} \left(U | \psi \rangle\right) \\
+   & =  \langle \psi | (U^{\dagger} \hat{x} U) | \psi \rangle
 \end{align*}
 $U$ can be interpreted in two ways: in the active sense of (first line), in which the $U$ act on the vectors and change them into new vectors, and in the passive sense of (second line), where the $U$ act on the operator $\hat{x}$ by a similarity transformation to turn it into a new operator, $\hat{x}(t)$.
 
 \subsection{Tensor Product}
 Given two finite-dimensional vector spaces $V$ and $W$ with basis $\left\{ e_i \right\} $ and $\left\{ f_j \right\} $, we define their tensor product $V \otimes W$ to be the set of all $C$-valued bilinear functions on $V ^* \times W ^*$ with $\left\{ e_i \otimes f_j \right\}; i=1\dots,n,j=1,\dots ,m $ as basis such that
 \begin{equation*}
-      T=T^{ij} e_i \otimes f_j \quad \forall h \in V^*, g \in W^*
+  T=T^{ij} e_i \otimes f_j \quad \forall h \in V^*, g \in W^*
 \end{equation*}
 The product has dimension $mn$ or $\dim(V \otimes W) = (\dim V)(\dim W)$.
 Also, given two vectors $v \in V $, $w \in W$, we define their tensor product $V \otimes W$ to be the element of $V \otimes W$ defined as follows
 \begin{equation*}
-      (v \otimes w)(h, g) \equiv v(h)w(g) \quad \forall h \in V^*, g \in W^*
+  (v \otimes w)(h, g) \equiv v(h)w(g) \quad \forall h \in V^*, g \in W^*
 \end{equation*}
 Remember that an element of $V \otimes W$ is a bilinear function on $V ^* \times  W ^*$, and so is defined by its action on a pair $(h, g) \in V ^* \otimes W ^*$.
 $\left\{ e_i \otimes f_j \right\}$ as the basis for $V \otimes W$ is proven by
 \begin{equation*}
-      T(h, g) =  T(h_i e^i,g_j f^j) = h_i g_j T(e^i, f^j) = h_i g_j T^{ij}
+  T(h, g) =  T(h_i e^i,g_j f^j) = h_i g_j T(e^i, f^j) = h_i g_j T^{ij}
 \end{equation*}
 and
 \begin{equation*}
-      (T^{ij} e_i \otimes f_j)(h, g)
-      = h_kg_l(T^{ij} e_i \otimes f_j) (e^k, f^l)
-      = h_kg_lT^{ij} e_i (e^k) f_j (f^l)
-      = h_kg_lT^{kl}
+  (T^{ij} e_i \otimes f_j)(h, g)
+  = h_kg_l(T^{ij} e_i \otimes f_j) (e^k, f^l)
+  = h_kg_lT^{ij} e_i (e^k) f_j (f^l)
+  = h_kg_lT^{kl}
 \end{equation*}
 It can be seen that $T$ and $T^{ij} e_i \otimes f_j$ agrees on basis vector and hence $T=T^{ij} e_i \otimes f_j$.
 
@@ -338,159 +338,168 @@ It can be seen that $T$ and $T^{ij} e_i \otimes f_j$ agrees on basis vector and 
 Suppose \( A \) and \( B \) are linear operators on \( \mathcal{H}_1 \) and \( \mathcal{H}_2 \) respectively.
 Then \( A \otimes B \) is the linear operator on \( \mathcal{H}_1 \otimes \mathcal{H}_2 \) defined by
 \begin{equation*}
-      (A \otimes B)(|\psi_1\rangle \otimes |\psi_2\rangle) \equiv A|\psi_1\rangle \otimes B|\psi_2\rangle
+  (A \otimes B)(|\psi_1\rangle \otimes |\psi_2\rangle) \equiv A|\psi_1\rangle \otimes B|\psi_2\rangle
 \end{equation*}
 with $\ket{\psi_1}$ and $\ket{\psi_2}$ are vector from the space $\mathcal{H}_1$ and $\mathcal{H}_2$ respectively.
 Some convention involving the tensor product omiting the tensor product sign entirely
 \begin{equation*}
-      \ket{i}\otimes \ket{j}=\ket{i} \ket{j}= \ket{ij}
+  \ket{i}\otimes \ket{j}=\ket{i} \ket{j}= \ket{ij}
 \end{equation*}
 Now we can write
 \begin{equation*}
-      \left( |i\rangle \otimes |j\rangle \right) \left( \langle k| \otimes \langle l| \right) \equiv |i\rangle \langle k| \otimes |j\rangle \langle l|=|ij\rangle \langle kl|
+  \left( |i\rangle \otimes |j\rangle \right) \left( \langle k| \otimes \langle l| \right) \equiv |i\rangle \langle k| \otimes |j\rangle \langle l|=|ij\rangle \langle kl|
 \end{equation*}
 
 \subsubsection{Matrix notation.}
 Suppose $A$ is an $m \times n$ matrix and B a $p \times q$ matrix, then product of $A$ with $B$ is the $mp \times nq$ matrix
 \begin{equation*}
-      A\otimes B =
-      \begin{bmatrix}
-            A_{11}B_{11} & \cdots & A_{11}B_{1q} & \cdots & \cdots & A_{1n}B_{11} & \cdots & A_{1n}B_{1q} \\
-            \vdots       & \ddots & \vdots       & \vdots & \vdots & \vdots       & \ddots & \vdots       \\
-            A_{11}B_{p1} & \cdots & A_{11}B_{pq} & \cdots & \cdots & A_{1n}B_{p1} & \cdots & A_{1n}B_{pq} \\
-            \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \vdots & \vdots       \\
-            \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \vdots & \vdots       \\
-            A_{m1}B_{11} & \cdots & A_{m1}B_{1q} & \cdots & \cdots & A_{mn}B_{11} & \cdots & A_{mn}B_{1q} \\
-            \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \ddots & \vdots       \\
-            A_{m1}B_{p1} & \cdots & A_{m1}B_{pq} & \cdots & \cdots & A_{mn}B_{p1} & \cdots & A_{mn}B_{pq}
-      \end{bmatrix}
+  A\otimes B =
+  \begin{bmatrix}
+    A_{11}B_{11} & \cdots & A_{11}B_{1q} & \cdots & \cdots & A_{1n}B_{11} & \cdots & A_{1n}B_{1q} \\
+    \vdots       & \ddots & \vdots       & \vdots & \vdots & \vdots       & \ddots & \vdots       \\
+    A_{11}B_{p1} & \cdots & A_{11}B_{pq} & \cdots & \cdots & A_{1n}B_{p1} & \cdots & A_{1n}B_{pq} \\
+    \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \vdots & \vdots       \\
+    \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \vdots & \vdots       \\
+    A_{m1}B_{11} & \cdots & A_{m1}B_{1q} & \cdots & \cdots & A_{mn}B_{11} & \cdots & A_{mn}B_{1q} \\
+    \vdots       & \vdots & \vdots       & \vdots & \vdots & \vdots       & \ddots & \vdots       \\
+    A_{m1}B_{p1} & \cdots & A_{m1}B_{pq} & \cdots & \cdots & A_{mn}B_{p1} & \cdots & A_{mn}B_{pq}
+  \end{bmatrix}
 \end{equation*}
 This matrix is sometimes written more compactly in block form as
 \begin{equation*}
-      A \otimes B =
-      \begin{bmatrix}
-            A_{11}[B] & A_{12}[B] & \cdots & A_{1n}[B] \\
-            A_{21}[B] & A_{22}[B] & \cdots & A_{2n}[B] \\
-            \vdots    & \vdots    & \ddots & \vdots    \\
-            A_{m1}[B] & A_{m2}[B] & \cdots & A_{mn}[B]
-      \end{bmatrix}
+  A \otimes B =
+  \begin{bmatrix}
+    A_{11}[B] & A_{12}[B] & \cdots & A_{1n}[B] \\
+    A_{21}[B] & A_{22}[B] & \cdots & A_{2n}[B] \\
+    \vdots    & \vdots    & \ddots & \vdots    \\
+    A_{m1}[B] & A_{m2}[B] & \cdots & A_{mn}[B]
+  \end{bmatrix}
 \end{equation*}
 Here, $[B]$ represents the $p \times q$ submatrix $B$.
 Then each block entry $A_{ij}[B]$ above is the matrix $[B]$ multiplied by the single entry in row $i$, column $j$, of matrix $A$
 \begin{equation*}
-      A_{ij}[B] =
-      \begin{bmatrix}
-            A_{ij}B_{11} & A_{ij}B_{12} & \cdots & A_{ij}B_{1q} \\
-            A_{ij}B_{21} & A_{ij}B_{22} & \cdots & A_{ij}B_{2q} \\
-            \vdots       & \vdots       & \ddots & \vdots       \\
-            A_{ij}B_{p1} & A_{ij}B_{p2} & \cdots & A_{ij}B_{pq}
-      \end{bmatrix}
+  A_{ij}[B] =
+  \begin{bmatrix}
+    A_{ij}B_{11} & A_{ij}B_{12} & \cdots & A_{ij}B_{1q} \\
+    A_{ij}B_{21} & A_{ij}B_{22} & \cdots & A_{ij}B_{2q} \\
+    \vdots       & \vdots       & \ddots & \vdots       \\
+    A_{ij}B_{p1} & A_{ij}B_{p2} & \cdots & A_{ij}B_{pq}
+  \end{bmatrix}
 \end{equation*}
 
 \subsubsection{Tensor product property.}
 The first property is of course bilinearity, meaning linear in each argument separately
 \begin{align*}
-      (v_1 + v_2) \otimes w & = v_1 \otimes w + v_2 \otimes w \\
-      v \otimes (w_1 + w_2) & = v \otimes w_1 + v \otimes w_2
+  (v_1 + v_2) \otimes w & = v_1 \otimes w + v_2 \otimes w \\
+  v \otimes (w_1 + w_2) & = v \otimes w_1 + v \otimes w_2
 \end{align*}
 Next is that it commutes with taking duals
 \begin{equation*}
-      (V \otimes W)^* = V^* \otimes W^*
+  (V \otimes W)^* = V^* \otimes W^*
 \end{equation*}
 Third, the tensor product it is associative
 \begin{equation*}
-      (V_1 \otimes V_2) \otimes V_3 = V_1 \otimes (V_2 \otimes V_3)
+  (V_1 \otimes V_2) \otimes V_3 = V_1 \otimes (V_2 \otimes V_3)
 \end{equation*}
 This property allows us to drop the parentheses and write expressions like $V_1 \otimes \dots \otimes V_n$ without ambiguity.
 One can think of $V_1 \otimes \dots \otimes V_n$ as the set of $C$-valued multilinear functions on $V_1 \times \dots \times V_n ^*$.
 
 The final most incomprehensible tensor product identity is as follows
 \begin{equation*}
-      \bigotimes_i \left(b_i \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
-      =
-      \left( \prod_i b_i \right) \sum_{\left\{ n_i  \right\} }\left( \prod_i  c_{c_i} ^{(i)}\right)  \bigotimes_i \ket{n_i}
+  \bigotimes_i \left(b_i \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
+  =
+  \left( \prod_i b_i \right) \sum_{\left\{ n_i  \right\} }\left( \prod_i  c_{n_i} ^{(i)}\right)  \bigotimes_i \ket{n_i}
 \end{equation*}
 Quite terrifying, but all you need is bilinearity to understand this.
 First consider the simple tensor product of two vectors
 \begin{align*}
-      \ket{\psi} & =
-      \sum_{\left\{ n_i \right\} } c_{n_i} \ket{n_i}
-      =
-      c_{n_1} \ket{n_1} + c_{n_2} \ket{n_2}+\dots \\
-      \ket{\phi} & =
-      \sum_{\left\{ m_j \right\} } d_{m_j} \ket{m_j}
-      =
-      d_{m_1} \ket{m_1} + d_{m_2} \ket{m_2}+\dots
+  \ket{\psi} & =
+  \sum_{\left\{ n_i \right\} } c_{n_i} \ket{n_i}
+  =
+  c_{n_1} \ket{n_1} + c_{n_2} \ket{n_2}+\dots \\
+  \ket{\phi} & =
+  \sum_{\left\{ m_j \right\} } d_{m_j} \ket{m_j}
+  =
+  d_{m_1} \ket{m_1} + d_{m_2} \ket{m_2}+\dots
 \end{align*}
 The tensor product of those two is
 \begin{align*}
-      \ket{\psi } \otimes \ket{\phi}
-       & =  \left[        c_{n_1} \ket{n_1} + c_{n_2} \ket{n_2}+\dots\right] \otimes \left[       d_{m_1} \ket{m_1} + d_{m_2} \ket{m_2}+\dots \right] \\
-       & =  \left[        c_{n_1} d_{m_1} \ket{n_1}\otimes \ket{m_1}+ c_{n_2} d_{m_1} \ket{n_2}\otimes \ket{m_1} +\dots\right]                        \\
-       & \qquad+  \left[        c_{n_1} d_{m_2} \ket{n_1}\otimes \ket{m_2}+ c_{n_2} d_{m_2} \ket{n_2}\otimes \ket{m_2} +\dots\right]                  \\
-       & \qquad\qquad+  \dots                                                                                                                         \\
-      \ket{\psi } \otimes \ket{\phi}
-       & = \sum_{\left\{ n_i  \right\} ,\left\{ m_j \right\}  } c_{n_i} d_{m_j} \ket{n_i}\otimes \ket{m_j}
+  \ket{\psi } \otimes \ket{\phi}
+   & =  \left[        c_{n_1} \ket{n_1} + c_{n_2} \ket{n_2}+\dots\right] \otimes \left[       d_{m_1} \ket{m_1} + d_{m_2} \ket{m_2}+\dots \right] \\
+   & =  \left[        c_{n_1} d_{m_1} \ket{n_1}\otimes \ket{m_1}+ c_{n_2} d_{m_1} \ket{n_2}\otimes \ket{m_1} +\dots\right]                        \\
+   & \qquad+  \left[        c_{n_1} d_{m_2} \ket{n_1}\otimes \ket{m_2}+ c_{n_2} d_{m_2} \ket{n_2}\otimes \ket{m_2} +\dots\right]                  \\
+   & \qquad\qquad+  \dots                                                                                                                         \\
+  \ket{\psi } \otimes \ket{\phi}
+   & = \sum_{\left\{ n_i  \right\} ,\left\{ m_j \right\}  } c_{n_i} d_{m_j} \ket{n_i}\otimes \ket{m_j}
 \end{align*}
 Another way to view this is to expand the first argument, then the second successively
 \begin{align*}
-      \ket{\psi}\otimes \ket{\phi}
-       & =
-      \left(        \sum_{i } c_i \ket{n_i} \right) \otimes
-      \left(        \sum_{j } d_j \ket{m_j}\right)
-      =
-      \sum_{i } c_i \left(\ket{n_i} \otimes\sum_{j } d_j \ket{m_j}\right) \\
-      \ket{\psi}\otimes \ket{\phi}
-       & =
-      \sum_{i,j } c_id_j \ket{n_i}\otimes \ket{m_j}
+  \ket{\psi}\otimes \ket{\phi}
+   & =
+  \left(        \sum_{i } c_i \ket{n_i} \right) \otimes
+  \left(        \sum_{j } d_j \ket{m_j}\right)
+  =
+  \sum_{i } c_i \left(\ket{n_i} \otimes\sum_{j } d_j \ket{m_j}\right) \\
+  \ket{\psi}\otimes \ket{\phi}
+   & =
+  \sum_{i,j } c_id_j \ket{n_i}\otimes \ket{m_j}
 \end{align*}
 Next step is to generalize to many factors
 \begin{align*}
-      \bigotimes_i \left( \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
-       & =
-      \left(b_1\sum_{n_1 } c_{n_2} \ket{n_1} \right) \otimes \left(b_2\sum_{n_2 } c_{n_2} \ket{n_2}\right) \otimes\dots
-      \\
-       & =b_1b_2\dots \sum_{\left\{ n_1  \right\} ,\left\{ n_2 \right\} ,\dots} c_{n_1} ^{(1)}c_{n_2} ^{(2)}\dots \ket{n_1}\otimes \ket{n_2}\otimes \dots
-      \\
-      \bigotimes_i \left( \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
-       & =
-      \left( \prod_i b_i \right) \sum_{\left\{ n_i  \right\} }\left( \prod_i  c_{c_i} ^{(i)}\right)  \bigotimes_i \ket{n_i}
+  \bigotimes_i \left( \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
+   & =
+  \left(b_1\sum_{n_1 } c_{n_2} \ket{n_1} \right) \otimes \left(b_2\sum_{n_2 } c_{n_2} \ket{n_2}\right) \otimes\dots
+  \\
+   & =b_1b_2\dots \sum_{\left\{ n_1  \right\} ,\left\{ n_2 \right\} ,\dots} c_{n_1} ^{(1)}c_{n_2} ^{(2)}\dots \ket{n_1}\otimes \ket{n_2}\otimes \dots
+  \\
+  \bigotimes_i \left( \sum_{n_i } c_{n_i }^{(i )}\ket{n_i}  \right)
+   & =
+  \left( \prod_i b_i \right) \sum_{\left\{ n_i  \right\} }\left( \prod_i  c_{c_i} ^{(i)}\right)  \bigotimes_i \ket{n_i}
 \end{align*}
-Incomprehensible, may god have mercy on your wretched soul \emoji{pray}
+Incomprehensible, may god have mercy on your wretched soul.
 
 \subsubsection{Vector space of tensor.}
 The vector space $\mathcal{T}_s^r$ of type $(r,s)$ over $V$ defined as
 \begin{equation*}
-      \mathcal{T}_s^r(V) \equiv \underbrace{V^* \otimes \cdots \otimes V^*}_{r } \quad \underbrace{V \otimes \cdots \otimes V}_{s }.
+  \mathcal{T}_s^r(V) \equiv \underbrace{V^* \otimes \cdots \otimes V^*}_{r } \quad \underbrace{V \otimes \cdots \otimes V}_{s }.
 \end{equation*}
 Since the space has basis $\mathcal{B}^r_s = \{ e^{i_1} \otimes \cdots \otimes e^{i_r} \otimes e_{j_1} \otimes \cdots \otimes e_{j_s} \}$, we can conclude that $\mathcal{B}^r_s$ is a basis for $\mathcal{T}^r_s$.
 In fact, we claim that if $T \in \mathcal{T}^r_s$ has components $T_{i_1 \ldots i_r}{}^{j_1 \ldots j_s}$, then
 \begin{equation*}
-      T = T_{i_1 \ldots i_r}{}^{j_1 \ldots j_s} e^{i_1} \otimes \cdots \otimes e^{i_r} \otimes e_{j_1} \otimes \cdots \otimes e_{j_s}
+  T = T_{i_1 \ldots i_r}{}^{j_1 \ldots j_s} e^{i_1} \otimes \cdots \otimes e^{i_r} \otimes e_{j_1} \otimes \cdots \otimes e_{j_s}
 \end{equation*}
 is the expansion of $T$ in the basis $\mathcal{B}^r_s$.
 
 To prove this, we just need to check that both sides agree when evaluated on an arbitrary set of basis vectors
 From the definition of tensor component
 \begin{equation*}
-      T_{i_{1}...i_{r}}{}^{j_{1}...j_{s}} = T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{s}})
+  T_{i_{1}...i_{r}}{}^{j_{1}...j_{s}} = T(e_{i_{1}},...,e_{i_{r}},e^{j_{1}},...,e^{j_{s}})
 \end{equation*}
 Then for the right-hand side
 \begin{align*}
-             & (T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} e^{k_1} \otimes \cdots \otimes e^{k_r} \otimes e_{l_1} \otimes \cdots \otimes e_{l_s}) \left( e_{i_1}, \ldots, e_{i_r}, e^{j_1}, \ldots, e^{j_s} \right) \\
-      \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} e^{k_1}(e_{i_1}) \cdots e^{k_r}(e_{i_r}) e_{l_1}(e^{j_1}) \cdots e_{l_s}(e^{j_s})                                                                      \\
-      \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} \delta_{i_1}^{k_1} \cdots \delta_{i_r}^{k_r} \delta_{l_1}^{j_1} \cdots \delta_{l_s}^{j_s}                                                              \\
-      \qquad & =  T_{i_1, \ldots, i_r}{}^{j_1, \ldots, j_s}
+         & (T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} e^{k_1} \otimes \cdots \otimes e^{k_r} \otimes e_{l_1} \otimes \cdots \otimes e_{l_s}) \left( e_{i_1}, \ldots, e_{i_r}, e^{j_1}, \ldots, e^{j_s} \right) \\
+  \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} e^{k_1}(e_{i_1}) \cdots e^{k_r}(e_{i_r}) e_{l_1}(e^{j_1}) \cdots e_{l_s}(e^{j_s})                                                                      \\
+  \qquad & =  T_{k_1 \ldots k_r}{}^{l_1 \ldots l_s} \delta_{i_1}^{k_1} \cdots \delta_{i_r}^{k_r} \delta_{l_1}^{j_1} \cdots \delta_{l_s}^{j_s}                                                              \\
+  \qquad & =  T_{i_1, \ldots, i_r}{}^{j_1, \ldots, j_s}
 \end{align*}
 
 \subsection{Direct Sum}
 Other than tensor product, another way to build new vector spaces from old ones is to use direct sums.
 First, we define the direct sums of any two vectors spaces $V$ and $W$ over the same field $F$ as the vector space $V \oplus W$ with its set of vectors defined by
 \[
-      V \oplus W = V \times W = \{(v, w) : v \in V, w \in W\}
+  V \oplus W = V \times W = \{(v, w) : v \in V, w \in W\}
 \]
 which consist of ordered pairs.
 Direct sum  keeps spaces separate, unlike tensor product that couples spaces multiplicative.
+
+Another difference is the scalar product of this state with another
+\begin{equation*}
+  \left( \bigoplus_{i} \bra{\psi_i}  \right) \left( \bigoplus_{i } \ket{\phi} \right) = \sum_{i } \braket{\psi_i  | \phi_i}
+\end{equation*}
+Unlike the case for tensor product
+\begin{equation*}
+  \left( \bigotimes_{i} \bra{\psi_i}  \right) \left( \bigotimes_{i } \ket{\phi} \right) = \prod_{i } \braket{\psi_i  | \phi_i}
+\end{equation*}
 
 For example, consider the same vector space $V$ and $W$ with basis $\left\{ e_i \right\} $ and $\left\{ f_j \right\} $.
 The basis for $V \oplus W$ is $\left\{ \left\{ e_i \right\},\left\{ f_j \right\}   \right\} = \left\{ e_{1},\cdots,j_{1},\cdots \right\} $, while the basis for $V \otimes W$ is $\left\{ e_i\otimes f_j \right\} $ for $i=1\dots,n,j=1,\dots ,m $.
@@ -500,16 +509,16 @@ In physics setting, direct sum can is used to produce space large enough to allo
 Consider system whose particle number is not fixed, each particle number $n$ requiring a Hilbert space $\mathcal{H}_n$.
 To allow superpositions of different particle numbers, one constructs a space
 \begin{equation*}
-      \mathcal{F}=\mathcal{H}_0\oplus\mathcal{H}_1\oplus\cdots
+  \mathcal{F}=\mathcal{H}_0\oplus\mathcal{H}_1\oplus\cdots
 \end{equation*}
 A vector in this space describe a quantum state in which the system is in a superposition of different particle numbers
 \begin{equation*}
-      \ket{\Psi}=\alpha \ket{0}\oplus\beta \ket{\psi_1}\oplus\cdots
+  \ket{\Psi}=\alpha \ket{0}\oplus\beta \ket{\psi_1}\oplus\cdots
 \end{equation*}
 where $\ket{\psi_n} $ describe states with $n$ particles.
 This is in fact equivalent as
 \begin{equation*}
-      \ket{\Psi} = \alpha \ket{0}+\beta \ket{1}+\cdots
+  \ket{\Psi} = \alpha \ket{0}+\beta \ket{1}+\cdots
 \end{equation*}
 As long as $\ket{n}$ is  defined properly.
 Compare this to tensor product which often used to describe AA system with multiple particle simultaneously, thus encode coexisting degrees of freedom from each particle.

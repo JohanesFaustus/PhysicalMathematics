@@ -1245,45 +1245,106 @@ Using the generating function we obtain the following recursion relation
 	H_{n+1}(x)=2xH_{n}(x)-2nH_{n-1}(x)
 \end{gather*}
 
-\subsubsection{Derivation.} Using the operator $D$, we have
+\subsubsection{Derivation: first equal (not the Hermite equation ).}
+Using the operator $D$ that acts on $x$, we have
 \begin{align*}
-	(D-x)(D+x)y & =(D-x)(Dy+xy)        \\
-	            & =D^2y+y+xDy-xDy-x^2y \\
-	            & =D^2-x^2y_n+y        \\
+	(D-x)(D+x)y_n & =(D-x)(Dy_n+xy_n)              \\
+	              & =D^2y_n+y_n+xDy_n-xDy_n-x^2y_n \\
+	              & =D^2y_n-x^2y_n+y_n             \\
+	              & =(D^2-x^2+1)y_n
 \end{align*}
 and
 \begin{align*}
-	(D+x)(D-x)y & =(D-x)(Dy-xy)        \\
-	            & =D^2y-y-xDy+xDy-x^2y \\
-	            & =D^2-x^2y_n-y
+	(D+x)(D-x)y_n & =(D-x)(Dy_n-xy_n)              \\
+	              & =D^2y_n-y_n-xDy_n+xDy_n-x^2y_n \\
+	              & =D^2y_n-x^2y_n-y_n             \\
+	              & =(D^2-x^2-1)y_n
 \end{align*}
 Then, we can write
 \begin{gather*}
-	(D-x)(D+x)y_n=D^2-x^2y_n+y_n=-2ny_n\\
-	(D+x)(D-x)y_n=D^2-x^2y_n-y_n=-2(n+1)y_n
+	(D-x)(D+x)y_n=-2ny_n\\
+	(D+x)(D-x)y_n=-2(n+1)y_n
 \end{gather*}
+using Hermitian result $(D^2-x^2)y_n=-(2n+1)y_n$.
+This is the $n$ equation.
 Operating $(D+x)$ on the first equation and $(D-x)$ on the second
 \begin{align*}
-	(D+x)(D-x)(D+x)y_n=-2n(D+x)y_m \\
-	(D-x)(D+x)(D-x)y_n=-2(n+1)(D-x)y_n
+	(D+x)(D-x)(D+x)y_m=-2n(D+x)y_m \\
+	(D-x)(D+x)(D-x)y_m=-2(n+1)(D-x)y_m
 \end{align*}
-If the equations are identical, that is $y_n=(D-x)y_m$ and $n+m+1$ for the first $n$ equation and second $m$ equations
+This is the $m$ equation.
+Both equation can be said identical if $y_n=(D-x)y_m$ and $n=m+1$; we can equate the first $n$ equation and second $m$ equations
 \begin{align*}
-	-2ny_n  & =-2(m+1)y_m \\
+	-2ny_n  & =-2(m+1)(D-x)y_m \\
 	y_{m+1} & =(D-x)y_m
 \end{align*}
-If $y_n=(D=x)y_m$ and $n+1=m$ for the second $n$ equations and the first $m$ equations
+If $y_n=(D=x)y_m$ and $n+1=m$, we can also equate the second $n$ equations and the first $m$ equations
 \begin{align*}
-	-2(n+1)y_n & =-2m(D+x)y_m \\
+	-2(n+1)y_n& =-2m(D+x)y_m \\
 	y_{m-1}    & =(D+x)y_m
 \end{align*}
-Mathematically, these operators are called the raising operator $(D-x)$ and lowering operator $(D+x)$.
+
+Aside, these operators are called the raising operator $(D-x)$ and lowering operator $(D+x)$.
 Quantum mechanics definition of raising operator $a^\dagger$ and lowering operator $a$ is different to accommodate adjoint $[a,a^\dagger]=1$
 \begin{align*}
 	a^\dagger & =\frac{1}{\sqrt{2}}(x-D) \\
 	a         & =\frac{1}{\sqrt{2}}(x+D)
 \end{align*}
 
+If $n=0$, the equation 
+\begin{equation*}
+	(D-x)(D+x)y_n=-2ny_n	
+\end{equation*}
+reads 
+\begin{align*}
+	(D-x)(D+x)y_0 &=  0\\
+	(D-x)f(x) &=  0
+\end{align*}
+with $f(x)=(D-x)$.
+This is solved by 
+\begin{align*}
+	\frac{df }{f }&= x\;dx\\
+	\ln f &=  \frac{x ^2 }{2 }+c\\
+	f(x)&= C e^{x^2/2}
+\end{align*}
+Expanding $f(x)$, we obtain
+\begin{align*}
+	(D+x )y_0 &= C e^{x^2/2}\\
+	y_0'+xy &= C e^{x^2/2}
+\end{align*}
+This can be solved with integration factor of $I=\int x\;dx=x^2/2$
+\begin{equation*}
+		y_0 = e ^{-x^2/2}\int C_1 e^{x^2/2}e^{x^2/2}\;dx+ C_1 e^{-x^2/2}
+\end{equation*}
+In order to be physically normalizable, we set $C_2=0$ and get the solution
+\begin{equation*}
+	y_0=C e ^{-x^2/2}
+\end{equation*}
+The eqution $	y_{m+1}  =(D-x)y_m$ implies
+\begin{equation*}
+	y_n = (D-x)^n (C e ^{-x^2 /2})
+\end{equation*}
+
+To obtain the action of $(D-x)^n$, consider
+\begin{align*}
+		e^{x^2/2} D\left(e^{-x^2/2}f \right) &= 
+	e^{x^2/2} \left( -x e^{-x^2/2} f + e^{-x^2/2} f'\right)\\
+			e^{x^2/2} D\left(e^{-x^2/2} f\right) &= 
+	-xf+f' = (D-x)f
+\end{align*}
+Now we extend it to the power of $n$ by considering
+\begin{align*}
+	(D-x)^n 
+	&= e ^{x^2/2}D \left[ e ^{-x^2/2}e ^{x^2/2}D \left( \dots \right)  \right] \\
+	(D-x)^n 
+	&= 	e ^{x^2/2} D^n e ^{-x^2/2}
+\end{align*}
+All that left is to substitute this 
+\begin{equation*}
+	y_n = (D-x)^n C e ^{-x^2/2} =e ^{x^2/2} D^ne ^{-x^2}  
+\end{equation*}
+
+\subsubsection{Derivation: Hermite equation}
 We can derive the solution for Hermite equations
 \begin{equation*}
 	y''-2xy'+2ny=0
