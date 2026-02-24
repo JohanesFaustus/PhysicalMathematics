@@ -178,31 +178,72 @@ The previous equation is obtained by the dot identity of parallel vector
 \end{align*}
 also called the equation of plane.
 
-\subsection{Matrix Operation}
-\subsubsection{Multiplication.}
-Matrix AB can be multiplied if they are conformable, that is if column A = row B.
-Matrix multiplication in index notation is:
-\begin{align*}
-	(AB)_{ij}=\sum_{k}A_{ik}B_{kj}
-\end{align*}
-where $i$ denote row and $j$ denote column.
-For $2\times2$ matrix
+\subsection{Subspace}
+Given a vector space $\mathbb{V}$, a subset of its elements that form a vector space among themselves is called a subspace.
+We will denote a particular subspace $i$ of dimensionality $n$ by $\mathbb{V}_i^n$.
+
+Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{V}_j^{m_j}$, we define their sum $\mathbb{V}_i^{n_i}\oplus\mathbb{V}_j^{m_j}$ as the set containing
+\begin{enumerate}
+	\item All vector in the $\mathbb{V}_i^{n_i}$.
+	\item All vector in the $\mathbb{V}_j^{m_j}$.
+	\item All linear combination of them.
+\end{enumerate}
+
+Vector along three spatial dimension is denoted as $\mathbb{V}_3(R)$, while its component is $\mathbb{V}_x^1$ on the $x$ direction and the same convention on other two.
+All vector along the $xy$ plane is denoted $\mathbb{V}_{xy}^2$.
+Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$, which makes sense since the plane is a linear combination of two basis.
+
+\subsection{Linear Independence}
+Linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
+
+\subsubsection{Vector.}
+The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
+where $a$ is a scalar.
+Set of vectors are said to independent if the only solution to the following equation is trivial
 \begin{equation*}
-	\begin{bmatrix}
-		a_{11} & a_{12} \\
-		a_{21} & a_{22}
-	\end{bmatrix}
-	\begin{bmatrix}
-		b_{11} & b_{12} \\
-		b_{21} & b_{22}
-	\end{bmatrix}=
-	\begin{bmatrix}
-		a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
-		a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
-	\end{bmatrix}
+	\sum_i a_i\ket{i}=\ket{0}
+\end{equation*}
+If the basis of the vector are independent, we can expand into
+\begin{equation*}
+	\ket{V}=\sum_i v_i \ket{i}
 \end{equation*}
 
-\subsubsection{Commutator.}
+A function of a vector, say $f (r)$, is called linear if
+\begin{align*}
+	f(r_1+r_2)= f(r_1)+ f(r_2) &  & \mathrm{and} &  & f(ar)=a\;f(r)
+\end{align*}
+
+\subsubsection{Operator.}
+Linear operator obey the following rule
+\begin{align*}
+	\Omega \alpha \ket{V}                               & =\alpha\Omega \ket{V}                         \\
+	\Omega\left[\alpha \ket{V_1}+\beta \ket{V_2}\right] & =\Omega\alpha \ket{V_1}+\beta\Omega \ket{V_2} \\
+	\bra{V}\alpha\Omega                                 & =\bra{V}\Omega\alpha                          \\
+	\left[\bra{V_1}\alpha+\bra{V_2}\beta\right]\Omega   & =\alpha \bra{V_1}\Omega +\beta\bra{V_2}\Omega
+\end{align*}
+$\Omega$ is a linear operator if
+\begin{align*}
+	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
+\end{align*}
+
+\subsubsection{Complete function.}
+A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
+\begin{equation*}
+	f(y)=\sum_{n=1}^{\infty} C_nf(y)
+\end{equation*}
+
+\subsubsection{Linear dependence.}
+$f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
+\begin{align*}
+	W=\begin{vmatrix}
+		  f_1(x)       & f_2(x)       & \cdots & f_n(x)       \\
+		  f_1'(x)      & f_2'(x)      & \cdots & f_n'(x)      \\
+		  \vdots       & \vdots       & \ddots & \vdots       \\
+		  f_1^{n-1}(x) & f_2^{n-1}(x) & \cdots & f_n^{n-1}(x) \\
+	  \end{vmatrix}\not\equiv0
+\end{align*}then the functions are linearly independent.
+
+\subsection{Commutator}
 In general, matrix do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
 	[\mathrm{A}, \mathrm{B}] = \mathrm{A}\mathrm{B} -\mathrm{B}\mathrm{A}
@@ -226,162 +267,6 @@ From this, one could also obtain
 	+ \mathrm{C}[\mathrm{A},\mathrm{D}]\mathrm{B}.
 \end{align*}
 
-\subsubsection{Derivative (with respect to parameter).}
-Consider the function $\theta(\lambda)=e^{\lambda\Omega}$.
-Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense
-\begin{equation*}
-	\frac{d}{d\lambda}\theta(\lambda)=\Omega e^{\lambda\Omega}=e^{\lambda\Omega}\Omega=\theta(\lambda)\Omega
-\end{equation*}
-The second and third terms holds true because $[\Omega,e^{\Omega}]=0$.
-If we are presented with the differential equation with this form, the solution is given by
-\begin{equation*}
-	\theta(\lambda)=ce^{\Omega \lambda}
-\end{equation*}
-with $c$ as operator constant of integration.
-
-\paragraph*{Proof.} We can proof the evaluated method by writing the exponential function as an operator then applying the derivative operator
-\begin{align*}
-	\frac{d }{d\lambda}e^{\lambda\Omega}  & =\frac{d }{d\lambda}
-	\begin{bmatrix}
-		e^{\lambda\omega_1} &        &                     \\
-		                    & \ddots &                     \\
-		                    &        & e^{\lambda\omega_n}
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		\omega_1 e^{\lambda\omega_1} &        &                              \\
-		                             & \ddots &                              \\
-		                             &        & \omega_n e^{\lambda\omega_n}
-	\end{bmatrix} \\
-	\frac{d }{d\lambda }e^{\lambda\Omega} & =
-	\begin{bmatrix}
-		\omega_1 &        &          \\
-		         & \ddots &          \\
-		         &        & \omega_n \\
-	\end{bmatrix}
-	\begin{bmatrix}
-		\lambda e^{\lambda\omega_1} &        &                             \\
-		                            & \ddots &                             \\
-		                            &        & \lambda e^{\lambda\omega_n}
-	\end{bmatrix}
-	=\Omega e^{\lambda \Omega}
-\end{align*}
-If $\Omega$ is not a hermitian however, we can produce the same result by working using the power series representation
-\begin{equation*}
-	\frac{d }{d\lambda }e^{\lambda\Omega}=\frac{d }{d\lambda} \sum_{m=0 }^{\infty }\frac{\lambda^n\Omega^n }{n! }= \sum_{m=1 }^{\infty }\frac{n\lambda^{n-1 }\Omega^{n}}{n!}=\Omega\sum_{m=1 }^{\infty}\frac{\lambda^{n-1} \Omega^{n-1}}{(n-1)!}
-\end{equation*}
-Shifting the index
-\begin{equation*}
-	\frac{d }{d\lambda }e^{\lambda \Omega}=\Omega\sum_{m=0 }^{\infty}\frac{\lambda^n \Omega^n }{n!}=\Omega e^{\lambda\Omega}
-\end{equation*}
-
-\subsubsection{Element representation.}
-The $i$-th row and $j$-th column of a matrix can be represented as
-\begin{equation*}
-	\bra{i }A \ket{j }=A_{ij}
-\end{equation*}
-
-As an example, consider $2 \times 2$ matrix A and simple kets
-\begin{equation*}
-	\ket{1}=
-	\begin{bmatrix}
-		1 \\
-		0
-	\end{bmatrix}
-	\qquad
-	\ket{2}=
-	\begin{bmatrix}
-		0 \\
-		1
-	\end{bmatrix}
-\end{equation*}
-All of its element can be represented as
-\begin{align*}
-	\bra{1}A \ket{1} & =
-	\begin{bmatrix}
-		1 & 0
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{11} & A_{12} \\
-		A_{21} & A_{22}
-	\end{bmatrix}
-	\begin{bmatrix}
-		1 \\
-		0
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		1 & 0
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{11} \\
-		A_{21}
-	\end{bmatrix}
-	=A_{11}              \\
-	\bra{1}A \ket{2} & =
-	\begin{bmatrix}
-		1 & 0
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{11} & A_{12} \\
-		A_{21} & A_{22}
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 \\
-		1
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		1 & 0
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{12} \\
-		A_{22}
-	\end{bmatrix}
-	=A_{12}              \\
-	\bra{2}A \ket{1} & =
-	\begin{bmatrix}
-		0 & 1
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{11} & A_{12} \\
-		A_{21} & A_{22}
-	\end{bmatrix}
-	\begin{bmatrix}
-		1 \\
-		0
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		0 & 1
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{11} \\
-		A_{21}
-	\end{bmatrix}
-	=A_{21}              \\
-	\bra{2}A \ket{2} & =
-	\begin{bmatrix}
-		0 & 1
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{11} & A_{12} \\
-		A_{21} & A_{22}
-	\end{bmatrix}
-	\begin{bmatrix}
-		0 \\
-		1
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		0 & 1
-	\end{bmatrix}
-	\begin{bmatrix}
-		A_{12} \\
-		A_{22}
-	\end{bmatrix}
-	=A_{22}
-\end{align*}
 
 \subsection{Determinant} For $2\times 2$ matrix:
 \begin{align*}
@@ -654,6 +539,214 @@ The procedure of finding the diagonalization are as follows
 	      matching each $\lambda_i$ to the corresponding eigenvector in column $i$ of $V$.
 \end{enumerate}
 
+
+\subsection{Other Matrix Operation}
+\subsubsection{Addition and Subtraction.}
+Matrices $A$ and $B$ can be added or subtracted if they are conformable, that is if they have the same dimensions (same number of rows and columns). 
+Matrix addition and subtraction in index notation are defined elementwise as
+\begin{align*}
+(A \pm B)_{ij} = A_{ij} \pm B_{ij}
+\end{align*}
+where $i$ denotes the row index and $j$ denotes the column index.
+For $2\times2$ matrices
+\begin{equation*}
+\begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{bmatrix}
+\pm
+\begin{bmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}\pm b_{11} & a_{12}\pm b_{12} \\
+a_{21}\pm b_{21} & a_{22}\pm b_{22}
+\end{bmatrix}.
+\end{equation*}
+
+\subsubsection{Multiplication.}
+Matrix $AB$ can be multiplied if they are conformable, in multiplication this read column $A$ = row $B$.
+Matrix multiplication in index notation is:
+\begin{align*}
+	(AB)_{ij}=\sum_{k}A_{ik}B_{kj}
+\end{align*}
+where $i$ denote row and $j$ denote column.
+For $2\times2$ matrix
+\begin{equation*}
+	\begin{bmatrix}
+		a_{11} & a_{12} \\
+		a_{21} & a_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		b_{11} & b_{12} \\
+		b_{21} & b_{22}
+	\end{bmatrix}=
+	\begin{bmatrix}
+		a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+		a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+	\end{bmatrix}
+\end{equation*}
+
+\subsubsection{Derivative (with respect to parameter).}
+Consider the function $\theta(\lambda)=e^{\lambda\Omega}$.
+Its derivative with respect to parameter $\lambda$ is evaluated in the usual sense
+\begin{equation*}
+	\frac{d}{d\lambda}\theta(\lambda)=\Omega e^{\lambda\Omega}=e^{\lambda\Omega}\Omega=\theta(\lambda)\Omega
+\end{equation*}
+The second and third terms holds true because $[\Omega,e^{\Omega}]=0$.
+If we are presented with the differential equation with this form, the solution is given by
+\begin{equation*}
+	\theta(\lambda)=ce^{\Omega \lambda}
+\end{equation*}
+with $c$ as operator constant of integration.
+
+\paragraph*{Proof.} We can proof the evaluated method by writing the exponential function as an operator then applying the derivative operator
+\begin{align*}
+	\frac{d }{d\lambda}e^{\lambda\Omega}  & =\frac{d }{d\lambda}
+	\begin{bmatrix}
+		e^{\lambda\omega_1} &        &                     \\
+		                    & \ddots &                     \\
+		                    &        & e^{\lambda\omega_n}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\omega_1 e^{\lambda\omega_1} &        &                              \\
+		                             & \ddots &                              \\
+		                             &        & \omega_n e^{\lambda\omega_n}
+	\end{bmatrix} \\
+	\frac{d }{d\lambda }e^{\lambda\Omega} & =
+	\begin{bmatrix}
+		\omega_1 &        &          \\
+		         & \ddots &          \\
+		         &        & \omega_n \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		\lambda e^{\lambda\omega_1} &        &                             \\
+		                            & \ddots &                             \\
+		                            &        & \lambda e^{\lambda\omega_n}
+	\end{bmatrix}
+	=\Omega e^{\lambda \Omega}
+\end{align*}
+If $\Omega$ is not a hermitian however, we can produce the same result by working using the power series representation
+\begin{equation*}
+	\frac{d }{d\lambda }e^{\lambda\Omega}=\frac{d }{d\lambda} \sum_{m=0 }^{\infty }\frac{\lambda^n\Omega^n }{n! }= \sum_{m=1 }^{\infty }\frac{n\lambda^{n-1 }\Omega^{n}}{n!}=\Omega\sum_{m=1 }^{\infty}\frac{\lambda^{n-1} \Omega^{n-1}}{(n-1)!}
+\end{equation*}
+Shifting the index
+\begin{equation*}
+	\frac{d }{d\lambda }e^{\lambda \Omega}=\Omega\sum_{m=0 }^{\infty}\frac{\lambda^n \Omega^n }{n!}=\Omega e^{\lambda\Omega}
+\end{equation*}
+
+\subsubsection{Element representation.}
+The $i$-th row and $j$-th column of a matrix can be represented as
+\begin{equation*}
+	\bra{i }A \ket{j }=A_{ij}
+\end{equation*}
+
+As an example, consider $2 \times 2$ matrix A and simple kets
+\begin{equation*}
+	\ket{1}=
+	\begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix}
+	\qquad
+	\ket{2}=
+	\begin{bmatrix}
+		0 \\
+		1
+	\end{bmatrix}
+\end{equation*}
+All of its element can be represented as
+\begin{align*}
+	\bra{1}A \ket{1} & =
+	\begin{bmatrix}
+		1 & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11} \\
+		A_{21}
+	\end{bmatrix}
+	=A_{11}              \\
+	\bra{1}A \ket{2} & =
+	\begin{bmatrix}
+		1 & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 \\
+		1
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{12} \\
+		A_{22}
+	\end{bmatrix}
+	=A_{12}              \\
+	\bra{2}A \ket{1} & =
+	\begin{bmatrix}
+		0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11} \\
+		A_{21}
+	\end{bmatrix}
+	=A_{21}              \\
+	\bra{2}A \ket{2} & =
+	\begin{bmatrix}
+		0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{11} & A_{12} \\
+		A_{21} & A_{22}
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 \\
+		1
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		A_{12} \\
+		A_{22}
+	\end{bmatrix}
+	=A_{22}
+\end{align*}
+
+
 \subsubsection{Spectral theorem.}
 The spectral theorem state that for every normal operator $A$ acting on a ﬁnite-dimensional Hilbert space $\mathcal{H}$, there is an orthonormal basis of $\mathcal{H}$ consisting of eigenvectors $\ket{\lambda_i}$ of $A$.
 Then, every ﬁnite-dimensional normal matrix $A$, there is a unitary matrix $U$ such that $A=U\Lambda U ^\dagger$, where $\Lambda$ is a diagonal matrix with entrues of eigenvalues of $A$ and the column of $U$ encode the eigenvector of $A$.
@@ -692,17 +785,17 @@ In quantum mechanics, observables are Hermitian operators.
 The spectral decomposition expresses an observable as $	A = \Sigma\; \lambda_{i}\mathbb{P}_{i}$ with $\mathbb{P}_i$ as the projection operator.
 This shows that a measurement of $A$ yields one of the eigenvalues $A_i$, and the system is projected onto the corresponding eigenspace by $\mathbb{P}_i$.
 
-\subsection{Special Matrices and Operator}
+\subsection{Special Matrices}
 \subsubsection{Theorem.}
 \begin{enumerate}
 	\item $(ABC)^T=C^TB^TA^T$
 	\item $(ABC)^{-1}=C^{-1}B^{-1}A^{-1}$
-	\item $Tr(ABC)=Tr(BCA)=Tr(CAB)$.  Trace is the sum of main diagonal. It is a theorem that the
+	\item $\mathrm{Tr}(ABC)=\mathrm{Tr}(BCA)=\mathrm{Tr}(CAB)$.  Trace is the sum of main diagonal. It is a theorem that the
 	      trace of a product of matrices is not changed by permuting them in cyclic order.
 	\item If $H$ is a Hermitian matrix, then $U = e^{iH}$ is a unitary matrix.
 \end{enumerate}
 
-\subsubsection{Table of special matrices.} Consider this.
+\subsubsection{Table of special matrices.} See table.
 
 \begin{table}[h]
 	\centering
@@ -721,6 +814,7 @@ This shows that a measurement of $A$ yields one of the eigenvalues $A_i$, and th
 		Normal         & $AA^{\dagger}=A^{\dagger}A$ \\
 		\bottomrule
 	\end{tabular}
+	\caption*{Table: special matrices}
 \end{table}
 
 \subsubsection{Identity matrix.}
@@ -825,6 +919,108 @@ in 3D
 	       \end{bmatrix}
 \end{align*}
 
+\subsection{Special Operator}
+
+\subsubsection{Inner Product.}
+The inner product is defined in such way to obey the following requirement.
+\begin{enumerate}
+	\item \textbf{Skew-symmetry}: $\braket{V|W}=\braket{W|V}^*$
+	\item \textbf{Positive semidefinitness}: $\braket{V|V}\geq 0$. If $\ket{V}=0\ket{0}$, then $\braket{V|V}=\ket{0}$
+	\item \textbf{Linearity in ket} $\braket{V|(a \ket{W}+b \ket{P})}=a\braket{V|W}+b\braket{V|P}$
+\end{enumerate}
+In following this axiom, we arrive at the following definition for inner product
+\begin{equation*}
+	\braket{V|W}=\sum_{i,j}v_i^*w_i\braket{i|j}=\begin{bmatrix}
+		v_1^* & \dots & v_n^*
+	\end{bmatrix}
+	\begin{bmatrix}
+		w_1    \\
+		\vdots \\
+		w_n
+	\end{bmatrix}
+\end{equation*}
+
+If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if
+\begin{equation*}
+	\int_{a}^{b}A(x)B(x)\;dx=0
+\end{equation*}
+
+The inner product of two continuous function along some interval is defined as
+\begin{equation*}
+	\braket{f|g}=\int_{a}^{b}f ^*(x)g(x)\;dx
+\end{equation*}
+This definition comes after recalling the completeness relation for infinite space
+\begin{equation*}
+	\braket{f|g}=\bra{f}I \ket{g}=\int_{a }^{b}\braket{f|x}\braket{x|g}\;dx=\int_{a }^{b} f ^*(x)g(x)\;dx
+\end{equation*}
+
+\subsubsection{Norm.}
+Norm of a vector is defined as
+\begin{equation*}
+	||V||\equiv\sqrt{\braket{V|V}}
+\end{equation*}
+Two vectors with zero inner product are said to be orthogonal.
+If said vector has unit norm instead, it is referred as normalized.
+Set of basis with orthogonal and normalized condition are called orthonormal basis.
+
+The norm of a continuous function is defined as
+\begin{equation*}
+	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
+\end{equation*}
+We also said the function $N^{-1}A(x)$ to be normalized and has the norm of one.
+
+\subsubsection{Adjoint Operation.}
+The following is a summary on how to perform adjoint in braket notation.
+\begin{quotation}
+	Reverse the order of all factors and make the substitutions $\Omega\leftrightarrow\Omega^\dagger,\ket{}\leftrightarrow \bra{}, a\leftrightarrow a^*$.
+\end{quotation}
+From this we also obtain the conjugate expressions
+\begin{align*}
+	\ket{aV}=a \ket{V}\quad            & \leftrightarrow \quad\bra{aV}=\bra{V}a^*                 \\
+	\ket{\Omega V}=\Omega \ket{V}\quad & \leftrightarrow\quad\bra{\Omega V}=\bra{V}\Omega^\dagger
+\end{align*}
+
+The following vector is an adjoint of each other
+\begin{equation*}
+	\ket{V}=\sum_iv_i \ket{i}\qquad \bra{V}=\sum_i \bra{i}v_i^*
+\end{equation*}
+We can also write it in terms of projection operation by recalling $v_i=\braket{i|V}$ and $v_i^*=\braket{V|i}$
+\begin{equation*}
+	\ket{V}=\sum_i \ket{i} \braket{i|V}\qquad \bra{V}=\sum_i \braket{V|i}\bra{i}
+\end{equation*}
+
+The matrix $\Omega^\dagger$--also called Hermitian adjoint--represent transpose conjugate of $\Omega$
+\begin{equation*}
+	\Omega^{\dagger}=(\Omega^*)^T=(\Omega^T)^*
+\end{equation*}
+
+Our general rule of adjoint state
+\begin{equation*}
+	(\Omega\Lambda)^\dagger=\Lambda ^\dagger \Omega ^\dagger
+\end{equation*}
+This can however be proved in another method.
+Consider $\bra{\Omega \Lambda V}$. First treat $\Omega\Lambda$ as one operator
+\begin{equation*}
+	\bra{(\Omega\Lambda)V}=\bra{V}(\Omega\Lambda) ^\dagger
+\end{equation*}
+Then, treat both as separate operator and pull them out of the bra one by one
+\begin{equation*}
+	\bra{\Omega\Lambda V}=\bra{\Lambda V}\Omega^\dagger=\bra{V}\Lambda ^\dagger \Omega ^\dagger
+\end{equation*}
+Thus, we have
+\begin{equation*}
+	(\Omega\Lambda) ^\dagger=\Lambda ^\dagger\Omega ^\dagger
+\end{equation*}
+
+Suppose we have the equation involving
+\begin{equation*}
+	a_1 \ket{V_1}=a_2 \ket{V_2}+a_3 \ket{V_3}\braket{V_4|V_5}+a_4\Omega\Lambda \ket{V_6}
+\end{equation*}
+and we want to take its adjoint
+\begin{equation*}
+	\bra{V_1}a_1 ^*=\bra{V_2}a_2 ^*+\braket{V_4|V_5}\bra{V_3}a_3 ^*+\bra{V_6}\Lambda ^\dagger\Omega ^\dagger a_4 ^*
+\end{equation*}
+
 \subsubsection{Unitary operator.}
 Unitary operator is defined as
 \begin{equation*}
@@ -833,7 +1029,7 @@ Unitary operator is defined as
 This definition also implies that $U$ and its Hermitian conjugate are inverse of each.
 As a comparison with complex number, Unitary operator is a unit modulus $e^{i\theta}$, just as $e^{i\theta}e^{-i\theta}=1$.
 
-\paragraph*{Inner product.} This theorem state that unitary operator preserves the inner product between the vectors they act on.
+The theorem of unitary inner product state that unitary operator preserves the inner product between the vectors they act on.
 This can be proved by considering two vectors
 \begin{equation*}
 	\ket{V_1}=U \ket{W_1}\qquad \ket{V_2}=U \ket{W_2}
@@ -858,7 +1054,7 @@ This expression also used to define continuous orthogonal basis
 \begin{equation*}
 	\braket{x|x'}=\delta(x-x')
 \end{equation*}
-Dirac delta is an even function proved by
+Dirac delta is an even function, proved by
 \begin{equation*}
 	\delta(x-x')=\braket{x|x'}=\braket{x'|x}^*=\delta(x'-x)^*=\delta(x'-x)
 \end{equation*}
@@ -1036,113 +1232,6 @@ while is the $k$ basis
 	\braket{k|X|\psi}=i \frac{d }{dk}\psi(k)
 \end{equation*}
 
-\subsection{Inner Product}
-\subsubsection{Finite dimension.}
-The inner product is defined in such way to obey the following requirement.
-\begin{enumerate}
-	\item \textbf{Skew-symmetry}: $\braket{V|W}=\braket{W|V}^*$
-	\item \textbf{Positive semidefinitness}: $\braket{V|V}\geq 0$. If $\ket{V}=0\ket{0}$, then $\braket{V|V}=\ket{0}$
-	\item \textbf{Linearity in ket} $\braket{V|(a \ket{W}+b \ket{P})}=a\braket{V|W}+b\braket{V|P}$
-\end{enumerate}
-In following this axiom, we arrive at the following definition for inner product
-\begin{equation*}
-	\braket{V|W}=\sum_{i,j}v_i^*w_i\braket{i|j}=\begin{bmatrix}
-		v_1^* & \dots & v_n^*
-	\end{bmatrix}
-	\begin{bmatrix}
-		w_1    \\
-		\vdots \\
-		w_n
-	\end{bmatrix}
-\end{equation*}
-
-If we think function as element of vector space, two functions can be said to be orthogonal on $(a,b)$ if
-\begin{equation*}
-	\int_{a}^{b}A(x)B(x)\;dx=0
-\end{equation*}
-
-\subsubsection{Infinite dimension.}
-The inner product of two continuous function along some interval is defined as
-\begin{equation*}
-	\braket{f|g}=\int_{a}^{b}f ^*(x)g(x)\;dx
-\end{equation*}
-This definition comes after recalling the completeness relation for infinite space
-\begin{equation*}
-	\braket{f|g}=\bra{f}I \ket{g}=\int_{a }^{b}\braket{f|x}\braket{x|g}\;dx=\int_{a }^{b} f ^*(x)g(x)\;dx
-\end{equation*}
-
-\subsection{Norm}
-Norm of a vector is defined as
-\begin{equation*}
-	|V|\equiv\sqrt{\braket{V|V}}
-\end{equation*}
-Two vectors with zero inner product are said to be orthogonal.
-If said vector has unit norm instead, it is referred as normalized.
-Set of basis with orthogonal and normalized condition are called orthonormal basis.
-
-\subsubsection{Continuous function.}
-The norm of a continuous function is defined as
-\begin{equation*}
-	\int_{a}^{b}A^*(x)A(x)\;dx=N^2
-\end{equation*}
-We also said the function $N^{-1}A(x)$ to be normalized and has the norm of one.
-
-\subsection{Adjoint Operation}
-The following is a summary on how to perform adjoint in braket notation.
-\begin{quotation}
-	Reverse the order of all factors and make the substitutions $\Omega\leftrightarrow\Omega^\dagger,\ket{}\leftrightarrow \bra{}, a\leftrightarrow a^*$.
-\end{quotation}
-From this we also obtain the conjugate expressions
-\begin{align*}
-	\ket{aV}=a \ket{V}\quad            & \leftrightarrow \quad\bra{aV}=\bra{V}a^*                 \\
-	\ket{\Omega V}=\Omega \ket{V}\quad & \leftrightarrow\quad\bra{\Omega V}=\bra{V}\Omega^\dagger
-\end{align*}
-
-\subsubsection{Bra and ket.}
-Here is how the method in action.
-The following vector is an adjoint of each other
-\begin{equation*}
-	\ket{V}=\sum_iv_i \ket{i}\qquad \bra{V}=\sum_i \bra{i}v_i^*
-\end{equation*}
-We can also write it in terms of projection operation by recalling $v_i=\braket{i|V}$ and $v_i^*=\braket{V|i}$
-\begin{equation*}
-	\ket{V}=\sum_i \ket{i} \braket{i|V}\qquad \bra{V}=\sum_i \braket{V|i}\bra{i}
-\end{equation*}
-
-\subsubsection{Operator.}
-The matrix $\Omega^\dagger$--also called Hermitian adjoint--represent transpose conjugate of $\Omega$
-\begin{equation*}
-	\Omega^{\dagger}=(\Omega^*)^T=(\Omega^T)^*
-\end{equation*}
-
-Our general rule of adjoint state
-\begin{equation*}
-	(\Omega\Lambda)^\dagger=\Lambda ^\dagger \Omega ^\dagger
-\end{equation*}
-This can however be proved in another method.
-Consider $\bra{\Omega \Lambda V}$. First treat $\Omega\Lambda$ as one operator
-\begin{equation*}
-	\bra{(\Omega\Lambda)V}=\bra{V}(\Omega\Lambda) ^\dagger
-\end{equation*}
-Then, treat both as separate operator and pull them out of the bra one by one
-\begin{equation*}
-	\bra{\Omega\Lambda V}=\bra{\Lambda V}\Omega^\dagger=\bra{V}\Lambda ^\dagger \Omega ^\dagger
-\end{equation*}
-Thus, we have
-\begin{equation*}
-	(\Omega\Lambda) ^\dagger=\Lambda ^\dagger\Omega ^\dagger
-\end{equation*}
-
-\subsubsection{Equation.}
-Suppose we have the equation involving
-\begin{equation*}
-	a_1 \ket{V_1}=a_2 \ket{V_2}+a_3 \ket{V_3}\braket{V_4|V_5}+a_4\Omega\Lambda \ket{V_6}
-\end{equation*}
-and we want to take its adjoint
-\begin{equation*}
-	\bra{V_1}a_1 ^*=\bra{V_2}a_2 ^*+\braket{V_4|V_5}\bra{V_3}a_3 ^*+\bra{V_6}\Lambda ^\dagger\Omega ^\dagger a_4 ^*
-\end{equation*}
-
 \subsection{Gram-Schmidt Theorem}
 The Gram-Schmidt procedure is used to convert linearly independent basis $\ket{I},\dots,\ket{N}$ into an orthonormal one $\ket{1},\dots,\ket{n}$.
 We begin with the first basis vector and normalize it
@@ -1225,71 +1314,6 @@ Multiply by $|W|^2$ and taking the square root to obtain
 	|V|^2|W|^2 & \geq|\braket{V|W}|^2 \\
 	|V||W|     & \geq|\braket{V|W}|
 \end{align*}
-
-\subsection{Subspace}
-Given a vector space $\mathbb{V}$, a subset of its elements that form a vector space among themselves is called a subspace.
-We will denote a particular subspace $i$ of dimensionality $n$ by $\mathbb{V}_i^n$.
-
-Given two subspaces $\mathbb{V}_i^{n_i}$ and $\mathbb{V}_j^{m_j}$, we define their sum $\mathbb{V}_i^{n_i}\oplus\mathbb{V}_j^{m_j}$ as the set containing
-\begin{enumerate}
-	\item All vector in the $\mathbb{V}_i^{n_i}$.
-	\item All vector in the $\mathbb{V}_j^{m_j}$.
-	\item All linear combination of them.
-\end{enumerate}
-
-Vector along three spatial dimension is denoted as $\mathbb{V}_3(R)$, while its component is $\mathbb{V}_x^1$ on the $x$ direction and the same convention on other two.
-All vector along the $xy$ plane is denoted $\mathbb{V}_{xy}^2$.
-Adding the $x$ and $y$ subspace will result in the same subspace $\mathbb{V}_x^1\oplus \mathbb{V}_y^1=\mathbb{V}_{xy}^2$, which makes sense since the plane is a linear combination of two basis.
-
-\subsection{Linear Independence}
-Linear combination of $\A$ and $\B$ means $a\A + b\B$ where $a$ and $b$ are scalars.
-
-\subsubsection{Vector.}
-The vector $\mathbf{r}r = x\;\x+y\;\y+z\;\z$ with tail at the origin is a linear combination of the unit basis vectors $\x,\y,\z$
-where $a$ is a scalar.
-Set of vectors are said to independent if the only solution to the following equation is trivial
-\begin{equation*}
-	\sum_i a_i\ket{i}=\ket{0}
-\end{equation*}
-If the basis of the vector are independent, we can expand into
-\begin{equation*}
-	\ket{V}=\sum_i v_i \ket{i}
-\end{equation*}
-
-A function of a vector, say $f (r)$, is called linear if
-\begin{align*}
-	f(r_1+r_2)= f(r_1)+ f(r_2) &  & \mathrm{and} &  & f(ar)=a\;f(r)
-\end{align*}
-
-\subsubsection{Operator.}
-Linear operator obey the following rule
-\begin{align*}
-	\Omega \alpha \ket{V}                               & =\alpha\Omega \ket{V}                         \\
-	\Omega\left[\alpha \ket{V_1}+\beta \ket{V_2}\right] & =\Omega\alpha \ket{V_1}+\beta\Omega \ket{V_2} \\
-	\bra{V}\alpha\Omega                                 & =\bra{V}\Omega\alpha                          \\
-	\left[\bra{V_1}\alpha+\bra{V_2}\beta\right]\Omega   & =\alpha \bra{V_1}\Omega +\beta\bra{V_2}\Omega
-\end{align*}
-$\Omega$ is a linear operator if
-\begin{align*}
-	\Omega(r_1+r_2)= \Omega(r_1)+ \Omega(r_2) &  & \mathrm{and} &  & \Omega(ar)=a\;\Omega(r)
-\end{align*}
-
-\subsubsection{Complete function.}
-A set of function $f_n(x)$ is said to be complete if any other function $f(x)$ can be expressed as linear combination of them
-\begin{equation*}
-	f(y)=\sum_{n=1}^{\infty} C_nf(y)
-\end{equation*}
-
-\subsubsection{Linear dependence.}
-$f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the Determinant
-\begin{align*}
-	W=\begin{vmatrix}
-		  f_1(x)       & f_2(x)       & \cdots & f_n(x)       \\
-		  f_1'(x)      & f_2'(x)      & \cdots & f_n'(x)      \\
-		  \vdots       & \vdots       & \ddots & \vdots       \\
-		  f_1^{n-1}(x) & f_2^{n-1}(x) & \cdots & f_n^{n-1}(x) \\
-	  \end{vmatrix}\not\equiv0
-\end{align*}then the functions are linearly independent.
 
 \subsection{Eigenvalue Problem}
 Consider linear operator $\Omega$ transforming non-trivial $\ket{V}$
