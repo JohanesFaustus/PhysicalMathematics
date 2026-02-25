@@ -522,4 +522,82 @@ This is in fact equivalent as
 \end{equation*}
 As long as $\ket{n}$ is  defined properly.
 Compare this to tensor product which often used to describe AA system with multiple particle simultaneously, thus encode coexisting degrees of freedom from each particle.
+
+\subsection{Levi-Civita and Antisymmetric Tensor}
+The Levi-Civita symbol (also called the permutation symbol) is a completely antisymmetric tensor defined in $n$ dimensions
+\begin{equation*}
+  \epsilon_{i_1,\dots,i_n} =
+  \begin{cases}
+    +1 & \text{if } (i_1,\dots,i_n) \text{ is an even permutation of } (1,\dots,n) \\
+    -1 & \text{if } (i_1,\dots,i_n) \text{ is an odd permutation of } (1,\dots,n)  \\
+    0  & \text{if any two indices are equal}
+  \end{cases}
+\end{equation*}
+It is called antisymmetric since it satisfies
+\begin{equation*}
+    \epsilon_{i_{p(1)},\dots,i_{p(n)}} = \mathrm{sgn}(p)  \epsilon_{i_1,\dots,i_n} 
+\end{equation*}
+Since any permutation $p\in S_N$ of $N$ slots can be written as a product of transpositions
+\begin{equation*}
+  p = \mathcal{T}_{i_1j_1} \mathcal{T}_{i_2j_2} \ldots\mathcal{T}_{i_mj_m}.
+\end{equation*}
+The parity of the permutation is determined by the number of transpositions $m$ in this decomposition: even $m$ for $+1$ and odd $m$ for $-1$.
+We use the signature of permutation to denote this
+\begin{equation*}
+  \mathrm{sgn}(p) =
+  \begin{cases}
+    +1& \text{ Even permutations}\\
+    -1& \text{ Odd permutations}
+  \end{cases}
+\end{equation*}
+
+The symmetric group on $N$ elements $S_N$ is defined as 
+\begin{equation*}
+  S_N = \left\{ \sigma:\mathcal{N} \rightarrow \mathcal{N} \mid \sigma \text{ is bijective}  \right\} 
+\end{equation*}
+A function $f: A \to B$ is said to be bijective if $A$ goes to exactly one element of $B$ and $B$ is hit by exactly one element of $A$.
+
+In three dimension, there are six permutation of $(123)$.
+Even permutations of $(123)$, beside the identity $(123)$ itself, are
+\begin{align*}
+  (231) & =  \mathcal{T}_{13} \mathcal{T}_{12}(123) \\
+  (312) & =  \mathcal{T}_{12} \mathcal{T}_{13}(123)
+\end{align*}
+while the odd permutations are
+\begin{align*}
+  (213) & =  \mathcal{T}_{12}(123) \\
+  (132) & =  \mathcal{T}_{23}(123) \\
+  (321) & =  \mathcal{T}_{13}(123)
+\end{align*}
+
+For comparison, a tensor is totally symmetric if
+\begin{equation*}
+  T_{i_1,\dots, i_n} = 
+  T_{i_{p(1)},\dots, i_{p(n)}} 
+\end{equation*}
+
+\subsubsection{Levi-Civita contraction.}
+Product of two Levi-Civita can reduce into Kronecker delta
+\begin{equation*}
+  \epsilon_{ijk}\epsilon_{lmk} = \delta_{ij } \delta_{jm} - \delta_{im } \delta_{jl}
+\end{equation*}
+The product is evaluated in the following step.
+\begin{enumerate}
+  \item The product is non-zero if $(i,j,k)$ are distinct and $(l,m,k)$  are also distinct. In three dimension, there are only three index $(1,2,3)$. For distinct $k$, that left with 2 index remaining. So it is impossible to all $(i,j,l,m)$ to be all distinct.  
+  \item That the $(i,j)$ and $(l,m)$ to be the set of the same two indices.
+  \item $(i,j,k)$ and $(l,m,k)$ gives a sign depending if they are odd or even permutation of $(1,2,3)$. If $i=l$ and $j=m$, the two sequences are the same ordering and thus the product gives the term
+  \begin{equation*}
+    (+1)(+1)=+1\qquad
+    (-1)(-1)=+1
+  \end{equation*}
+  If $i=m$ and $j=l$, the two sequences are the swapped ordering and thus  the product gives the term
+  \begin{equation*}
+    (+1)(-1)=-1\qquad
+    (-1)(+1)=-1
+  \end{equation*}
+\item This is enforced by the Kronecker delta
+\begin{equation*}
+  \epsilon_{ijk}\epsilon_{lmk} = \delta_{ij } \delta_{jm} - \delta_{im } \delta_{jl}
+\end{equation*}
+\end{enumerate}
 \end{document}
