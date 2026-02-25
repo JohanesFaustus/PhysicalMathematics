@@ -257,16 +257,39 @@ From this, one could also obtain
 \begin{align*}
 	[\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}]
 	 & =  \mathrm{C}[\mathrm{A}\mathrm{B},\mathrm{D}]+[\mathrm{A}\mathrm{B},\mathrm{C}]\mathrm{D} \\
-	 & = \mathrm{C}\big(\mathrm{A}[\mathrm{B},\mathrm{D}]+[\mathrm{A},\mathrm{D}]\mathrm{B}\big)+
-	\big(\mathrm{A}[\mathrm{B},\mathrm{C}]+[\mathrm{A},\mathrm{C}]\mathrm{B}\big)\mathrm{D}
-	\\
 	[\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}]
 	 & = \mathrm{A}[\mathrm{B},\mathrm{C}]\mathrm{D}
 	+ \mathrm{A}\mathrm{C}[\mathrm{B},\mathrm{D}]
-	+ [\mathrm{A},\mathrm{C}]\mathrm{B}\mathrm{D}
+	+ [\mathrm{A},\mathrm{C}]\mathrm{D}\mathrm{B}
 	+ \mathrm{C}[\mathrm{A},\mathrm{D}]\mathrm{B}.
 \end{align*}
 
+\subsubsection{Derivation.}
+For the first relation
+\begin{align*}
+[\mathrm{A}, \mathrm{B}\mathrm{C}] &=  \mathrm{A}(\mathrm{B}\mathrm{C}) - (\mathrm{B}\mathrm{C})\mathrm{A}\\
+&=  \mathrm{A}(\mathrm{B}\mathrm{C}) - \mathrm{B}\mathrm{A}\mathrm{C} + \mathrm{B}\mathrm{A}\mathrm{C} - (\mathrm{B}\mathrm{C})\mathrm{A}\\
+&=  (\mathrm{A}\mathrm{B} - \mathrm{B}\mathrm{A})\mathrm{C} + \mathrm{B}(\mathrm{A}\mathrm{C} - \mathrm{C}\mathrm{A})\\
+&=  [\mathrm{A}, \mathrm{B}]\mathrm{C} + \mathrm{B}[\mathrm{A}, \mathrm{C}]
+\end{align*}
+
+Then the second
+\begin{align*}
+[\mathrm{A}\mathrm{B},\mathrm{C}]&=  (\mathrm{A}\mathrm{B})\mathrm{C} - \mathrm{C}(\mathrm{A}\mathrm{B})\\
+&=  \mathrm{A}\mathrm{B}\mathrm{C} - \mathrm{A}\mathrm{C}\mathrm{B} + \mathrm{A}\mathrm{C}\mathrm{B} - \mathrm{C}\mathrm{A}\mathrm{B}\\
+&=  \mathrm{A}(\mathrm{B}\mathrm{C} - \mathrm{C}\mathrm{B}) + (\mathrm{A}\mathrm{C} - \mathrm{C}\mathrm{A})\mathrm{B}\\
+&=  \mathrm{A}[\mathrm{B},\mathrm{C}] + [\mathrm{A},\mathrm{C}]\mathrm{B}
+\end{align*}
+
+Finally the third 
+\begin{align*}
+[\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}] &=  \mathrm{A}\mathrm{B}\mathrm{C}\mathrm{D} - \mathrm{C}\mathrm{D}\mathrm{A}\mathrm{B}\\
+&=  \mathrm{A}\mathrm{B}\mathrm{C}\mathrm{D} - \mathrm{A}(\mathrm{C}\mathrm{D})\mathrm{B} + \mathrm{A}(\mathrm{C}\mathrm{D})\mathrm{B} - \mathrm{C}\mathrm{D}\mathrm{A}\mathrm{B}\\
+&=  \mathrm{A}(\mathrm{B}\mathrm{C}\mathrm{D} - \mathrm{C}\mathrm{D}\mathrm{B}) + (\mathrm{A}\mathrm{C}\mathrm{D} - \mathrm{C}\mathrm{D}\mathrm{A})\mathrm{B}\\
+&= \mathrm{A}[\mathrm{B},\mathrm{C}\mathrm{D}] + [\mathrm{A},\mathrm{C}\mathrm{D}]\mathrm{B}\\
+&=  \mathrm{A}(\mathrm{C}[\mathrm{B},\mathrm{D}] + [\mathrm{B},\mathrm{C}]\mathrm{D}) + (\mathrm{C}[\mathrm{A},\mathrm{D}] + [\mathrm{A},\mathrm{C}]\mathrm{D})\mathrm{B}\\
+&= \mathrm{A}[\mathrm{B}, \mathrm{C}]\mathrm{D} + \mathrm{A}\mathrm{C}[\mathrm{B}, \mathrm{D}] + \mathrm{C}[\mathrm{A}, \mathrm{D}]\mathrm{B} + [{\mathrm{A}}, \mathrm{C}]\mathrm{D}\mathrm{B}
+\end{align*}
 
 \subsection{Determinant} For $2\times 2$ matrix:
 \begin{align*}
