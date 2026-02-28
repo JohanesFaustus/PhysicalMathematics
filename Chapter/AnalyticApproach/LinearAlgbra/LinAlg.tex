@@ -243,7 +243,7 @@ $f_1(x), f_2(x),\cdots, f_n(x)$ have derivatives of order $n - 1$, and if the De
 	  \end{vmatrix}\not\equiv0
 \end{align*}then the functions are linearly independent.
 
-\subsection{Commutator}
+\subsection{Commutator and Anticommutator}
 In general, matrix do not commute. We define the commutator of the matrices A and B by
 \begin{align*}
 	[\mathrm{A}, \mathrm{B}] = \mathrm{A}\mathrm{B} -\mathrm{B}\mathrm{A}
@@ -263,6 +263,36 @@ From this, one could also obtain
 	+ [\mathrm{A},\mathrm{C}]\mathrm{D}\mathrm{B}
 	+ \mathrm{C}[\mathrm{A},\mathrm{D}]\mathrm{B}
 \end{align*}
+
+The anticommutator of two operators \( A \) and \( B \) is defined as 
+\begin{equation*}
+	\{ A, B \} = AB + BA
+\end{equation*}
+It is the symmetric counterpart of the commutator, thus while commutator measures antisymmetric part of the product, the anticommutator measures symmetric part of the product.
+
+The zero of commutator implies that both operator can be simultaneously diagonalized, hence they admit common eigenstates.
+This eigenstate obey the following equations
+\begin{align*}
+    A \ket{ab} & = a \ket{ab}  \\
+    B\ket{ab} & = b \ket{ab}
+\end{align*}
+Now operate the first $B$ and the second by $A$
+\begin{align*}
+    BA \ket{ab} & = ab \ket{ab} \\
+    AB\ket{ab}  & = ab \ket{ab}
+\end{align*}
+then subtract the second with the first
+\begin{align*}
+    (AB-BA)\ket{ab} & = (ab-ab)\ket{ab} \\
+    [A,B]\ket{ab}              & = 0 \ket{ab}
+\end{align*}
+
+In other hand zero of anticommutator implies symmetry for the eigenvalue; that is if $A$ and $B$ anticommutes, then both $a$ and $-a$ are eigenvalue.
+Suppose $\ket{\alpha}$ is the eigenstate of $A$, then 
+\begin{align*}
+	BA \ket{\alpha} &=  \alpha B \ket{\alpha}\\
+	AB \ket{\alpha} &= -BA \ket{\alpha} = -\alpha B \ket{\alpha}
+\end{align*} 
 
 \subsubsection{Derivation.}
 For the first relation
@@ -1365,7 +1395,7 @@ Recalling the inverse of matrix $M$
 we see that the condition for non-existent inverse is zero determinant.
 Thus, the condition for non-zero eigenvector is
 \begin{equation*}
-	\det (\Omega-\omega I)^{-1}=0
+	\det (\Omega-\omega I)=0
 \end{equation*}
 In practice, this equation is enough to determine the eigenvalue and eigenvector.
 For theoretical purpose however, we can determine what form does the solution take.

@@ -577,10 +577,19 @@ For comparison, a tensor is totally symmetric if
 \end{equation*}
 
 \subsubsection{Levi-Civita contraction.}
-Product of two Levi-Civita can reduce into Kronecker delta
+Product of two Levi-Civita with third shared index can reduce into Kronecker delta
 \begin{equation*}
-  \epsilon_{ijk}\epsilon_{lmk} = \delta_{ij } \delta_{jm} - \delta_{im } \delta_{jl}
+  \epsilon_{ijk}\epsilon_{lmk} = \delta_{il } \delta_{jm} - \delta_{im } \delta_{jl}
 \end{equation*}
+We can also perform cyclic permutation to obtain the second shared index
+\begin{equation*}
+\epsilon_{jki}\epsilon_{mkl} = \delta_{jm} \delta_{il} - \delta_{jl} \delta_{im}
+\end{equation*}
+Once again, and we get the first shared index
+\begin{equation*}
+\epsilon_{kij}\epsilon_{klm} = \delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}
+\end{equation*}
+
 The product is evaluated in the following step.
 \begin{enumerate}
   \item The product is non-zero if $(i,j,k)$ are distinct and $(l,m,k)$  are also distinct. In three dimension, there are only three index $(1,2,3)$. For distinct $k$, that left with 2 index remaining. So it is impossible to all $(i,j,l,m)$ to be all distinct.  
