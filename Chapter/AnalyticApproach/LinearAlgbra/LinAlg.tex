@@ -152,6 +152,27 @@ Using this, we then write
 	\ket{V}=\sum_i \ket{i}\braket{i|V}
 \end{equation*}
 
+Using this, we can decompose arbitrary vector $\ket{V}$ into vector $\ket{i}$ such that the space is spanned by two subspaces: the parallel and perpendicular component.
+By definition, parallel component must be proportional to $\ket{i }$ 
+\begin{equation*}
+	\ket{V_\parallel 	}= v_i \ket{i}
+\end{equation*}
+The perpendicular component is now just the vector $\ket{V}$ minus this component
+\begin{equation*}
+	\ket{V_{\perp}} = \ket{V }- \ket{V_{\parallel}}= \ket{V }- v_i \ket{i }
+\end{equation*}
+By definition, the perpendicular component inner product with $\ket{u }$  is zero, so by dotting with $\bra{u }$ we have 
+\begin{equation*}
+	\braket{i  | V }- v_i \braket{i  | i}=0 \implies v_i = \braket{i  | V}
+\end{equation*}
+which is obvious in retrospect. 
+Now the vector is decomposed as 
+\begin{equation*}
+	\ket{V }= \ket{V_{\parallel}}+\ket{V_{\perp}} = \braket{i  | V }\ket{i }+\left( \ket{V }- \braket{i  | V }\ket{i }\right) 
+\end{equation*}
+
+
+
 \subsubsection{Square integrable.}
 A complex-valued function $\psi \in \mathbb{R}$ is said to be square-integrable if
 \begin{equation*}

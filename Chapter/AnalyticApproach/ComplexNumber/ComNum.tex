@@ -8,21 +8,34 @@
 \end{align*}
 The quantity $r$ is called the modulus or absolute value of $z$, and $\theta$ is called the angle of $z$ (or the phase, or the argument, or the amplitude of $z$). In symbols
 \begin{align*}
-    \mathrm{Re}\; z&=x&&    |z|=\text{mod } z=r=\sqrt{x^2+y^2}=\sqrt{z\bar{z}}\\
+    \mathrm{Re}\; z&=x&&    |z|=\text{mod } z=r=\sqrt{x^2+y^2}=\sqrt{zz^*}\\
     \mathrm{Im}\; z&=y\;\textrm{(not $iy$)}&&\text{angle of } z=\theta
 \end{align*}
-The values of $\theta$ should be found from a diagram rather than a formula, although we do sometimes write $\theta = \arctan(y/x)$. Word of caution however, the domain of $\arctan x$ is restricted to $(-\pi/2, \pi/2)$. here's another useful (?) operator formula
+The values of $\theta$ should be found from a diagram rather than a formula, although we do sometimes write $\theta = \arctan(y/x)$. Word of caution however, the domain of $\arctan x$ is restricted to $(-\pi/2, \pi/2)$. 
+
+Here's another useful (?) operator formula
 \begin{align*}
-    \mathrm{Re}\; z&=\frac{z+\bar{z}}{z}\\
-    \mathrm{Im}\; z&=\frac{z-\bar{z}}{zi}
+    \mathrm{Re}\; z&=\frac{z+z^*}{2}\\
+    \mathrm{Im}\; z&=\frac{z-z^*}{2i}
 \end{align*}
 
 \subsubsection{Conjugate.} Complex numbers come in conjugate pairs; for such pairs are mirror images of each other with the x axis as the mirror. If we write $z = r(\cos \theta + i \sin \theta)$, then
 \begin{align*}
-    \bar{z}=re^{-i\theta}=r(\cos\theta-i\sin\theta)
+    z^*=re^{-i\theta}=r(\cos\theta-i\sin\theta)
 \end{align*}
 
-\subsection{Euler's Formula.} Using series expansion, we write $e^{i\theta}$, where $\theta$ is real
+|\subsubsection{Modulus.}
+The modulus of complex number is defined as 
+\begin{equation*}
+    |z|=\sqrt{zz ^*}
+\end{equation*}
+so for $z=x+iy$, this applies
+\begin{equation*}
+    |z|^2 = x^2 + y^2 = \mathrm{Re} \;(z)^2 +\mathrm{Im} \;(z)^2 
+\end{equation*}
+
+\subsection{Euler's Formula} 
+Using series expansion, we write $e^{i\theta}$, where $\theta$ is real
 \begin{align*}
     e^{i\theta}&=1+i\theta+\frac{(i\theta)^2}{2!}+\frac{(i\theta)^3}{3!}+\frac{(i\theta)^4}{4!}+\frac{(i\theta)^5}{5!}\dots\\
     &=1+i\theta- \frac{\theta^2}{2!}-i\frac{\theta^3}{3!}+\frac{\theta^4}{4!}+i\frac{\theta^5}{5!}\dots\\
@@ -47,7 +60,8 @@ for any integral $n$.  The case $r = 1$, the equation becomes DeMoivre's theorem
     e^{in\theta}=\cos n\theta + i \sin n\theta
 \end{equation*}
 
-\subsection{Function of Complex Number}. We define $e^z$ by the power series
+\subsection{Function of Complex Number} 
+We define $e^z$ by the power series
 \begin{equation*}
     e^z=\sum_{0}^{\infty}\frac{z}{n!}=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\dots
 \end{equation*}
