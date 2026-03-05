@@ -3,8 +3,8 @@
 \subsection{Converge Test}
 Geometric Series (for r less than one):
 \begin{align*}
-    S_n&=\frac{a(1-r^n)}{1-r}\\
-    S&=\lim_{n \to \infty} S_n=\frac{a}{1-r}
+    S_n & =\frac{a(1-r^n)}{1-r}                  \\
+    S   & =\lim_{n \to \infty} S_n=\frac{a}{1-r}
 \end{align*}
 
 Preliminary Test:
@@ -14,49 +14,49 @@ Preliminary Test:
 
 Comparation Test:
 \begin{align*}
-    A&\leq C\text{ , A Converges}\\
-    A&\geq D\text{ , A Diverges}
+    A & \leq C\text{ , A Converges} \\
+    A & \geq D\text{ , A Diverges}
 \end{align*}
 
 Integral Test:
 \begin{align*}
     \int_{}^{\infty} A\;dn
     \begin{cases}
-        \text{A finite $\rightarrow$ Converges}\\
+        \text{A finite $\rightarrow$ Converges} \\
         \text{A infinite $\rightarrow$ Diverges}
     \end{cases}
 \end{align*}
 
 Ratio Test:
 \begin{align*}
-    \rho_n&=\bigg \lvert \frac{a_{(n+1)}}{a_n} \bigg \rvert\\
-    \rho&=\lim_{n\to \infty} \rho_n
+    \rho_n & =\bigg \lvert \frac{a_{(n+1)}}{a_n} \bigg \rvert \\
+    \rho   & =\lim_{n\to \infty} \rho_n
     \begin{cases}
-    \rho > 1 \text{ Diverge}\\
-    \rho = 0 \text{ Inconclusive}\\
-    \rho < 1 \text{ Converges}
+        \rho > 1 \text{ Diverge}      \\
+        \rho = 0 \text{ Inconclusive} \\
+        \rho < 1 \text{ Converges}
     \end{cases}
 \end{align*}
 
 Special Comparation:
 \begin{align*}
-    \lim_{n\to \infty} \frac{A}{C}& \text{ Limit finite $\rightarrow$ A Converges}\\
-    \lim_{n\to \infty} \frac{A}{D}& \text{ Limit $>$ 0 $\rightarrow$ A Diverges}
+    \lim_{n\to \infty} \frac{A}{C} & \text{ Limit finite $\rightarrow$ A Converges} \\
+    \lim_{n\to \infty} \frac{A}{D} & \text{ Limit $>$ 0 $\rightarrow$ A Diverges}
 \end{align*}
 
 Raabe Test:
 \begin{align*}
     \rho\equiv\lim_{n\to \infty} \bigg[n(\frac{a_n}{a_{n+1}}-1)\bigg]\begin{cases}
-        \rho > 1,\textrm{ Converge}\\\rho = 1,\textrm{ Inconclusive}\\\rho < 1,\textrm{ Diverge}
-    \end{cases}
+                                                                         \rho > 1,\textrm{ Converge} \\\rho = 1,\textrm{ Inconclusive}\\\rho < 1,\textrm{ Diverge}
+                                                                     \end{cases}
 \end{align*}
 
 Root Test:
 \begin{align*}
-    \rho&\equiv\lim_{n\to \infty} \sqrt[ n]{|a_n|}\\
-    &\equiv \lim_{n\to \infty} |a_n|^{\frac{1}{n}}
+    \rho & \equiv\lim_{n\to \infty} \sqrt[ n]{|a_n|}     \\
+         & \equiv \lim_{n\to \infty} |a_n|^{\frac{1}{n}}
     \begin{cases}
-        \rho > 1,\textrm{ Converge}\\\rho = 1,\textrm{ Inconclusive}\\\rho < 1,\textrm{ Diverge}
+        \rho > 1,\textrm{ Converge} \\\rho = 1,\textrm{ Inconclusive}\\\rho < 1,\textrm{ Diverge}
     \end{cases}
 \end{align*}
 
@@ -72,9 +72,9 @@ For a function $f(x)$ infinitely differentiable around $x=a$, the Taylor expansi
 \begin{equation*}
     f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
 \end{equation*}
-or 
+or
 \begin{equation*}
-    f(x)= f(a)+(x-a)f'(a)+\frac{1}{2!}(x-a)^2f''(a)+\frac{1}{3!}(x-a)^3f'''(a)+\cdots    
+    f(x)= f(a)+(x-a)f'(a)+\frac{1}{2!}(x-a)^2f''(a)+\frac{1}{3!}(x-a)^3f'''(a)+\cdots
 \end{equation*}
 
 \subsubsection{MacLaurin series.}
@@ -82,25 +82,53 @@ A MacLaurin series is a Taylor series centered at $a=0$
 \begin{equation*}
     f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n
 \end{equation*}
-or 
+or
 \begin{equation*}
-    f(x) = f(0)+(x)f'(0)+\frac{1}{2!}(x)^2f''(0)+\frac{1}{3!}(x)^3f'''(0)+\cdots    
+    f(x) = f(0)+(x)f'(0)+\frac{1}{2!}(x)^2f''(0)+\frac{1}{3!}(x)^3f'''(0)+\cdots
 \end{equation*}
 
 \subsubsection{MacLaurin series for basic function.}
 \begin{align*}
-    \sin x&= \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!} \quad \text{for all }x\\
-    \cos x&= \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}\quad \text{for all }x\\
-    e^x&= \sum_{n=0}^{\infty}\frac{x^{n}}{n!}               \quad\text{for }-1<x\leq1\\
-    \ln (1+x)&= \sum_{n=1}^{\infty} \frac{(-1)^{n+1}x^{n}}{(n)} \quad \text{for all }x\\
-    (1+x)^p&=\sum_{n=0}^{\infty}\binom{p}{n}x^n \quad \text{for }|x|<1
+    \sin x    & = \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!} \quad \text{for all }x    \\
+    \cos x    & = \sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}\quad \text{for all }x         \\
+    e^x       & = \sum_{n=0}^{\infty}\frac{x^{n}}{n!}               \quad\text{for }-1<x\leq1 \\
+    \ln (1+x) & = \sum_{n=1}^{\infty} \frac{(-1)^{n+1}x^{n}}{(n)} \quad \text{for all }x      \\
+    (1+x)^p   & =\sum_{n=0}^{\infty}\binom{p}{n}x^n \quad \text{for }|x|<1
 \end{align*}
 or more explicitly
 \begin{align*}
-    \sin x&=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots\\
-    \cos x&= 1-\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots\\
-    e^x&=1+x+\frac{x^2}{2!}+\frac{x^3}{3!} \\
-    \ln (1+x)&=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}\\
-    (1+x)^p&=+px+\frac{p(p-1)}{2!}x^2 +\frac{p(p-1)(p-2)}{3!}x^3+\cdots
+    \sin x    & =x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots                     \\
+    \cos x    & = 1-\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots                    \\
+    e^x       & =1+x+\frac{x^2}{2!}+\frac{x^3}{3!}                          \\
+    \ln (1+x) & =x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}                \\
+    (1+x)^p   & =+px+\frac{p(p-1)}{2!}x^2 +\frac{p(p-1)(p-2)}{3!}x^3+\cdots
 \end{align*}
+
+Using we also can obtain the hyperbolic version of the trig function
+\begin{align*}
+    \sinh y & =  \sum_{n=0}^{\infty} \frac{y^{2n+1}}{(2n + 1)!}\quad \text{for all }x \\
+    \cosh y & =  \sum_{n=0}^{\infty} \frac{y^{2n}}{(2n)!}\quad \text{for all }x       
+\end{align*}
+This identity is obtained by the definition
+\begin{equation*}
+    \sin iy  = i \sinh y \qquad
+    \cos iy  =\cosh y
+\end{equation*}
+Then by substituting imaginary argument
+\begin{align*}
+    \sin(iy) & =  \sum_{n=0}^{\infty} \frac{(-1)^n (iy)^{2n+1}}{(2n + 1)!}
+    =  \sum_{n=0}^{\infty} \frac{(-1)^n i(i^2)^n y^{2n+1}}{(2n + 1)!}            \\
+    \sinh y
+             & =    \sum_{n=0}^{\infty} \frac{(-1)^n (-1)^n y^{2n+1}}{(2n + 1)!}
+    = \sum_{n=0}^{\infty} \frac{y^{2n+1}}{(2n + 1)!}
+\end{align*}
+Same goes for cosines
+\begin{align*}
+    \cos(iy) & =  \sum_{n=0}^{\infty} \frac{(-1)^{n} (iy)^{2n}}{(2n)!}
+    =  \sum_{n=0}^{\infty} \frac{(-1)^{n} (i^2)^n y^{2n}}{(2n)!}            \\
+    \cosh y
+             & =   \sum_{n=0}^{\infty} \frac{(-1)^{n} (-1)^n y^{2n}}{(2n)!}
+    =   \sum_{n=0}^{\infty} \frac{y^{2n}}{(2n)!}
+\end{align*}
+
 \end{document}

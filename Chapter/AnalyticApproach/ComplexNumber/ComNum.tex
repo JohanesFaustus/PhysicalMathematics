@@ -8,43 +8,43 @@
 \end{align*}
 The quantity $r$ is called the modulus or absolute value of $z$, and $\theta$ is called the angle of $z$ (or the phase, or the argument, or the amplitude of $z$). In symbols
 \begin{align*}
-    \mathrm{Re}\; z&=x&&    |z|=\text{mod } z=r=\sqrt{x^2+y^2}=\sqrt{zz^*}\\
-    \mathrm{Im}\; z&=y\;\textrm{(not $iy$)}&&\text{angle of } z=\theta
+    \mathrm{Re}\; z & =x                      &  & |z|=\text{mod } z=r=\sqrt{x^2+y^2}=\sqrt{zz^*} \\
+    \mathrm{Im}\; z & =y\;\textrm{(not $iy$)} &  & \text{angle of } z=\theta
 \end{align*}
-The values of $\theta$ should be found from a diagram rather than a formula, although we do sometimes write $\theta = \arctan(y/x)$. Word of caution however, the domain of $\arctan x$ is restricted to $(-\pi/2, \pi/2)$. 
+The values of $\theta$ should be found from a diagram rather than a formula, although we do sometimes write $\theta = \arctan(y/x)$. Word of caution however, the domain of $\arctan x$ is restricted to $(-\pi/2, \pi/2)$.
 
 Here's another useful (?) operator formula
 \begin{align*}
-    \mathrm{Re}\; z&=\frac{z+z^*}{2}\\
-    \mathrm{Im}\; z&=\frac{z-z^*}{2i}
+    \mathrm{Re}\; z & =\frac{z+z^*}{2}  \\
+    \mathrm{Im}\; z & =\frac{z-z^*}{2i}
 \end{align*}
 
-\subsubsection{Conjugate.} Complex numbers come in conjugate pairs; for such pairs are mirror images of each other with the x axis as the mirror. If we write $z = r(\cos \theta + i \sin \theta)$, then
+\subsubsection{Conjugate.} Complex numbers come in conjugate pairs; for such pairs are mirror images of each other with the $x$ axis as the mirror. If we write $z = r(\cos \theta + i \sin \theta)$, then
 \begin{align*}
     z^*=re^{-i\theta}=r(\cos\theta-i\sin\theta)
 \end{align*}
 
-|\subsubsection{Modulus.}
-The modulus of complex number is defined as 
+\subsubsection{Modulus.}
+The modulus of complex number is defined as
 \begin{equation*}
     |z|=\sqrt{zz ^*}
 \end{equation*}
 so for $z=x+iy$, this applies
 \begin{equation*}
-    |z|^2 = x^2 + y^2 = \mathrm{Re} \;(z)^2 +\mathrm{Im} \;(z)^2 
+    |z|^2 = x^2 + y^2 = \mathrm{Re} \;(z)^2 +\mathrm{Im} \;(z)^2
 \end{equation*}
 
-\subsection{Euler's Formula} 
+\subsection{Euler's Formula}
 Using series expansion, we write $e^{i\theta}$, where $\theta$ is real
 \begin{align*}
-    e^{i\theta}&=1+i\theta+\frac{(i\theta)^2}{2!}+\frac{(i\theta)^3}{3!}+\frac{(i\theta)^4}{4!}+\frac{(i\theta)^5}{5!}\dots\\
-    &=1+i\theta- \frac{\theta^2}{2!}-i\frac{\theta^3}{3!}+\frac{\theta^4}{4!}+i\frac{\theta^5}{5!}\dots\\
-    &=1- \frac{\theta^2}{2!}+\frac{\theta^4}{4!}+\dots+i\biggl(+\theta-\frac{\theta^3}{3!}+\frac{\theta^5}{5!}\dots\biggr)
+    e^{i\theta} & =1+i\theta+\frac{(i\theta)^2}{2!}+\frac{(i\theta)^3}{3!}+\frac{(i\theta)^4}{4!}+\frac{(i\theta)^5}{5!}\dots           \\
+                & =1+i\theta- \frac{\theta^2}{2!}-i\frac{\theta^3}{3!}+\frac{\theta^4}{4!}+i\frac{\theta^5}{5!}\dots                    \\
+                & =1- \frac{\theta^2}{2!}+\frac{\theta^4}{4!}+\dots+i\biggl(+\theta-\frac{\theta^3}{3!}+\frac{\theta^5}{5!}\dots\biggr)
 \end{align*}
 We then have the very useful result known as Euler's formula
-\begin{align*}
-    e^{i\theta}=\cos\theta+i\sin\theta\\
-\end{align*}
+\begin{equation*}
+        e^{i\theta}=\cos\theta+i\sin\theta 
+\end{equation*}
 
 Remembering that any complex number can be written in the form $re^{i\theta}$, we get
 \begin{equation*}
@@ -60,60 +60,61 @@ for any integral $n$.  The case $r = 1$, the equation becomes DeMoivre's theorem
     e^{in\theta}=\cos n\theta + i \sin n\theta
 \end{equation*}
 
-\subsection{Function of Complex Number} 
+\subsection{Function of Complex Number}
 We define $e^z$ by the power series
 \begin{equation*}
     e^z=\sum_{0}^{\infty}\frac{z}{n!}=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\dots
 \end{equation*}
-then we can write 
+then we can write
 \begin{equation*}
     e^z=e^{x+iy}  = e^x(\cos y + i \sin y).
 \end{equation*}
 
 We then write Euler's formula, in $\theta$ and $-\theta$
 \begin{align*}
-    e^{i\theta}&=\cos\theta+i\sin\theta\\
-    e^{-i\theta}&=\cos\theta-i\sin\theta
+    e^{i\theta}  & =\cos\theta+i\sin\theta \\
+    e^{-i\theta} & =\cos\theta-i\sin\theta
 \end{align*}
 These two equations can be solved for $\sin\theta$ and $\cos\theta$
 \begin{align*}
-    \sin \theta&=\frac{e^{i\theta}-e^{-i\theta}}{2i}\\
-    \cos \theta&=\frac{e^{i\theta}+e^{-i\theta}}{2}
+    \sin \theta & =\frac{e^{i\theta}-e^{-i\theta}}{2i} \\
+    \cos \theta & =\frac{e^{i\theta}+e^{-i\theta}}{2}
 \end{align*}
-These formulas are useful in evaluating integrals since products of exponentials are 
-easier to integrate than products of sines and cosines. 
+These formulas are useful in evaluating integrals since products of exponentials are
+easier to integrate than products of sines and cosines.
 
 We could also deﬁne $\sin z$ and $\cos z$ for complex $z$ by their power series as we did for $e^z$, however it is simpler to use the complex equations we just obtained to define  $\sin z$ and $\cos z$
 \begin{align*}
-    \sin z&=\frac{e^{iz}-e^{-iz}}{2i}\\
-    \cos z&=\frac{e^{iz}+e^{-iz}}{2}
+    \sin z & =\frac{e^{iz}-e^{-iz}}{2i} \\
+    \cos z & =\frac{e^{iz}+e^{-iz}}{2}
 \end{align*}
 The rest of the trigonometric functions of $z$ are deﬁned in the usual way in terms of these; for example, $\tan z = \sin z/ \cos z$
 
 \subsection{Hyperbolic Function}
 
 Hyperbolic sine (abbreviated sinh) and the hyperbolic cosine (abbreviated cosh) is defined from pure imaginary, that is, $ z = iy$. Their deﬁnitions for all $z$ are
-\begin{align*}
-    \sinh z&=\frac{e^{z}-e^{-z}}{2}\\
-    \cosh z&=\frac{e^{z}+e^{z}}{2}
-\end{align*}
-As before, the other hyperbolic functions are named and deﬁned in a similar way to parallel the trigonometric functions. 
+\begin{equation*}
+    \sinh z=\frac{e^{z}-e^{-z}}{2}\qquad
+    \cosh z=\frac{e^{z}+e^{z}}{2}
+\end{equation*}
+As before, the other hyperbolic functions are named and deﬁned in a similar way to parallel the trigonometric functions.
+With this, we can also express exponential with hyperbolic function
+\begin{equation*}
+    e^z = \cosh z + \sinh z \qquad
+    e^{-z}= \cosh z - \sinh z
+\end{equation*}
 
-We can write 
-\begin{align*}
-    \sin iy &= i \sinh y\\
-    \cos iy&=\cosh y
-\end{align*}
+We can write
+\begin{equation*}
+    \sin iy  = i \sinh y \qquad
+    \cos iy  =\cosh y    
+\end{equation*}
 Then we see that the hyperbolic functions of $y$ are (except for one $i$ factor) the trigonometric functions of $iy$.
 
 The functions $\sin t, \cos t$, and the rest of the gang are called “circular functions” and the functions $\sinh t, \cosh t,$ etc. are called “hyperbolic functions” because $ x = \cos t, y = \sin t,$ satisfy the equation of a circle $x^2 + y^2 = 1$, while $x = \cosh t,  y = \sinh t,$ satisfy the equation of a hyperbola $x^2 - y^2 = 1$.
 
 \subsection{Logarithm}
-If 
-\begin{equation*}
-    z=e^w
-\end{equation*}
-then by deﬁnition
+If $z=e^w$, then by deﬁnition
 \begin{equation*}
     w=\ln z
 \end{equation*}
@@ -123,7 +124,7 @@ We can write the law of exponents, as
 \end{equation*}
 Taking logarithms of this equation, we get
 \begin{equation*}
-   \ln z_1z_2 = {w_1+w_2}=\ln z_1+\ln z_2
+    \ln z_1z_2 = {w_1+w_2}=\ln z_1+\ln z_2
 \end{equation*}
 This is the familiar law for the logarithm of a product, justiﬁed now for complex numbers. We can then ﬁnd the real and imaginary parts of the logarithm of a complex number from the equation
 \begin{equation*}
@@ -145,31 +146,31 @@ Since $\theta$ has an inﬁnite number of values (all diﬀering by multiples of
 \begin{equation*}
     f(z) = f(x + iy) = u(x, y) + iv(x, y)
 \end{equation*}
-where it is understood that $u$ and $v$ are real functions of the real variables x and y. 
+where it is understood that $u$ and $v$ are real functions of the real variables x and y.
 
-Recall that functions are customarily single-valued. Does this mean that we cannot deﬁne a function by a formula such as $\ln z$? For each $z$, $\ln z$ has an inﬁnite set of values. But if $\theta$ is allowed a range of only $2\pi$ , then $\ln z$ has one value for each $z$ and this single-valued function is 
-called a branch of $\ln z$. Thus in using formulas, we always discuss a single branch at a time so that we have a single-valued function. As a matter of terminology, however, you should know that the 
+Recall that functions are customarily single-valued. Does this mean that we cannot deﬁne a function by a formula such as $\ln z$? For each $z$, $\ln z$ has an inﬁnite set of values. But if $\theta$ is allowed a range of only $2\pi$ , then $\ln z$ has one value for each $z$ and this single-valued function is
+called a branch of $\ln z$. Thus in using formulas, we always discuss a single branch at a time so that we have a single-valued function. As a matter of terminology, however, you should know that the
 whole collection of branches is sometimes called a “multiple-valued function.”
 
-\subsubsection{Definition.} A function $f(z)$ is analytic--or regular or holomorphic or monogenic--in a region--region must be two dimensional, isolated points and curves are not regions--of the complex plane if it has a unique derivative at every point of the region. 
+\subsubsection{Definition.} A function $f(z)$ is analytic--or regular or holomorphic or monogenic--in a region--region must be two dimensional, isolated points and curves are not regions--of the complex plane if it has a unique derivative at every point of the region.
 
- The derivative of $f(z)$ is deﬁned by the equation
- \begin{equation*}
+The derivative of $f(z)$ is deﬁned by the equation
+\begin{equation*}
     f'(z)=\frac{df}{dz}=\lim_{\Delta z\rightarrow 0}\frac{\Delta f}{\Delta z}=\lim_{\Delta z\rightarrow 0} \frac{f(z + \Delta z) - f(z)}{\Delta x + i\Delta y}
- \end{equation*}
+\end{equation*}
 
-The statement “$f(z)$ is analytic at a point $z = a$” means that $f(z)$ has a derivative at every point inside some small circle about $z = a$. When we say that $f(x)$ has a derivative at $x = x_0$, we mean that these two values are equal. When we say that $f(z)$ has a derivative at $z = z_0$, we mean that $f'(z)$ has the same value no matter how we approach $z_0$. 
+The statement “$f(z)$ is analytic at a point $z = a$” means that $f(z)$ has a derivative at every point inside some small circle about $z = a$. When we say that $f(x)$ has a derivative at $x = x_0$, we mean that these two values are equal. When we say that $f(z)$ has a derivative at $z = z_0$, we mean that $f'(z)$ has the same value no matter how we approach $z_0$.
 
 \subsection{Theorems}
-\subsubsection{Theorem I: Cauchy-Riemann conditions.} If $f(z) = u(x, y) + iv(x, y)$ is analytic in a 
+\subsubsection{Theorem I: Cauchy-Riemann conditions.} If $f(z) = u(x, y) + iv(x, y)$ is analytic in a
 region, then in that region
 \begin{equation*}
     \frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}
-    \qquad\text{and}\qquad 
+    \qquad\text{and}\qquad
     \frac{\partial v}{\partial x}=-\frac{\partial u}{\partial y}
 \end{equation*}
 
-\emph{Proof}. Remembering that $f (z)= f (x + iy)$, we use the rules of partial differentiation 
+\emph{Proof}. Remembering that $f (z)= f (x + iy)$, we use the rules of partial differentiation
 \begin{equation*}
     \frac{\partial f}{\partial x}=\frac{df}{dz}\frac{\partial z}{\partial x}=\frac{df}{dz}
 \end{equation*}
@@ -204,15 +205,15 @@ Since we assumed that $df /dz$ exists and is unique (this is what analytic means
 \end{equation*}
 and along this line we have $dy/dx = m$. Then we find
 \begin{align*}
-    \frac{df}{dz}&=\frac{du+i\;dv}{dx+i\;dy}\\
-    &=\frac{\dfrac{\partial u}{\partial x}dx+\dfrac{\partial u}{\partial y}dy+i\biggl(\dfrac{\partial v}{\partial x}dx+\dfrac{\partial v}{\partial y}dy\biggr)}{dx+i\;dy}\\
-    &=\frac{\dfrac{\partial u}{\partial x}+\dfrac{\partial u}{\partial y}m+i\biggl(\dfrac{\partial v}{\partial x}+\dfrac{\partial v}{\partial y}m\biggr)}{1+i\;m}
+    \frac{df}{dz} & =\frac{du+i\;dv}{dx+i\;dy}                                                                                                                                           \\
+                  & =\frac{\dfrac{\partial u}{\partial x}dx+\dfrac{\partial u}{\partial y}dy+i\biggl(\dfrac{\partial v}{\partial x}dx+\dfrac{\partial v}{\partial y}dy\biggr)}{dx+i\;dy} \\
+                  & =\frac{\dfrac{\partial u}{\partial x}+\dfrac{\partial u}{\partial y}m+i\biggl(\dfrac{\partial v}{\partial x}+\dfrac{\partial v}{\partial y}m\biggr)}{1+i\;m}
 \end{align*}
 Using the Cauchy-Riemann equations, we get
 \begin{align*}
-    \frac{df}{dz}&=\frac{\dfrac{\partial u}{\partial x}-\dfrac{\partial v}{\partial x}m+i\biggl(\dfrac{\partial v}{\partial x}+\dfrac{\partial u}{\partial x}m\biggr)}{1+i\;m}\\
-    &=\frac{\dfrac{\partial u}{\partial x}(1+im)+i\dfrac{\partial v}{\partial y}(1+im)}{1+i\;m}\\
-    &=\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial y}
+    \frac{df}{dz} & =\frac{\dfrac{\partial u}{\partial x}-\dfrac{\partial v}{\partial x}m+i\biggl(\dfrac{\partial v}{\partial x}+\dfrac{\partial u}{\partial x}m\biggr)}{1+i\;m} \\
+                  & =\frac{\dfrac{\partial u}{\partial x}(1+im)+i\dfrac{\partial v}{\partial y}(1+im)}{1+i\;m}                                                                   \\
+                  & =\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial y}
 \end{align*}
 Thus $df /dz$ has the same value for approach along any straight line. The theorem states that it also has the same value for approach along any curve.
 
@@ -224,7 +225,7 @@ Thus $df /dz$ has the same value for approach along any straight line. The theor
 
 \emph{No proof.} Some definitions are in order. A regular point of $f (z)$ is a point at which $f (z)$ is analytic. A singular point or singularity of $f (z)$ is a point at which $f (z)$ is not analytic. It is called an isolated singular point if $f (z)$ is analytic everywhere else inside some small circle about the singular point.
 
-\subsubsection{Theorem IV.} Part 1: if $f(z) = u +iv$ is analytic in a region, then $u$ and $v$ satisfy Laplace's equation in the region--that is, $u$ and $v$ are harmonic functions. 
+\subsubsection{Theorem IV.} Part 1: if $f(z) = u +iv$ is analytic in a region, then $u$ and $v$ satisfy Laplace's equation in the region--that is, $u$ and $v$ are harmonic functions.
 
 Part 2: any function $u$--or $v$--satisfying Laplace's equation in a simply-connected region, is the real or imaginary part of an analytic function $f(z)$.
 
@@ -271,7 +272,7 @@ where we have used the Cauchy-Riemann. In the same way the second integral in is
 \begin{equation*}
     \phi(z)=\frac{f(z)}{z-a}
 \end{equation*}
-where $f(z)$ is analytic on and inside $C$. Let $C'$ be a small circle (inside $C$) with center at a and radius $\rho$. Thus we have 
+where $f(z)$ is analytic on and inside $C$. Let $C'$ be a small circle (inside $C$) with center at a and radius $\rho$. Thus we have
 \begin{equation*}
     \oint_{C\circlearrowleft} \phi(z)\;dz+\oint_{C'\circlearrowright} \phi(z)\;dz=0
 \end{equation*}
@@ -281,8 +282,8 @@ and
 \end{equation*}
 where both are counterclockwise. Along the circle $C'$,
 \begin{align*}
-    z&= a + \rho e^{i\theta}\\
-    dz&=\rho i e^{i\theta}\;d\theta
+    z  & = a + \rho e^{i\theta}       \\
+    dz & =\rho i e^{i\theta}\;d\theta
 \end{align*}
 and the integral becomes
 \begin{equation*}
@@ -313,7 +314,7 @@ If there are an infinite number of $b$’s different from zero, $f (z)$ has an e
 The coefficient $b_1$ of $1/(z - z_0)$ is called the residue of $f (z)$ at $z = z_0$.
 
 \subsection{Residue Theorem}
-Suppose we are going to find the value of $\oint  f (z) \;dz$ around a simple closed curve $C$ surrounding an isolated singular point $z_0$ but inclosing no other singularities. Let $f (z)$ be expanded in the Laurent series about $z = z_0$. The integral of the $a$ series 
+Suppose we are going to find the value of $\oint  f (z) \;dz$ around a simple closed curve $C$ surrounding an isolated singular point $z_0$ but inclosing no other singularities. Let $f (z)$ be expanded in the Laurent series about $z = z_0$. The integral of the $a$ series
 \begin{equation*}
     \oint_C a_n(z-z0)^n\;dz=0
 \end{equation*}
@@ -346,7 +347,7 @@ where $R(z)$ sum of the residues of $f (z)$ inside $C$.
 \begin{equation*}
     R(z_0) = \lim_{z\rightarrow z_0} (z - z_0)f (z)\bigg|_{z=z_0}
 \end{equation*}
-when $z_0$ is a simple pole. If, $f (z)$ can be written as $g(z)/h(z)$, where $g(z)$ is analytic and not zero at $z_0$ and $h(z_0) = 0$, then 
+when $z_0$ is a simple pole. If, $f (z)$ can be written as $g(z)/h(z)$, where $g(z)$ is analytic and not zero at $z_0$ and $h(z_0) = 0$, then
 \begin{equation*}
     R(z_0) = \lim_{z\rightarrow z_0} (z - z_0)\frac{g(z)}{h(z)}
     =g(z_0)\lim_{z\rightarrow z_0}\frac{ (z - z_0)}{h(z)}
@@ -356,15 +357,15 @@ In another words
 \begin{equation*}
     R(z_0)=\frac{g(z_0)}{h'(z_0)}\begin{cases}
         (z) = g(z)/h(z), \\
-        g(z_0) =C\neq 0,\\
-        h(z_0) = 0,\\
+        g(z_0) =C\neq 0, \\
+        h(z_0) = 0,      \\
         h'(z_0) \neq  0
     \end{cases}
 \end{equation*}
 
 Perhaps the simplest way--without finding the Laurent series--to find if a function has a simple pole is that if the limit obtained is some constant not $0$ or $\infty$, then $f (z)$ does have a simple pole and the constant is the residue. If the limit is equal to 0, the function is analytic and the residue is 0. If the limit is infinite, the pole is of higher order.
 
-Suppose $f (z)$ is written in the form $g(z)/h(z)$, where $g(z)$ and $h(z)$ are analytic. Then you can think of $g(z)$ and $h(z)$ as power series in $(z - z_0)$. If the denominator has the factor $(z - z_0)$ to one higher power than the numerator, then $f (z)$ has a simple pole at $z_0$. 
+Suppose $f (z)$ is written in the form $g(z)/h(z)$, where $g(z)$ and $h(z)$ are analytic. Then you can think of $g(z)$ and $h(z)$ as power series in $(z - z_0)$. If the denominator has the factor $(z - z_0)$ to one higher power than the numerator, then $f (z)$ has a simple pole at $z_0$.
 
 \subsubsection{Multiple Poles.} When $f (z)$ has a pole of order $n$, we can use the following
 method of finding residues.
