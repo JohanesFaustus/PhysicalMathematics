@@ -248,6 +248,29 @@ Putting it all together, to optimize $f(x,y,z)$ with constraint $\phi(x,y,z)$, w
 \end{equation*}
 As aside, the function that we want to optimize need not to a function of three variable $x,\;y,\;z$. The previous derivation can be justified for any number of variable. Of course, with more variable there are more variables.
 
+\subsection{Functional and Its Derivative}
+A functional $F$ is a map from a space of functions to numbers:
+\begin{equation*}
+    F : \{ \phi(x) \} \mapsto \mathbb{R}
+\end{equation*}
+common example include 
+\begin{equation*}
+    F[\phi] = \int dx\, f(\phi(x), \phi'(x), x)
+\end{equation*}
+Here $f$ is an ordinary function of $\phi(x)$, its derivative $\phi'(x)$, and possibly $x$. 
+This is common in Lagrangians, energies, and Hartree functionals.
+
+If we vary $\phi(x)$ by a small function $\delta\phi(x)$: 
+\begin{equation*}
+    \phi(x) \rightarrow \phi(x) + \epsilon \delta\phi(x)
+\end{equation*}
+for $\epsilon \ll 1$, then the variation $\delta F$ is defined by
+\begin{equation*}
+    \delta F[\phi] \equiv \left. \frac{d}{d\epsilon} F[\phi + \epsilon \delta \phi] \right|_{\epsilon=0} 
+\end{equation*}
+This is exactly analogous to the total differential $dF$ in finite dimensions.
+
+
 \subsection{Leibniz’ rule for Integral}
 Differentiation under integral sign stated by Leibniz' rule
 \begin{equation*}
