@@ -275,30 +275,42 @@ or in complex expansion
     \\\\
     \mathcal{F}2  & \delta(x)                      & 1
     \\\\
-    \mathcal{F}3  & e^{-at}u(x)                    & \begin{matrix} \frac{1}{a+ik}\\\\ a>0\end{matrix}
+    \mathcal{F}3  & e^{-ax}u(x)                    & \begin{matrix} \frac{1}{a+ik}\\\\ a>0\end{matrix}
     \\\\
-    \mathcal{F}4  & e^{at}u(-x)                    & \begin{matrix} \frac{1}{a-ik}\\\\ a>0\end{matrix}
+    \mathcal{F}4  & e^{ax}u(-x)                    & \begin{matrix} \frac{1}{a-ik}\\\\ a>0\end{matrix}
     \\\\
-    \mathcal{F}5  & e^{-|t|}                       & \begin{matrix} \frac{2a}{a^{2}+k^{2}} \\\\ a>0\end{matrix}
+    \mathcal{F}5  & e^{-a|x|}                       & \begin{matrix} \frac{2a}{a^{2}+k^{2}} \\\\ a>0\end{matrix}
     \\\\
-    \mathcal{F}6  & t e^{-at}u(x)                  & \begin{matrix} \frac{1}{(a+ik)^{2}}\\\\ a>0\end{matrix}
+    \mathcal{F}6  & x e^{-ax}u(x)                  & \begin{matrix} \frac{1}{(a+ik)^{2}}\\\\ a>0\end{matrix}
     \\\\
-    \mathcal{F}7  & t^{n}e^{-at}u(x)               & \begin{matrix} \frac{n!}{(a+ik)^{n+1}} \\\\ a>0\end{matrix}
+    \mathcal{F}7  & x^{n}e^{-ax}u(x)               & \begin{matrix} \frac{n!}{(a+ik)^{n+1}} \\\\ a>0\end{matrix}
     \\\\
-    \mathcal{F}8  & e^{jk_{0}t}               & 2\pi \delta(k-k_0)
+    \mathcal{F}8  & e^{k_{0}x}               & 2\pi \delta(k-k_0)
     \\\\
     \mathcal{F}9  & \cos(k_{0}x)              & \pi [\delta(k-k_0)+\delta(k+k_0)]
     \\\\
-    \mathcal{F}10 & \sin(k_{0}x)              & \pi [\delta(k-k_0)-\delta(k+k_0)] / i                                                                                 \\\\
+    \mathcal{F}10 & \sin(k_{0}x)              & \frac{\pi }{i}[\delta(k-k_0)-\delta(k+k_0)]                                                                                  \\\\
     \mathcal{F}11 & u(x)                           & \pi \delta(k) + \frac{1}{ik}
     \\\\
     \mathcal{F}12 & \cos(k_0 x)\,u(x)         & \begin{matrix}\frac{i}{2}\left(\frac{1}{k-k_0} + \frac{1}{k+k_0}\right)  \\\\ + \pi \delta(k-k_0) + \pi \delta(k+k_0) \end{matrix}
     \\\\
     \mathcal{F}13 & \sin(k_0 x)\,u(x)         & \frac{1}{2}\left(\frac{1}{k-k_0} - \frac{1}{k+k_0}\right)
     \\\\
-    \mathcal{F}14 & e^{-at}\sin(k_0 x)\,u(x)  & \begin{matrix} \frac{k_0}{(a+ik)^2+k_0^2} \\\\ a>0\end{matrix}
+    \mathcal{F}14 & e^{-ax}\sin(k_0 x)\,u(x)  & \begin{matrix} \frac{k_0}{(a+ik)^2+k_0^2} \\\\ a>0\end{matrix}
     \\\\
-    \mathcal{F}15 & e^{-at}\cos(k_0 x)\,u(x)  & \begin{matrix}\frac{a+ik}{(a+ik)^2+k_0^2} \\\\ a>0\end{matrix}
+    \mathcal{F}15 & e^{-ax}\cos(k_0 x)\,u(x)  & \begin{matrix}\frac{a+ik}{(a+ik)^2+k_0^2} \\\\ a>0\end{matrix}
+    \\\\
+    \toprule
+        \multicolumn{2}{c}
+    {$\qquad f(\mathbf{r}) = \int d^3k \; f(\mathbf{k}) e^{i \mathbf{k }\cdot \mathbf{r}}\qquad$}
+                  &\qquad f(\mathbf{k})= \int d^3r \; f(\mathbf{r}) e^{-i \mathbf{k} \cdot \mathbf{r}}\qquad
+    \\
+    \midrule
+    \mathcal{F}1 & \frac{1 }{|\mathbf{r}|}  & \frac{1 }{(2\pi)^3} \frac{1 }{k^2}
+    \\\\
+    \mathcal{F}2 & \frac{e^{-\mu r} }{|\mathbf{r}|}   &\frac{1 }{(2\pi)^3} \frac{4\pi}{k^2 + \mu^2}
+    \\\\
+    \mathcal{F}3 &\delta^{(3)}(\mathbf{r}-\mathbf{e}_0)   &\frac{1 }{(2\pi)^3} e^{-i \mathbf{k}\cdot \mathbf{r}_0}
     \\\\
     \bottomrule
 \end{longtable}
