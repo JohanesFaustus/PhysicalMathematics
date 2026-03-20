@@ -213,13 +213,38 @@ The matrix representation of the transformation coefficients $A=A_{i}^{k'}$ and 
 \end{equation*}
 These matrices satisfy $AA^{-1}=A^{-1}A=I$.
 
+\subsubsection{Operator transformation.}
+Operator in quantum mechanics are defined as $(1,1)$ tensor in Hermitian space $\mathcal{H}$.
+The transformation is thus written as
+\begin{equation*}
+  H_{i'}{}^{j'}   = A^{k}_{i'} A^{l}_{j} H_{k}{}^{l}  
+\end{equation*} 
+with $H_{k}{}^{l}  $ as the component under defined basis 
+\begin{equation*}
+  H =  H_{k}{}^{l}  e ^{k } \otimes e _{l}
+\end{equation*}
+This of course nothing more that the similarity transformation.
+The component can be written is Dirac notation as 
+\begin{equation*}
+  H_{k}{}^{l}  = \braket{k  | H|l}
+\end{equation*}
+The action of $H$ on state $\ket{\psi}$ projected in discrete basis $\left\{ \ket{k} \right\} $ is 
+\begin{equation*}
+  \bra{k} H \ket{\psi} = \sum_{l}H_{k}{}^{l} \psi_l =  \sum_{k,l} \ket{k }\bra{k }H \ket{l }\bra{l}
+\end{equation*}
+while in continuous basis $\left\{ \ket{x} \right\} $
+\begin{equation*}
+  (H\psi)(x) 
+  =\int dx'\;\langle x| \hat{H} |x'\rangle \phi(x')
+\end{equation*}
+
 \subsubsection{Derivation.}
 We will derive the transformation law as a consequence of multilinearity, instead of take it as the definition of a tensor like in much of the physics literature.
 First let us define the basis in both basis as $\mathcal{B}=\{e_i\}_{i=1,\dots,n}$ and $\mathcal{B}'=\{e_{i'}\}_{i=1,\dots,n}$.
 With linearity, each basis can be written as
 \begin{equation*}
   e_{i} = A_{i}^{j'} e_{j'}\qquad
-  e_{i'} = A_{i'}^{j} e_{}
+  e_{i'} = A_{i'}^{j} e_{j}
 \end{equation*}
 Recall that the prime refer to the basis: unprimed subscript refer to unprimed basis and vice versa.
 We then have
