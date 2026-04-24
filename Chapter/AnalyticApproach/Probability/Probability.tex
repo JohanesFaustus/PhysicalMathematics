@@ -1,5 +1,41 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+\subsection{Discrete Mathematics}
+Discrete mathematics studies built from separate, countable objects rather than continuous quantities.
+
+\subsubsection{Example: Equal partition problem}
+A unit interval (or any normalized quantity of size 1) is to be removed completely in exactly $n$ iterations. 
+The requirement is that each iteration removes an equal share of the original whole $1/n$. 
+However, at each stage one acts only on what remains, and after each removal the remainder is renormalized as the new whole. 
+The fraction of the current remainder must be removed at the $i$-th iteration that guarantee equal removal of the original quantity is 
+\begin{equation*}
+    f_i = \frac{1 }{n-i+1}
+\end{equation*}
+
+The derivation is as follows.
+With the unit interval of $R_0=1$, we denote $R_i$ as the amount remaining after $i$-th iteration.
+The condition to remove $1/n$ of the original whole is 
+\begin{equation*}
+    R_i = R_{i-1} (1-f_i)
+\end{equation*}
+where the parenthesis term means fraction not removed.
+Note that after $i-1$ removal, the amount removed must be $(i-1)/n$, so remainder is 
+\begin{equation*}
+    R_{i-1} = 1- \frac{i-1 }{n } = \frac{n-i+1 }{n}
+\end{equation*}
+Next, note that each iteration must remove the same $1/n$, so 
+\begin{equation*}
+    f_i R_{i-1} = f_i \frac{n-i+1  }{n} = \frac{1 }{n}
+\end{equation*}
+Rearranging, then, gives the correct fraction.
+
+Example for few $n$ value and each fraction removed
+\begin{equation*}
+    n_3= \left\{  \frac13,\frac12,1 \right\} \qquad
+    n_4 = \left\{ \frac14,\frac13,\frac12,1 \right\} \qquad
+    n_5 = \left\{ \frac15,\frac14,\frac13,\frac12,1  \right\} 
+\end{equation*}
+
 \subsection{Permutation and Combination}
 \subsubsection{Permutation.} Consider finite set $A$ with $n$ elements. An $r$-permu-tation is an ordered selection of $r$ elements from $A$, with $1\leq r\leq n$. In permutation, order does matter, unlike combination, and that all arrangements are distinct. $r$-permutation of an $n$ elements set is defined as
 \begin{equation*}
